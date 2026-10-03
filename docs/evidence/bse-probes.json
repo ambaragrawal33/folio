@@ -1,0 +1,50 @@
+[
+  {
+    "url": "https://query1.finance.yahoo.com/v1/finance/search?q=Reliance&quotesCount=10&newsCount=0",
+    "status": 200,
+    "quotes": [
+      {
+        "symbol": "RELIANCE.NS",
+        "exchange": "NSI",
+        "shortname": "RELIANCE INDUSTRIES LTD"
+      },
+      {
+        "symbol": "RS",
+        "exchange": "NYQ",
+        "shortname": "Reliance, Inc."
+      },
+      {
+        "symbol": "EZRA",
+        "exchange": "NCM",
+        "shortname": "Reliance Global Group, Inc."
+      },
+      {
+        "symbol": "RIGD.IL",
+        "exchange": "IOB",
+        "shortname": "RELIANCE INDUSTRIES LIMITED GDR"
+      },
+      {
+        "symbol": "RELIANCE.BO",
+        "exchange": "BSE",
+        "shortname": "RELIANCE INDUSTRIES LTD."
+      },
+      {
+        "symbol": "RPOWER.NS",
+        "exchange": "NSI",
+        "shortname": "RELIANCE POWER LTD."
+      },
+      {
+        "symbol": "RCOM.NS",
+        "exchange": "NSI",
+        "shortname": "RELIANCE COMMUNICATIONS L"
+      }
+    ]
+  },
+  {
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/RELIANCE.BO?interval=1d&range=5d",
+    "status": 200,
+    "symbol": "RELIANCE.BO",
+    "currency": "INR",
+    "exchange": "BSE"
+  }
+]

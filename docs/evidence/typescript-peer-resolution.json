@@ -1,0 +1,12 @@
+{
+  "package": "typescript",
+  "registryLatest": "7.0.2",
+  "compatibleCandidate": "6.0.3",
+  "engines": {
+    "node": ">=14.17"
+  },
+  "typescriptEslintVersion": "8.71.0",
+  "typescriptEslintPeer": ">=4.8.4 <6.1.0",
+  "source": "https://registry.npmjs.org/typescript",
+  "reason": "Registry latest 7.0.2 is outside the audited typescript-eslint peer range"
+}

@@ -1,0 +1,747 @@
+[
+  {
+    "name": "pnpm",
+    "version": "12.8.1",
+    "engines": {
+      "node": ">=18.*"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "https://github.com/pnpm/pnpm",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/pnpm/latest"
+  },
+  {
+    "name": "react",
+    "version": "19.3.0",
+    "engines": {
+      "node": ">=0.10.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/react/react.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/react/latest"
+  },
+  {
+    "name": "vite",
+    "version": "8.3.2",
+    "engines": {
+      "node": "^20.19.0 || >=22.12.0"
+    },
+    "peers": {
+      "tsx": "^4.8.1",
+      "jiti": ">=1.21.0",
+      "less": "^4.0.0",
+      "sass": "^1.70.0",
+      "yaml": "^2.4.2",
+      "stylus": ">=0.54.8",
+      "terser": "^5.16.0",
+      "esbuild": "^0.27.0 || ^0.28.0",
+      "sugarss": "^5.0.0",
+      "@types/node": "^20.19.0 || >=22.12.0",
+      "sass-embedded": "^1.70.0",
+      "@vitejs/devtools": "^0.7.1"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/vitejs/vite.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/vite/latest"
+  },
+  {
+    "name": "typescript",
+    "version": "7.0.2",
+    "engines": {
+      "node": ">=16.20.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/microsoft/TypeScript.git",
+    "license": "Apache-2.0",
+    "source": "https://registry.npmjs.org/typescript/latest"
+  },
+  {
+    "name": "tailwindcss",
+    "version": "4.3.3",
+    "engines": null,
+    "peers": null,
+    "deprecated": null,
+    "repository": "https://github.com/tailwindlabs/tailwindcss.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/tailwindcss/latest"
+  },
+  {
+    "name": "react-router",
+    "version": "8.4.0",
+    "engines": {
+      "node": ">=22.22.0"
+    },
+    "peers": {
+      "react": ">=19.2.7",
+      "react-dom": ">=19.2.7"
+    },
+    "deprecated": null,
+    "repository": "https://github.com/remix-run/react-router",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/react-router/latest"
+  },
+  {
+    "name": "@tanstack/react-query",
+    "version": "5.104.1",
+    "engines": null,
+    "peers": {
+      "react": "^18 || ^19"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/TanStack/query.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40tanstack%2Freact-query/latest"
+  },
+  {
+    "name": "zustand",
+    "version": "5.0.15",
+    "engines": {
+      "node": ">=12.20.0"
+    },
+    "peers": {
+      "immer": ">=9.0.6",
+      "react": ">=18.0.0",
+      "@types/react": ">=18.0.0",
+      "use-sync-external-store": ">=1.2.0"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/pmndrs/zustand.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/zustand/latest"
+  },
+  {
+    "name": "react-hook-form",
+    "version": "7.89.0",
+    "engines": {
+      "node": ">=18.0.0"
+    },
+    "peers": {
+      "react": "^16.8.0 || ^17 || ^18 || ^19",
+      "@types/react": "*"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/react-hook-form/react-hook-form.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/react-hook-form/latest"
+  },
+  {
+    "name": "@hookform/resolvers",
+    "version": "5.9.1",
+    "engines": null,
+    "peers": {
+      "ajv": "^8.12.0",
+      "joi": "^17.0.0 || ^18.0.0",
+      "yup": "^1.0.0",
+      "zod": "^3.25.0 || ^4.0.0",
+      "vest": ">=6.0.0",
+      "fp-ts": "^2.7.0",
+      "io-ts": "^2.0.0",
+      "effect": "^3.10.3",
+      "arktype": "^2.0.0",
+      "valibot": ">=0.31.0 || ^1.0.0-beta.4 || ^1.0.0-rc",
+      "typanion": "^3.3.2",
+      "ajv-errors": "^3.0.0",
+      "ajv-formats": "^2.1.1",
+      "superstruct": ">=0.12.0",
+      "@vinejs/vine": "^2.0.0 || ^3.0.0 || ^4.0.0",
+      "ata-validator": "^1.2.0",
+      "computed-types": "^1.0.0",
+      "nope-validator": ">=0.12.0",
+      "class-validator": ">=0.12.0",
+      "react-hook-form": "^7.55.0",
+      "@typeschema/main": ">=0.13.7",
+      "@sinclair/typebox": ">=0.25.24",
+      "class-transformer": ">=0.4.0",
+      "fluentvalidation-ts": "^3.0.0",
+      "@standard-schema/spec": "^1.0.0"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/react-hook-form/resolvers.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40hookform%2Fresolvers/latest"
+  },
+  {
+    "name": "zod",
+    "version": "4.6.5",
+    "engines": null,
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/colinhacks/zod.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/zod/latest"
+  },
+  {
+    "name": "recharts",
+    "version": "3.10.1",
+    "engines": {
+      "node": ">=18"
+    },
+    "peers": {
+      "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+      "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+      "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/recharts/recharts.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/recharts/latest"
+  },
+  {
+    "name": "express",
+    "version": "5.2.1",
+    "engines": {
+      "node": ">= 18"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/expressjs/express.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/express/latest"
+  },
+  {
+    "name": "mongoose",
+    "version": "9.10.4",
+    "engines": {
+      "node": ">=20.19.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git://github.com/Automattic/mongoose.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/mongoose/latest"
+  },
+  {
+    "name": "decimal.js",
+    "version": "10.6.0",
+    "engines": null,
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/MikeMcl/decimal.js.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/decimal.js/latest"
+  },
+  {
+    "name": "pino",
+    "version": "10.4.0",
+    "engines": null,
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/pinojs/pino.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/pino/latest"
+  },
+  {
+    "name": "pino-http",
+    "version": "11.0.0",
+    "engines": null,
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/pinojs/pino-http.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/pino-http/latest"
+  },
+  {
+    "name": "bullmq",
+    "version": "6.3.11",
+    "engines": {
+      "node": ">=14.17.0"
+    },
+    "peers": {
+      "pg": ">=8.0.0",
+      "redis": ">=5.0.0",
+      "ioredis": ">=5.0.0",
+      "bullmq-otel": ">=2.0.0"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/taskforcesh/bullmq.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/bullmq/latest"
+  },
+  {
+    "name": "ioredis",
+    "version": "6.0.0",
+    "engines": {
+      "node": ">=20.0.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/redis/ioredis.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/ioredis/latest"
+  },
+  {
+    "name": "argon2",
+    "version": "0.45.1",
+    "engines": {
+      "node": ">=16.17.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/ranisalt/node-argon2.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/argon2/latest"
+  },
+  {
+    "name": "helmet",
+    "version": "8.3.0",
+    "engines": {
+      "node": ">=18.0.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git://github.com/helmetjs/helmet.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/helmet/latest"
+  },
+  {
+    "name": "vitest",
+    "version": "5.0.3",
+    "engines": {
+      "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
+    },
+    "peers": {
+      "vite": "^6.4.0 || ^7.0.0 || ^8.0.0",
+      "jsdom": "*",
+      "happy-dom": "*",
+      "@vitest/ui": "5.0.3",
+      "@types/node": "^22.0.0 || >=24.0.0",
+      "@edge-runtime/vm": "*",
+      "@opentelemetry/api": "^1.9.0",
+      "@vitest/coverage-v8": "5.0.3",
+      "@vitest/browser-preview": "5.0.3",
+      "@vitest/coverage-istanbul": "5.0.3",
+      "@vitest/browser-playwright": "5.0.3",
+      "@vitest/browser-webdriverio": "^5.0.0-beta.5 || >=5.0.0"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/vitest-dev/vitest.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/vitest/latest"
+  },
+  {
+    "name": "supertest",
+    "version": "7.3.1",
+    "engines": {
+      "node": ">=14.18.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/ladjs/supertest.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/supertest/latest"
+  },
+  {
+    "name": "mongodb-memory-server",
+    "version": "11.3.0",
+    "engines": {
+      "node": ">=20.19.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/typegoose/mongodb-memory-server.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/mongodb-memory-server/latest"
+  },
+  {
+    "name": "msw",
+    "version": "3.0.2",
+    "engines": {
+      "node": ">=22.12.0"
+    },
+    "peers": {
+      "vite": ">=6",
+      "graphql": ">=16",
+      "typescript": ">=5.9.x"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/mswjs/msw.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/msw/latest"
+  },
+  {
+    "name": "nock",
+    "version": "14.0.17",
+    "engines": {
+      "node": ">=18.20.0 <20 || >=20.12.1"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/nock/nock.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/nock/latest"
+  },
+  {
+    "name": "@playwright/test",
+    "version": "1.63.0",
+    "engines": {
+      "node": ">=20"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/microsoft/playwright.git",
+    "license": "Apache-2.0",
+    "source": "https://registry.npmjs.org/%40playwright%2Ftest/latest"
+  },
+  {
+    "name": "fast-check",
+    "version": "4.10.2",
+    "engines": {
+      "node": ">=12.17.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/dubzzz/fast-check.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/fast-check/latest"
+  },
+  {
+    "name": "@testing-library/react",
+    "version": "16.3.3",
+    "engines": {
+      "node": ">=18"
+    },
+    "peers": {
+      "react": "^18.0.0 || ^19.0.0",
+      "react-dom": "^18.0.0 || ^19.0.0",
+      "@types/react": "^18.0.0 || ^19.0.0",
+      "@types/react-dom": "^18.0.0 || ^19.0.0",
+      "@testing-library/dom": "^10.0.0"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/testing-library/react-testing-library.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40testing-library%2Freact/latest"
+  },
+  {
+    "name": "eslint",
+    "version": "10.12.0",
+    "engines": {
+      "node": "^20.19.0 || ^22.13.0 || >=24"
+    },
+    "peers": {
+      "jiti": "*"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/eslint/eslint.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/eslint/latest"
+  },
+  {
+    "name": "prettier",
+    "version": "3.9.9",
+    "engines": {
+      "node": ">=14"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/prettier/prettier.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/prettier/latest"
+  },
+  {
+    "name": "@asteasolutions/zod-to-openapi",
+    "version": "9.1.0",
+    "engines": null,
+    "peers": {
+      "zod": "^4.0.0"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/asteasolutions/zod-to-openapi.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40asteasolutions%2Fzod-to-openapi/latest"
+  },
+  {
+    "name": "swagger-ui-express",
+    "version": "5.0.1",
+    "engines": {
+      "node": ">= v0.10.32"
+    },
+    "peers": {
+      "express": ">=4.0.0 || >=5.0.0-beta"
+    },
+    "deprecated": null,
+    "repository": "git+ssh://git@github.com/scottie1984/swagger-ui-express.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/swagger-ui-express/latest"
+  },
+  {
+    "name": "yahoo-finance2",
+    "version": "4.0.2",
+    "engines": {
+      "node": ">=22.0.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/gadicc/yahoo-finance2.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/yahoo-finance2/latest"
+  },
+  {
+    "name": "rss-parser",
+    "version": "3.13.0",
+    "engines": null,
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/bobby-brennan/rss-parser.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/rss-parser/latest"
+  },
+  {
+    "name": "otplib",
+    "version": "13.5.0",
+    "engines": null,
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/yeojz/otplib.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/otplib/latest"
+  },
+  {
+    "name": "nodemailer",
+    "version": "10.0.14",
+    "engines": {
+      "node": ">=20.0.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/nodemailer/nodemailer.git",
+    "license": "MIT-0",
+    "source": "https://registry.npmjs.org/nodemailer/latest"
+  },
+  {
+    "name": "@fontsource/inter",
+    "version": "5.3.0",
+    "engines": null,
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/fontsource/font-files.git",
+    "license": "OFL-1.1",
+    "source": "https://registry.npmjs.org/%40fontsource%2Finter/latest"
+  },
+  {
+    "name": "@fontsource/ibm-plex-mono",
+    "version": "5.3.0",
+    "engines": null,
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/fontsource/font-files.git",
+    "license": "OFL-1.1",
+    "source": "https://registry.npmjs.org/%40fontsource%2Fibm-plex-mono/latest"
+  },
+  {
+    "name": "react-dom",
+    "version": "19.3.0",
+    "engines": null,
+    "peers": {
+      "react": "^19.3.0"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/react/react.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/react-dom/latest"
+  },
+  {
+    "name": "@vitejs/plugin-react",
+    "version": "6.1.1",
+    "engines": {
+      "node": "^20.19.0 || >=22.12.0"
+    },
+    "peers": {
+      "vite": "^8.0.0",
+      "oxc-transform-react": "^0.145.0",
+      "@rolldown/plugin-babel": "^0.1.7 || ^0.2.0",
+      "babel-plugin-react-compiler": "^1.0.0"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/vitejs/vite-plugin-react.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40vitejs%2Fplugin-react/latest"
+  },
+  {
+    "name": "@tailwindcss/vite",
+    "version": "4.3.3",
+    "engines": null,
+    "peers": {
+      "vite": "^5.2.0 || ^6 || ^7 || ^8"
+    },
+    "deprecated": null,
+    "repository": "https://github.com/tailwindlabs/tailwindcss.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40tailwindcss%2Fvite/latest"
+  },
+  {
+    "name": "@types/node",
+    "version": "26.6.4",
+    "engines": null,
+    "peers": {},
+    "deprecated": null,
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40types%2Fnode/latest"
+  },
+  {
+    "name": "@types/react",
+    "version": "19.3.0",
+    "engines": null,
+    "peers": {},
+    "deprecated": null,
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40types%2Freact/latest"
+  },
+  {
+    "name": "@types/react-dom",
+    "version": "19.3.0",
+    "engines": null,
+    "peers": {
+      "@types/react": "^19.3.0"
+    },
+    "deprecated": null,
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40types%2Freact-dom/latest"
+  },
+  {
+    "name": "@types/express",
+    "version": "5.0.6",
+    "engines": null,
+    "peers": {},
+    "deprecated": null,
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40types%2Fexpress/latest"
+  },
+  {
+    "name": "typescript-eslint",
+    "version": "8.71.0",
+    "engines": {
+      "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+    },
+    "peers": {
+      "eslint": "^8.57.0 || ^9.0.0 || ^10.0.0",
+      "typescript": ">=4.8.4 <6.1.0"
+    },
+    "deprecated": null,
+    "repository": "https://github.com/typescript-eslint/typescript-eslint.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/typescript-eslint/latest"
+  },
+  {
+    "name": "@vitest/coverage-v8",
+    "version": "5.0.3",
+    "engines": null,
+    "peers": {
+      "vitest": "5.0.3",
+      "@vitest/browser": "5.0.3"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/vitest-dev/vitest.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40vitest%2Fcoverage-v8/latest"
+  },
+  {
+    "name": "jsdom",
+    "version": "30.1.1",
+    "engines": {
+      "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+    },
+    "peers": {
+      "canvas": "^3.2.3"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/jsdom/jsdom.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/jsdom/latest"
+  },
+  {
+    "name": "@testing-library/dom",
+    "version": "10.4.2",
+    "engines": {
+      "node": ">=18"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/testing-library/dom-testing-library.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40testing-library%2Fdom/latest"
+  },
+  {
+    "name": "husky",
+    "version": "9.1.7",
+    "engines": {
+      "node": ">=18"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/typicode/husky.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/husky/latest"
+  },
+  {
+    "name": "lint-staged",
+    "version": "17.6.0",
+    "engines": {
+      "node": ">=22.22.1"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/lint-staged/lint-staged.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/lint-staged/latest"
+  },
+  {
+    "name": "lossless-json",
+    "version": "4.3.1",
+    "engines": null,
+    "peers": null,
+    "deprecated": null,
+    "repository": "git+https://github.com/josdejong/lossless-json.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/lossless-json/latest"
+  },
+  {
+    "name": "express-rate-limit",
+    "version": "8.7.0",
+    "engines": {
+      "node": ">= 16"
+    },
+    "peers": {
+      "express": ">= 4.11"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/express-rate-limit/express-rate-limit.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/express-rate-limit/latest"
+  },
+  {
+    "name": "rate-limit-redis",
+    "version": "6.0.1",
+    "engines": {
+      "node": ">= 16"
+    },
+    "peers": {
+      "express-rate-limit": ">= 8.6.0"
+    },
+    "deprecated": null,
+    "repository": "git+https://github.com/express-rate-limit/rate-limit-redis.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/rate-limit-redis/latest"
+  },
+  {
+    "name": "@sentry/node",
+    "version": "11.4.0",
+    "engines": {
+      "node": ">=20.19.0 <22.0.0 || >=22.12.0 <23.0.0 || >=23.2.0"
+    },
+    "peers": null,
+    "deprecated": null,
+    "repository": "git://github.com/getsentry/sentry-javascript.git",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/%40sentry%2Fnode/latest"
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "url": "https://api.frankfurter.dev/v2/rate/usd/inr?providers=ecb",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "length": 61,
+    "rssItems": 0,
+    "sample": "{\"date\":\"2026-10-02\",\"base\":\"USD\",\"quote\":\"INR\",\"rate\":96.32}"
+  },
+  {
+    "url": "https://api.frankfurter.dev/v2/rate/usd/inr?date=2024-01-02&providers=ecb",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "length": 61,
+    "rssItems": 0,
+    "sample": "{\"date\":\"2024-01-02\",\"base\":\"USD\",\"quote\":\"INR\",\"rate\":83.32}"
+  },
+  {
+    "url": "https://api.coingecko.com/api/v3/ping",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "length": 34,
+    "rssItems": 0,
+    "sample": "{\"gecko_says\":\"(V3) To the Moon!\"}"
+  },
+  {
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/TCS.NS?interval=1d&range=5d",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "length": 1598,
+    "rssItems": 0,
+    "sample": "{\"chart\":{\"result\":[{\"meta\":{\"currency\":\"INR\",\"symbol\":\"TCS.NS\",\"exchangeName\":\"NSI\",\"fullExchangeName\":\"NSE\",\"instrumentType\":\"EQUITY\",\"firstTradeDate\":1029123900,\"regularMarketTime\":1790847900,\"hasPrePostMarketData\":false,\"gmtoffset\":1980"
+  },
+  {
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?interval=1d&range=5d",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "length": 1715,
+    "rssItems": 0,
+    "sample": "{\"chart\":{\"result\":[{\"meta\":{\"currency\":\"USD\",\"symbol\":\"AAPL\",\"exchangeName\":\"NMS\",\"fullExchangeName\":\"NasdaqGS\",\"instrumentType\":\"EQUITY\",\"firstTradeDate\":345479400,\"regularMarketTime\":1790971201,\"hasPrePostMarketData\":true,\"gmtoffset\":-14"
+  },
+  {
+    "url": "https://finance.yahoo.com/news/rssindex",
+    "status": 200,
+    "contentType": "application/xml",
+    "length": 28680,
+    "rssItems": 49,
+    "sample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><rss xmlns:media=\"http://search.yahoo.com/mrss/\" version=\"2.0\"><channel><title>Yahoo Finance</title><link>https://finance.yahoo.com/</link><description>At Yahoo Finance, you get free stock quotes, up-to"
+  },
+  {
+    "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+    "status": 200,
+    "contentType": "application/xml; charset=utf-8",
+    "length": 8386,
+    "rssItems": 10,
+    "sample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss xmlns:content=\"http://purl.org/rss/1.0/modules/content/\" xmlns:media=\"http://search.yahoo.com/mrss/\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" version=\"2.0\"\n>\n<channel>\n<title>MarketWatch.com - "
+  },
+  {
+    "url": "https://www.investing.com/rss/news.rss",
+    "status": 200,
+    "contentType": "application/rss+xml",
+    "length": 4917,
+    "rssItems": 10,
+    "sample": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<rss version=\"2.0\">\n  <channel>\n    <title>All News</title>\n    <link>https://www.investing.com</link>\n    <item>\n      <enclosure url=\"https://content-media.investing.com/news/moved_LYNXMPEM3D179_1200"
+  },
+  {
+    "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+    "status": 200,
+    "contentType": "application/rss+xml; charset=UTF-8",
+    "length": 12742,
+    "rssItems": 20,
+    "sample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\t\t<rss xmlns:wsj=\"http://dowjones.net/rss/\" xmlns:dj=\"http://dowjones.net/rss/\" xmlns:content=\"http://purl.org/rss/1.0/modules/content/\" xmlns:atom=\"http://www.w3.org/2005/Atom\" version=\"2.0\">\n<channel"
+  },
+  {
+    "url": "https://feeds.bloomberg.com/markets/news.rss",
+    "status": 200,
+    "contentType": "text/xml; charset=utf-8",
+    "length": 17319,
+    "rssItems": 20,
+    "sample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><rss xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:content=\"http://purl.org/rss/1.0/modules/content/\" xmlns:atom=\"http://www.w3.org/2005/Atom\" version=\"2.0\" xmlns:media=\"http://search.yahoo.com/mrss"
+  },
+  {
+    "url": "https://portal.amfiindia.com/spages/NAVAll.txt",
+    "status": 200,
+    "contentType": "text/plain",
+    "length": 1519802,
+    "rssItems": 0,
+    "sample": "Scheme Code;ISIN Div Payout/ ISIN Growth;ISIN Div Reinvestment;Scheme Name;Plan;Option;Net Asset Value;Date\r\n \r\nOpen Ended Schemes(Children’s Fund - Childrens' Fund)\r\n \r\nAxis Mutual Fund\r\n \r\n135762;INF846K01WO1;-;Axis Children's Fund;Direct"
+  },
+  {
+    "url": "https://api.mfapi.in/mf/119551",
+    "status": 200,
+    "contentType": "application/json",
+    "length": 133225,
+    "rssItems": 0,
+    "sample": "{\"meta\":{\"fund_house\":\"Aditya Birla Sun Life Mutual Fund\",\"scheme_type\":\"Open Ended Schemes\",\"scheme_category\":\"Income/Debt Oriented Schemes - Banking and PSU Debt Fund\",\"scheme_code\":119551,\"scheme_name\":\"Aditya Birla Sun Life Banking & PS"
+  }
+]

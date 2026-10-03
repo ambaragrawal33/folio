@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-03",
+  "status": "PASS",
+  "jsonFilesParsed": 14,
+  "embeddedJsonParsed": 63,
+  "markdownFilesChecked": 9,
+  "brokenLocalLinks": [],
+  "totals": {
+    "pages": 17,
+    "frames": 1137,
+    "roots": 20,
+    "variables": 49,
+    "collections": 3,
+    "textStyles": 8,
+    "families": 26,
+    "components": 119,
+    "dependencies": 56
+  },
+  "pendingDecisionIds": 31,
+  "prohibitedImplementationArtifacts": [],
+  "limitations": "Documentation/source data checks only; no app tests, fidelity, gitleaks or deployment run."
+}

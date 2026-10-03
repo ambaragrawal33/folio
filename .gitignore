@@ -1,0 +1,32 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+# Dependencies, build output and caches
+node_modules/
+dist/
+build/
+.vite/
+.turbo/
+.pnpm-store/
+coverage/
+test-results/
+playwright-report/
+storybook-static/
+# Local logs and persistent service data
+*.log
+logs/
+.data/
+mongo-data/
+redis-data/
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+# Local review and temporary artifacts
+*.tmp
+*.bak

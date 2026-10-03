@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-03",
+  "cwd": "C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio",
+  "node": "v24.19.0",
+  "pnpm": "11.19.0",
+  "git": "git version 2.56.0.windows.1",
+  "corepack": "0.35.0",
+  "executables": [
+    {
+      "Name": "node.exe",
+      "Source": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    {
+      "Name": "pnpm.cmd",
+      "Source": "C:\\Users\\ambar\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback\\pnpm.cmd"
+    },
+    {
+      "Name": "git.exe",
+      "Source": "C:\\Program Files\\Git\\cmd\\git.exe"
+    },
+    {
+      "Name": "corepack.cmd",
+      "Source": "C:\\Program Files\\nodejs\\corepack.cmd"
+    },
+    {
+      "Name": "wsl.exe",
+      "Source": "C:\\Windows\\System32\\wsl.exe"
+    },
+    {
+      "Name": "winget.exe",
+      "Source": "C:\\Users\\ambar\\AppData\\Local\\Microsoft\\WindowsApps\\winget.exe"
+    }
+  ],
+  "dockerCommandPresent": false,
+  "dockerPathPresent": false,
+  "dockerServicePresent": false,
+  "gitleaksPresent": false,
+  "branch": "codex/phase-0-audit",
+  "remote": [],
+  "gitName": "Ambar Agrawal",
+  "gitEmail": "ambarofficial33@gmail.com",
+  "specificationHash": "013D9D29CF954D1BBC97665E762005287CDF70C2D29AA54B5FB798435D67C809",
+  "specificationLines": 1141
+}
