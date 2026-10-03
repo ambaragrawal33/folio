@@ -1,0 +1,71 @@
+⋯ Backing up original state…
+✔ Done backing up original state (1c46b91)!
+⋯ Running tasks for staged files…
+    *.{ts,tsx,mjs} — 10 files
+      ⋯ eslint --fix
+      ⋯ prettier --write
+    *.{json,yml,yaml,css,md,html} — 15 files
+      ⋯ prettier --write
+
+✔ prettier --write
+✔ eslint --fix
+✔ prettier --write
+
+✔ Done running tasks for staged files!
+⋯ Staging changes from tasks…
+✔ Done staging changes from tasks!
+⋯ Cleaning up temporary files…
+✔ Done cleaning up temporary files!
+[codex/phase-1-foundation 2708525] feat: add Figma token pipeline and design foundation
+ 51 files changed, 7082 insertions(+)
+ create mode 100644 apps/web/e2e/foundation.spec.ts
+ create mode 100644 apps/web/index.html
+ create mode 100644 apps/web/package.json
+ create mode 100644 apps/web/public/figma/10-396-imgBriefcaseBusiness.svg
+ create mode 100644 apps/web/public/figma/10-396-imgBriefcaseBusiness1.svg
+ create mode 100644 apps/web/public/figma/10-453-imgChevronDown.svg
+ create mode 100644 apps/web/public/figma/10-453-imgChevronDown1.svg
+ create mode 100644 apps/web/public/figma/10-453-imgDownload.svg
+ create mode 100644 apps/web/public/figma/10-453-imgSearch.svg
+ create mode 100644 apps/web/public/figma/2-4829-imgChevronDown.svg
+ create mode 100644 apps/web/public/figma/2-4830-imgSearch.svg
+ create mode 100644 apps/web/public/figma/2-4833-imgCheck.svg
+ create mode 100644 apps/web/public/figma/2-4837-imgRadioIndicator.svg
+ create mode 100644 apps/web/public/figma/2-4839-imgSwitchTrack.svg
+ create mode 100644 apps/web/public/figma/2-4840-imgSwitchTrack.svg
+ create mode 100644 apps/web/public/figma/2-4841-imgSwitchTrack.svg
+ create mode 100644 apps/web/public/figma/2-4842-imgBriefcaseBusiness.svg
+ create mode 100644 apps/web/public/figma/2-4850-imgChevronRight.svg
+ create mode 100644 apps/web/public/figma/2-4851-imgChevronLeft.svg
+ create mode 100644 apps/web/public/figma/2-4864-imgStatusIndicator.svg
+ create mode 100644 apps/web/public/figma/2-4874-imgArrowUpDown.svg
+ create mode 100644 apps/web/public/figma/2-4877-imgListFilter.svg
+ create mode 100644 apps/web/public/figma/2-4878-imgLoaderCircle.svg
+ create mode 100644 apps/web/public/figma/7-113-imgDownload.svg
+ create mode 100644 apps/web/public/figma/light/2-4837-imgRadioIndicator.svg
+ create mode 100644 apps/web/public/figma/light/2-4839-imgSwitchTrack.svg
+ create mode 100644 apps/web/public/figma/light/2-4840-imgSwitchTrack.svg
+ create mode 100644 apps/web/public/figma/light/2-4841-imgSwitchTrack.svg
+ create mode 100644 apps/web/src/App.tsx
+ create mode 100644 apps/web/src/design-system/Gallery.tsx
+ create mode 100644 apps/web/src/design-system/Icon.tsx
+ create mode 100644 apps/web/src/design-system/primitives.tsx
+ create mode 100644 apps/web/src/foundation.test.tsx
+ create mode 100644 apps/web/src/main.tsx
+ create mode 100644 apps/web/src/state/theme.ts
+ create mode 100644 apps/web/src/styles.css
+ create mode 100644 apps/web/tsconfig.json
+ create mode 100644 apps/web/vite.config.ts
+ create mode 100644 packages/design-tokens/README.md
+ create mode 100644 packages/design-tokens/generated/components.css
+ create mode 100644 packages/design-tokens/generated/manifest.json
+ create mode 100644 packages/design-tokens/generated/responsive.css
+ create mode 100644 packages/design-tokens/generated/tailwind.css
+ create mode 100644 packages/design-tokens/generated/tokens.css
+ create mode 100644 packages/design-tokens/package.json
+ create mode 100644 packages/design-tokens/scripts/sync.mjs
+ create mode 100644 packages/design-tokens/source/components.json
+ create mode 100644 packages/design-tokens/source/families.json
+ create mode 100644 packages/design-tokens/source/figma.json
+ create mode 100644 packages/design-tokens/source/geometry.json
+ create mode 100644 packages/design-tokens/source/responsive.css.template

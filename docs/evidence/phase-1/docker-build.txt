@@ -1,0 +1,250 @@
+ Image folio-api Building 
+ Image folio-web Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 999B done
+#1 DONE 0.0s
+
+#2 [web internal] load build definition from Dockerfile
+#2 transferring dockerfile: 463B 0.1s done
+#2 DONE 0.1s
+
+#2 [api internal] load build definition from Dockerfile
+#2 DONE 0.1s
+
+#3 [web internal] load metadata for docker.io/library/node:24.19.0-bookworm-slim
+#3 DONE 2.5s
+
+#4 [api internal] load .dockerignore
+#4 transferring context: 185B 0.0s done
+#4 DONE 0.0s
+
+#5 [api internal] load build context
+#5 DONE 0.0s
+
+#6 [api 1/8] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#6 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.0s done
+#6 DONE 0.0s
+
+#6 [web 1/8] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#6 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.0s done
+#6 DONE 0.0s
+
+#5 [api internal] load build context
+#5 transferring context: 135.08kB 0.1s done
+#5 DONE 0.1s
+
+#7 [web 2/8] WORKDIR /workspace
+#7 CACHED
+
+#8 [web 3/8] RUN npm install --global pnpm@11.19.0
+#8 CACHED
+
+#9 [web 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#9 CACHED
+
+#10 [web 5/8] COPY packages ./packages
+#10 DONE 0.1s
+
+#7 [api 2/8] WORKDIR /workspace
+#7 CACHED
+
+#8 [api 3/8] RUN npm install --global pnpm@11.19.0
+#8 CACHED
+
+#9 [api 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#9 CACHED
+
+#10 [web 5/8] COPY packages ./packages
+#10 DONE 0.1s
+
+#11 [api 6/8] COPY apps ./apps
+#11 DONE 0.1s
+
+#11 [web 6/8] COPY apps ./apps
+#11 DONE 0.1s
+
+#12 [api 7/8] COPY scripts ./scripts
+#12 DONE 0.1s
+
+#13 [api 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 1.506 Scope: all 5 workspace projects
+#13 1.634 ? Verifying lockfile against supply-chain policies (462 entries)...
+#13 1.647 Lockfile is up to date, resolution step is skipped
+#13 1.885 Progress: resolved 1, reused 0, downloaded 0, added 0
+#13 2.063 Packages: +416
+#13 2.063 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#13 2.887 Progress: resolved 416, reused 0, downloaded 4, added 0
+#13 3.294 Packages are hard linked from the content-addressable store to the virtual store.
+#13 3.294   Content-addressable store is at: /workspace/.pnpm-store/v11
+#13 3.294   Virtual store is at:             node_modules/.pnpm
+#13 3.937 Progress: resolved 416, reused 0, downloaded 10, added 10
+#13 4.779 [WARN] Tarball download average speed 3 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/swagger-ui-express/-/swagger-ui-express-5.0.1.tgz (GET)
+#13 5.074 Progress: resolved 416, reused 0, downloaded 34, added 33
+#13 5.384 [WARN] Tarball download average speed 2 KiB/s (size 5 KiB) is below 50 KiB/s: https://registry.npmjs.org/@tailwindcss/vite/-/vite-4.3.3.tgz (GET)
+#13 5.417 [WARN] Tarball download average speed 11 KiB/s (size 22 KiB) is below 50 KiB/s: https://registry.npmjs.org/zustand/-/zustand-5.0.15.tgz (GET)
+#13 5.421 [WARN] Tarball download average speed 16 KiB/s (size 30 KiB) is below 50 KiB/s: https://registry.npmjs.org/aria-query/-/aria-query-5.3.0.tgz (GET)
+#13 6.152 Progress: resolved 416, reused 0, downloaded 49, added 49
+#13 6.276 [WARN] Tarball download average speed 46 KiB/s (size 161 KiB) is below 50 KiB/s: https://registry.npmjs.org/ioredis/-/ioredis-6.0.0.tgz (GET)
+#13 6.545 [WARN] Tarball download average speed 7 KiB/s (size 25 KiB) is below 50 KiB/s: https://registry.npmjs.org/react/-/react-19.3.0.tgz (GET)
+#13 6.630 [WARN] Tarball download average speed 12 KiB/s (size 15 KiB) is below 50 KiB/s: https://registry.npmjs.org/ast-v8-to-istanbul/-/ast-v8-to-istanbul-1.0.7.tgz (GET)
+#13 6.696 [WARN] Tarball download average speed 4 KiB/s (size 18 KiB) is below 50 KiB/s: https://registry.npmjs.org/pino-http/-/pino-http-11.0.0.tgz (GET)
+#13 7.200 
+#13 7.200    ╭─────────────────────────────────────────╮
+#13 7.200    │                                         │
+#13 7.200    │   Update available! 11.19.0 → 12.8.1.   │
+#13 7.200    │   Changelog: https://pnpm.io/v/12.8.1   │
+#13 7.200    │    To update, run: pnpm add -g pnpm     │
+#13 7.200    │                                         │
+#13 7.200    ╰─────────────────────────────────────────╯
+#13 7.200 
+#13 7.215 Progress: resolved 416, reused 0, downloaded 56, added 55
+#13 7.372 [WARN] Tarball download average speed 33 KiB/s (size 153 KiB) is below 50 KiB/s: https://registry.npmjs.org/pino/-/pino-10.4.0.tgz (GET)
+#13 8.223 Progress: resolved 416, reused 0, downloaded 62, added 62
+#13 9.466 Progress: resolved 416, reused 0, downloaded 82, added 79
+#13 10.53 Progress: resolved 416, reused 0, downloaded 102, added 98
+#13 11.55 Progress: resolved 416, reused 0, downloaded 109, added 108
+#13 12.15 [WARN] Tarball download average speed 49 KiB/s (size 464 KiB) is below 50 KiB/s: https://registry.npmjs.org/mongoose/-/mongoose-9.10.4.tgz (GET)
+#13 12.55 Progress: resolved 416, reused 0, downloaded 149, added 147
+#13 12.91 [WARN] Tarball download average speed 17 KiB/s (size 29 KiB) is below 50 KiB/s: https://registry.npmjs.org/chai/-/chai-6.3.0.tgz (GET)
+#13 13.55 Progress: resolved 416, reused 0, downloaded 180, added 179
+#13 14.56 Progress: resolved 416, reused 0, downloaded 198, added 198
+#13 15.56 Progress: resolved 416, reused 0, downloaded 220, added 219
+#13 16.56 Progress: resolved 416, reused 0, downloaded 238, added 236
+#13 17.64 Progress: resolved 416, reused 0, downloaded 253, added 251
+#13 18.04 [WARN] Tarball download average speed 25 KiB/s (size 46 KiB) is below 50 KiB/s: https://registry.npmjs.org/bidi-js/-/bidi-js-1.1.0.tgz (GET)
+#13 18.22 [WARN] Request took 10810ms: https://registry.npmjs.org/@typescript-eslint%2Futils
+#13 18.41 [WARN] Tarball download average speed 49 KiB/s (size 352 KiB) is below 50 KiB/s: https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-8.71.0.tgz (GET)
+#13 18.78 [WARN] Request took 17042ms: https://registry.npmjs.org/@playwright%2Ftest
+#13 18.80 Progress: resolved 416, reused 0, downloaded 288, added 287
+#13 19.22 [WARN] Tarball download average speed 21 KiB/s (size 28 KiB) is below 50 KiB/s: https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz (GET)
+#13 19.23 [WARN] Tarball download average speed 5 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/side-channel/-/side-channel-1.1.1.tgz (GET)
+#13 19.85 Progress: resolved 416, reused 0, downloaded 313, added 312
+#13 20.88 Progress: resolved 416, reused 0, downloaded 339, added 335
+#13 21.10 [WARN] Request took 17624ms: https://registry.npmjs.org/@types%2Faria-query
+#13 21.67 [WARN] Request took 13117ms: https://registry.npmjs.org/axe-core
+#13 21.91 Progress: resolved 416, reused 0, downloaded 361, added 359
+#13 22.95 Progress: resolved 416, reused 0, downloaded 384, added 383
+#13 23.36 [WARN] Request took 11188ms: https://registry.npmjs.org/es-toolkit
+#13 23.70 [WARN] Request took 16235ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
+#13 23.95 Progress: resolved 416, reused 0, downloaded 400, added 400
+#13 24.35 [WARN] Tarball download average speed 14 KiB/s (size 26 KiB) is below 50 KiB/s: https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz (GET)
+#13 24.95 Progress: resolved 416, reused 0, downloaded 405, added 405
+#13 25.68 [WARN] Request took 19451ms: https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin
+#13 26.92 [WARN] Tarball download average speed 42 KiB/s (size 1028 KiB) is below 50 KiB/s: https://registry.npmjs.org/zod/-/zod-4.6.5.tgz (GET)
+#13 27.30 Progress: resolved 416, reused 0, downloaded 406, added 405
+#13 27.60 [WARN] Request took 20757ms: https://registry.npmjs.org/@typescript-eslint%2Fparser
+#13 27.70 [WARN] Request took 20291ms: https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree
+#13 28.30 Progress: resolved 416, reused 0, downloaded 407, added 407
+#13 29.47 [WARN] Request took 22532ms: https://registry.npmjs.org/@typescript-eslint%2Fscope-manager
+#13 30.07 [WARN] Request took 10532ms: https://registry.npmjs.org/react
+#13 30.58 [WARN] Request took 12663ms: https://registry.npmjs.org/playwright-core
+#13 30.84 Progress: resolved 416, reused 0, downloaded 408, added 407
+#13 31.84 Progress: resolved 416, reused 0, downloaded 409, added 409
+#13 32.86 Progress: resolved 416, reused 0, downloaded 410, added 409
+#13 33.85 Progress: resolved 416, reused 0, downloaded 412, added 412
+#13 34.25 [WARN] Request took 15859ms: https://registry.npmjs.org/react-dom
+#13 34.67 [WARN] Request took 27277ms: https://registry.npmjs.org/@typescript-eslint%2Ftypes
+#13 34.85 Progress: resolved 416, reused 0, downloaded 414, added 414
+#13 38.37 [WARN] Request took 32992ms: https://registry.npmjs.org/@types%2Frange-parser
+#13 38.38 ✓ Lockfile passes supply-chain policies (462 entries in 36.7s)
+#13 38.40 Progress: resolved 416, reused 0, downloaded 415, added 414
+#13 39.40 Progress: resolved 416, reused 0, downloaded 415, added 415
+#13 41.86 Progress: resolved 416, reused 0, downloaded 416, added 415
+#13 41.89 Progress: resolved 416, reused 0, downloaded 416, added 416, done
+#13 42.50 
+#13 42.50 devDependencies:
+#13 42.50 + @axe-core/playwright 4.13.0
+#13 42.50 + @playwright/test 1.63.0
+#13 42.50 + @testing-library/dom 10.4.2
+#13 42.50 + @testing-library/react 16.3.3
+#13 42.50 + @types/node 24.19.1
+#13 42.50 + @vitest/coverage-v8 5.0.3
+#13 42.50 + eslint 10.12.0
+#13 42.50 + husky 9.1.7
+#13 42.50 + jsdom 30.1.1
+#13 42.50 + lint-staged 17.6.0
+#13 42.50 + prettier 3.9.9
+#13 42.50 + semver 7.8.5
+#13 42.50 + typescript 6.0.3
+#13 42.50 + typescript-eslint 8.71.0
+#13 42.50 + vitest 5.0.3
+#13 42.50 
+#13 42.54 . prepare$ husky
+#13 42.66 . prepare: HUSKY=0 skip install
+#13 42.66 . prepare: Done
+#13 42.80 Done in 42.2s using pnpm v11.19.0
+#13 44.08 $ tsc -p tsconfig.json
+#13 50.14 $ node packages/design-tokens/scripts/sync.mjs --check
+#13 50.21 Figma token check: 40 canonical variables, 8 text styles, 119 states, both themes
+#13 DONE 51.2s
+
+#13 [api 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 DONE 51.2s
+
+#14 [api] exporting to image
+#14 exporting layers
+#14 ...
+
+#15 [web] exporting to image
+#15 ...
+
+#14 [api] exporting to image
+#14 exporting layers 35.7s done
+#14 exporting manifest sha256:54ee6137607c15e35d61f48083500fbf2cb8863a7018bb3006bcf22179a374c9 0.0s done
+#14 exporting config sha256:c7052d5a7d8b5ab789843dd1825fd02e9dccec7bdc908b19dc2f908f98432b9c 0.1s done
+#14 exporting attestation manifest sha256:51d1a689aa875fd1755957fc07b8a804fc6a5fae269c3485001eaf4b76cfba75 0.0s done
+#14 exporting manifest list sha256:2f900a65c8ce698d72eba7401fa99171d83fd7a0f93e55f5f75789901a2089d9 0.0s done
+#14 naming to docker.io/library/folio-api:latest
+#14 naming to docker.io/library/folio-api:latest done
+#14 unpacking to docker.io/library/folio-api:latest
+#14 ...
+
+#15 [web] exporting to image
+#15 exporting layers 35.7s done
+#15 exporting manifest sha256:ca2143f575d2e281150e2ab3777e3b9c1234e04a6823adf5ff2c9f0eb9c672f1 0.0s done
+#15 exporting config sha256:88ded28a55a92159ab20dd98cb427a280a37f1e47a7117701abcba39a3dff142 0.1s done
+#15 exporting attestation manifest sha256:fd66dbc55a52baeb0f586143f49511046d8bc0787d641bb3e71c0c7565b1616f 0.0s done
+#15 exporting manifest list sha256:73479a698712490c667adb6ae6dca3e6b5e73c97d45c2eb6d00115f0bbfb472c 0.0s done
+#15 naming to docker.io/library/folio-web:latest 0.0s done
+#15 unpacking to docker.io/library/folio-web:latest
+#15 unpacking to docker.io/library/folio-web:latest 27.8s done
+#15 DONE 63.9s
+
+#14 [api] exporting to image
+#14 unpacking to docker.io/library/folio-api:latest 28.2s done
+#14 DONE 64.3s
+
+#16 [web] resolving provenance for metadata file
+#16 DONE 0.1s
+
+#17 [api] resolving provenance for metadata file
+#17 DONE 0.1s
+ Image folio-api Built 
+ Image folio-web Built 
+ Container folio-mongo-1 Running 
+ Container folio-redis-1 Running 
+ Container folio-mailhog-1 Running 
+ Container folio-api-1 Recreate 
+ Container folio-api-1 Recreated 
+ Container folio-web-1 Recreate 
+ Container folio-web-1 Recreated 
+ Container folio-mongo-1 Waiting 
+ Container folio-redis-1 Waiting 
+ Container folio-redis-1 Healthy 
+ Container folio-mongo-1 Healthy 
+ Container folio-api-1 Starting 
+ Container folio-api-1 Started 
+ Container folio-api-1 Waiting 
+ Container folio-api-1 Healthy 
+ Container folio-web-1 Starting 
+ Container folio-web-1 Started 
+ Container folio-redis-1 Waiting 
+ Container folio-mailhog-1 Waiting 
+ Container folio-api-1 Waiting 
+ Container folio-web-1 Waiting 
+ Container folio-mongo-1 Waiting 
+ Container folio-api-1 Healthy 
+ Container folio-redis-1 Healthy 
+ Container folio-mongo-1 Healthy 
+ Container folio-mailhog-1 Healthy 
+ Container folio-web-1 Healthy 

@@ -1,12 +1,12 @@
 # Folio architecture and milestone plan
 
-**Implementation plan audited 2026-10-03; approval status updated 2026-10-04. No application code exists.** Binding requirements and the user's explicitly confirmed D/X/O scope are in [DECISIONS.md](DECISIONS.md). Unconfirmed choices remain proposals for their specified phases; diagrams are planning artifacts, not deployed infrastructure. Docker/Compose prerequisites now pass; Phase 0 is ready for final approval, and Phase 1 remains unauthorized.
+**Plan audited 2026-10-03; Phase 0 approved and Phase 1 foundation implemented 2026-10-04.** Binding requirements and the user's explicitly confirmed D/X/O scope are in [DECISIONS.md](DECISIONS.md). Unconfirmed choices remain proposals for their specified phases; diagrams are planning artifacts, not deployed infrastructure. The local foundation stack now runs; product/domain diagrams remain plans for later authorized phases. Phase 2 remains unauthorized.
 
 ## Repository and module boundaries
 
 The working directory had no application files, manifests or remote and only an empty pre-initialized Git repository. Reuse of that repository is the only bootstrap deviation from “git init”; no prior implementation was assumed. First commit contains only six documentation skeletons. Phase 0 adds documentation/evidence and .gitignore. Additional FRAME_INVENTORY/PROVIDER_AUDIT/PHASE_0_EVIDENCE docs keep the required handoff readable and preserve audit provenance; no alternate application layout is proposed.
 
-Phase 1 will create exactly §13's layout:
+Phase 1 implements §13's layout:
 
 ```text
 apps/web                     React/Vite/strict TS
@@ -81,25 +81,25 @@ erDiagram
 
 FX_RATES, NEWS and JOB_RUNS are shared market/operational collections. Separate email verification/reset token storage (hash/TTL), ledger void events, projection version/dirty tracking and alert-kind/currency additions require documented schemas. D13 now assigns Watchlist P1, but its model/API remains unapproved; many-goal links await D11. Refresh token TTL is housekeeping, not expiry authorization.
 
-| Collection / tier | Important proposed indexes and reason |
-|---|---|
-| users / P0 | unique normalized email; ensure lowercasing before writes |
-| refresh_tokens / P0 | unique tokenHash; userId+familyId+revokedAt; expiresAt TTL; atomic rotation/reuse-family revocation |
-| portfolios / P0 | userId+createdAt+_id; partial unique userId where isDefault=true |
-| instruments / P0 | unique canonicalId; assetType+exchange+symbol; aliases/search indexes based on actual lookup plan |
-| transactions / P0 | portfolioId+instrumentId+date+createdAt+_id deterministic replay; portfolioId+date+_id list; portfolioId+idempotencyKey unique partial nonempty; importBatchId in P1 |
-| holdings / P0 | unique portfolioId+instrumentId; portfolio-scoped sort/search indexes only where explain() justifies |
-| price_history / P0 history, expanded P1 | unique instrumentId+date; provenance/currency/adjustment policy stored with values |
-| fx_rates / P0 | unique pair+date; daily rate date/source provenance |
-| portfolio_snapshots / P1 | unique portfolioId+date, revision/recompute marker; shared job only operates explicitly owned portfolio records |
-| goals / P1 | userId+targetDate+_id; portfolioId foreign-key index when supplied |
-| alerts / P1 | userId+active+_id; instrumentId+active; extended kinds/currency need migration after D12 |
-| news / P0 | unique canonicalUrl; publishedAt+_id cursor; symbols+publishedAt; contentHash; text headline/snippet candidate subject to D09 |
-| chat_conversations/messages / P0 | userId+createdAt+_id; conversationId+createdAt+_id; ownership checked on both conversation and message |
-| pending_actions / P1 | userId+status+expiresAt; expiresAt TTL; confirm is atomic and 10-minute expiry enforced in code |
-| notifications / P1 | userId+dedupeKey unique; userId+read+createdAt+_id |
-| audit_logs / P0 | userId+at; action+at; redacted meta, approved retention policy |
-| job_runs / P0 jobs | name+startedAt; job idempotency/checkpoint keys to prevent duplicate work |
+| Collection / tier                       | Important proposed indexes and reason                                                                                                                                |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| users / P0                              | unique normalized email; ensure lowercasing before writes                                                                                                            |
+| refresh_tokens / P0                     | unique tokenHash; userId+familyId+revokedAt; expiresAt TTL; atomic rotation/reuse-family revocation                                                                  |
+| portfolios / P0                         | userId+createdAt+_id; partial unique userId where isDefault=true                                                                                                     |
+| instruments / P0                        | unique canonicalId; assetType+exchange+symbol; aliases/search indexes based on actual lookup plan                                                                    |
+| transactions / P0                       | portfolioId+instrumentId+date+createdAt+_id deterministic replay; portfolioId+date+_id list; portfolioId+idempotencyKey unique partial nonempty; importBatchId in P1 |
+| holdings / P0                           | unique portfolioId+instrumentId; portfolio-scoped sort/search indexes only where explain() justifies                                                                 |
+| price_history / P0 history, expanded P1 | unique instrumentId+date; provenance/currency/adjustment policy stored with values                                                                                   |
+| fx_rates / P0                           | unique pair+date; daily rate date/source provenance                                                                                                                  |
+| portfolio_snapshots / P1                | unique portfolioId+date, revision/recompute marker; shared job only operates explicitly owned portfolio records                                                      |
+| goals / P1                              | userId+targetDate+_id; portfolioId foreign-key index when supplied                                                                                                   |
+| alerts / P1                             | userId+active+_id; instrumentId+active; extended kinds/currency need migration after D12                                                                             |
+| news / P0                               | unique canonicalUrl; publishedAt+_id cursor; symbols+publishedAt; contentHash; text headline/snippet candidate subject to D09                                        |
+| chat_conversations/messages / P0        | userId+createdAt+_id; conversationId+createdAt+_id; ownership checked on both conversation and message                                                               |
+| pending_actions / P1                    | userId+status+expiresAt; expiresAt TTL; confirm is atomic and 10-minute expiry enforced in code                                                                      |
+| notifications / P1                      | userId+dedupeKey unique; userId+read+createdAt+_id                                                                                                                   |
+| audit_logs / P0                         | userId+at; action+at; redacted meta, approved retention policy                                                                                                       |
+| job_runs / P0 jobs                      | name+startedAt; job idempotency/checkpoint keys to prevent duplicate work                                                                                            |
 
 Every foreign key/query path will be evaluated with explain() and realistic data; do not create every hypothetical compound combination against a 0.5GB free database. Owner checks are not replaced by indexes.
 
@@ -155,18 +155,18 @@ sequenceDiagram
   end
 ```
 
-| Threat | Planned control and meaningful verification |
-|---|---|
-| IDOR via nested resource IDs, AI arguments or imports | Server user injection + owner checks for every resource; two-user read/mutate tests on every endpoint |
-| Refresh replay/race and reset token replay | Atomic rotation/family revocation; concurrent refresh tests, replay tests, CSRF tests |
-| Oversell/backdated ledger divergence | Transaction/version concurrency + deterministic full replay; property tests compare incremental/full rebuild; concurrent sell test |
-| Prompt injection/ungrounded numbers | Untrusted provider text framing, strict allowlisted tools, owner scope, validation/retry/fallback, adversarial eval suite |
-| SSRF/unsafe news links | Fixed outbound hosts, timeout/size/redirect policy, safe text/url rendering; arbitrary URL rejection tests |
-| CSV formula injection/idempotent import | Format-aware normalization; formula-safe export; row-level errors and duplicate/undo fixtures (P1) |
-| Leaked tokens/secrets/2FA | Ignored env + host secret manager, redacted pino, encryption key of 32 bytes, hash backup codes; gitleaks in CI |
-| Rate-limit bypass under multiple instances | Redis-backed deployed limiter; restart/multi-instance tests; in-memory only tests/dev |
-| Cross-origin cookie loss | Same-origin frontend proxy; Chrome + real Safari deployment persistence and SSE smoke |
-| Demo/production cross-contamination | Explicit DEMO_MODE/user isolation, deterministic domain-engine fixtures and visible banner, tests with network disabled |
+| Threat                                                | Planned control and meaningful verification                                                                                        |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| IDOR via nested resource IDs, AI arguments or imports | Server user injection + owner checks for every resource; two-user read/mutate tests on every endpoint                              |
+| Refresh replay/race and reset token replay            | Atomic rotation/family revocation; concurrent refresh tests, replay tests, CSRF tests                                              |
+| Oversell/backdated ledger divergence                  | Transaction/version concurrency + deterministic full replay; property tests compare incremental/full rebuild; concurrent sell test |
+| Prompt injection/ungrounded numbers                   | Untrusted provider text framing, strict allowlisted tools, owner scope, validation/retry/fallback, adversarial eval suite          |
+| SSRF/unsafe news links                                | Fixed outbound hosts, timeout/size/redirect policy, safe text/url rendering; arbitrary URL rejection tests                         |
+| CSV formula injection/idempotent import               | Format-aware normalization; formula-safe export; row-level errors and duplicate/undo fixtures (P1)                                 |
+| Leaked tokens/secrets/2FA                             | Ignored env + host secret manager, redacted pino, encryption key of 32 bytes, hash backup codes; gitleaks in CI                    |
+| Rate-limit bypass under multiple instances            | Redis-backed deployed limiter; restart/multi-instance tests; in-memory only tests/dev                                              |
+| Cross-origin cookie loss                              | Same-origin frontend proxy; Chrome + real Safari deployment persistence and SSE smoke                                              |
+| Demo/production cross-contamination                   | Explicit DEMO_MODE/user isolation, deterministic domain-engine fixtures and visible banner, tests with network disabled            |
 
 Strict CSP permits self-hosted fonts and safe script/connect targets. Account export/delete requires ownership and correct collection cascade/revocation. Audit logs must not contain passwords, tokens or raw provider credentials. No production secret value is in Phase 0 evidence.
 
@@ -209,25 +209,25 @@ CacheStore has Redis deployment and in-memory test/dev; SWR, single-flight, per-
 
 Deployment candidates and limits are in [PROVIDER_AUDIT.md](PROVIDER_AUDIT.md). Frontend/API/Mongo/Redis/email credentials are needed by first deployment after Phase 3. All required Dockerfiles/host configs will be produced even if deployment credentials are pending. A same-origin /api rewrite is required when hosts use separate registrable domains; never use an external redirect that reintroduces third-party cookies. Redis mandatory for deployed limits; read-only health vs ready distinguishes liveness/dependencies.
 
-CI will run frozen install, lint, strict typecheck, tests/coverage, builds, dependency audit, gitleaks and screenshot checks for shipped UI, with Dependabot. Manual deployment approval gate applies. No remote/CI account exists yet; local validation must not be reported as CI green.
+The Phase 1 CI workflow is configured to run frozen install, lint, strict typecheck, tests/coverage, builds, dependency audit, gitleaks and screenshot checks for shipped UI, with Dependabot. Manual deployment approval gate applies. No remote/CI account exists yet; local validation must not be reported as CI green.
 
 ## Milestones, risks and inputs
 
 Every phase ends with evidence, PROGRESS update and STOP. Every shipped UI needs live MCP reinspection, both-theme desktop fidelity and logged derived/responsive/state review. Finish/deploy P0 (Phases 1–5) before Phase 6 P1.
 
-| Phase | Deliverables | Main risks / decisions | Inputs needed | Exit evidence |
-|---|---|---|---|---|
-| 0 — audit | Toolchain/repo/Figma inventory, DS/tokens/contrast/gaps, providers/dependencies, plans | Toolchain and required P0 decisions resolved; later-phase risks remain deferred | Required decisions supplied; Docker/Compose daemon verified 2026-10-04 | READY FOR APPROVAL; explicit final approval/Phase1 authorization still required |
-| 1 — foundation | Exact monorepo, strict shared contracts, env validation, Mongo/Redis, logs/error envelope, health/ready, Compose, CI/OpenAPI; generated tokens/fonts, shell/primitives/gallery | Latest TS7 peer conflict → propose6.0.3; native binaries/ESM; incomplete DS literal/light references; startup timing | Docker/Compose; approved pins/DS policy; future Git remote if CI required | Clean-clone stack up, CI when remote exists, lint/typecheck/build, both-theme gallery/shell fidelity |
-| 2 — auth | Full register/verify/resend/login/rotation/reuse/logout/reset/change password, CSRF/rate limits/audit, profile/privacy and auth UI | Missing Figma flows; refresh races; third-party cookies avoided | Prod email choice before live auth; development MailHog no key | Auth+IDOR scaffolding, Playwright register→verify→login; expiry/replay tests; fidelity |
-| 3 — domain + first deploy | Instrument master/search/provider cache/fallbacks, ledger/projection/void, valuation, holdings/detail/transactions/dashboard, P0 settings/onboarding, seed/DEMO | Free history/FX calendar gaps, oversell/concurrency/splits, price-null/FX/day semantics, corrected misleading labels | CoinGecko Demo key; fallback key if chosen; hosts/Atlas/Redis/domain/SMTP/job secret; data rights/use | Financial fixtures/property/concurrency/IDOR; app public and smoke, demo with providers disabled; manual deploy approval |
-| 4 — news | Permitted RSS metadata ingestion, dedupe/tagging, For You/Market/Portfolio/search, detail/outbound attribution/freshness | Reachability ≠ license; relevance false positives; no full text; source failure isolation | Approved source rights/use; scheduler; paid NewsAPI only if explicitly selected | Live headlines/source failure test, tags/search fixtures, deployed feed, fidelity |
-| 5 — AI P0 | Provider/tool loop, injection defenses, numeric grounding/retry/fallback, safe SSE UI/cards/evals | Pre-validation streaming conflict; tool ownership; model availability/limits | Selected LLM/model/key/spend/privacy policy | CI evals incl cross-user injection, deterministic fallback, live model smoke/fidelity; **all P0 deployed before P1** |
-| 6 — P1 analytics | Snapshots/backfill/TWR/XIRR/CAGR/benchmark/historical views, Dashboard history | Flow/dividend/cash conventions; corporate actions/adjusted history; sparse coverage/recomputation | History coverage/benchmark convention; actual reference spreadsheet fixture | Hand fixtures including 365/366-day XIRR and multi-flow reference, backdated rebuild, deployed charts/fidelity |
-| 7 — P1 planning | Multi-portfolio, goals/simulator, CSV preview/idempotency/import undo/export, price/approved-kind alerts/notifications/anomalies; Watchlist only if assigned here | D11/D12/D13 models/methods; target currency; current broker CSV formats | Permitted real CSV samples, goal/alert/watchlist decisions; job plan | Crossing/dedupe/import tests, owner tests, simulator fixtures, deploy/fidelity |
-| 8 — P1 depth | Sentiment, propose/confirm, MF/metals/manual, TOTP/sessions, security pass | Sentiment text prompt injection, quotes/NAV/units, expired confirm, 2FA recovery | AMFI/schema/metal-unit decisions, confirm UX; any selected sentiment service key | Threat model reviewed, all P1 IDOR, confirm replay/expiry, NAV/CSV fixtures, deploy/fidelity |
-| 9 — polish/release | Full E2E/accessibility/fidelity, 500-transaction performance, clean-clone docs, complete demo, final approved deploy | Coverage/real Safari limitations, free quotas/cold starts, incomplete reviews | Release/deploy approval, Safari access, accounts/backup procedure | All §16 gates, measured performance, Chrome/Safari smoke, walkthrough; only then approved P2 |
-| P2 — future | Selected risk/tax/digest/push/OAuth/admin/PWA/corporate-action UI polish | No approved methods/tax rules/OAuth sender/service accounts yet | Explicit scope and method approvals with current docs/credentials | Separate plan/phase branches and gates; **not begun** |
+| Phase                     | Deliverables                                                                                                                                                                   | Main risks / decisions                                                                                                   | Inputs needed                                                                                         | Exit evidence                                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| 0 — audit                 | Toolchain/repo/Figma inventory, DS/tokens/contrast/gaps, providers/dependencies, plans                                                                                         | Toolchain and required P0 decisions resolved; later-phase risks remain deferred                                          | Required decisions supplied; Docker/Compose daemon verified 2026-10-04                                | APPROVED by user 2026-10-04; Phase 1 explicitly authorized                                                               |
+| 1 — foundation            | Exact monorepo, strict shared contracts, env validation, Mongo/Redis, logs/error envelope, health/ready, Compose, CI/OpenAPI; generated tokens/fonts, shell/primitives/gallery | TS6.0.3 pinned with verified peers; native binaries/ESM checked; derived Light/responsive references await design review | Docker/Compose; approved pins/DS policy; user-supplied Git remote required for hosted CI              | Clean-clone stack up, CI when remote exists, lint/typecheck/build, both-theme gallery/shell fidelity                     |
+| 2 — auth                  | Full register/verify/resend/login/rotation/reuse/logout/reset/change password, CSRF/rate limits/audit, profile/privacy and auth UI                                             | Missing Figma flows; refresh races; third-party cookies avoided                                                          | Prod email choice before live auth; development MailHog no key                                        | Auth+IDOR scaffolding, Playwright register→verify→login; expiry/replay tests; fidelity                                   |
+| 3 — domain + first deploy | Instrument master/search/provider cache/fallbacks, ledger/projection/void, valuation, holdings/detail/transactions/dashboard, P0 settings/onboarding, seed/DEMO                | Free history/FX calendar gaps, oversell/concurrency/splits, price-null/FX/day semantics, corrected misleading labels     | CoinGecko Demo key; fallback key if chosen; hosts/Atlas/Redis/domain/SMTP/job secret; data rights/use | Financial fixtures/property/concurrency/IDOR; app public and smoke, demo with providers disabled; manual deploy approval |
+| 4 — news                  | Permitted RSS metadata ingestion, dedupe/tagging, For You/Market/Portfolio/search, detail/outbound attribution/freshness                                                       | Reachability ≠ license; relevance false positives; no full text; source failure isolation                                | Approved source rights/use; scheduler; paid NewsAPI only if explicitly selected                       | Live headlines/source failure test, tags/search fixtures, deployed feed, fidelity                                        |
+| 5 — AI P0                 | Provider/tool loop, injection defenses, numeric grounding/retry/fallback, safe SSE UI/cards/evals                                                                              | Pre-validation streaming conflict; tool ownership; model availability/limits                                             | Selected LLM/model/key/spend/privacy policy                                                           | CI evals incl cross-user injection, deterministic fallback, live model smoke/fidelity; **all P0 deployed before P1**     |
+| 6 — P1 analytics          | Snapshots/backfill/TWR/XIRR/CAGR/benchmark/historical views, Dashboard history                                                                                                 | Flow/dividend/cash conventions; corporate actions/adjusted history; sparse coverage/recomputation                        | History coverage/benchmark convention; actual reference spreadsheet fixture                           | Hand fixtures including 365/366-day XIRR and multi-flow reference, backdated rebuild, deployed charts/fidelity           |
+| 7 — P1 planning           | Multi-portfolio, goals/simulator, CSV preview/idempotency/import undo/export, price/approved-kind alerts/notifications/anomalies; Watchlist only if assigned here              | D11/D12/D13 models/methods; target currency; current broker CSV formats                                                  | Permitted real CSV samples, goal/alert/watchlist decisions; job plan                                  | Crossing/dedupe/import tests, owner tests, simulator fixtures, deploy/fidelity                                           |
+| 8 — P1 depth              | Sentiment, propose/confirm, MF/metals/manual, TOTP/sessions, security pass                                                                                                     | Sentiment text prompt injection, quotes/NAV/units, expired confirm, 2FA recovery                                         | AMFI/schema/metal-unit decisions, confirm UX; any selected sentiment service key                      | Threat model reviewed, all P1 IDOR, confirm replay/expiry, NAV/CSV fixtures, deploy/fidelity                             |
+| 9 — polish/release        | Full E2E/accessibility/fidelity, 500-transaction performance, clean-clone docs, complete demo, final approved deploy                                                           | Coverage/real Safari limitations, free quotas/cold starts, incomplete reviews                                            | Release/deploy approval, Safari access, accounts/backup procedure                                     | All §16 gates, measured performance, Chrome/Safari smoke, walkthrough; only then approved P2                             |
+| P2 — future               | Selected risk/tax/digest/push/OAuth/admin/PWA/corporate-action UI polish                                                                                                       | No approved methods/tax rules/OAuth sender/service accounts yet                                                          | Explicit scope and method approvals with current docs/credentials                                     | Separate plan/phase branches and gates; **not begun**                                                                    |
 
 ## Verification plan (not execution claims)
 
@@ -235,4 +235,4 @@ Financial tests ≥90% lines: Decimal precision (18 quantity/10 price), fees, FI
 
 Overall ≥70%, IDOR every resource endpoint, auth race/reuse/CSRF/rate limit, provider recorded fixtures without live network, failure/circuit/SWR/single-flight tests, Playwright real user path and own approved both-theme screen/state baselines. Core security/performance checks cannot be deferred just to ship a phase.
 
-500-transaction performance and clean-clone ≤10-minute target need real measurements in Phase 9. Phase 0 checks only its documentation, source data and environment. No “it runs”, test coverage, public URL, CI green or fidelity pass is asserted.
+500-transaction performance and release-level clean-clone timing require Phase 9 measurements. Phase 1 verifies its foundation using actual local gates and an isolated clean checkout; see [Phase 1 evidence](PHASE_1_EVIDENCE.md). No hosted CI green, public URL, financial coverage result or user-approved screenshot baseline is asserted.

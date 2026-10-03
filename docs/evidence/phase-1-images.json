@@ -1,0 +1,34 @@
+[
+  {
+    "image": "mongo:8.2",
+    "digests": [
+      "mongo@sha256:e0ce8c35124d4a9f9785532d1f268f39e9728ffa1cb38f46fa482436424c4bd3"
+    ],
+    "architecture": "amd64",
+    "os": "linux"
+  },
+  {
+    "image": "redis:8.2-alpine",
+    "digests": [
+      "redis@sha256:b51665e66f00759be7c3152ad5ac3c66fb2f619c13ef62dea7cc1f9914524635"
+    ],
+    "architecture": "amd64",
+    "os": "linux"
+  },
+  {
+    "image": "mailhog/mailhog:v1.0.1",
+    "digests": [
+      "mailhog/mailhog@sha256:8d76a3d4ffa32a3661311944007a415332c4bb855657f4f6c57996405c009bea"
+    ],
+    "architecture": "amd64",
+    "os": "linux"
+  },
+  {
+    "image": "ghcr.io/gitleaks/gitleaks:v8.30.1",
+    "digests": [
+      "ghcr.io/gitleaks/gitleaks@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f"
+    ],
+    "architecture": "amd64",
+    "os": "linux"
+  }
+]

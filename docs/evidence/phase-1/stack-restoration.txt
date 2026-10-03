@@ -1,0 +1,177 @@
+ Container folio-clean-final-web-1 Stopping 
+ Container folio-clean-final-web-1 Stopped 
+ Container folio-clean-final-web-1 Removing 
+ Container folio-clean-final-web-1 Removed 
+ Container folio-clean-final-api-1 Stopping 
+ Container folio-clean-final-api-1 Stopped 
+ Container folio-clean-final-api-1 Removing 
+ Container folio-clean-final-api-1 Removed 
+ Container folio-clean-final-mailhog-1 Stopping 
+ Container folio-clean-final-mongo-1 Stopping 
+ Container folio-clean-final-redis-1 Stopping 
+ Container folio-clean-final-mailhog-1 Stopped 
+ Container folio-clean-final-mailhog-1 Removing 
+ Container folio-clean-final-mailhog-1 Removed 
+ Container folio-clean-final-redis-1 Stopped 
+ Container folio-clean-final-redis-1 Removing 
+ Container folio-clean-final-redis-1 Removed 
+ Container folio-clean-final-mongo-1 Stopped 
+ Container folio-clean-final-mongo-1 Removing 
+ Container folio-clean-final-mongo-1 Removed 
+ Network folio-clean-final_default Removing 
+ Network folio-clean-final_default Removed 
+ Image folio-api Building 
+ Image folio-web Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 999B done
+#1 DONE 0.0s
+
+#2 [web internal] load build definition from Dockerfile
+#2 transferring dockerfile: 463B 0.0s done
+#2 DONE 0.1s
+
+#3 [api internal] load metadata for docker.io/library/node:24.19.0-bookworm-slim
+#3 DONE 1.9s
+
+#4 [api internal] load .dockerignore
+#4 transferring context: 185B done
+#4 DONE 0.0s
+
+#5 [api internal] load build context
+#5 DONE 0.0s
+
+#6 [web 1/8] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#6 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#6 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.0s done
+#6 DONE 0.0s
+
+#5 [api internal] load build context
+#5 transferring context: 124.69kB 0.0s done
+#5 DONE 0.1s
+
+#7 [api 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#7 CACHED
+
+#8 [api 7/8] COPY scripts ./scripts
+#8 CACHED
+
+#9 [api 3/8] RUN npm install --global pnpm@11.19.0
+#9 CACHED
+
+#10 [api 6/8] COPY apps ./apps
+#10 CACHED
+
+#11 [api 2/8] WORKDIR /workspace
+#11 CACHED
+
+#12 [api 5/8] COPY packages ./packages
+#12 CACHED
+
+#13 [api 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 CACHED
+
+#8 [web 7/8] COPY scripts ./scripts
+#8 CACHED
+
+#12 [web 5/8] COPY packages ./packages
+#12 CACHED
+
+#11 [web 2/8] WORKDIR /workspace
+#11 CACHED
+
+#9 [web 3/8] RUN npm install --global pnpm@11.19.0
+#9 CACHED
+
+#7 [web 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#7 CACHED
+
+#10 [web 6/8] COPY apps ./apps
+#10 CACHED
+
+#13 [web 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 CACHED
+
+#14 [web] exporting to image
+#14 exporting layers done
+#14 exporting manifest sha256:576759503ef2ad0cc546827318fa3f47c6b40d77f9bd4c7bada4270663e59811 0.1s done
+#14 exporting config sha256:a4566642b073c7507d1b68e1aa486868847d7f511d0dce22768f2d43a857c74d
+#14 exporting config sha256:a4566642b073c7507d1b68e1aa486868847d7f511d0dce22768f2d43a857c74d 0.0s done
+#14 exporting attestation manifest sha256:b86b48470e1c725c01a01a55707847710573caa8dcb36c3ab7dd5cff1e038c0e
+#14 exporting attestation manifest sha256:b86b48470e1c725c01a01a55707847710573caa8dcb36c3ab7dd5cff1e038c0e 0.1s done
+#14 exporting manifest list sha256:a90ce663866e42d7189d4496fcb8bbb4cfe0e573d16d61241ab90c6c71a6174f
+#14 ...
+
+#15 [api] exporting to image
+#15 exporting layers 0.0s done
+#15 exporting manifest sha256:57ffdd34553b258a3039ed14d6bb93813554885014b58aaf75709a7e7f79a6ab 0.0s done
+#15 exporting config sha256:9234d9247a2776650061f89452392d25a684e53807f26a2f1fa7c6bc82c41933 0.1s done
+#15 exporting attestation manifest sha256:d6de030b84908c595e03190833af1cb3984b0f8296d53ac0ff8fcda14afa00e7 0.1s done
+#15 exporting manifest list sha256:04485d9281de49ce91720202e1b8dd5aefa11a11593ccc8b1fea6518dcc2d651 0.1s done
+#15 naming to docker.io/library/folio-api:latest 0.0s done
+#15 unpacking to docker.io/library/folio-api:latest 0.0s done
+#15 DONE 0.4s
+
+#14 [web] exporting to image
+#14 exporting manifest list sha256:a90ce663866e42d7189d4496fcb8bbb4cfe0e573d16d61241ab90c6c71a6174f 0.1s done
+#14 naming to docker.io/library/folio-web:latest done
+#14 unpacking to docker.io/library/folio-web:latest 0.0s done
+#14 DONE 0.4s
+
+#16 [web] resolving provenance for metadata file
+#16 DONE 0.1s
+
+#17 [api] resolving provenance for metadata file
+#17 DONE 0.1s
+ Image folio-api Built 
+ Image folio-web Built 
+ Network folio_default Creating 
+ Network folio_default Creating 
+ Network folio_default Created 
+ Network folio_default Created 
+ Container folio-mailhog-1 Creating 
+ Container folio-redis-1 Creating 
+ Container folio-mongo-1 Creating 
+ Container folio-mailhog-1 Created 
+ Container folio-mongo-1 Created 
+ Container folio-redis-1 Created 
+ Container folio-api-1 Creating 
+ Container folio-api-1 Created 
+ Container folio-web-1 Creating 
+ Container folio-web-1 Created 
+ Container folio-mongo-1 Starting 
+ Container folio-mailhog-1 Starting 
+ Container folio-redis-1 Starting 
+ Container folio-mongo-1 Started 
+ Container folio-mailhog-1 Started 
+ Container folio-redis-1 Started 
+ Container folio-redis-1 Waiting 
+ Container folio-mongo-1 Waiting 
+ Container folio-redis-1 Healthy 
+ Container folio-mongo-1 Healthy 
+ Container folio-api-1 Starting 
+ Container folio-api-1 Started 
+ Container folio-api-1 Waiting 
+ Container folio-api-1 Healthy 
+ Container folio-web-1 Starting 
+ Container folio-web-1 Started 
+ Container folio-web-1 Waiting 
+ Container folio-mongo-1 Waiting 
+ Container folio-redis-1 Waiting 
+ Container folio-mailhog-1 Waiting 
+ Container folio-api-1 Waiting 
+ Container folio-api-1 Healthy 
+ Container folio-redis-1 Healthy 
+ Container folio-mailhog-1 Healthy 
+ Container folio-mongo-1 Healthy 
+ Container folio-web-1 Healthy 
+http://127.0.0.1:3000/api/health 200
+http://127.0.0.1:3000/api/ready 200
+{"status":"ready","dependencies":{"mongo":true,"redis":true}}
+http://127.0.0.1:5173/api/ready 200
+{"status":"ready","dependencies":{"mongo":true,"redis":true}}
+http://127.0.0.1:3000/api/openapi.json 200
+http://127.0.0.1:3000/docs/ 200
+http://127.0.0.1:5173/dev/design-system 200
+http://127.0.0.1:8025/api/v2/messages 200
+Local MailHog SMTP: 220 mailhog.example ESMTP MailHog
+Foundation stack smoke PASS

@@ -1,0 +1,325 @@
+COMMAND: git -C .local/phase-1-clean-clone pull --ff-only (origin is this local Folio repository)
+origin	C:/Users/ambar/OneDrive/Documents/ChatGPT/Folio/. (fetch)
+origin	C:/Users/ambar/OneDrive/Documents/ChatGPT/Folio/. (push)
+From C:/Users/ambar/OneDrive/Documents/ChatGPT/Folio/.
+   2708525..d0f1314  codex/phase-1-foundation -> origin/codex/phase-1-foundation
+Updating 2708525..d0f1314
+Fast-forward
+ apps/api/src/app.ts               | 12 +++++--
+ apps/api/src/middleware/errors.ts | 69 +++++++++++++++++++++++++++------------
+ apps/api/tests/foundation.test.ts | 32 ++++++++++++++++++
+ 3 files changed, 89 insertions(+), 24 deletions(-)
+d0f1314e4789cacd270c1863a36127c1d89c5d39
+Host node_modules exists: False
+Host shared dist exists: False
+Host .env exists: False
+ Container folio-clean-check-web-1 Stopping 
+ Container folio-clean-check-web-1 Stopped 
+ Container folio-clean-check-web-1 Removing 
+ Container folio-clean-check-web-1 Removed 
+ Container folio-clean-check-api-1 Stopping 
+ Container folio-clean-check-api-1 Stopped 
+ Container folio-clean-check-api-1 Removing 
+ Container folio-clean-check-api-1 Removed 
+ Container folio-clean-check-redis-1 Stopping 
+ Container folio-clean-check-mailhog-1 Stopping 
+ Container folio-clean-check-mongo-1 Stopping 
+ Container folio-clean-check-mailhog-1 Stopped 
+ Container folio-clean-check-mailhog-1 Removing 
+ Container folio-clean-check-mailhog-1 Removed 
+ Container folio-clean-check-redis-1 Stopped 
+ Container folio-clean-check-redis-1 Removing 
+ Container folio-clean-check-redis-1 Removed 
+ Container folio-clean-check-mongo-1 Stopped 
+ Container folio-clean-check-mongo-1 Removing 
+ Container folio-clean-check-mongo-1 Removed 
+ Network folio-clean-check_default Removing 
+ Network folio-clean-check_default Removed 
+COMMAND: docker compose -p folio-clean-final up --build -d --wait --wait-timeout 300
+ Image folio-clean-final-api Building 
+ Image folio-clean-final-web Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.16kB done
+#1 DONE 0.0s
+
+#2 [web internal] load build definition from Dockerfile
+#2 transferring dockerfile: 463B 0.0s done
+#2 DONE 0.1s
+
+#3 [api internal] load metadata for docker.io/library/node:24.19.0-bookworm-slim
+#3 DONE 2.0s
+
+#4 [web internal] load .dockerignore
+#4 transferring context: 185B 0.0s done
+#4 DONE 0.0s
+
+#5 [web internal] load build context
+#5 DONE 0.0s
+
+#6 [web 1/8] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#6 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.1s done
+#6 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.1s done
+#6 DONE 0.1s
+
+#5 [web internal] load build context
+#5 transferring context: 16.41kB 0.1s done
+#5 transferring context: 16.41kB 0.1s done
+#5 DONE 0.1s
+
+#7 [web 2/8] WORKDIR /workspace
+#7 CACHED
+
+#8 [web 3/8] RUN npm install --global pnpm@11.19.0
+#8 CACHED
+
+#9 [web 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#9 CACHED
+
+#10 [web 5/8] COPY packages ./packages
+#10 CACHED
+
+#11 [web 6/8] COPY apps ./apps
+#11 DONE 0.1s
+
+#11 [api 6/8] COPY apps ./apps
+#11 DONE 0.1s
+
+#12 [api 7/8] COPY scripts ./scripts
+#12 DONE 0.1s
+
+#12 [web 7/8] COPY scripts ./scripts
+#12 DONE 0.1s
+
+#13 [web 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 3.036 Scope: all 5 workspace projects
+#13 3.295 ? Verifying lockfile against supply-chain policies (462 entries)...
+#13 3.332 Lockfile is up to date, resolution step is skipped
+#13 3.843 Progress: resolved 1, reused 0, downloaded 0, added 0
+#13 4.628 Packages: +416
+#13 4.628 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#13 5.001 Progress: resolved 416, reused 0, downloaded 0, added 0
+#13 6.128 Progress: resolved 416, reused 0, downloaded 1, added 0
+#13 6.801 Packages are hard linked from the content-addressable store to the virtual store.
+#13 6.801   Content-addressable store is at: /workspace/.pnpm-store/v11
+#13 6.801   Virtual store is at:             node_modules/.pnpm
+#13 7.183 Progress: resolved 416, reused 0, downloaded 12, added 10
+#13 8.216 Progress: resolved 416, reused 0, downloaded 39, added 37
+#13 8.796 [WARN] Tarball download average speed 42 KiB/s (size 46 KiB) is below 50 KiB/s: https://registry.npmjs.org/@vitest/istanbul-lib-report/-/istanbul-lib-report-1.0.2.tgz (GET)
+#13 8.989 [WARN] Tarball download average speed 4 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/std-env/-/std-env-4.3.0.tgz (GET)
+#13 9.029 [WARN] Tarball download average speed 10 KiB/s (size 15 KiB) is below 50 KiB/s: https://registry.npmjs.org/ast-v8-to-istanbul/-/ast-v8-to-istanbul-1.0.7.tgz (GET)
+#13 9.245 Progress: resolved 416, reused 0, downloaded 52, added 51
+#13 10.27 Progress: resolved 416, reused 0, downloaded 70, added 68
+#13 11.05 [WARN] Tarball download average speed 20 KiB/s (size 73 KiB) is below 50 KiB/s: https://registry.npmjs.org/@eslint/config-array/-/config-array-0.23.5.tgz (GET)
+#13 11.28 Progress: resolved 416, reused 0, downloaded 81, added 81
+#13 12.42 Progress: resolved 416, reused 0, downloaded 92, added 90
+#13 13.31 [WARN] Request took 10257ms: https://registry.npmjs.org/pnpm
+#13 13.35 
+#13 13.35    ╭─────────────────────────────────────────╮
+#13 13.35    │                                         │
+#13 13.35    │   Update available! 11.19.0 → 12.8.1.   │
+#13 13.35    │   Changelog: https://pnpm.io/v/12.8.1   │
+#13 13.35    │    To update, run: pnpm add -g pnpm     │
+#13 13.35    │                                         │
+#13 13.35    ╰─────────────────────────────────────────╯
+#13 13.35 
+#13 13.45 Progress: resolved 416, reused 0, downloaded 115, added 111
+#13 14.46 Progress: resolved 416, reused 0, downloaded 130, added 130
+#13 14.68 [WARN] Request took 11160ms: https://registry.npmjs.org/@playwright%2Ftest
+#13 15.29 [WARN] Tarball download average speed 4 KiB/s (size 36 KiB) is below 50 KiB/s: https://registry.npmjs.org/lz-string/-/lz-string-1.5.0.tgz (GET)
+#13 15.49 Progress: resolved 416, reused 0, downloaded 145, added 143
+#13 16.05 [WARN] Tarball download average speed 2 KiB/s (size 12 KiB) is below 50 KiB/s: https://registry.npmjs.org/supertest/-/supertest-7.3.1.tgz (GET)
+#13 16.40 [WARN] Request took 13039ms: https://registry.npmjs.org/@axe-core%2Fplaywright
+#13 16.42 [WARN] Tarball download average speed 18 KiB/s (size 18 KiB) is below 50 KiB/s: https://registry.npmjs.org/@pinojs/redact/-/redact-0.4.0.tgz (GET)
+#13 16.50 Progress: resolved 416, reused 0, downloaded 169, added 167
+#13 17.50 Progress: resolved 416, reused 0, downloaded 187, added 187
+#13 18.50 Progress: resolved 416, reused 0, downloaded 203, added 201
+#13 18.61 [WARN] Request took 11207ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-x64-gnu
+#13 19.50 Progress: resolved 416, reused 0, downloaded 222, added 222
+#13 19.64 [WARN] Request took 12252ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-arm64-musl
+#13 20.37 [WARN] Tarball download average speed 0 KiB/s (size 3 KiB) is below 50 KiB/s: https://registry.npmjs.org/react-is/-/react-is-19.3.0.tgz (GET)
+#13 20.50 Progress: resolved 416, reused 0, downloaded 245, added 245
+#13 21.50 Progress: resolved 416, reused 0, downloaded 273, added 273
+#13 21.55 [WARN] Request took 10530ms: https://registry.npmjs.org/@typescript-eslint%2Futils
+#13 21.72 [WARN] Tarball download average speed 41 KiB/s (size 613 KiB) is below 50 KiB/s: https://registry.npmjs.org/axe-core/-/axe-core-4.13.0.tgz (GET)
+#13 22.50 Progress: resolved 416, reused 0, downloaded 303, added 303
+#13 23.50 Progress: resolved 416, reused 0, downloaded 327, added 327
+#13 24.40 [WARN] Request took 12202ms: https://registry.npmjs.org/axe-core
+#13 24.50 Progress: resolved 416, reused 0, downloaded 335, added 335
+#13 24.87 [WARN] Request took 13942ms: https://registry.npmjs.org/@typescript-eslint%2Ftypes
+#13 25.50 Progress: resolved 416, reused 0, downloaded 345, added 345
+#13 26.50 [WARN] Tarball download average speed 2 KiB/s (size 9 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/d3-array/-/d3-array-3.2.2.tgz (GET)
+#13 26.50 [WARN] Tarball download average speed 44 KiB/s (size 121 KiB) is below 50 KiB/s: https://registry.npmjs.org/enhanced-resolve/-/enhanced-resolve-5.26.0.tgz (GET)
+#13 26.51 Progress: resolved 416, reused 0, downloaded 352, added 351
+#13 26.84 [WARN] Tarball download average speed 21 KiB/s (size 84 KiB) is below 50 KiB/s: https://registry.npmjs.org/lightningcss/-/lightningcss-1.32.0.tgz (GET)
+#13 26.94 [WARN] Tarball download average speed 37 KiB/s (size 677 KiB) is below 50 KiB/s: https://registry.npmjs.org/vitest/-/vitest-5.0.3.tgz (GET)
+#13 29.95 [WARN] Request took 19189ms: https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin
+#13 30.38 Progress: resolved 416, reused 0, downloaded 378, added 368
+#13 30.45 [WARN] Tarball download average speed 20 KiB/s (size 62 KiB) is below 50 KiB/s: https://registry.npmjs.org/tr46/-/tr46-5.1.1.tgz (GET)
+#13 30.69 [WARN] Tarball download average speed 37 KiB/s (size 503 KiB) is below 50 KiB/s: https://registry.npmjs.org/es-toolkit/-/es-toolkit-1.52.0.tgz (GET)
+#13 31.05 [WARN] Request took 20034ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
+#13 31.17 [WARN] Request took 16231ms: https://registry.npmjs.org/dunder-proto
+#13 31.39 Progress: resolved 416, reused 0, downloaded 400, added 399
+#13 32.43 [WARN] Request took 21493ms: https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree
+#13 33.14 Progress: resolved 416, reused 0, downloaded 403, added 402
+#13 33.57 [WARN] Request took 22787ms: https://registry.npmjs.org/@typescript-eslint%2Fparser
+#13 34.33 Progress: resolved 416, reused 0, downloaded 405, added 405
+#13 34.69 [WARN] Request took 25394ms: https://registry.npmjs.org/@types%2Fnode
+#13 35.15 [WARN] Request took 13936ms: https://registry.npmjs.org/playwright-core
+#13 35.30 [WARN] Request took 14085ms: https://registry.npmjs.org/playwright
+#13 35.69 Progress: resolved 416, reused 0, downloaded 406, added 406
+#13 35.72 [WARN] Request took 13805ms: https://registry.npmjs.org/react
+#13 35.77 [WARN] Request took 12470ms: https://registry.npmjs.org/tailwindcss
+#13 36.03 [WARN] Tarball download average speed 25 KiB/s (size 428 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/parser/-/parser-7.29.9.tgz (GET)
+#13 36.48 [WARN] Request took 11426ms: https://registry.npmjs.org/typescript
+#13 36.88 Progress: resolved 416, reused 0, downloaded 409, added 408
+#13 37.79 [WARN] Request took 26949ms: https://registry.npmjs.org/@typescript-eslint%2Fscope-manager
+#13 37.88 Progress: resolved 416, reused 0, downloaded 411, added 411
+#13 38.97 Progress: resolved 416, reused 0, downloaded 413, added 413
+#13 40.05 Progress: resolved 416, reused 0, downloaded 414, added 413
+#13 41.06 Progress: resolved 416, reused 0, downloaded 414, added 414
+#13 41.36 [WARN] Tarball download average speed 1 KiB/s (size 17 KiB) is below 50 KiB/s: https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz (GET)
+#13 42.04 [WARN] Request took 20281ms: https://registry.npmjs.org/react-is
+#13 42.16 ✓ Lockfile passes supply-chain policies (462 entries in 38.8s)
+#13 42.16 Progress: resolved 416, reused 0, downloaded 415, added 415
+#13 42.35 Progress: resolved 416, reused 0, downloaded 416, added 416, done
+#13 47.72 
+#13 47.72 devDependencies:
+#13 47.72 + @axe-core/playwright 4.13.0
+#13 47.72 + @playwright/test 1.63.0
+#13 47.72 + @testing-library/dom 10.4.2
+#13 47.72 + @testing-library/react 16.3.3
+#13 47.72 + @types/node 24.19.1
+#13 47.72 + @vitest/coverage-v8 5.0.3
+#13 47.72 + eslint 10.12.0
+#13 47.72 + husky 9.1.7
+#13 47.72 + jsdom 30.1.1
+#13 47.72 + lint-staged 17.6.0
+#13 47.72 + prettier 3.9.9
+#13 47.72 + semver 7.8.5
+#13 47.72 + typescript 6.0.3
+#13 47.72 + typescript-eslint 8.71.0
+#13 47.72 + vitest 5.0.3
+#13 47.72 
+#13 47.74 . prepare$ husky
+#13 48.01 . prepare: HUSKY=0 skip install
+#13 48.01 . prepare: Done
+#13 48.08 Done in 46.9s using pnpm v11.19.0
+#13 48.85 $ tsc -p tsconfig.json
+#13 55.63 $ node packages/design-tokens/scripts/sync.mjs --check
+#13 55.73 Figma token check: 40 canonical variables, 8 text styles, 119 states, both themes
+#13 DONE 56.1s
+
+#13 [web 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 DONE 56.1s
+
+#14 [web] exporting to image
+#14 exporting layers
+#14 ...
+
+#15 [api] exporting to image
+#15 ...
+
+#14 [web] exporting to image
+#14 exporting layers 34.7s done
+#14 exporting manifest sha256:e8406afcffa86eb2c1d8988d17d702b18d2c5327852d601541a1cb71c909b415 0.1s done
+#14 exporting config sha256:38e2603c3ab14f7e80a577dc073ac0e8f970087240a7065a397df6b2cbdb4c15 0.1s done
+#14 exporting attestation manifest sha256:3f3c297f12f367e39928392140da6c0a247da40d958887deede646ac4c0d1f64
+#14 exporting attestation manifest sha256:3f3c297f12f367e39928392140da6c0a247da40d958887deede646ac4c0d1f64 0.1s done
+#14 exporting manifest list sha256:be6a40095288ad8ed68a19138caa4c29083cc08558694274ba6d80d6d9230f57 0.0s done
+#14 naming to docker.io/library/folio-clean-final-web:latest done
+#14 unpacking to docker.io/library/folio-clean-final-web:latest
+#14 ...
+
+#15 [api] exporting to image
+#15 exporting layers 34.7s done
+#15 exporting manifest sha256:e67a96ea775518a321c7bc505b5671064331217432099758b8f41e8a497ae546 0.1s done
+#15 exporting config sha256:722847c8bdd42dd7928e30d76e6279a4af4e902f75f38623af773f7473d04329 0.1s done
+#15 exporting attestation manifest sha256:fee9d0c71894f801db6995c98a49c3ba9b68e9560b6b030239bbd8745085b5e3 0.1s done
+#15 exporting manifest list sha256:db51d117fd8f987f72d2fb025707661c5f6d4ceab9660e441a7c4ad1980e99fe 0.0s done
+#15 naming to docker.io/library/folio-clean-final-api:latest done
+#15 unpacking to docker.io/library/folio-clean-final-api:latest
+#15 unpacking to docker.io/library/folio-clean-final-api:latest 21.6s done
+#15 DONE 56.7s
+
+#14 [web] exporting to image
+#14 ...
+
+#16 [api] resolving provenance for metadata file
+#16 DONE 0.0s
+
+#14 [web] exporting to image
+#14 unpacking to docker.io/library/folio-clean-final-web:latest 22.3s done
+#14 DONE 57.4s
+
+#17 [web] resolving provenance for metadata file
+#17 DONE 0.0s
+ Image folio-clean-final-api Built 
+ Image folio-clean-final-web Built 
+ Network folio-clean-final_default Creating 
+ Volume folio-clean-final_mongo-data Creating 
+ Volume folio-clean-final_redis-data Creating 
+ Volume folio-clean-final_mongo-data Creating 
+ Network folio-clean-final_default Creating 
+ Volume folio-clean-final_redis-data Creating 
+ Volume folio-clean-final_redis-data Created 
+ Volume folio-clean-final_redis-data Created 
+ Volume folio-clean-final_mongo-data Created 
+ Volume folio-clean-final_mongo-data Created 
+ Network folio-clean-final_default Created 
+ Network folio-clean-final_default Created 
+ Container folio-clean-final-redis-1 Creating 
+ Container folio-clean-final-mongo-1 Creating 
+ Container folio-clean-final-mailhog-1 Creating 
+ Container folio-clean-final-mailhog-1 Created 
+ Container folio-clean-final-redis-1 Created 
+ Container folio-clean-final-mongo-1 Created 
+ Container folio-clean-final-api-1 Creating 
+ Container folio-clean-final-api-1 Created 
+ Container folio-clean-final-web-1 Creating 
+ Container folio-clean-final-web-1 Created 
+ Container folio-clean-final-redis-1 Starting 
+ Container folio-clean-final-mongo-1 Starting 
+ Container folio-clean-final-mailhog-1 Starting 
+ Container folio-clean-final-redis-1 Started 
+ Container folio-clean-final-mongo-1 Started 
+ Container folio-clean-final-mailhog-1 Started 
+ Container folio-clean-final-mongo-1 Waiting 
+ Container folio-clean-final-redis-1 Waiting 
+ Container folio-clean-final-redis-1 Healthy 
+ Container folio-clean-final-mongo-1 Healthy 
+ Container folio-clean-final-api-1 Starting 
+ Container folio-clean-final-api-1 Started 
+ Container folio-clean-final-api-1 Waiting 
+ Container folio-clean-final-api-1 Healthy 
+ Container folio-clean-final-web-1 Starting 
+ Container folio-clean-final-web-1 Started 
+ Container folio-clean-final-mongo-1 Waiting 
+ Container folio-clean-final-redis-1 Waiting 
+ Container folio-clean-final-mailhog-1 Waiting 
+ Container folio-clean-final-api-1 Waiting 
+ Container folio-clean-final-web-1 Waiting 
+ Container folio-clean-final-mailhog-1 Healthy 
+ Container folio-clean-final-api-1 Healthy 
+ Container folio-clean-final-mongo-1 Healthy 
+ Container folio-clean-final-redis-1 Healthy 
+ Container folio-clean-final-web-1 Healthy 
+Build + healthy startup seconds: 156.58
+http://127.0.0.1:3000/api/health 200
+http://127.0.0.1:3000/api/ready 200
+{"status":"ready","dependencies":{"mongo":true,"redis":true}}
+http://127.0.0.1:5173/api/ready 200
+{"status":"ready","dependencies":{"mongo":true,"redis":true}}
+http://127.0.0.1:3000/api/openapi.json 200
+http://127.0.0.1:3000/docs/ 200
+http://127.0.0.1:5173/dev/design-system 200
+http://127.0.0.1:8025/api/v2/messages 200
+Local MailHog SMTP: 220 mailhog.example ESMTP MailHog
+Foundation stack smoke PASS
+{"version":"8.2.12","replicaSet":"rs0","isWritablePrimary":true}
+NAME                          IMAGE                                                                                            COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+folio-clean-final-api-1       folio-clean-final-api                                                                            "docker-entrypoint.s…"   api       35 seconds ago   Up 22 seconds (healthy)   127.0.0.1:3000->3000/tcp
+folio-clean-final-mailhog-1   mailhog/mailhog:v1.0.1@sha256:8d76a3d4ffa32a3661311944007a415332c4bb855657f4f6c57996405c009bea   "MailHog"                mailhog   42 seconds ago   Up 32 seconds             127.0.0.1:1025->1025/tcp, 127.0.0.1:8025->8025/tcp
+folio-clean-final-mongo-1     mongo:8.2@sha256:e0ce8c35124d4a9f9785532d1f268f39e9728ffa1cb38f46fa482436424c4bd3                "docker-entrypoint.s…"   mongo     42 seconds ago   Up 33 seconds (healthy)   127.0.0.1:27017->27017/tcp
+folio-clean-final-redis-1     redis:8.2-alpine@sha256:b51665e66f00759be7c3152ad5ac3c66fb2f619c13ef62dea7cc1f9914524635         "docker-entrypoint.s…"   redis     42 seconds ago   Up 33 seconds (healthy)   127.0.0.1:6379->6379/tcp
+folio-clean-final-web-1       folio-clean-final-web                                                                            "docker-entrypoint.s…"   web       35 seconds ago   Up 16 seconds (healthy)   127.0.0.1:5173->5173/tcp
+PASS: final implementation commit, fresh project volumes and clean host checkout

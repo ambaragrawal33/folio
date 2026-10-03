@@ -1,0 +1,17 @@
+⋯ Backing up original state…
+✔ Done backing up original state (aa20c67)!
+⋯ Running tasks for staged files…
+    *.{ts,tsx,mjs} — 3 files
+      ⋯ eslint --fix
+      ⋯ prettier --write
+
+✔ eslint --fix
+✔ prettier --write
+
+✔ Done running tasks for staged files!
+⋯ Staging changes from tasks…
+✔ Done staging changes from tasks!
+⋯ Cleaning up temporary files…
+✔ Done cleaning up temporary files!
+[codex/phase-1-foundation d0f1314] feat: expose a redacted optional error-reporting hook
+ 3 files changed, 89 insertions(+), 24 deletions(-)

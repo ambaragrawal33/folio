@@ -1,0 +1,65 @@
+⋯ Backing up original state…
+✔ Done backing up original state (9480715)!
+⋯ Running tasks for staged files…
+    *.{ts,tsx,mjs} — 17 files
+      ⋯ eslint --fix
+      ⋯ prettier --write
+    *.{json,yml,yaml,css,md,html} — 20 files
+      ⋯ prettier --write
+
+✔ prettier --write
+✔ eslint --fix
+✔ prettier --write
+
+✔ Done running tasks for staged files!
+⋯ Staging changes from tasks…
+✔ Done staging changes from tasks!
+⋯ Cleaning up temporary files…
+✔ Done cleaning up temporary files!
+[codex/phase-1-foundation b7fd710] chore: establish strict monorepo and local service foundation
+ 46 files changed, 5536 insertions(+)
+ create mode 100644 .dockerignore
+ create mode 100644 .editorconfig
+ create mode 100644 .env.example
+ create mode 100644 .gitattributes
+ create mode 100644 .github/dependabot.yml
+ create mode 100644 .github/workflows/ci.yml
+ create mode 100644 .gitleaks.toml
+ create mode 100644 .husky/pre-commit
+ create mode 100644 .prettierignore
+ create mode 100644 .prettierrc.json
+ create mode 100644 Dockerfile
+ create mode 100644 apps/api/package.json
+ create mode 100644 apps/api/src/ai/README.md
+ create mode 100644 apps/api/src/app.ts
+ create mode 100644 apps/api/src/config/env.ts
+ create mode 100644 apps/api/src/config/logger.ts
+ create mode 100644 apps/api/src/controllers/README.md
+ create mode 100644 apps/api/src/index.ts
+ create mode 100644 apps/api/src/jobs/README.md
+ create mode 100644 apps/api/src/middleware/errors.ts
+ create mode 100644 apps/api/src/models/README.md
+ create mode 100644 apps/api/src/providers/README.md
+ create mode 100644 apps/api/src/routes/README.md
+ create mode 100644 apps/api/src/services/infrastructure.ts
+ create mode 100644 apps/api/src/utils/README.md
+ create mode 100644 apps/api/tests/foundation.test.ts
+ create mode 100644 apps/api/tests/infrastructure.test.ts
+ create mode 100644 apps/api/tsconfig.json
+ create mode 100644 docker-compose.yml
+ create mode 100644 eslint.config.mjs
+ create mode 100644 package.json
+ create mode 100644 packages/shared/package.json
+ create mode 100644 packages/shared/src/index.ts
+ create mode 100644 packages/shared/src/openapi.ts
+ create mode 100644 packages/shared/tests/contracts.test.ts
+ create mode 100644 packages/shared/tsconfig.json
+ create mode 100644 playwright.config.ts
+ create mode 100644 pnpm-lock.yaml
+ create mode 100644 pnpm-workspace.yaml
+ create mode 100644 scripts/README.md
+ create mode 100644 scripts/coverage-financial.mjs
+ create mode 100644 scripts/infrastructure-smoke.mjs
+ create mode 100644 scripts/verify-dependencies.mjs
+ create mode 100644 tsconfig.base.json
+ create mode 100644 vitest.config.ts

@@ -1,0 +1,879 @@
+[
+  {
+    "name": "react",
+    "version": "19.3.0",
+    "engines": {
+      "node": ">=0.10.0"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/react",
+    "verifiedAt": "2026-10-03T19:03:14.8112314Z"
+  },
+  {
+    "name": "react-dom",
+    "version": "19.3.0",
+    "engines": null,
+    "peerDependencies": {
+      "react": "^19.3.0"
+    },
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/react-dom",
+    "verifiedAt": "2026-10-03T19:03:17.3700441Z"
+  },
+  {
+    "name": "react-is",
+    "version": "19.3.0",
+    "engines": null,
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-UpMYezM4v5/18F28aC66AEsjXIgE02kyEMH6yLdgLXu/UTfa1Ntwck/nNLrbqJsEXW7gPb0coNO9FQse9WTovA==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/react-is",
+    "verifiedAt": "2026-10-03T19:03:19.1972571Z"
+  },
+  {
+    "name": "vite",
+    "version": "8.3.2",
+    "engines": {
+      "node": "^20.19.0 || >=22.12.0"
+    },
+    "peerDependencies": {
+      "tsx": "^4.8.1",
+      "jiti": ">=1.21.0",
+      "less": "^4.0.0",
+      "sass": "^1.70.0",
+      "yaml": "^2.4.2",
+      "stylus": ">=0.54.8",
+      "terser": "^5.16.0",
+      "esbuild": "^0.27.0 || ^0.28.0",
+      "sugarss": "^5.0.0",
+      "@types/node": "^20.19.0 || >=22.12.0",
+      "sass-embedded": "^1.70.0",
+      "@vitejs/devtools": "^0.7.1"
+    },
+    "peerDependenciesMeta": {
+      "tsx": {
+        "optional": true
+      },
+      "jiti": {
+        "optional": true
+      },
+      "less": {
+        "optional": true
+      },
+      "sass": {
+        "optional": true
+      },
+      "yaml": {
+        "optional": true
+      },
+      "stylus": {
+        "optional": true
+      },
+      "terser": {
+        "optional": true
+      },
+      "esbuild": {
+        "optional": true
+      },
+      "sugarss": {
+        "optional": true
+      },
+      "@types/node": {
+        "optional": true
+      },
+      "sass-embedded": {
+        "optional": true
+      },
+      "@vitejs/devtools": {
+        "optional": true
+      }
+    },
+    "integrity": "sha512-SQr1x6W5vVSbROg7vsyXIaxK9b0G7zsT68acdWWRmnBUsgDieLCRG+Rep9WdZgcposvv/GSnr4GUUBqB3vXq6w==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/vite",
+    "verifiedAt": "2026-10-03T19:03:21.6533306Z"
+  },
+  {
+    "name": "@vitejs/plugin-react",
+    "version": "6.1.1",
+    "engines": {
+      "node": "^20.19.0 || >=22.12.0"
+    },
+    "peerDependencies": {
+      "vite": "^8.0.0",
+      "oxc-transform-react": "^0.145.0",
+      "@rolldown/plugin-babel": "^0.1.7 || ^0.2.0",
+      "babel-plugin-react-compiler": "^1.0.0"
+    },
+    "peerDependenciesMeta": {
+      "oxc-transform-react": {
+        "optional": true
+      },
+      "@rolldown/plugin-babel": {
+        "optional": true
+      },
+      "babel-plugin-react-compiler": {
+        "optional": true
+      }
+    },
+    "integrity": "sha512-yxLaQV9gkhS8ezJqCM6+ndU7mDY6gqAg75NQ+0IjwEI8IYOmQCgkRwHKVSfWXW076DsqMo0Dk+0FK1U+M5RgFw==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@vitejs/plugin-react",
+    "verifiedAt": "2026-10-03T19:03:21.9135436Z"
+  },
+  {
+    "name": "tailwindcss",
+    "version": "4.3.3",
+    "engines": null,
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-gOhV3P7ufE62QDGg1zVaTgCR+EtPv92k2nIhVcVKcLmxT1sUBsQGhnZj175j+MqRt4zLF7ic+sCYjfhxMxj7YQ==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/tailwindcss",
+    "verifiedAt": "2026-10-03T19:03:23.8873964Z"
+  },
+  {
+    "name": "@tailwindcss/vite",
+    "version": "4.3.3",
+    "engines": null,
+    "peerDependencies": {
+      "vite": "^5.2.0 || ^6 || ^7 || ^8"
+    },
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-yYU8cogLeSh/ms2jh8Fj7jaba/EWa7Ja6GoUqYZaraEuCI5YS6ms6ObZgjjedm+jm6XZjdNRWBpPP6Z86oOxcw==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@tailwindcss/vite",
+    "verifiedAt": "2026-10-03T19:03:24.5308510Z"
+  },
+  {
+    "name": "typescript",
+    "version": "6.0.3",
+    "engines": {
+      "node": ">=14.17"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==",
+    "license": "Apache-2.0",
+    "source": "https://registry.npmjs.org/typescript",
+    "verifiedAt": "2026-10-03T19:03:28.2258645Z"
+  },
+  {
+    "name": "react-router-dom",
+    "version": "7.18.4",
+    "engines": {
+      "node": ">=20.0.0"
+    },
+    "peerDependencies": {
+      "react": ">=18",
+      "react-dom": ">=18"
+    },
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-yrfmJHIpDG7taCpqKjT1G5B6q3O2K+RN8/fgNf0lTjCwiPbQ0ei6vXX9ZjQR+7ld8Tr7Z5xmyMnZ8YJrphWQUw==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/react-router-dom",
+    "verifiedAt": "2026-10-03T19:03:29.3748329Z"
+  },
+  {
+    "name": "@tanstack/react-query",
+    "version": "5.104.1",
+    "engines": null,
+    "peerDependencies": {
+      "react": "^18 || ^19"
+    },
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-Zz70EgjahNI7aCz8BZxM3vUGU44ycxEAzMuCUjLeA7SVhhOkg3ZgPjPJPvHjs6Rmky/dtmnu1WzjGHNHmhCoZQ==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@tanstack/react-query",
+    "verifiedAt": "2026-10-03T19:03:29.9056156Z"
+  },
+  {
+    "name": "zustand",
+    "version": "5.0.15",
+    "engines": {
+      "node": ">=12.20.0"
+    },
+    "peerDependencies": {
+      "immer": ">=9.0.6",
+      "react": ">=18.0.0",
+      "@types/react": ">=18.0.0",
+      "use-sync-external-store": ">=1.2.0"
+    },
+    "peerDependenciesMeta": {
+      "immer": {
+        "optional": true
+      },
+      "react": {
+        "optional": true
+      },
+      "@types/react": {
+        "optional": true
+      },
+      "use-sync-external-store": {
+        "optional": true
+      }
+    },
+    "integrity": "sha512-MpSEjRiBkA9crSYeOUH32rJC7SVqAbm0Fqcqge/bUi2PPoLcBWKOsG+C8mevmpr8TwXHBVkChbbJiyvkE+i/3A==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/zustand",
+    "verifiedAt": "2026-10-03T19:03:30.4816621Z"
+  },
+  {
+    "name": "react-hook-form",
+    "version": "7.89.0",
+    "engines": {
+      "node": ">=18.0.0"
+    },
+    "peerDependencies": {
+      "react": "^16.8.0 || ^17 || ^18 || ^19",
+      "@types/react": "*"
+    },
+    "peerDependenciesMeta": {
+      "@types/react": {
+        "optional": true
+      }
+    },
+    "integrity": "sha512-vKcoCfy8RKZDrhSdqsRFp0uEOdS1AhLjOL6hR7Wmfzg1akNxEhaPf5WORx8SgEQPVXakdDyDkqQp+KNxVnnPHg==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/react-hook-form",
+    "verifiedAt": "2026-10-03T19:03:31.8866479Z"
+  },
+  {
+    "name": "@hookform/resolvers",
+    "version": "5.9.1",
+    "engines": null,
+    "peerDependencies": {
+      "ajv": "^8.12.0",
+      "joi": "^17.0.0 || ^18.0.0",
+      "yup": "^1.0.0",
+      "zod": "^3.25.0 || ^4.0.0",
+      "vest": ">=6.0.0",
+      "fp-ts": "^2.7.0",
+      "io-ts": "^2.0.0",
+      "effect": "^3.10.3",
+      "arktype": "^2.0.0",
+      "valibot": ">=0.31.0 || ^1.0.0-beta.4 || ^1.0.0-rc",
+      "typanion": "^3.3.2",
+      "ajv-errors": "^3.0.0",
+      "ajv-formats": "^2.1.1",
+      "superstruct": ">=0.12.0",
+      "@vinejs/vine": "^2.0.0 || ^3.0.0 || ^4.0.0",
+      "ata-validator": "^1.2.0",
+      "computed-types": "^1.0.0",
+      "nope-validator": ">=0.12.0",
+      "class-validator": ">=0.12.0",
+      "react-hook-form": "^7.55.0",
+      "@typeschema/main": ">=0.13.7",
+      "@sinclair/typebox": ">=0.25.24",
+      "class-transformer": ">=0.4.0",
+      "fluentvalidation-ts": "^3.0.0",
+      "@standard-schema/spec": "^1.0.0"
+    },
+    "peerDependenciesMeta": {
+      "ajv": {
+        "optional": true
+      },
+      "joi": {
+        "optional": true
+      },
+      "yup": {
+        "optional": true
+      },
+      "zod": {
+        "optional": true
+      },
+      "vest": {
+        "optional": true
+      },
+      "fp-ts": {
+        "optional": true
+      },
+      "io-ts": {
+        "optional": true
+      },
+      "effect": {
+        "optional": true
+      },
+      "arktype": {
+        "optional": true
+      },
+      "valibot": {
+        "optional": true
+      },
+      "typanion": {
+        "optional": true
+      },
+      "ajv-errors": {
+        "optional": true
+      },
+      "ajv-formats": {
+        "optional": true
+      },
+      "superstruct": {
+        "optional": true
+      },
+      "@vinejs/vine": {
+        "optional": true
+      },
+      "ata-validator": {
+        "optional": true
+      },
+      "computed-types": {
+        "optional": true
+      },
+      "nope-validator": {
+        "optional": true
+      },
+      "class-validator": {
+        "optional": true
+      },
+      "@typeschema/main": {
+        "optional": true
+      },
+      "@sinclair/typebox": {
+        "optional": true
+      },
+      "class-transformer": {
+        "optional": true
+      },
+      "fluentvalidation-ts": {
+        "optional": true
+      },
+      "@standard-schema/spec": {
+        "optional": true
+      }
+    },
+    "integrity": "sha512-7b7vsbraJxKgjVSA1Nur9tLwj539WGJUBLA7QNvXnFoT2pM5Z7G+6rlukk4B2/QrTZy6huRtH6wKeESPKuIr6w==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@hookform/resolvers",
+    "verifiedAt": "2026-10-03T19:03:32.9766748Z"
+  },
+  {
+    "name": "zod",
+    "version": "4.6.5",
+    "engines": null,
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/zod",
+    "verifiedAt": "2026-10-03T19:03:34.0485002Z"
+  },
+  {
+    "name": "recharts",
+    "version": "3.10.1",
+    "engines": {
+      "node": ">=18"
+    },
+    "peerDependencies": {
+      "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+      "react-is": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+      "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+    },
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-QXFrvt6IVcw7eeZCoyXTwkIJAX3Dv1nyVhMicXJ47GsGDDpcN8z6o644DibE9XjpBTThtsomLKnTV6lc+cVFUA==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/recharts",
+    "verifiedAt": "2026-10-03T19:03:34.5276674Z"
+  },
+  {
+    "name": "express",
+    "version": "5.2.1",
+    "engines": {
+      "node": ">= 18"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-hIS4idWWai69NezIdRt2xFVofaF4j+6INOpJlVOLDO8zXGpUVEVzIYk12UUi2JzjEzWL3IOAxcTubgz9Po0yXw==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/express",
+    "verifiedAt": "2026-10-03T19:03:34.8796832Z"
+  },
+  {
+    "name": "mongoose",
+    "version": "9.10.4",
+    "engines": {
+      "node": ">=20.19.0"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-p1hx2MSD4B+4shFTpRcd/uTwD6DtZeDJ+YxM9ja8/VBDH7vqqLynwGLA6rWa/tD7voOBoGqQR1wM3+/LcUoEfA==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/mongoose",
+    "verifiedAt": "2026-10-03T19:03:35.7684550Z"
+  },
+  {
+    "name": "ioredis",
+    "version": "6.0.0",
+    "engines": {
+      "node": ">=20.0.0"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-f+Dtubxfpf6KYFq7WVXJoOLn0bk4TJrMrN9SzeE+jrWrCWj7XX3fA6vkryafhADX+GMymRxgDJDOI33COkJc0w==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/ioredis",
+    "verifiedAt": "2026-10-03T19:03:36.1375035Z"
+  },
+  {
+    "name": "pino",
+    "version": "10.4.0",
+    "engines": null,
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-bk1ZMTwG/Vymx+zPoa28MhNzucFvXJWp3csrSuxuHPSMeUettaCoQ5Jvg07mtC4JGNpcfTwz41oVCnNgBK9+vA==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/pino",
+    "verifiedAt": "2026-10-03T19:03:36.5840376Z"
+  },
+  {
+    "name": "pino-http",
+    "version": "11.0.0",
+    "engines": null,
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-wqg5XIAGRRIWtTk8qPGxkbrfiwEWz1lgedVLvhLALudKXvg1/L2lTFgTGPJ4Z2e3qcRmxoFxDuSdMdMGNM6I1g==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/pino-http",
+    "verifiedAt": "2026-10-03T19:03:37.0102189Z"
+  },
+  {
+    "name": "helmet",
+    "version": "8.3.0",
+    "engines": {
+      "node": ">=18.0.0"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-Qgpiaws3Sm30Av8Eah6sjMCZZwjlBu+E68rhpCWBshY1lb09HtLwj5GviX0OyQIn+ulUS0iX0AxN5n3tLZzz1w==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/helmet",
+    "verifiedAt": "2026-10-03T19:03:37.2416696Z"
+  },
+  {
+    "name": "cors",
+    "version": "2.8.6",
+    "engines": {
+      "node": ">= 0.10"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-tJtZBBHA6vjIAaF6EnIaq6laBBP9aq/Y3ouVJjEfoHbRBcHBAHYcMh/w8LDrk2PvIMMq8gmopa5D4V8RmbrxGw==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/cors",
+    "verifiedAt": "2026-10-03T19:03:37.3701913Z"
+  },
+  {
+    "name": "dotenv",
+    "version": "18.0.5",
+    "engines": {
+      "node": ">=12"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-aBrGvt6KhjxbEnatqMWOMidftwsrCiCvqh1yNIGB9QyF0J+VcWkKDMsvYOEm7ZS82oiV+BT1sTOtIlAmUlTpwQ==",
+    "license": "BSD-2-Clause",
+    "source": "https://registry.npmjs.org/dotenv",
+    "verifiedAt": "2026-10-03T19:03:37.5562586Z"
+  },
+  {
+    "name": "vitest",
+    "version": "5.0.3",
+    "engines": {
+      "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
+    },
+    "peerDependencies": {
+      "vite": "^6.4.0 || ^7.0.0 || ^8.0.0",
+      "jsdom": "*",
+      "happy-dom": "*",
+      "@vitest/ui": "5.0.3",
+      "@types/node": "^22.0.0 || >=24.0.0",
+      "@edge-runtime/vm": "*",
+      "@opentelemetry/api": "^1.9.0",
+      "@vitest/coverage-v8": "5.0.3",
+      "@vitest/browser-preview": "5.0.3",
+      "@vitest/coverage-istanbul": "5.0.3",
+      "@vitest/browser-playwright": "5.0.3",
+      "@vitest/browser-webdriverio": "^5.0.0-beta.5 || >=5.0.0"
+    },
+    "peerDependenciesMeta": {
+      "vite": {
+        "optional": false
+      },
+      "jsdom": {
+        "optional": true
+      },
+      "happy-dom": {
+        "optional": true
+      },
+      "@vitest/ui": {
+        "optional": true
+      },
+      "@types/node": {
+        "optional": true
+      },
+      "@edge-runtime/vm": {
+        "optional": true
+      },
+      "@opentelemetry/api": {
+        "optional": true
+      },
+      "@vitest/coverage-v8": {
+        "optional": true
+      },
+      "@vitest/browser-preview": {
+        "optional": true
+      },
+      "@vitest/coverage-istanbul": {
+        "optional": true
+      },
+      "@vitest/browser-playwright": {
+        "optional": true
+      },
+      "@vitest/browser-webdriverio": {
+        "optional": true
+      }
+    },
+    "integrity": "sha512-xMw97S3rjdtj5dkVat7jCsqWBpvchs3RlpQctUqwJD0KkERk40vz2fJ77lDwW/Vzh/pk18eItYAzkodhSes3jQ==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/vitest",
+    "verifiedAt": "2026-10-03T19:03:38.1742976Z"
+  },
+  {
+    "name": "@vitest/coverage-v8",
+    "version": "5.0.3",
+    "engines": null,
+    "peerDependencies": {
+      "vitest": "5.0.3",
+      "@vitest/browser": "5.0.3"
+    },
+    "peerDependenciesMeta": {
+      "@vitest/browser": {
+        "optional": true
+      }
+    },
+    "integrity": "sha512-+klsyz7BvT1vCU28Zkfzms1Ia78XD0V41U3FUtRaa3S+vOr/EXvK1O6BvVD7l1RzEjm6SONR2aybOvDDf9u0mQ==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@vitest/coverage-v8",
+    "verifiedAt": "2026-10-03T19:03:38.6584884Z"
+  },
+  {
+    "name": "supertest",
+    "version": "7.3.1",
+    "engines": {
+      "node": ">=14.18.0"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-vNaNCFoCR/edDbErQZp5KLNT8R4dSPHX7rlDLoE8hWLAm/878j6ShMbe8HK/E6RwwuhlSXVelXAIg9AxR5WWPw==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/supertest",
+    "verifiedAt": "2026-10-03T19:03:39.1033591Z"
+  },
+  {
+    "name": "@types/supertest",
+    "version": "7.2.1",
+    "engines": null,
+    "peerDependencies": {},
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-4CbBvoYVLHL7+yhbYrZET0vsvuyXTC05aRe7dNQkwMzm56auceoy6Yu3K50uZmwfHna1os3CMSgM/3QVkUtPTw==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@types/supertest",
+    "verifiedAt": "2026-10-03T19:03:39.7343707Z"
+  },
+  {
+    "name": "@playwright/test",
+    "version": "1.63.0",
+    "engines": {
+      "node": ">=20"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-oxMK4vllB9RK5NQ2l1pq1IfOf2AvnEuj/vYGDj0H2nMtmtZpKtCwt/l00GEO6xjGfpBNAvjovvYdCm50dRQkpQ==",
+    "license": "Apache-2.0",
+    "source": "https://registry.npmjs.org/@playwright/test",
+    "verifiedAt": "2026-10-03T19:03:42.0087579Z"
+  },
+  {
+    "name": "@axe-core/playwright",
+    "version": "4.13.0",
+    "engines": null,
+    "peerDependencies": {
+      "playwright-core": ">= 1.0.0"
+    },
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-6YLx+kxXu5GJceG4ozFg+33a2EMTdjYwWGloJ3sb9Kta5pp+ZNS53uxGVog5JetIY8s++P5UrtX+cri+u0VAVg==",
+    "license": "MPL-2.0",
+    "source": "https://registry.npmjs.org/@axe-core/playwright",
+    "verifiedAt": "2026-10-03T19:03:42.8377901Z"
+  },
+  {
+    "name": "@testing-library/react",
+    "version": "16.3.3",
+    "engines": {
+      "node": ">=18"
+    },
+    "peerDependencies": {
+      "react": "^18.0.0 || ^19.0.0",
+      "react-dom": "^18.0.0 || ^19.0.0",
+      "@types/react": "^18.0.0 || ^19.0.0",
+      "@types/react-dom": "^18.0.0 || ^19.0.0",
+      "@testing-library/dom": "^10.0.0"
+    },
+    "peerDependenciesMeta": {
+      "@types/react": {
+        "optional": true
+      },
+      "@types/react-dom": {
+        "optional": true
+      }
+    },
+    "integrity": "sha512-Uo193NgQbPMz6lrrhtRQQFcMC6Re/ELLFbbuVL30WDlZxlpZf9/lMHTAVxPRLw1q1iu9OJmR1c2BLiENRstdBg==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@testing-library/react",
+    "verifiedAt": "2026-10-03T19:03:43.1255584Z"
+  },
+  {
+    "name": "@testing-library/dom",
+    "version": "10.4.2",
+    "engines": {
+      "node": ">=18"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-yzr2S9HyAIdhz2/6qHgbs665Q7PKVcDF05vsOlHPxG1mo36gKVesdYVeDLnXgfjJ03CrKRk08knc6+E/9m8v2Q==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@testing-library/dom",
+    "verifiedAt": "2026-10-03T19:03:43.4778890Z"
+  },
+  {
+    "name": "jsdom",
+    "version": "30.1.1",
+    "engines": {
+      "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+    },
+    "peerDependencies": {
+      "canvas": "^3.2.3"
+    },
+    "peerDependenciesMeta": {
+      "canvas": {
+        "optional": true
+      }
+    },
+    "integrity": "sha512-FahmoPK5vbPc+jxV1iErMHmAZypCZ942NHF4+qqaWAuvaKKTBZxawnmAtrbGWLU7MtlxfqIP0qw6aSI+aWGtLg==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/jsdom",
+    "verifiedAt": "2026-10-03T19:03:43.7942207Z"
+  },
+  {
+    "name": "eslint",
+    "version": "10.12.0",
+    "engines": {
+      "node": "^20.19.0 || ^22.13.0 || >=24"
+    },
+    "peerDependencies": {
+      "jiti": "*"
+    },
+    "peerDependenciesMeta": {
+      "jiti": {
+        "optional": true
+      }
+    },
+    "integrity": "sha512-npHjrHb2o4ehH3mE+YuxABR+0gyb0aVWCIolgJDArwCiHEIsonBm3ZKjel5b0U5+a+MbEvIyRCGCzD3eKKK2NA==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/eslint",
+    "verifiedAt": "2026-10-03T19:03:44.2637532Z"
+  },
+  {
+    "name": "typescript-eslint",
+    "version": "8.71.0",
+    "engines": {
+      "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+    },
+    "peerDependencies": {
+      "eslint": "^8.57.0 || ^9.0.0 || ^10.0.0",
+      "typescript": ">=4.8.4 <6.1.0"
+    },
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-fBdHYiqQ14RW6mOMXD14Svn82ZsCYAoQSzGRzyEjR59S5A2Krh/l7fGTOQ7iCr8gGy/mHVXtEF7s5fgjEdV0Pw==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/typescript-eslint",
+    "verifiedAt": "2026-10-03T19:03:45.4041395Z"
+  },
+  {
+    "name": "prettier",
+    "version": "3.9.9",
+    "engines": {
+      "node": ">=14"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-Z/CJHIkdujO/OtN7nXUii0Rf3VT5SRuhjBA82Xvu2XhBUgX3nhP67T0LHceBdQLex7OOFGTox+Q5Yg8Jk2Qivg==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/prettier",
+    "verifiedAt": "2026-10-03T19:03:45.7296517Z"
+  },
+  {
+    "name": "husky",
+    "version": "9.1.7",
+    "engines": {
+      "node": ">=18"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/husky",
+    "verifiedAt": "2026-10-03T19:03:46.0030536Z"
+  },
+  {
+    "name": "lint-staged",
+    "version": "17.6.0",
+    "engines": {
+      "node": ">=22.22.1"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-nOhBfYkZEwkFtNzD5pK9s9LkcWoxJ+whLzEnhqi9nl7zTB5n7tg8+9iYgMGx2Wm3VlLu8cbNj0RACzY+nWi5iQ==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/lint-staged",
+    "verifiedAt": "2026-10-03T19:03:46.6589948Z"
+  },
+  {
+    "name": "@types/node",
+    "version": "24.19.1",
+    "engines": null,
+    "peerDependencies": {},
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-aS3/DG0oM05K0RIXXP+hKjinGG5IgSSVGzswZxW3O0sS3pH4/fycXundUC9XsszgKCk4gHXylTEK6hyFxVxnoQ==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@types/node",
+    "verifiedAt": "2026-10-03T19:03:49.1938136Z"
+  },
+  {
+    "name": "@types/react",
+    "version": "19.3.0",
+    "engines": null,
+    "peerDependencies": {},
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@types/react",
+    "verifiedAt": "2026-10-03T19:03:50.0083127Z"
+  },
+  {
+    "name": "@types/react-dom",
+    "version": "19.3.0",
+    "engines": null,
+    "peerDependencies": {
+      "@types/react": "^19.3.0"
+    },
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@types/react-dom",
+    "verifiedAt": "2026-10-03T19:03:50.6087697Z"
+  },
+  {
+    "name": "@types/express",
+    "version": "5.0.6",
+    "engines": null,
+    "peerDependencies": {},
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-sKYVuV7Sv9fbPIt/442koC7+IIwK5olP1KWeD88e/idgoJqDm3JV/YUiPwkoKK92ylff2MGxSz1CSjsXelx0YA==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@types/express",
+    "verifiedAt": "2026-10-03T19:03:51.0011867Z"
+  },
+  {
+    "name": "@types/cors",
+    "version": "2.8.19",
+    "engines": null,
+    "peerDependencies": {},
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-mFNylyeyqN93lfe/9CSxOGREz8cpzAhH+E93xJ4xWQf62V8sQ/24reV2nyzUWM6H6Xji+GGHpkbLe7pVoUEskg==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@types/cors",
+    "verifiedAt": "2026-10-03T19:03:51.3951727Z"
+  },
+  {
+    "name": "@asteasolutions/zod-to-openapi",
+    "version": "9.1.0",
+    "engines": null,
+    "peerDependencies": {
+      "zod": "^4.0.0"
+    },
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-pLMeRgRYS7/vZIgAAkOe2P6+XGTifR1MT9pqDoxZ11EmcJJ+DPmdPqLN8ZZF4U8R9KHCCQCS9c2wtuE8wSrfkw==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@asteasolutions/zod-to-openapi",
+    "verifiedAt": "2026-10-03T19:03:52.1775501Z"
+  },
+  {
+    "name": "@fontsource/inter",
+    "version": "5.3.0",
+    "engines": null,
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-RofMylZmjlJEfELXeNHFWBRcSs75rGU/6bV2S2jfnvv/3rPXPGe0LgUJTklcHZ9lM4OZmAVFhcJPnACfb91A3g==",
+    "license": "OFL-1.1",
+    "source": "https://registry.npmjs.org/@fontsource/inter",
+    "verifiedAt": "2026-10-03T19:03:52.9781235Z"
+  },
+  {
+    "name": "@fontsource/ibm-plex-mono",
+    "version": "5.3.0",
+    "engines": null,
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-eTgnZjZEGk1QtD3ZstF+Vclo2HLAni8YMy34/DxllwZvyz1lR/1RF/xTiAquOBO7MvqBx8D2Ig2WCPMVfdZu7Q==",
+    "license": "OFL-1.1",
+    "source": "https://registry.npmjs.org/@fontsource/ibm-plex-mono",
+    "verifiedAt": "2026-10-03T19:03:53.7196294Z"
+  },
+  {
+    "name": "semver",
+    "version": "7.8.5",
+    "engines": {
+      "node": ">=10"
+    },
+    "peerDependencies": null,
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==",
+    "license": "ISC",
+    "source": "https://registry.npmjs.org/semver",
+    "verifiedAt": "2026-10-03T19:03:53.9545215Z"
+  },
+  {
+    "name": "swagger-ui-express",
+    "version": "5.0.1",
+    "engines": {
+      "node": ">= v0.10.32"
+    },
+    "peerDependencies": {
+      "express": ">=4.0.0 || >=5.0.0-beta"
+    },
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-SrNU3RiBGTLLmFU8GIJdOdanJTl4TOmT27tt3bWWHppqYmAZ6IDuEuBvMU6nZq0zLEe6b/1rACXCgLZqO6ZfrA==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/swagger-ui-express",
+    "verifiedAt": "2026-10-03T19:03:54.3487263Z"
+  },
+  {
+    "name": "@types/swagger-ui-express",
+    "version": "4.1.8",
+    "engines": null,
+    "peerDependencies": {},
+    "peerDependenciesMeta": null,
+    "integrity": "sha512-AhZV8/EIreHFmBV5wAs0gzJUNq9JbbSXgJLQubCC0jtIo6prnI9MIRRxnU4MZX9RB9yXxF1V4R7jtLl/Wcj31g==",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/@types/swagger-ui-express",
+    "verifiedAt": "2026-10-03T19:03:54.9885666Z"
+  }
+]

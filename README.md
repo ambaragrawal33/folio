@@ -1,40 +1,84 @@
 # Folio
 
-**Phase 0 audit and planning only. No runnable application exists. Phase 1 has not started.**
+Phase 1 foundation is implemented locally. Authentication, portfolios, market data, news, AI, and later-tier functionality are unavailable. Phase 2 requires separate authorization.
 
-The entire supplied master specification (1,141 lines) was read before the audit. Its SHA-256 and actual commands/results are in [Phase 0 evidence](docs/PHASE_0_EVIDENCE.md). The live connected [Figma design](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=0-1) was inspected read-only.
+The [master-specification audit](docs/PHASE_0_EVIDENCE.md), [design handoff](docs/DESIGN_HANDOFF.md), [decisions](docs/DECISIONS.md), and [phase evidence](docs/PHASE_1_EVIDENCE.md) record the requirements, live Figma provenance, verification and limits.
 
-Start review with [PROGRESS](docs/PROGRESS.md), [DESIGN_HANDOFF](docs/DESIGN_HANDOFF.md), [pending decisions versus confirmed requirements](docs/DECISIONS.md), [architecture and phase milestones](docs/ARCHITECTURE.md), and [provider/dependency verification](docs/PROVIDER_AUDIT.md). [FRAME_INVENTORY](docs/FRAME_INVENTORY.md) lists every enumerated frame. [DEMO](docs/DEMO.md) is a future walkthrough and smoke plan.
+## Run the local stack
 
-Docker 29.8.1, Compose v5.5.1 and the WSL2 Linux daemon were verified from this workspace on 2026-10-04; [actual command/output](docs/evidence/docker-verification-2026-10-04.json). Node 24.19.0 LTS, pnpm 11.19.0, Git 2.56.0.windows.1 and Corepack 0.35.0 execute. pnpm currently comes from Codex's runtime fallback; the user approved explicit package-manager pinning and full Phase 1 dependency resolution. TypeScript 6.0.3 is approved in principle unless that resolution demonstrates a better compatible choice. No packages were installed. Phase 0 is ready for approval; Phase 1 remains unauthorized.
+Prerequisites: Git, Docker Desktop with Linux containers/Compose, and network access for the initial image/package downloads. All exposed services bind to loopback. These unauthenticated development services must stay local.
 
-## Running status
+From a clean checkout:
 
-There is no package.json, lockfile, app, project Compose stack or CI workflow yet. Therefore no clean-clone run/build/test instructions can honestly be executed at this phase. After final Phase 0 approval and explicit Phase 1 authorization, Phase 1 will supply the ≤10-minute clean-clone workflow, generated token sync and actual validation commands.
+```sh
+docker compose up --build -d --wait --wait-timeout 300
+```
 
-Docker Desktop was installed and started by the user. This Codex session's inherited PATH did not resolve docker, so verification used `& 'C:\Program Files\Docker\Docker\resources\bin\docker.exe'` with --version / compose version / info. No reinstall or persistent PATH edit was needed.
+Open [Folio](http://localhost:5173), the [component gallery](http://localhost:5173/dev/design-system), [API docs](http://localhost:3000/docs/), and [MailHog](http://localhost:8025). No .env, host pnpm install, API key, user account, or seed is required for this Docker workflow.
 
-## Planned environment matrix
+```sh
+docker compose ps
+node scripts/infrastructure-smoke.mjs
+docker compose down
+```
 
-Names only; no secret values requested or read. .env.example will be created in Phase 1; real .env files remain ignored. Server validates required values at startup. Client must never receive server secrets through Vite variables.
+The smoke command requires Node 24 on the host; the stack itself does not. Named Mongo/Redis volumes persist across down/up. Removing those volumes is an explicit local data reset, not part of normal shutdown.
 
-| Variable | Planned use / required when |
-|---|---|
-| NODE_ENV, PORT | API environment/port; Phase 1 |
-| MONGODB_URI | Local replica set then Atlas; Phase 1/first deploy |
-| REDIS_URL | Local jobs/cache; required in deployment for distributed limits (spec's “optional” env wording conflicts with its security requirement) |
-| JWT_ACCESS_SECRET, REFRESH_TOKEN_SECRET | Distinct strong server secrets; Phase 2 |
-| ENCRYPTION_KEY | 32-byte key for stored sensitive configuration/2FA; validated encoding; Phase 2/8 |
-| CORS_ORIGIN | Exact approved origin; same-origin proxy at deployment |
-| JOB_TRIGGER_SECRET | HMAC/shared-secret job endpoints; Phase 3 jobs/deploy |
-| COINGECKO_DEMO_API_KEY | Header-based Demo access; Phase 3 |
-| FINNHUB_API_KEY / TWELVEDATA_API_KEY | Optional entitled fallback only; Phase 3 |
-| NEWSAPI_KEY | Optional paid entitled production alternative; free Developer not public production; Phase 4 |
-| LLM_PROVIDER, LLM_API_KEY, LLM_MODEL | Production AI selection/key/model; Phase 5; dev/tests explicit mock only |
-| EMAIL_PROVIDER + provider-specific credentials/sender | Console/MailHog dev; explicitly chosen production email before live auth |
-| SENTRY_DSN | Optional redacted error integration, no DSN needed to scaffold |
-| DEMO_MODE | Explicit isolated deterministic domain-engine fixtures + visible banner |
+The first download can exceed ten minutes on a slow connection. The measured isolated checkout startup time and exact image digests are recorded in the Phase 1 evidence. This is a local development stack, not a production deployment.
 
-Credential configuration must use ignored local files or host secret managers. No remote exists; no code was pushed or deployed. Deployment is manually approved per phase. Both-theme Figma fidelity, current provider rights/limits and real browser auth smoke remain future gates.
+On this Windows Codex session Docker's bin directory was missing from the inherited PATH. If needed, use a process-only adjustment:
 
-Phase 0 stops at the approval boundary recorded in PROGRESS. Proposed defaults are not confirmed decisions.
+```powershell
+$env:PATH = 'C:\Program Files\Docker\Docker\resources\bin;' + $env:PATH
+docker compose up --build -d --wait --wait-timeout 300
+```
+
+## Develop and verify on the host
+
+Use Node **24.19.0 LTS**, pnpm **11.19.0**, TypeScript **6.0.3**. packageManager and engines pin the supported direction; strict engine/peer checks enforce the resolved graph.
+
+```sh
+corepack enable
+corepack prepare pnpm@11.19.0 --activate
+pnpm install --frozen-lockfile
+docker compose up -d mongo redis mailhog
+```
+
+Copy .env.example to the ignored .env (PowerShell: Copy-Item .env.example .env; POSIX: cp .env.example .env), then:
+
+```sh
+pnpm dev
+```
+
+Do not run the host web/API and Docker web/API on the same ports. Stop Docker web/API first when switching workflows. Source watch runs on the host; Docker web uses polling for Windows bind mounts. Rebuild the Docker images after changing dependencies or shared contracts, and restart the Docker API if its source watcher misses a Windows file event.
+
+```sh
+pnpm tokens:sync
+pnpm deps:verify
+pnpm check
+pnpm audit --audit-level=moderate
+pnpm exec playwright install chromium
+pnpm test:e2e
+```
+
+pnpm check runs lint, deterministic token freshness, formatting, strict typecheck, coverage, and all builds. Overall coverage enforces 70% lines/functions/statements/branches. The financial-core 90% line gate is configured and reports no implemented financial core in this phase. Browser checks compare rendered button fills to captured Figma bindings, measure shell/control geometry, check fonts, run axe in both themes, and exercise keyboard/forms/mobile navigation.
+
+Screenshot evidence is our own implementation output for review. It is not an approved regression baseline. Initial design review is still required before adopting screenshot expectations.
+
+## Boundaries and secrets
+
+apps/web contains React/Vite/Tailwind primitives and the shell; apps/api contains Express infrastructure. packages/shared exports strict contracts and a server-only ./openapi entry point. packages/design-tokens exports generated CSS, geometry/state provenance, and Dark/Light semantic values. ESLint rejects cross-app imports and server/OpenAPI imports into the client.
+
+Server configuration uses explicitly selected Zod-validated environment names. Real .env files, keys, dependencies, logs and caches are ignored. No server secret uses a VITE_ variable. Theme storage holds only a presentation preference; no auth token or user identity is stored. Production startup/provider/email/deployment configuration is deliberately deferred.
+
+GET /health and /ready have /api aliases for the frontend proxy. Readiness checks the writable Mongo replica set and Redis PING; failures are explicit 503 responses. JSON errors include a server-generated UUID and never return stack traces. Request logging excludes URL queries, bodies and raw driver errors, and redacts credential fields. A synchronous Sentry-ready reporting hook accepts only frozen code/requestId/status metadata; no DSN or external monitoring is configured, and a failing reporter cannot break the error response.
+
+MailHog is development email infrastructure. Sending verification/reset messages belongs to Phase 2; no sender or production provider is implemented.
+
+## Git and phase workflow
+
+Use a codex/phase-N-name branch for each authorized phase and small conventional commits. Husky runs lint-staged formatting/lint before committing. Commit .env.example only; run dependency and gitleaks scans before the phase boundary. Do not push, merge, deploy or start another phase without its required authorization.
+
+CI is configured with pinned official Actions, frozen install, engine/peer verification, all local quality gates, dependency audit, browser checks, gitleaks, and a Compose smoke test. Dependabot covers npm, Docker and Actions. There is no deployment workflow or Git remote; no hosted CI run is claimed.
+
+See [PROGRESS](docs/PROGRESS.md) for the phase boundary and deferred work.

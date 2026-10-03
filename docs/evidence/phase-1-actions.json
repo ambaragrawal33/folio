@@ -1,0 +1,23 @@
+[
+  {
+    "repository": "actions/checkout",
+    "tag": "v7.0.1",
+    "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+    "type": "commit",
+    "verifiedAt": "2026-10-03T19:35:50.4342115Z"
+  },
+  {
+    "repository": "actions/setup-node",
+    "tag": "v7.0.0",
+    "sha": "820762786026740c76f36085b0efc47a31fe5020",
+    "type": "commit",
+    "verifiedAt": "2026-10-03T19:35:51.2301695Z"
+  },
+  {
+    "repository": "actions/upload-artifact",
+    "tag": "v7.0.1",
+    "sha": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+    "type": "commit",
+    "verifiedAt": "2026-10-03T19:35:51.9577454Z"
+  }
+]
