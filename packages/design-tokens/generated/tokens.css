@@ -1,0 +1,165 @@
+/* Generated from verified Figma data. Run pnpm tokens:sync. */
+:root, [data-theme="dark"] {
+ color-scheme: dark;
+ --surface-canvas: #080808;
+ --surface-base: #101010;
+ --surface-raised: #151515;
+ --surface-hover: #1b1b1b;
+ --border-default: #2b2b2b;
+ --border-strong: #3a3a3a;
+ --text-primary: #f5f5f5;
+ --text-secondary: #b5b5b5;
+ --text-muted: #7a7a7a;
+ --text-disabled: #555555;
+ --accent-primary: #d8a900;
+ --surface-selected: #242424;
+ --status-positive: #3fa66b;
+ --status-negative: #e05252;
+ --status-warning: #d8a900;
+ --status-positive-bg: #10271c;
+ --status-negative-bg: #2a1515;
+ --status-warning-bg: #29220e;
+ --accent-hover: #e5b800;
+ --accent-pressed: #bd9200;
+ --border-subtle: #1a1a1a;
+ --text-on-accent: #111111;
+ --text-on-accent-strong: #111111;
+ --accessible-muted: var(--text-secondary);
+ --accessible-accent: var(--accent-primary);
+ --accessible-positive: var(--status-positive);
+ --accessible-negative: var(--text-secondary);
+ --accessible-warning: var(--status-warning);
+}
+[data-theme="light"] {
+ color-scheme: light;
+ --surface-canvas: #f7f7f5;
+ --surface-base: #ffffff;
+ --surface-raised: #f2f2ef;
+ --surface-hover: #ebebe7;
+ --border-default: #d3d3ce;
+ --border-strong: #b8b8b2;
+ --text-primary: #111111;
+ --text-secondary: #454545;
+ --text-muted: #737373;
+ --text-disabled: #a3a3a3;
+ --accent-primary: #b58a00;
+ --surface-selected: #e5e3da;
+ --status-positive: #217a4a;
+ --status-negative: #c73535;
+ --status-warning: #a87500;
+ --status-positive-bg: #eaf5ee;
+ --status-negative-bg: #fbecec;
+ --status-warning-bg: #f8f1d9;
+ --accent-hover: #966f00;
+ --accent-pressed: #795900;
+ --border-subtle: #e7e7e3;
+ --text-on-accent: #111111;
+ --text-on-accent-strong: #ffffff;
+ --accessible-muted: var(--text-secondary);
+ --accessible-accent: var(--text-secondary);
+ --accessible-positive: var(--text-secondary);
+ --accessible-negative: var(--text-secondary);
+ --accessible-warning: var(--text-secondary);
+}
+:root {
+ --space-2: 2px;
+ --space-4: 4px;
+ --space-8: 8px;
+ --space-12: 12px;
+ --space-16: 16px;
+ --space-24: 24px;
+ --space-32: 32px;
+ --space-48: 48px;
+ --radius-none: 0px;
+ --radius-subtle: 2px;
+ --radius-control: 6px;
+ --radius-panel: 8px;
+ --radius-full: 999px;
+ --space-20: 20px;
+ --space-40: 40px;
+ --space-64: 64px;
+ --radius-large: 12px;
+ --shell-sidebar: 220px;
+ --shell-topbar: 56px;
+ --shell-main-padding-y: 28px;
+ --shell-main-padding-x: 32px;
+ --shell-nav-height: 452px;
+ --shell-settings-area: 61px;
+ --shell-portfolio-width: 164px;
+ --shell-currency-width: 100px;
+ --shell-search-width: 280px;
+ --shell-notification-width: 124px;
+ --shell-user-width: 182px;
+ --shell-avatar: 28px;
+ --control-standard: 36px;
+ --control-compact: 32px;
+ --control-icon: 16px;
+ --control-breadcrumb-icon: 12px;
+ --control-status-icon: 4px;
+ --control-empty-icon: 14px;
+ --control-nav-gap: 10px;
+ --control-field-gap: 6px;
+ --control-border: 1px;
+ --control-focus: 2px;
+ --control-button-width: 164px;
+ --control-tab-width: 110px;
+ --control-metric-width: 324px;
+ --control-metric-line: 32px;
+ --control-switch-width: 28px;
+ --control-switch-height: 16px;
+ --gallery-row-height: 32px;
+ --gallery-default-row-height: 40px;
+ --gallery-symbol-width: 64px;
+ --gallery-symbol-size: 12px;
+ --gallery-shell-reference-width: 1440px;
+ --gallery-shell-reference-height: 1024px;
+ --table-state: 110px;
+ --table-security: 300px;
+ --table-quantity: 180px;
+ --table-price: 160px;
+ --table-value: 240px;
+ --table-weight: 140px;
+ --table-day: 190px;
+ --responsive-tablet: 1024px;
+ --responsive-mobile: 720px;
+ --type-title-family: "Inter", sans-serif;
+ --type-title-size: 32px;
+ --type-title-line: 38px;
+ --type-title-weight: 600;
+ --type-section-family: "Inter", sans-serif;
+ --type-section-size: 18px;
+ --type-section-line: 24px;
+ --type-section-weight: 600;
+ --type-heading-family: "Inter", sans-serif;
+ --type-heading-size: 15px;
+ --type-heading-line: 20px;
+ --type-heading-weight: 600;
+ --type-body-family: "Inter", sans-serif;
+ --type-body-size: 14px;
+ --type-body-line: 20px;
+ --type-body-weight: 400;
+ --type-compact-family: "Inter", sans-serif;
+ --type-compact-size: 13px;
+ --type-compact-line: 18px;
+ --type-compact-weight: 500;
+ --type-caption-family: "Inter", sans-serif;
+ --type-caption-size: 11px;
+ --type-caption-line: 14px;
+ --type-caption-weight: 500;
+ --type-numeric-family: "IBM Plex Mono", monospace;
+ --type-numeric-size: 13px;
+ --type-numeric-line: 18px;
+ --type-numeric-weight: 400;
+ --type-metric-family: "IBM Plex Mono", monospace;
+ --type-metric-size: 24px;
+ --type-metric-line: 32px;
+ --type-metric-weight: 500;
+}
+.type-title { font: var(--type-title-weight) var(--type-title-size)/var(--type-title-line) var(--type-title-family); }
+.type-section { font: var(--type-section-weight) var(--type-section-size)/var(--type-section-line) var(--type-section-family); }
+.type-heading { font: var(--type-heading-weight) var(--type-heading-size)/var(--type-heading-line) var(--type-heading-family); }
+.type-body { font: var(--type-body-weight) var(--type-body-size)/var(--type-body-line) var(--type-body-family); }
+.type-compact { font: var(--type-compact-weight) var(--type-compact-size)/var(--type-compact-line) var(--type-compact-family); }
+.type-caption { font: var(--type-caption-weight) var(--type-caption-size)/var(--type-caption-line) var(--type-caption-family); }
+.type-numeric { font: var(--type-numeric-weight) var(--type-numeric-size)/var(--type-numeric-line) var(--type-numeric-family); }
+.type-metric { font: var(--type-metric-weight) var(--type-metric-size)/var(--type-metric-line) var(--type-metric-family); }

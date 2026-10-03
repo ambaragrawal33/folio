@@ -1,0 +1,27 @@
+@theme inline {
+ --color-surface-canvas: var(--surface-canvas);
+ --color-surface-base: var(--surface-base);
+ --color-surface-raised: var(--surface-raised);
+ --color-surface-hover: var(--surface-hover);
+ --color-border-default: var(--border-default);
+ --color-border-strong: var(--border-strong);
+ --color-text-primary: var(--text-primary);
+ --color-text-secondary: var(--text-secondary);
+ --color-text-muted: var(--text-muted);
+ --color-text-disabled: var(--text-disabled);
+ --color-accent-primary: var(--accent-primary);
+ --color-surface-selected: var(--surface-selected);
+ --color-status-positive: var(--status-positive);
+ --color-status-negative: var(--status-negative);
+ --color-status-warning: var(--status-warning);
+ --color-status-positive-bg: var(--status-positive-bg);
+ --color-status-negative-bg: var(--status-negative-bg);
+ --color-status-warning-bg: var(--status-warning-bg);
+ --color-accent-hover: var(--accent-hover);
+ --color-accent-pressed: var(--accent-pressed);
+ --color-border-subtle: var(--border-subtle);
+ --color-text-on-accent: var(--text-on-accent);
+ --color-text-on-accent-strong: var(--text-on-accent-strong);
+ --font-sans: var(--type-body-family);
+ --font-mono: var(--type-numeric-family);
+}

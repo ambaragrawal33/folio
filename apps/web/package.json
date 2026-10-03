@@ -1,0 +1,36 @@
+{
+  "name": "@folio/web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@folio/shared": "workspace:*",
+    "@folio/design-tokens": "workspace:*",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-is": "19.3.0",
+    "react-router-dom": "7.18.4",
+    "@tanstack/react-query": "5.104.1",
+    "zustand": "5.0.15",
+    "react-hook-form": "7.89.0",
+    "@hookform/resolvers": "5.9.1",
+    "zod": "4.6.5",
+    "recharts": "3.10.1",
+    "@fontsource/inter": "5.3.0",
+    "@fontsource/ibm-plex-mono": "5.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "vite": "8.3.2",
+    "@vitejs/plugin-react": "6.1.1",
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/vite": "4.3.3"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "shell": {
+    "sidebar": 220,
+    "topbar": 56,
+    "mainPaddingY": 28,
+    "mainPaddingX": 32,
+    "navHeight": 452,
+    "settingsArea": 61,
+    "portfolioWidth": 164,
+    "currencyWidth": 100,
+    "searchWidth": 280,
+    "notificationWidth": 124,
+    "userWidth": 182,
+    "avatar": 28
+  },
+  "control": {
+    "standard": 36,
+    "compact": 32,
+    "icon": 16,
+    "breadcrumbIcon": 12,
+    "statusIcon": 4,
+    "emptyIcon": 14,
+    "navGap": 10,
+    "fieldGap": 6,
+    "border": 1,
+    "focus": 2,
+    "buttonWidth": 164,
+    "tabWidth": 110,
+    "metricWidth": 324,
+    "metricLine": 32,
+    "switchWidth": 28,
+    "switchHeight": 16
+  },
+  "gallery": {
+    "rowHeight": 32,
+    "defaultRowHeight": 40,
+    "symbolWidth": 64,
+    "symbolSize": 12,
+    "shellReferenceWidth": 1440,
+    "shellReferenceHeight": 1024
+  },
+  "table": {
+    "state": 110,
+    "security": 300,
+    "quantity": 180,
+    "price": 160,
+    "value": 240,
+    "weight": 140,
+    "day": 190
+  },
+  "responsive": {
+    "tablet": 1024,
+    "mobile": 720
+  },
+  "provenance": {
+    "shell": "10:396,10:453,10:481",
+    "control": "2:4800,2:4823,2:4842,2:4850,2:4864,2:4877",
+    "gallery": "2:4867,2:4873,2:4668",
+    "responsive": "Derived layout extension under D14; 1024 reference height, 720 half reference width; review required"
+  }
+}

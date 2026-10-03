@@ -1,0 +1,42 @@
+/* Derived D14 layouts; values and provenance live in token package. Review required. */
+@media (max-width: __TABLET__px) {
+  .global-search {
+    display: none;
+  }
+  .notification-control > span {
+    display: none;
+  }
+}
+@media (max-width: __MOBILE__px) {
+  .sidebar {
+    display: none;
+  }
+  .mobile-menu {
+    display: inline-flex;
+    width: auto;
+  }
+  .portfolio-context {
+    display: none;
+  }
+  .user-menu {
+    display: none;
+  }
+  .topbar {
+    gap: var(--space-8);
+  }
+  .mobile-navigation {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-12);
+    border-bottom: var(--control-border) solid var(--border-default);
+  }
+  main {
+    padding: var(--space-20) var(--space-16);
+  }
+  .page-heading {
+    flex-direction: column;
+  }
+  .specimens {
+    flex-direction: column;
+  }
+}
