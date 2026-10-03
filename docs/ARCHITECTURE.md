@@ -1,6 +1,6 @@
 # Folio architecture and milestone plan
 
-**Proposed implementation plan, 2026-10-03. No application code exists.** Binding requirements are C01–C08 in [DECISIONS.md](DECISIONS.md). Pending choices have D/X/O references; diagrams are planning artifacts, not deployed infrastructure.
+**Implementation plan audited 2026-10-03; approval status updated 2026-10-04. No application code exists.** Binding requirements and the user's explicitly confirmed D/X/O scope are in [DECISIONS.md](DECISIONS.md). Unconfirmed choices remain proposals for their specified phases; diagrams are planning artifacts, not deployed infrastructure. Docker/Compose prerequisites now pass; Phase 0 is ready for final approval, and Phase 1 remains unauthorized.
 
 ## Repository and module boundaries
 
@@ -79,7 +79,7 @@ erDiagram
   USERS ||--o{ AUDIT_LOGS : produces
 ```
 
-FX_RATES, NEWS and JOB_RUNS are shared market/operational collections. Separate email verification/reset token storage (hash/TTL), ledger void events, projection version/dirty tracking and alert-kind/currency additions require documented schemas. Watchlists/many-goal links are not added until D11/D13 decisions. Refresh token TTL is housekeeping, not expiry authorization.
+FX_RATES, NEWS and JOB_RUNS are shared market/operational collections. Separate email verification/reset token storage (hash/TTL), ledger void events, projection version/dirty tracking and alert-kind/currency additions require documented schemas. D13 now assigns Watchlist P1, but its model/API remains unapproved; many-goal links await D11. Refresh token TTL is housekeeping, not expiry authorization.
 
 | Collection / tier | Important proposed indexes and reason |
 |---|---|
@@ -197,7 +197,7 @@ sequenceDiagram
   API->>API: Persist grounding/tool summaries/usage
 ```
 
-This diagram is **X06's proposal** to resolve §9's final-answer-stream-before-check ordering. No financial text should reach the user before grounding. Numerical tolerance/percentage/date/currency rules must be explicit and fixture-tested; not every numeral in prose is a financial claim. No tool accepts model userId, changes data in P0 or bypasses ownership.
+This diagram's safe streaming order is **confirmed by the user's X06 approval on 2026-10-04**: progress/tool activity can stream, but financial answer content is buffered until validation; only validated numbers reach the user. Numerical tolerance/percentage/date/currency rules must be explicit and fixture-tested; not every numeral in prose is a financial claim. No tool accepts model userId, changes data in P0 or bypasses ownership. P1 write behavior remains pending its phase decisions.
 
 P1 propose tools create pending_actions (expiry 10 minutes). Confirm endpoint validates authenticated owner, status/expiry and current domain rules atomically; rejection/expiry/replay cannot execute. Write-through only via domain services/idempotency, never direct model DB mutations. Tool cards include actual arguments/result summaries with redaction, not guessed “grounding” labels.
 
@@ -217,7 +217,7 @@ Every phase ends with evidence, PROGRESS update and STOP. Every shipped UI needs
 
 | Phase | Deliverables | Main risks / decisions | Inputs needed | Exit evidence |
 |---|---|---|---|---|
-| 0 — audit | Toolchain/repo/Figma inventory, DS/tokens/contrast/gaps, providers/dependencies, plans | Docker missing; P0 D decisions, canonical/Light/contrast X01 and safe streaming X06 | User decisions; local Git identity supplied | Read-only evidence/docs; NOT DONE until toolchain and user approvals |
+| 0 — audit | Toolchain/repo/Figma inventory, DS/tokens/contrast/gaps, providers/dependencies, plans | Toolchain and required P0 decisions resolved; later-phase risks remain deferred | Required decisions supplied; Docker/Compose daemon verified 2026-10-04 | READY FOR APPROVAL; explicit final approval/Phase1 authorization still required |
 | 1 — foundation | Exact monorepo, strict shared contracts, env validation, Mongo/Redis, logs/error envelope, health/ready, Compose, CI/OpenAPI; generated tokens/fonts, shell/primitives/gallery | Latest TS7 peer conflict → propose6.0.3; native binaries/ESM; incomplete DS literal/light references; startup timing | Docker/Compose; approved pins/DS policy; future Git remote if CI required | Clean-clone stack up, CI when remote exists, lint/typecheck/build, both-theme gallery/shell fidelity |
 | 2 — auth | Full register/verify/resend/login/rotation/reuse/logout/reset/change password, CSRF/rate limits/audit, profile/privacy and auth UI | Missing Figma flows; refresh races; third-party cookies avoided | Prod email choice before live auth; development MailHog no key | Auth+IDOR scaffolding, Playwright register→verify→login; expiry/replay tests; fidelity |
 | 3 — domain + first deploy | Instrument master/search/provider cache/fallbacks, ledger/projection/void, valuation, holdings/detail/transactions/dashboard, P0 settings/onboarding, seed/DEMO | Free history/FX calendar gaps, oversell/concurrency/splits, price-null/FX/day semantics, corrected misleading labels | CoinGecko Demo key; fallback key if chosen; hosts/Atlas/Redis/domain/SMTP/job secret; data rights/use | Financial fixtures/property/concurrency/IDOR; app public and smoke, demo with providers disabled; manual deploy approval |

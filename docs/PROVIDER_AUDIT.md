@@ -1,6 +1,6 @@
 # Provider and dependency audit
 
-Checked **2026-10-03** through current primary documentation, npm registry metadata and read-only live HTTP probes. No provider account was created, paid plan selected, key read, dependency installed or integration code written. Results are dated observations; recheck at the phase that uses each provider.
+Checked **2026-10-03** through current primary documentation, npm registry metadata and read-only live HTTP probes. No provider account was created, paid plan selected, key read, dependency installed or integration code written. Results are dated observations; recheck at the phase that uses each provider. Follow-up 2026-10-04: Docker/Compose and WSL2 daemon now verified, superseding the original missing-Docker observation below; O01 approved in principle, other provider/hosting decisions remain pending. See [actual Docker evidence](evidence/docker-verification-2026-10-04.json).
 
 ## Actual endpoint probes
 

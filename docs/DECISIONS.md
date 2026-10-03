@@ -1,6 +1,6 @@
-# Phase 0 decisions — 2026-10-03
+# Phase 0 decisions — updated 2026-10-04
 
-Status: **awaiting user approval; Phase 1 is not authorized**. No proposal below is a confirmed decision. Phase 0's DONE condition is not met while Docker/Compose is missing and the required P0 design decisions remain unanswered.
+Status: **Phase 0 ready for approval; Phase 1 is not authorized**. Docker CLI, Compose and the WSL2 Linux daemon were verified on 2026-10-04. The user confirmed the required Phase 0 decisions below; later-phase proposals remain pending. Final Phase 0 approval and explicit authorization to begin Phase 1 have not been given.
 
 ## Confirmed instructions and actions
 
@@ -16,11 +16,34 @@ Status: **awaiting user approval; Phase 1 is not authorized**. No proposal below
 | C08 | Both-theme 1440×1024 fidelity, actual contrast, own approved screenshot baselines, IDOR tests, financial coverage ≥90%, overall ≥70%, hand-computed fixtures and secret scanning. §16. | Phase 0 has no application/test suite, so none of these application gates is claimed passed. | 2026-10-03 |
 | C09 | Repository-local Git author Ambar Agrawal / ambarofficial33@gmail.com, explicitly supplied by user. | Global Git settings unchanged. Skeleton-only first commit f034c01 on main; audit branch codex/phase-0-audit. | 2026-10-03 |
 
-Specification defaults, permitted unless overridden, are INR, P1 mutual funds/metals/manual assets, development console/MailHog email, mock LLM only in development/tests pending a key, same-origin API proxy, and free/no-key sources plus explicitly isolated DEMO_MODE. These are defaults from §18, not additional user confirmations.
+Specification defaults, permitted unless overridden, include P1 mutual funds/metals/manual assets, development console/MailHog email, mock LLM only in development/tests pending a key, same-origin API proxy, and free/no-key sources plus explicitly isolated DEMO_MODE. These defaults do not confirm pending production provider/hosting decisions. INR was explicitly confirmed by the user on 2026-10-04.
+
+## User confirmations — 2026-10-04
+
+The user's explicit message is the authority for these confirmations. Only the scope stated below is approved; any additional alternatives/details in the original proposal tables remain proposals. No approval authorizes implementation during this turn.
+
+| ID | Confirmed decision | Scope limits / deferred details |
+|---|---|---|
+| D01 | Preserve designed navigation; unshipped features use proper unavailable/empty states through a capability/release map; no fake metrics. | Routes/components will be implemented only in an authorized phase. |
+| D02 | P0 Dashboard summary, allocation, holdings and concentration; later performance/risk/attribution unavailable until engines exist; no substitute metrics. | Sentiment placement and attribution methodology are not approved by this confirmation. |
+| D05 | Hide Google OAuth until P2; add missing P0 auth states using Folio DS and flag for design review; TOTP P1. | No OAuth or TOTP implementation authorized now. |
+| D06 | P0 onboarding manual entry and review; CSV P1; freshness/degraded state from actual provider state. | Provider/CSV choices still require their phase decisions. |
+| D07 | INR default; persist theme/number format/timezone in user preferences and FIFO as portfolio cost-basis method; gate later settings; freeze base currency after first transaction unless proper historical revaluation exists; P0 privacy export/delete. | Other X03 ledger/cash/schema decisions remain pending. Timezone preference is approved; migration/storage field details must reconcile users.timezone with preferences in the authorized phase. |
+| D08 | Bounded numbered portfolio/ledger pagination; feed cursors for news/notifications/chat; stable deterministic sorting and capped page sizes. | Exact caps and indexes remain implementation details to verify. |
+| D09 | Market = general market news; Portfolio = actual instrument-symbol relevance; For You = deterministic portfolio relevance then publishedAt/id; no LLM ranking; search permitted headline/snippet content only. | Search index selection, detailed ranking weights and publisher permissions remain Phase 4 work; the earlier Mongo text-index proposal is not separately approved. |
+| D10 | P0 grounding exposes only existing valuation/holdings/instruments/permitted-news tools, with grounding/source/as-of information; historical/risk tools gated; write confirmation P1. | P1 confirmation-card design/behavior remains pending until Phase 8. |
+| D13 | Watchlist assigned P1; no Watchlist backend in P0. | Watchlist model/API/movers/notes and implementation phase within P1 remain pending. |
+| D14 | Derive tablet/mobile from existing Folio DS, document breakpoints and flag for design review; no separate visual system. | Actual breakpoints/layouts are not drawn or approved yet. |
+| D15 | Preserve Figma source palette; use stronger existing semantic text roles, icons/status labels where accessibility requires; no silent palette modification. | Actual component substitutions require measured contrast and logged review. |
+| X01 | Canonical semantic tokens; normalize literals corresponding to existing tokens; newer News 57:335 / Goals 57:511 / Alerts 57:592 provisional canonical roots, with provenance; no Figma modifications. | Unmatched geometry/type and derived Light reference details must remain documented and reviewed, not silently invented. |
+| X06 | Stream progress/tool activity; buffer financial answer content until grounding/validation completes; only validated financial numbers reach user. | Grounding implementation/fixtures occur in Phase 5; no model integration now. |
+| O01 | Approved in principle: Node 24 LTS, explicitly pinned package manager; TypeScript 6.0.3 unless full Phase 1 resolution demonstrates a compatible better choice; complete dependency graph re-resolved before lockfile commit. | Exact pnpm version and remaining library alternatives are not blanket-approved. No application dependency installation or lockfile yet. |
+
+Docker evidence: [docker-verification-2026-10-04.json](evidence/docker-verification-2026-10-04.json) contains the actual command and full successful output (exit 0): Docker 29.8.1, Compose v5.5.1, desktop-linux, server 29.8.1, Linux x86_64 on 6.6.87.2-microsoft-standard-WSL2. The inherited session PATH did not resolve docker; the installed absolute executable path was used without altering PATH. The initial sandbox named-pipe denial was resolved with an approved read-only escalation. No containers/images or dependencies were created/pulled.
 
 ## Required P0 design decisions
 
-Every row is a short pending ADR: observed node/spec conflict, options, proposed default and reason. D01–D15 preserve the numbering of §0A.7. Later-phase rows are recorded now but need not delay foundation except where marked.
+Every row preserves the original audit observation/options/proposal. D01–D15 retain §0A.7 numbering. The confirmation table above determines which scope is now binding; a proposal's additional details are not implicitly approved. D03/D04/D11/D12 and D10 write-action details remain pending for their specified phases.
 
 | ID / timing | Observation and options | Proposed default and reason |
 |---|---|---|
@@ -76,6 +99,8 @@ Node 24.19.0 satisfies the checked direct dependency engine floors. A concrete p
 
 ## Approval boundary
 
-Please decide D01, D02, D05–D10 (P0 portions), D13–D15 and X01/X06; confirm or revise the architecture/default package plan, and resolve O01 before Phase 1. X02–X05/X07–X09 require decisions before the affected P0 implementation, and O02–O06 before their integrations/deployments. D03/D04/D11/D12, D10 write cards, X10 and later Watchlist details can wait for their approved tiers.
+The required Phase 0 P0 design decisions and Watchlist tier are confirmed; O01 is approved in principle and the toolchain now executes. Phase 0 is ready for final approval. No additional later-phase decision is being requested now.
 
-“Approve Phase 0” authorizes progression only when its toolchain prerequisite and required decisions are resolved. This audit does not imply acceptance of every proposed default.
+Still pending: D03/D04/D11/D12, D10 write-action details, X02–X05/X07–X10, O02–O06, O01's exact package-manager/library pins and later implementation details excluded above. Existing partial overlaps (D07 currency locking, missing auth/onboarding under D05/D06, and X01 DS normalization) do not approve the remaining parts of another proposal. Resolve each before its specified affected phase. No production keys are requested now.
+
+STOP: only documentation/audit follow-up is authorized. Explicit final Phase 0 approval and explicit authorization to begin Phase 1 are still required; do not infer either from the listed decision approvals.

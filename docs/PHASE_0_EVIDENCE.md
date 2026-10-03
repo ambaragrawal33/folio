@@ -184,3 +184,42 @@ if(prohibited.length)throw Error("Unexpected implementation files: "+prohibited.
 const result={date:"2026-10-03",status:"PASS",jsonFilesParsed:jsonFiles.length,embeddedJsonParsed:embedded,markdownFilesChecked:mdFiles.length,brokenLocalLinks:broken,totals,pendingDecisionIds:decisionIds.length,prohibitedImplementationArtifacts:prohibited,limitations:"Documentation/source data checks only; no app tests, fidelity, gitleaks or deployment run."};
 fs.writeFileSync("docs/evidence/documentation-validation.json",JSON.stringify(result,null,2)+"\n");process.stdout.write(JSON.stringify(result,null,2));
 ```
+
+## Follow-up verification and approvals — 2026-10-04
+
+The initial 2026-10-03 report remains historical evidence. The missing-Docker prerequisite is now resolved. All operations below ran from C:\Users\ambar\OneDrive\Documents\ChatGPT\Folio.
+
+Executed command:
+
+```powershell
+$dockerAuditExe='C:\Program Files\Docker\Docker\resources\bin\docker.exe'; & $dockerAuditExe --version; & $dockerAuditExe compose version; & $dockerAuditExe context show; & $dockerAuditExe info
+```
+
+Successful approved read-only execution: **exit 0**. Actual output excerpts (full unedited stdout and command in [docker-verification-2026-10-04.json](evidence/docker-verification-2026-10-04.json)):
+
+```text
+Docker version 29.8.1, build 4a63305
+Docker Compose version v5.5.1
+desktop-linux
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 0
+ Server Version: 29.8.1
+ Kernel Version: 6.6.87.2-microsoft-standard-WSL2
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+```
+
+First attempt by command name failed because this session's inherited PATH did not resolve docker. Test-Path found the installed executable, and the machine PATH contains its directory. Absolute-path --version/compose/context succeeded in the sandbox; info failed with “permission denied while trying to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine”. The same read-only command was rerun with approved escalation and successfully reached the server. No persistent PATH/daemon configuration was altered.
+
+Also re-executed node --version / pnpm --version / git --version / corepack --version: v24.19.0 / 11.19.0 / 2.56.0.windows.1 / 0.35.0. No tool or application dependency was installed; no image/container pulled, built or started. Project Compose startup remains a Phase 1 gate because no project Compose file or app exists.
+
+The user's message explicitly confirms D01/D02/D05–D10 (P0 scope)/D13–D15/X01/X06; O01 is approved in principle for Node24LTS, pinned package manager, TS6.0.3 subject to better compatible Phase1 full resolution, and re-resolution before lockfile commit. [DECISIONS](DECISIONS.md) records exact scopes and excluded details. D03/D04/D11/D12, later write details, X02–X05/X07–X10, O02–O06 and remaining package/watchlist choices stay pending for their phases. No production keys requested.
+
+**Phase 0 is ready for approval. STOPPED; no Phase 1 authorization or implementation.** Docker/Figma/toolchain/required decision prerequisites are satisfied. Final Phase 0 approval and explicit Phase 1 authorization are the remaining progression gates.
+
+Follow-up documentation checks executed with an inline Node validator: PASS, 16 input JSON files / 63 embedded Figma payloads / 9 Markdown files / 49 local links; all 13 scoped confirmations plus O01 in principle present, later-decision boundaries preserved, Docker output/exit verified, no application artifacts. [Exact validation results](evidence/phase-0-followup-validation-2026-10-04.json). The result file adds one JSON file after this run. git diff --check returned exit 0 (only Windows line-ending warnings); no application tests or project Compose startup were run.

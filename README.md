@@ -6,13 +6,13 @@ The entire supplied master specification (1,141 lines) was read before the audit
 
 Start review with [PROGRESS](docs/PROGRESS.md), [DESIGN_HANDOFF](docs/DESIGN_HANDOFF.md), [pending decisions versus confirmed requirements](docs/DECISIONS.md), [architecture and phase milestones](docs/ARCHITECTURE.md), and [provider/dependency verification](docs/PROVIDER_AUDIT.md). [FRAME_INVENTORY](docs/FRAME_INVENTORY.md) lists every enumerated frame. [DEMO](docs/DEMO.md) is a future walkthrough and smoke plan.
 
-Docker/Compose is missing. Node 24.19.0 LTS, pnpm 11.19.0, Git 2.56.0.windows.1 and Corepack 0.35.0 execute. pnpm currently comes from Codex's runtime fallback, so Phase 1 must pin a portable project packageManager. Latest TypeScript 7.0.2 conflicts with the audited TypeScript ESLint peer range; 6.0.3 is the proposed compatible pin. No packages were installed.
+Docker 29.8.1, Compose v5.5.1 and the WSL2 Linux daemon were verified from this workspace on 2026-10-04; [actual command/output](docs/evidence/docker-verification-2026-10-04.json). Node 24.19.0 LTS, pnpm 11.19.0, Git 2.56.0.windows.1 and Corepack 0.35.0 execute. pnpm currently comes from Codex's runtime fallback; the user approved explicit package-manager pinning and full Phase 1 dependency resolution. TypeScript 6.0.3 is approved in principle unless that resolution demonstrates a better compatible choice. No packages were installed. Phase 0 is ready for approval; Phase 1 remains unauthorized.
 
 ## Running status
 
-There is no package.json, lockfile, app, Compose stack or CI workflow yet. Therefore no clean-clone run/build/test instructions can honestly be executed at this phase. After Phase 0 approval and toolchain completion, Phase 1 will supply the ≤10-minute clean-clone workflow, generated token sync and actual validation commands.
+There is no package.json, lockfile, app, project Compose stack or CI workflow yet. Therefore no clean-clone run/build/test instructions can honestly be executed at this phase. After final Phase 0 approval and explicit Phase 1 authorization, Phase 1 will supply the ≤10-minute clean-clone workflow, generated token sync and actual validation commands.
 
-Suggested Docker install (not executed): `winget install --exact --id Docker.DockerDesktop`. Launch Docker Desktop with WSL2 and verify `docker --version`, `docker compose version`, `docker info`. See [official Windows setup](https://docs.docker.com/desktop/setup/install/windows-install/) and the audit for prerequisites. Tool installation requires approval.
+Docker Desktop was installed and started by the user. This Codex session's inherited PATH did not resolve docker, so verification used `& 'C:\Program Files\Docker\Docker\resources\bin\docker.exe'` with --version / compose version / info. No reinstall or persistent PATH edit was needed.
 
 ## Planned environment matrix
 

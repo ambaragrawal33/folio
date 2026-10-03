@@ -1,6 +1,6 @@
 # Folio design handoff — Phase 0
 
-Audit date: **2026-10-03**. Actual connected Figma file key **0QNLyxaAB3EJUo4llSttjk** was read through MCP. Design is read-only; no Figma nodes/tokens were changed, no UI recreated, and no application code exists.
+Audit date: **2026-10-03**; decision status updated **2026-10-04**. Actual connected Figma file key **0QNLyxaAB3EJUo4llSttjk** was read through MCP. Design is read-only; no Figma nodes/tokens were changed, no UI recreated, and no application code exists. The user's approved Phase 0 scope is recorded in DECISIONS; later-phase details remain pending.
 
 ## Authority, evidence and connectivity
 
@@ -16,7 +16,7 @@ Cover [57:1334](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---desi
 
 ## Screen inventory and P0/P1/P2 verification
 
-Routes below are **suggestions**, not implemented routes. Page order matches §0A.6. P0 ships one default portfolio while schemas support many. An unavailable route/panel policy is still D01/D02 awaiting approval.
+Routes below are **suggestions**, not implemented routes. Page order matches §0A.6. P0 ships one default portfolio while schemas support many. D01/D02 now confirm unavailable release routes/panels without fake metrics; D13 assigns Watchlist P1. No routes have been implemented.
 
 | Page / page ID | Actual top root(s) | Suggested route | Tier |
 |---|---|---|---|
@@ -24,12 +24,12 @@ Routes below are **suggestions**, not implemented routes. Page order matches §0
 | 01 Design System / 1:2 | [2:4014](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=2%3A4014) — 1440×4923 | Dev component gallery (proposed) | Phase 1 foundation |
 | 02 Dashboard / 1:3 | [10:485](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=10%3A485) | /dashboard | P0; history P1, risk/attribution P2 |
 | 03 Holdings / 1:4 | [27:390](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=27%3A390) | /holdings | P0 |
-| 04 Asset Detail / 1:5 | [32:143](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=32%3A143) | /holdings/:instrumentId | P0; Watchlist pending |
+| 04 Asset Detail / 1:5 | [32:143](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=32%3A143) | /holdings/:instrumentId | P0; Watchlist action P1 |
 | 05 Performance / 1:6 | [39:2](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=39%3A2) | /performance | P1; alpha/volatility P2 |
 | 06 Risk & Analytics / 1:7 | [45:423](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=45%3A423) | /analytics | P2 |
 | 07 Transactions / 1:8 | [47:2](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=47%3A2) | /transactions | P0; portfolio CSV P1 |
 | 08 Tax / 1:9 | [50:2](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=50%3A2) | /tax | P2 |
-| 09 Watchlist / 1:10 | [53:2](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=53%3A2) | /watchlist | Unassigned; proposed P1 |
+| 09 Watchlist / 1:10 | [53:2](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=53%3A2) | /watchlist | P1 assigned; model/API pending |
 | 10 Settings / 1:11 | [54:50](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=54%3A50) | /settings | P0 subset; 2FA/sessions/alerts P1; digest P2 |
 | 11 Auth / 55:50 | [57:282](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=57%3A282) | /auth/login (extensions /register, /verify-email, /forgot-password, /reset-password, /session-expired, /demo) | P0; Google P2; TOTP P1 |
 | 12 Onboarding / 55:51 | [57:301](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=57%3A301) | /onboarding | P0 manual; CSV P1 |
@@ -68,7 +68,7 @@ Discrepancies: All Accounts lacks model; sort header says Descending; exposure i
 
 ### 04 Asset Detail
 
-Root(s): [32:143](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=32%3A143). Route: `/holdings/:instrumentId`. Tier: **P0; Watchlist pending**.
+Root(s): [32:143](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=32%3A143). Route: `/holdings/:instrumentId`. Tier: **P0; Watchlist action P1**.
 
 Observed reusable instances: Folio/Navigation item; Folio/Select; Folio/Search input; Folio/Button/Icon-only; Folio/Button/Tertiary; Breadcrumb; Folio/Financial delta; Folio/Button/Secondary; Folio/Button/Primary; Folio/Tab.
 
@@ -138,7 +138,7 @@ Discrepancies: Prototype rule/date samples inconsistent; literal fonts/colors ex
 
 ### 09 Watchlist
 
-Root(s): [53:2](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=53%3A2). Route: `/watchlist`. Tier: **Unassigned; proposed P1**.
+Root(s): [53:2](https://www.figma.com/design/0QNLyxaAB3EJUo4llSttjk/Folio---design?node-id=53%3A2). Route: `/watchlist`. Tier: **P1 assigned by user; model/API pending**.
 
 Observed reusable instances: Folio/Navigation item; Folio/Select; Folio/Search input; Folio/Button/Icon-only; Folio/Button/Tertiary.
 
@@ -362,7 +362,7 @@ Examples: DS selected navigation 2:4528 / Dashboard I10:400;2:4528, search 7:92,
 
 ## Discrepancy register
 
-[DECISIONS.md](DECISIONS.md) verifies **all fifteen §0A.7 items D01–D15** against actual nodes and gives options/defaults/timing. Additional X01–X10 capture DS bindings/duplicate references, trading and wrong financial labels, ledger/schema gaps, missing-data/day-change/FX semantics, provider history/freshness, grounding-vs-streaming, missing workflows, unsupported search/account filters, benchmark/tier conflicts and P1 metals/CSV semantics. None has been silently accepted.
+[DECISIONS.md](DECISIONS.md) verifies **all fifteen §0A.7 items D01–D15** against actual nodes and gives options/defaults/timing. Additional X01–X10 capture DS bindings/duplicate references, trading and wrong financial labels, ledger/schema gaps, missing-data/day-change/FX semantics, provider history/freshness, grounding-vs-streaming, missing workflows, unsupported search/account filters, benchmark/tier conflicts and P1 metals/CSV semantics. On 2026-10-04 the user confirmed D01/D02/D05–D10 P0 scope/D13–D15/X01/X06 and O01 in principle; only that explicit scope is approved. Other details remain pending. No Figma or application changes followed those approvals.
 
 ## Not in Figma — added
 
