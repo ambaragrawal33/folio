@@ -1,0 +1,14 @@
+packages:
+  - apps/*
+  - packages/*
+engineStrict: true
+strictPeerDependencies: true
+autoInstallPeers: true
+storeDir: .pnpm-store
+allowBuilds:
+  '@scarf/scarf': false
+  esbuild: true
+  rolldown: true
+minimumReleaseAgeExclude:
+  - eslint@10.12.0
+  - mongoose@9.10.4

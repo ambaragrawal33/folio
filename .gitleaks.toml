@@ -1,0 +1,14 @@
+title = "Folio secret scanning"
+[extend]
+useDefault = true
+[[allowlists]]
+description = "Dependency caches, build output, ephemeral tests, and isolated clean-clone validation"
+paths = [
+ '''(^|/)(node_modules|\.pnpm-store|coverage|dist|test-results|playwright-report|\.local|\.figma-cache)(/|$)'''
+]
+[[allowlists]]
+description = "Exact Figma design file identifier, not an authentication credential"
+condition = "AND"
+regexTarget = "secret"
+regexes = ['''^0QNLyxaAB3EJUo4llSttjk$''']
+paths = ['''(^|/)packages/design-tokens/(source/figma|generated/manifest)\.json$''']

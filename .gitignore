@@ -30,3 +30,5 @@ Thumbs.db
 # Local review and temporary artifacts
 *.tmp
 *.bak
+.figma-cache/
+.local/

@@ -1,0 +1,13 @@
+.git
+node_modules
+**/node_modules
+.pnpm-store
+**/dist
+**/coverage
+.env
+.env.*
+.local
+.figma-cache
+test-results
+playwright-report
+docs/evidence

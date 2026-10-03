@@ -1,0 +1,15 @@
+pnpm-lock.yaml
+.pnpm-store/
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+packages/design-tokens/source/
+packages/design-tokens/generated/
+docs/evidence/
+apps/web/public/figma/
+docs/FRAME_INVENTORY.md
+docs/PHASE_0_EVIDENCE.md
+docs/PROVIDER_AUDIT.md
+docs/dependency-audit.json
