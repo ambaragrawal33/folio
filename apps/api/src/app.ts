@@ -9,8 +9,14 @@ import { HealthResponse, ReadyResponse, ErrorEnvelope } from '@folio/shared';
 import type { Logger } from 'pino';
 import type { Env } from './config/env.ts';
 import type { Dependencies } from './services/infrastructure.ts';
-import { errorHandler } from './middleware/errors.ts';
-export function createApp(env: Env, dependencies: Dependencies, logger: Logger) {
+import { createErrorHandler } from './middleware/errors.ts';
+import type { ErrorReporter } from './middleware/errors.ts';
+export function createApp(
+  env: Env,
+  dependencies: Dependencies,
+  logger: Logger,
+  reportError?: ErrorReporter,
+) {
   const app = express();
   app.disable('x-powered-by');
   app.use(
@@ -71,6 +77,6 @@ export function createApp(env: Env, dependencies: Dependencies, logger: Logger) 
       }),
     ),
   );
-  app.use(errorHandler);
+  app.use(createErrorHandler(reportError));
   return app;
 }

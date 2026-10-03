@@ -1,10 +1,14 @@
 import { describe, it, expect, vi } from 'vitest';
 import request from 'supertest';
+import express from 'express';
+import { randomUUID } from 'node:crypto';
 import { Writable } from 'node:stream';
 import { createApp } from '../src/app';
 import { parseEnv } from '../src/config/env';
 import { createLogger } from '../src/config/logger';
 import { ErrorEnvelope } from '@folio/shared';
+import { createErrorHandler } from '../src/middleware/errors';
+import type { ErrorReporter } from '../src/middleware/errors';
 const config = {
   MONGODB_URI: 'mongodb://127.0.0.1/folio',
   REDIS_URL: 'redis://127.0.0.1',
@@ -27,6 +31,34 @@ function fixture(probe = vi.fn().mockResolvedValue({ mongo: true, redis: true })
   };
 }
 describe('API foundation', () => {
+  it('reports allowlisted error metadata and preserves safe responses when the reporter fails', async () => {
+    for (const reporterFails of [false, true]) {
+      const reporter = vi.fn<ErrorReporter>(() => {
+        if (reporterFails) throw new Error('PRIVATE_VALUE');
+      });
+      const app = express();
+      app.use((req, _res, next) => {
+        req.id = randomUUID();
+        req.log = createLogger('silent');
+        next();
+      });
+      app.get('/failure', () => {
+        throw new Error('database-uri=PRIVATE_VALUE');
+      });
+      app.use(createErrorHandler(reporter));
+      const response = await request(app).get('/failure?token=PRIVATE_VALUE');
+      expect(response.status).toBe(500);
+      expect(ErrorEnvelope.safeParse(response.body).success).toBe(true);
+      expect(JSON.stringify(response.body)).not.toContain('PRIVATE_VALUE');
+      const event = reporter.mock.calls[0]?.[0];
+      expect(event).toEqual({
+        code: 'INTERNAL_ERROR',
+        requestId: response.body.error.requestId,
+        status: 500,
+      });
+      expect(Object.isFrozen(event)).toBe(true);
+    }
+  });
   it('validates environment names without exposing values', () => {
     expect(parseEnv(config).PORT).toBe(3000);
     expect(() => parseEnv({ ...config, PORT: '0' })).toThrow('PORT');
