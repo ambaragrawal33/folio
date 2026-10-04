@@ -1,0 +1,12 @@
+fx-latest HTTP 200 [{"date":"2026-10-02","base":"USD","quote":"INR","rate":96.32}]
+fx-weekend HTTP 200 [{"date":"2024-01-05","base":"USD","quote":"INR","rate":83.15}]
+fx-range HTTP 200 [{"date":"2023-12-29","base":"USD","quote":"INR","rate":83.17},{"date":"2024-01-02","base":"USD","quote":"INR","rate":83.32},{"date":"2024-01-03","base":"USD","quote":"IN
+yahoo-tcs HTTP 200 {"chart":{"result":[{"meta":{"currency":"INR","symbol":"TCS.NS","exchangeName":"NSI","fullExchangeName":"NSE","instrumentType":"EQUITY","firstTradeDate":1029123900,"regul
+yahoo-bse HTTP 200 {"chart":{"result":[{"meta":{"currency":"INR","symbol":"RELIANCE.BO","exchangeName":"BSE","fullExchangeName":"BSE","instrumentType":"EQUITY","firstTradeDate":1784259900,"
+yahoo-aapl-split HTTP 200 {"chart":{"result":[{"meta":{"currency":"USD","symbol":"AAPL","exchangeName":"NMS","fullExchangeName":"NasdaqGS","instrumentType":"EQUITY","firstTradeDate":345479400,"reg
+crypto-keyless HTTP 200 {"bitcoin":{"usd":85258.31964538063,"usd_24h_change":0.489830913580086,"last_updated_at":1791117180}}
+crypto-old-keyless HTTP 401 {"error":{"status":{"timestamp":"2026-10-04T12:34:47.642+00:00","error_code":10012,"error_message":"Your request exceeds the allowed time range. Public API users are limi
+decimal.js/10.6.0 HTTP 200 {"version":"10.6.0"}
+lossless-json/4.3.1 HTTP 200 {"version":"4.3.1"}
+fast-check/4.10.2 HTTP 200 {"version":"4.10.2","engines":{"node":">=12.17.0"}}
+yahoo-finance2/4.0.2 HTTP 200 {"version":"4.0.2","engines":{"node":">=22.0.0"}}

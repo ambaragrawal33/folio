@@ -1,0 +1,146 @@
+{
+  "checkedAt": "2026-10-04T12:34:49.347Z",
+  "command": "node .local/phase-3-provider-inspection.mjs",
+  "keyRead": false,
+  "credentialsUsed": false,
+  "probes": [
+    {
+      "name": "fx-latest",
+      "url": "https://api.frankfurter.dev/v2/rates?base=USD&quotes=INR&providers=ecb",
+      "started": "2026-10-04T12:34:44.930Z",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "responseFile": "docs/evidence/phase-3/fx-latest.txt",
+      "characters": 63
+    },
+    {
+      "name": "fx-weekend",
+      "url": "https://api.frankfurter.dev/v2/rates?base=USD&quotes=INR&providers=ecb&date=2024-01-06",
+      "started": "2026-10-04T12:34:45.868Z",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "responseFile": "docs/evidence/phase-3/fx-weekend.txt",
+      "characters": 63
+    },
+    {
+      "name": "fx-range",
+      "url": "https://api.frankfurter.dev/v2/rates?base=USD&quotes=INR&providers=ecb&from=2024-01-01&to=2024-01-07",
+      "started": "2026-10-04T12:34:46.223Z",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "responseFile": "docs/evidence/phase-3/fx-range.txt",
+      "characters": 311
+    },
+    {
+      "name": "yahoo-tcs",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/TCS.NS?interval=1d&range=5d",
+      "started": "2026-10-04T12:34:46.588Z",
+      "status": 200,
+      "contentType": "application/json;charset=utf-8",
+      "responseFile": "docs/evidence/phase-3/yahoo-tcs.txt",
+      "characters": 1598
+    },
+    {
+      "name": "yahoo-bse",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/RELIANCE.BO?interval=1d&range=5d",
+      "started": "2026-10-04T12:34:46.883Z",
+      "status": 200,
+      "contentType": "application/json;charset=utf-8",
+      "responseFile": "docs/evidence/phase-3/yahoo-bse.txt",
+      "characters": 1254
+    },
+    {
+      "name": "yahoo-aapl-split",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?interval=1d&period1=1598486400&period2=1599004800&events=div%2Csplits&includeAdjustedClose=true",
+      "started": "2026-10-04T12:34:47.015Z",
+      "status": 200,
+      "contentType": "application/json;charset=utf-8",
+      "responseFile": "docs/evidence/phase-3/yahoo-aapl-split.txt",
+      "characters": 1726
+    },
+    {
+      "name": "crypto-keyless",
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_last_updated_at=true&include_24hr_change=true&precision=full",
+      "started": "2026-10-04T12:34:47.176Z",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "responseFile": "docs/evidence/phase-3/crypto-keyless.txt",
+      "characters": 101
+    },
+    {
+      "name": "crypto-old-keyless",
+      "url": "https://api.coingecko.com/api/v3/coins/bitcoin/history?date=01-01-2024&localization=false",
+      "started": "2026-10-04T12:34:47.532Z",
+      "status": 401,
+      "contentType": "application/json; charset=utf-8",
+      "responseFile": "docs/evidence/phase-3/crypto-old-keyless.txt",
+      "characters": 335
+    }
+  ],
+  "registryMetadata": [
+    {
+      "url": "https://registry.npmjs.org/decimal.js/10.6.0",
+      "status": 200,
+      "name": "decimal.js",
+      "version": "10.6.0",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/MikeMcl/decimal.js.git",
+        "type": "git"
+      }
+    },
+    {
+      "url": "https://registry.npmjs.org/lossless-json/4.3.1",
+      "status": 200,
+      "name": "lossless-json",
+      "version": "4.3.1",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/josdejong/lossless-json.git",
+        "type": "git"
+      }
+    },
+    {
+      "url": "https://registry.npmjs.org/fast-check/4.10.2",
+      "status": 200,
+      "name": "fast-check",
+      "version": "4.10.2",
+      "engines": {
+        "node": ">=12.17.0"
+      },
+      "dependencies": {
+        "pure-rand": "^8.0.0"
+      },
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/dubzzz/fast-check.git",
+        "type": "git",
+        "directory": "packages/fast-check"
+      }
+    },
+    {
+      "url": "https://registry.npmjs.org/yahoo-finance2/4.0.2",
+      "status": 200,
+      "name": "yahoo-finance2",
+      "version": "4.0.2",
+      "engines": {
+        "node": ">=22.0.0"
+      },
+      "dependencies": {
+        "zod": "npm:zod@^4.4.3",
+        "json-schema": "^0.4.0",
+        "tough-cookie": "npm:tough-cookie@^6.0.2",
+        "@deno/shim-deno": "~0.18.0",
+        "fetch-mock-cache": "npm:fetch-mock-cache@^3.1.0",
+        "tough-cookie-file-store": "npm:tough-cookie-file-store@^3.3.0",
+        "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^1.30.0"
+      },
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/gadicc/yahoo-finance2.git",
+        "type": "git"
+      }
+    }
+  ],
+  "note": "Diagnostic transport evidence only. Bodies preserve upstream numeric tokens as text; no financial calculations or integration use."
+}

@@ -1,0 +1,1 @@
+[{"date":"2023-12-29","base":"USD","quote":"INR","rate":83.17},{"date":"2024-01-02","base":"USD","quote":"INR","rate":83.32},{"date":"2024-01-03","base":"USD","quote":"INR","rate":83.31},{"date":"2024-01-04","base":"USD","quote":"INR","rate":83.24},{"date":"2024-01-05","base":"USD","quote":"INR","rate":83.15}]

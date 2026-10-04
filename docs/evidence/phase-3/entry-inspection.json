@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-04T12:44:12.5785800Z",
+  "masterPath": "C:/Users/ambar/Downloads/FOLIO_GREENFIELD_PROMPT_v3 (1).md",
+  "masterSha256": "013D9D29CF954D1BBC97665E762005287CDF70C2D29AA54B5FB798435D67C809",
+  "masterLines": 1141,
+  "startHead": "5ad2baa58c261781e94f8f13353185f6bd7fd7c6",
+  "approvedImplementation": "32ded912df0cac3407ee11f202d163e9686afa64",
+  "phase3Branch": "codex/phase-3-domain",
+  "remote": "https://github.com/ambaragrawal33/folio.git",
+  "mainHead": "18223b68caf90235b59fabbfb3924140580d79b6",
+  "baselineCheckExitCode": 0,
+  "baselineE2EExitCode": 0,
+  "dependencyVerificationExitCode": 0,
+  "advisoryAuditExitCode": 0,
+  "applicationChanges": null,
+  "restoredE2EReviewCaptures": [
+    "settings-dark-1440.png",
+    "settings-light-1440.png",
+    "settings-mobile-light-390.png"
+  ]
+}

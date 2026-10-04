@@ -1,5 +1,13 @@
 # Folio design handoff
 
+## Phase 3 read-only source inspection — 2026-10-04
+
+Phase3 is explicitly authorized; Phase1/2 reviews and approved foundation/captures remain CLOSED/unchanged. Connected MCP get_design_context re-read **Dashboard10:485, Holdings27:390, AssetDetail32:143, Transactions47:2, Onboarding57:301 and Settings54:50** with figma-design-to-code guidance. All six returned non-sparse structured code/styles/geometry/assets and screenshots; every screenshot was viewed. [Actual full text/context records](evidence/phase-3/figma-contexts.json) retain provenance. No write tool or Figma mutation, no frontend implementation/fidelity pass yet.
+
+The live sources confirm trade/custody/account/settlement labels, conflicting units/currency/weight/average cost, mixed daily-period values, and absent manual add/void/review/partial/error states. **X02–X05 and Phase3 X07–X09 remain pending** with concrete choices in [PHASE_3_PLAN.md](PHASE_3_PLAN.md). Do not turn source sample numbers into financial data or pending proposals into approved design changes. New Phase3 states will compose existing DS controls/tokens; no typography/palette/shell/mobile-menu reinterpretation. Settings extensions affect actual portfolio defaults/currency lock only; preserve accepted account/profile geometry and deviations. Source settings default is FIFO; existing user contract is INR, and any broader currency contract needs its explicit scope decision.
+
+Dark product sources above are genuine Figma references. New Light/tablet/mobile compositions remain **derived implementations**, never Figma-approved. The previously approved derived foundation is binding, but new Phase3 product compositions still require their own visual review. Historical not-started/unauthorized/review-pending statements below describe earlier boundaries and are superseded only for current authorization and the already-closed Phase1/2 reviews.
+
 ## Current approval and Phase 2 inspection — 2026-10-04
 
 Phase 1 final design review is CLOSED / APPROVED by the user: A–I/L, derived Light/mobile, both mobile menu states and behavior. Preserve the approved foundation without reinterpretation. Historical Phase 0/1 audit and review statements below are retained as dated provenance and are superseded by this approval.

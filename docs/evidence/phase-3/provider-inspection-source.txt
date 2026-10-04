@@ -1,0 +1,41 @@
+import { mkdir, writeFile } from 'node:fs/promises';
+const output = 'docs/evidence/phase-3';
+await mkdir(output, { recursive: true });
+const requests = [
+  ['fx-latest', 'https://api.frankfurter.dev/v2/rates?base=USD&quotes=INR&providers=ecb'],
+  ['fx-weekend', 'https://api.frankfurter.dev/v2/rates?base=USD&quotes=INR&providers=ecb&date=2024-01-06'],
+  ['fx-range', 'https://api.frankfurter.dev/v2/rates?base=USD&quotes=INR&providers=ecb&from=2024-01-01&to=2024-01-07'],
+  ['yahoo-tcs', 'https://query1.finance.yahoo.com/v8/finance/chart/TCS.NS?interval=1d&range=5d'],
+  ['yahoo-bse', 'https://query1.finance.yahoo.com/v8/finance/chart/RELIANCE.BO?interval=1d&range=5d'],
+  ['yahoo-aapl-split', 'https://query1.finance.yahoo.com/v8/finance/chart/AAPL?interval=1d&period1=1598486400&period2=1599004800&events=div%2Csplits&includeAdjustedClose=true'],
+  ['crypto-keyless', 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_last_updated_at=true&include_24hr_change=true&precision=full'],
+  ['crypto-old-keyless', 'https://api.coingecko.com/api/v3/coins/bitcoin/history?date=01-01-2024&localization=false'],
+];
+const evidence = [];
+for (const [name, url] of requests) {
+  const started = new Date().toISOString();
+  try {
+    const response = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 Folio-phase-3-read-only-audit' }, signal: AbortSignal.timeout(15000) });
+    const body = await response.text();
+    if (body.length > 500000) throw new Error('Audit response too large');
+    const file = output + '/' + name + '.txt';
+    await writeFile(file, body);
+    evidence.push({ name, url, started, status: response.status, contentType: response.headers.get('content-type'), responseFile: file, characters: body.length });
+    console.log(name + ' HTTP ' + response.status + ' ' + body.slice(0, 170));
+  } catch (error) {
+    evidence.push({ name, url, started, error: error.message });
+    console.log(name + ' FAILED ' + error.message);
+  }
+}
+const packages = ['decimal.js/10.6.0', 'lossless-json/4.3.1', 'fast-check/4.10.2', 'yahoo-finance2/4.0.2'];
+const metadata = [];
+for (const spec of packages) {
+  const url = 'https://registry.npmjs.org/' + spec;
+  try {
+    const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
+    const body = await response.json();
+    metadata.push({ url, status: response.status, name: body.name, version: body.version, engines: body.engines, peerDependencies: body.peerDependencies, dependencies: body.dependencies, license: body.license, repository: body.repository });
+    console.log(spec + ' HTTP ' + response.status + ' ' + JSON.stringify({ version: body.version, engines: body.engines, peers: body.peerDependencies }));
+  } catch (error) { metadata.push({ url, error: error.message }); }
+}
+await writeFile(output + '/provider-inspection.json', JSON.stringify({ checkedAt: new Date().toISOString(), command: 'node .local/phase-3-provider-inspection.mjs', keyRead: false, credentialsUsed: false, probes: evidence, registryMetadata: metadata, note: 'Diagnostic transport evidence only. Bodies preserve upstream numeric tokens as text; no financial calculations or integration use.' }, null, 2) + '\n');

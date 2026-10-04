@@ -1,0 +1,6 @@
+{
+  "node": "v24.19.0",
+  "packages": 459,
+  "peerEdges": 73,
+  "failures": []
+}

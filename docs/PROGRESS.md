@@ -1,6 +1,14 @@
 # Folio progress
 
-Updated **2026-10-04**. **Phase 2 — Auth/account engineering and visual review are CLOSED / APPROVED by the user**, including the correction pass at **32ded912df0cac3407ee11f202d163e9686afa64** on **codex/phase-2-auth**. Its hosted run [37200343393](https://github.com/ambaragrawal33/folio/actions/runs/37200343393) succeeded in both jobs. Light/mobile are **APPROVED DERIVED IMPLEMENTATIONS**, never Figma-approved. Phase 1 foundation/design decisions/regression baselines and Figma remain unchanged. Main stays **18223b68caf90235b59fabbfb3924140580d79b6**; no merge or force-push. **Phase 3 is NOT STARTED and requires separate explicit authorization.** Earlier verification and review stages below remain historical evidence.
+Updated **2026-10-04**. **Phase 1/2 remain CLOSED / APPROVED. Phase 3 — Domain + first deploy is explicitly AUTHORIZED and OPEN.** Initial repository/specification/document/code inspection, read-only live Figma reinspection, provider probes and unchanged-foundation regression checks are complete on **codex/phase-3-domain**, based on Phase 2 closure **5ad2baa58c261781e94f8f13353185f6bd7fd7c6** (approved implementation **32ded912df0cac3407ee11f202d163e9686afa64**). Main stays **18223b68caf90235b59fabbfb3924140580d79b6**. **No Phase 3 application code yet; awaiting required financial/provider/demo decisions before affected implementation.** Light/mobile remain approved derived implementations, never Figma-approved. Figma, approved foundation and all accepted captures/baselines remain unchanged. Earlier phase authorization/review statements below are historical and superseded by the latest explicit authorization.
+
+## Phase 3 entry inspection and required decision stop
+
+[Implementation plan](PHASE_3_PLAN.md) follows instrument master/search → Decimal ledger/projection → providers/FX/calendars → valuation/owned API → Dashboard/Holdings/Detail/Transactions/manual Onboarding/portfolio defaults → isolated real-domain demo → deploy configuration and actual gated publication → financial/security/UI verification. [Actual entry evidence](PHASE_3_EVIDENCE.md) records source hash, Git/remote state, six live MCP source contexts/screenshots, eight market/FX probes, registry candidate metadata and command output.
+
+Actual unchanged entry gates: pnpm check passed58 tests/6 suites,93.94% overall lines (667/710),92.68% statements,92.07% functions,89.10% branches; lint/format/strict typecheck/build/token freshness passed. Real-service Chromium E2E6/6 passed in51.4s, including immutable Phase 1 captures and axe checks. Compose API/web/Mongo/Redis healthy; MailHog running; Mongo8.2.12 writable rs0 primary; Redis concurrency/TTL, actual auth CSRF/ownership/OpenAPI and SMTP/proxy smokes passed.459 packages/73 peer edges/no failures; audit no known vulnerabilities. **Financial core absent:90% gate NOT MEASURED, not passed.** No new domain/API/IDOR fixture is claimed.
+
+X02–X05, Phase3 portions of X07–X09, O03 provider/use/coverage and O06 demo isolation remain **PENDING**. Concrete proposals and alternatives are reviewable in the plan; none is silently approved. Financial accounting/valuation rules materially block the initial engine, so STOP for those specific choices after independent inspection/verification. O02hosting/O04production mail/O06scheduler+backups remain separate live-deployment gates and need not block subsequent independently authorized domain implementation. No public deployment/credentials/dependency install/Phase 4 work.
 
 ## Phase 1
 
@@ -29,19 +37,19 @@ Later decisions remain pending: D03/D04/D11/D12, D10 write details, X02–X05/X0
 
 ## Phase milestones
 
-| Phase                                   | Status                                                                                        |
-| --------------------------------------- | --------------------------------------------------------------------------------------------- |
-| 0 Audit                                 | APPROVED by user 2026-10-04; retained dated [evidence](PHASE_0_EVIDENCE.md)                   |
-| 1 Foundation                            | COMPLETE; hosted CI green; design review CLOSED / APPROVED                                    |
-| 2 Auth                                  | CLOSED / APPROVED — engineering and corrected visual review; Light/mobile approved as derived |
-| 3 Domain + first deploy                 | NOT STARTED                                                                                   |
-| 4 News                                  | NOT STARTED                                                                                   |
-| 5 AI / P0 complete deploy               | NOT STARTED                                                                                   |
-| 6 Analytics / P1                        | NOT STARTED                                                                                   |
-| 7 Goals/CSV/alerts/multiportfolio       | NOT STARTED                                                                                   |
-| 8 Sentiment/write-confirm/MF/metals/2FA | NOT STARTED                                                                                   |
-| 9 Release                               | NOT STARTED                                                                                   |
-| P2                                      | NOT AUTHORIZED                                                                                |
+| Phase                                   | Status                                                                                           |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| 0 Audit                                 | APPROVED by user 2026-10-04; retained dated [evidence](PHASE_0_EVIDENCE.md)                      |
+| 1 Foundation                            | COMPLETE; hosted CI green; design review CLOSED / APPROVED                                       |
+| 2 Auth                                  | CLOSED / APPROVED — engineering and corrected visual review; Light/mobile approved as derived    |
+| 3 Domain + first deploy                 | AUTHORIZED / OPEN — inspection and plan complete; required decisions pending; no domain code yet |
+| 4 News                                  | NOT STARTED                                                                                      |
+| 5 AI / P0 complete deploy               | NOT STARTED                                                                                      |
+| 6 Analytics / P1                        | NOT STARTED                                                                                      |
+| 7 Goals/CSV/alerts/multiportfolio       | NOT STARTED                                                                                      |
+| 8 Sentiment/write-confirm/MF/metals/2FA | NOT STARTED                                                                                      |
+| 9 Release                               | NOT STARTED                                                                                      |
+| P2                                      | NOT AUTHORIZED                                                                                   |
 
 Deliberately absent: ledger/models/seeds/transactions, financial engines/provider integrations, news, AI/chat/tools/streaming, Watchlist or other P1/P2 product features, production email, production secrets and public deployment.
 
