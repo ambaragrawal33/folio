@@ -1,6 +1,6 @@
 # Folio decisions — updated 2026-10-04
 
-Status: **Phase 1 complete; canonical GitHub cutover and green hosted CI verified. Final user design review CLOSED / APPROVED. Phase 2 implemented and locally verified on codex/phase-2-auth; final hosted evidence recorded at the boundary.** Earlier dated audit statements below describe their historical phase boundaries; the latest user approvals recorded here supersede them. The approved D/X/O scope remains binding.
+Status: **Phase 1 complete; canonical GitHub cutover and green hosted CI verified. Final user design review CLOSED / APPROVED. Phase 2 COMPLETE on codex/phase-2-auth; local verification and hosted run 37189352294 succeeded. Main remains Phase 1 and Phase 3 is unauthorized.** Earlier dated audit statements below describe their historical phase boundaries; the latest user approvals recorded here supersede them. The approved D/X/O scope remains binding.
 
 ## Phase 1 final approvals and Phase 2 authorization — 2026-10-04
 

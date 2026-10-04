@@ -62,7 +62,9 @@ In PowerShell use `$env:FOLIO_E2E_STACK='1'; pnpm test:e2e`. Browser tests requi
 
 pnpm check enforces lint, token freshness, formatting, strict typecheck, coverage and builds. Overall coverage thresholds are 70% for lines/functions/statements/branches. The financial-core 90% line gate reports no implemented financial core in this phase.
 
-Phase 1's user-approved gallery/shell/mobile captures are immutable regression baselines; browser comparisons allow at most 0.5% differing pixels for platform rendering. New Phase 2 captures are review evidence, not user-approved baselines. Light/mobile remain derived implementations, not Figma-approved. Both-theme axe/token/geometry/font checks and keyboard/mobile flows run alongside real auth E2E.
+Phase 1's user-approved gallery/shell/mobile captures are immutable regression baselines; comparisons retain the 0.5% tolerance and run on Windows, their capture platform. CI uses Windows 2025 for foundation visual/geometry/token/keyboard/axe checks and Ubuntu 24.04 for real-service auth E2E and quality/security gates. New Phase 2 captures are review evidence, not user-approved baselines. Light/mobile remain derived implementations, not Figma-approved.
+
+`node scripts/auth-route-alias-smoke.mjs` verifies actual API/Redis IP/account counters across Express route casing/trailing-slash aliases. Run once per minute with spare IP allowance against the running local stack; the check uses a unique absent test email and creates no account. Rate limits also persist across API restarts.
 
 ## Boundaries and auth security
 

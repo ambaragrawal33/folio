@@ -1,0 +1,2 @@
+{"ipRemainingBefore":19,"ipRemainingAfter":18,"accountAttempts":10,"nextAliasStatus":429}
+Actual Docker API + Redis route-alias IP/account limits: PASS

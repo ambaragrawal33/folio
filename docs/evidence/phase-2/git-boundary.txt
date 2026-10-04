@@ -1,3 +1,21 @@
-warning: in the working copy of 'docs/PROVIDER_AUDIT.md', CRLF will be replaced by LF the next time Git touches it
-git diff --check exit=0
-Approved Phase 1 captures changed: 0
+Observed before the final documentation/evidence commit, 2026-10-04:
+git branch --show-current
+codex/phase-2-auth
+
+git rev-parse HEAD
+e5bf543aeef4d48e0d7784421ee5f9aad5669c28
+
+git rev-parse main origin/main
+18223b68caf90235b59fabbfb3924140580d79b6
+18223b68caf90235b59fabbfb3924140580d79b6
+
+git diff --check
+exit=0; no output
+
+git diff --numstat main -- docs/evidence/phase-1 packages/design-tokens/generated/tokens.css packages/design-tokens/generated/components.css apps/web/src/styles.css packages/design-tokens/source/geometry.json
+exit=0; no output. Approved Phase 1 captures, tokens, component foundation and shell styling/geometry unchanged.
+
+Normal pushes of 1367926, 4bff219 and e5bf543 succeeded on origin/codex/phase-2-auth.
+No merge, force-push or main rewrite occurred.
+The final documentation/evidence commit follows these verified source commits.
+Its exact head, successful push and clean working tree are verified after commit and reported in the completion response.

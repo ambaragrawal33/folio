@@ -1,0 +1,2 @@
+{"beforeRemaining":19,"afterRemaining":18,"apiRestarted":true,"persistentRedisLimit":true}
+API restart cannot reset the real Redis limiter: PASS

@@ -1,6 +1,6 @@
 # Folio progress
 
-Updated **2026-10-04**. Phase 1 is complete at 18223b68caf90235b59fabbfb3924140580d79b6. The canonical GitHub cutover is complete, its Foundation checks run 37178104505 succeeded, and the user closed the full Phase 1 design review, including both mobile navigation states. **Phase 2 — Auth is implemented and locally verified on codex/phase-2-auth. Commit/push/hosted evidence will be recorded at the boundary. Phase 3 remains unauthorized.**
+Updated **2026-10-04**. Phase 1 is complete at 18223b68caf90235b59fabbfb3924140580d79b6. The canonical GitHub cutover is complete, its Foundation checks run 37178104505 succeeded, and the user closed the full Phase 1 design review, including both mobile navigation states. **Phase 2 — Auth is COMPLETE on codex/phase-2-auth, committed and normally pushed. Implementation 13679261e550a92abd5f101a34212892da2b0963 plus verified CI/security refinements through e5bf543aeef4d48e0d7784421ee5f9aad5669c28 passed local gates and hosted run 37189352294 in both jobs. Main remains Phase 1. Phase 3 remains unauthorized.**
 
 ## Phase 1
 
@@ -33,7 +33,7 @@ Later decisions remain pending: D03/D04/D11/D12, D10 write details, X02–X05/X0
 | --------------------------------------- | --------------------------------------------------------------------------- |
 | 0 Audit                                 | APPROVED by user 2026-10-04; retained dated [evidence](PHASE_0_EVIDENCE.md) |
 | 1 Foundation                            | COMPLETE; hosted CI green; design review CLOSED / APPROVED                  |
-| 2 Auth                                  | IMPLEMENTED; local gates verified; hosted boundary pending                  |
+| 2 Auth                                  | COMPLETE; committed/pushed branch; local gates and both hosted jobs green   |
 | 3 Domain + first deploy                 | NOT STARTED                                                                 |
 | 4 News                                  | NOT STARTED                                                                 |
 | 5 AI / P0 complete deploy               | NOT STARTED                                                                 |
@@ -49,7 +49,7 @@ Deliberately absent: ledger/models/seeds/transactions, financial engines/provide
 
 Implemented P0 register/verify/resend/login/refresh rotation + replay-family revocation/logout/forgot/reset/change-password; strict shared contracts and 13 OpenAPI operations; Argon2id users, hashed single-use action/refresh tokens and durable audit logs; exact Origin/custom-header CSRF, Redis limits/progressive lockout; protected UI/session restoration; real MailHog verification/reset; persisted name/theme/number format/IANA timezone; JSON/CSV privacy export and password+DELETE cascade. Google, TOTP/session management and full portfolio settings remain gated. No production credential/provider/deployment configured.
 
-Local evidence: 56 tests in six suites, 93.65% lines / 92.41% statements / 92.07% functions / 88.51% branches; all >=70% gates pass. Strict typecheck/lint/format/build/token checks pass. Six Chromium E2E tests verify actual MailHog links, sessions/preferences after reload, both exports, deletion, reset/change/logout, source geometry, both-theme axe and immutable Phase 1 gallery/shell/mobile captures. Figma source contexts were read-only; approved foundation tokens/styles/captures remain unchanged. New auth/account states and all Light/mobile layouts are derived/provisional for review.
+Local evidence: 57 tests in six suites, 93.94% lines / 92.68% statements / 92.07% functions / 88.85% branches; all >=70% gates pass. Strict typecheck/lint/format/build/token checks pass. Six Chromium E2E tests pass in 48.8 seconds and verify actual MailHog links, sessions/preferences after reload, both exports, deletion, reset/change/logout, source geometry, both-theme axe and immutable Phase 1 gallery/shell/mobile captures. The final security regression covers IP/account limiter route aliases; actual Docker API/Redis also returns 429 after ten normalized-email attempts across aliases, and counters survive an API restart. Figma source contexts were read-only; approved foundation tokens/styles/captures remain unchanged. New auth/account states and all Light/mobile layouts are derived/provisional for review.
 
 459 installed packages/73 peer edges passed verification, frozen install passed and security audit found no known vulnerabilities. Gitleaks trackable working files/history were clean. Compose API/web/Mongo/Redis healthy and MailHog running; real auth/OpenAPI/CSRF/Redis TTL/concurrency/index/email lookup smoke passed. [Phase 2 evidence](PHASE_2_EVIDENCE.md) contains actual commands/output, limitations and visual deviations. Financial-core tests are N/A, not claimed complete.
 

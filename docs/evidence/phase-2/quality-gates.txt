@@ -24,45 +24,45 @@ $ vitest run --coverage && node scripts/coverage-financial.mjs
 
 
  Test Files  6 passed (6)
-      Tests  56 passed (56)
-   Start at  13:35:07
-   Duration  16.63s (tests 50%, import 25%, environment 19%, transform 5%, worker 1%)
+      Tests  57 passed (57)
+   Start at  14:02:24
+   Duration  11.90s (tests 44%, import 26%, environment 23%, transform 5%, worker 1%)
 
  % Coverage report from v8
 -------------------|---------|----------|---------|---------|-------------------
-File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 -------------------|---------|----------|---------|---------|-------------------
-All files          |   92.41 |    88.51 |   92.07 |   93.65 |                   
- .../src/providers |   23.07 |        0 |      50 |   23.07 |                   
-  email.ts         |       0 |        0 |       0 |       0 | 12-36             
-  password-auth.ts |      75 |      100 |     100 |      75 | 19                
- ...api/src/routes |   95.93 |    82.45 |     100 |   95.68 |                   
-  auth.ts          |   95.93 |    82.45 |     100 |   95.68 | 65,82,124,131-132 
- ...i/src/services |   92.92 |    81.66 |    92.5 |   95.67 |                   
-  auth.ts          |   92.52 |    80.58 |   96.87 |   95.67 | ...64,201,376,461 
-  ...astructure.ts |    92.3 |    71.42 |      60 |    92.3 | 16                
- apps/web/src      |   88.37 |     85.1 |   88.23 |   91.66 |                   
-  App.tsx          |   88.37 |     85.1 |   88.23 |   91.66 | 19,139-150        
- apps/web/src/auth |   88.88 |    86.39 |   85.41 |   89.62 |                   
-  Account.tsx      |   72.34 |    66.66 |   73.68 |   73.33 | ...75,230-233,252 
-  AuthScreens.tsx  |   95.34 |     92.4 |     100 |   95.12 | 45,83             
-  client.ts        |   97.72 |    91.66 |   85.71 |     100 | 22,42,89          
-  session.tsx      |     100 |       50 |     100 |     100 | 9                 
- .../design-system |     100 |    98.12 |     100 |     100 |                   
-  Gallery.tsx      |     100 |    98.07 |     100 |     100 | 76                
-  primitives.tsx   |     100 |     98.1 |     100 |     100 | 16,195,383        
- .../web/src/state |   81.25 |       50 |     100 |     100 |                   
-  theme.ts         |   81.25 |       50 |     100 |     100 | 4-9               
- ...ges/shared/src |   91.52 |       90 |      60 |   91.52 |                   
-  auth.ts          |   81.48 |      100 |       0 |   81.48 | 14-18,53          
-  openapi.ts       |     100 |       90 |     100 |     100 | 33                
+All files          |   92.68 |    88.85 |   92.07 |   93.94 |
+ .../src/providers |   23.07 |        0 |      50 |   23.07 |
+  email.ts         |       0 |        0 |       0 |       0 | 12-36
+  password-auth.ts |      75 |      100 |     100 |      75 | 19
+ ...api/src/routes |   97.58 |    84.74 |     100 |   97.43 |
+  auth.ts          |   97.58 |    84.74 |     100 |   97.43 | 65,85,127
+ ...i/src/services |   92.92 |     82.5 |    92.5 |   95.67 |
+  auth.ts          |   92.52 |    81.55 |   96.87 |   95.67 | ...64,201,376,461
+  ...astructure.ts |    92.3 |    71.42 |      60 |    92.3 | 16
+ apps/web/src      |   88.37 |     85.1 |   88.23 |   91.66 |
+  App.tsx          |   88.37 |     85.1 |   88.23 |   91.66 | 19,139-150
+ apps/web/src/auth |   88.88 |    86.39 |   85.41 |   89.62 |
+  Account.tsx      |   72.34 |    66.66 |   73.68 |   73.33 | ...75,230-233,252
+  AuthScreens.tsx  |   95.34 |     92.4 |     100 |   95.12 | 45,83
+  client.ts        |   97.72 |    91.66 |   85.71 |     100 | 22,42,89
+  session.tsx      |     100 |       50 |     100 |     100 | 9
+ .../design-system |     100 |    98.12 |     100 |     100 |
+  Gallery.tsx      |     100 |    98.07 |     100 |     100 | 76
+  primitives.tsx   |     100 |     98.1 |     100 |     100 | 16,195,383
+ .../web/src/state |   81.25 |       50 |     100 |     100 |
+  theme.ts         |   81.25 |       50 |     100 |     100 | 4-9
+ ...ges/shared/src |   91.52 |       90 |      60 |   91.52 |
+  auth.ts          |   81.48 |      100 |       0 |   81.48 | 14-18,53
+  openapi.ts       |     100 |       90 |     100 |     100 | 33
 -------------------|---------|----------|---------|---------|-------------------
 
 =============================== Coverage summary ===============================
-Statements   : 92.41% ( 707/765 )
-Branches     : 88.51% ( 578/653 )
+Statements   : 92.68% ( 710/766 )
+Branches     : 88.85% ( 582/655 )
 Functions    : 92.07% ( 186/202 )
-Lines        : 93.65% ( 664/709 )
+Lines        : 93.94% ( 667/710 )
 ================================================================================
 Financial-core 90% gate configured; no financial core is implemented in Phase 2.
 $ pnpm tokens:check && pnpm --filter @folio/shared build && pnpm --filter @folio/api build && pnpm --filter @folio/web build
@@ -142,4 +142,4 @@ dist/assets/inter-latin-ext-600-normal-CIVaiw4L.woff               48.66 kB
 dist/assets/index-DpBzP-Rb.css                                     88.77 kB │ gzip:  10.41 kB
 dist/assets/index-BpKN8Dx9.js                                     478.26 kB │ gzip: 142.59 kB
 
-✓ built in 726ms
+✓ built in 1.01s

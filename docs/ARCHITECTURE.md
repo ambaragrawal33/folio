@@ -1,6 +1,6 @@
 # Folio architecture and milestone plan
 
-**Plan audited 2026-10-03; Phase 0 approved and Phase 1 foundation implemented 2026-10-04.** Binding requirements and the user's explicitly confirmed D/X/O scope are in [DECISIONS.md](DECISIONS.md). Unconfirmed choices remain proposals for their specified phases; diagrams are planning artifacts, not deployed infrastructure. The local foundation stack now runs; product/domain diagrams remain plans for later authorized phases. Phase 2 is explicitly authorized and implemented on codex/phase-2-auth; Phase 3 remains unauthorized.
+**Plan audited 2026-10-03; Phase 0 approved and Phase 1 foundation implemented 2026-10-04.** Binding requirements and the user's explicitly confirmed D/X/O scope are in [DECISIONS.md](DECISIONS.md). Unconfirmed choices remain proposals for their specified phases; diagrams are planning artifacts, not deployed infrastructure. The local foundation stack now runs; product/domain diagrams remain plans for later authorized phases. Phase 2 Auth is complete, verified and pushed on codex/phase-2-auth; main remains Phase 1 and Phase 3 remains unauthorized. [Phase 2 evidence](PHASE_2_EVIDENCE.md) records the implemented architecture and verification.
 
 ## Repository and module boundaries
 
