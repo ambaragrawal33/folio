@@ -1,6 +1,6 @@
 # Folio progress
 
-Updated **2026-10-04**. Phase 1 is complete at 18223b68caf90235b59fabbfb3924140580d79b6. The canonical GitHub cutover is complete, its Foundation checks run 37178104505 succeeded, and the user closed the full Phase 1 design review, including both mobile navigation states. **Phase 2 — Auth is COMPLETE on codex/phase-2-auth, committed and normally pushed. Implementation 13679261e550a92abd5f101a34212892da2b0963 plus verified CI/security refinements through e5bf543aeef4d48e0d7784421ee5f9aad5669c28 passed local gates and hosted run 37189352294 in both jobs. Main remains Phase 1. Phase 3 remains unauthorized.**
+Updated **2026-10-04**. **Phase 2 — Auth/account engineering and visual review are CLOSED / APPROVED by the user**, including the correction pass at **32ded912df0cac3407ee11f202d163e9686afa64** on **codex/phase-2-auth**. Its hosted run [37200343393](https://github.com/ambaragrawal33/folio/actions/runs/37200343393) succeeded in both jobs. Light/mobile are **APPROVED DERIVED IMPLEMENTATIONS**, never Figma-approved. Phase 1 foundation/design decisions/regression baselines and Figma remain unchanged. Main stays **18223b68caf90235b59fabbfb3924140580d79b6**; no merge or force-push. **Phase 3 is NOT STARTED and requires separate explicit authorization.** Earlier verification and review stages below remain historical evidence.
 
 ## Phase 1
 
@@ -29,19 +29,19 @@ Later decisions remain pending: D03/D04/D11/D12, D10 write details, X02–X05/X0
 
 ## Phase milestones
 
-| Phase                                   | Status                                                                                            |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| 0 Audit                                 | APPROVED by user 2026-10-04; retained dated [evidence](PHASE_0_EVIDENCE.md)                       |
-| 1 Foundation                            | COMPLETE; hosted CI green; design review CLOSED / APPROVED                                        |
-| 2 Auth                                  | Engineering provisionally accepted; targeted visual corrections verified; visual approval PENDING |
-| 3 Domain + first deploy                 | NOT STARTED                                                                                       |
-| 4 News                                  | NOT STARTED                                                                                       |
-| 5 AI / P0 complete deploy               | NOT STARTED                                                                                       |
-| 6 Analytics / P1                        | NOT STARTED                                                                                       |
-| 7 Goals/CSV/alerts/multiportfolio       | NOT STARTED                                                                                       |
-| 8 Sentiment/write-confirm/MF/metals/2FA | NOT STARTED                                                                                       |
-| 9 Release                               | NOT STARTED                                                                                       |
-| P2                                      | NOT AUTHORIZED                                                                                    |
+| Phase                                   | Status                                                                                        |
+| --------------------------------------- | --------------------------------------------------------------------------------------------- |
+| 0 Audit                                 | APPROVED by user 2026-10-04; retained dated [evidence](PHASE_0_EVIDENCE.md)                   |
+| 1 Foundation                            | COMPLETE; hosted CI green; design review CLOSED / APPROVED                                    |
+| 2 Auth                                  | CLOSED / APPROVED — engineering and corrected visual review; Light/mobile approved as derived |
+| 3 Domain + first deploy                 | NOT STARTED                                                                                   |
+| 4 News                                  | NOT STARTED                                                                                   |
+| 5 AI / P0 complete deploy               | NOT STARTED                                                                                   |
+| 6 Analytics / P1                        | NOT STARTED                                                                                   |
+| 7 Goals/CSV/alerts/multiportfolio       | NOT STARTED                                                                                   |
+| 8 Sentiment/write-confirm/MF/metals/2FA | NOT STARTED                                                                                   |
+| 9 Release                               | NOT STARTED                                                                                   |
+| P2                                      | NOT AUTHORIZED                                                                                |
 
 Deliberately absent: ledger/models/seeds/transactions, financial engines/provider integrations, news, AI/chat/tools/streaming, Watchlist or other P1/P2 product features, production email, production secrets and public deployment.
 
@@ -53,7 +53,7 @@ Local evidence: 57 tests in six suites, 93.94% lines / 92.68% statements / 92.07
 
 459 installed packages/73 peer edges passed verification, frozen install passed and security audit found no known vulnerabilities. Gitleaks trackable working files/history were clean. Compose API/web/Mongo/Redis healthy and MailHog running; real auth/OpenAPI/CSRF/Redis TTL/concurrency/index/email lookup smoke passed. [Phase 2 evidence](PHASE_2_EVIDENCE.md) contains actual commands/output, limitations and visual deviations. Financial-core tests are N/A, not claimed complete.
 
-Remaining: production email O04, HTTPS/trusted-proxy/Safari deployment checks and Phase 2 visual approval; production startup stays gated. Later P0 domain/provider/AI work and all P1/P2 features stay unimplemented. Do not merge main or start Phase 3 without its authorization.
+Remaining future deployment gates: production email O04 and HTTPS/trusted-proxy/Safari checks; production startup stays gated. Phase 2 visual approval is closed as recorded below. Later P0 domain/provider/AI work and all P1/P2 features stay unimplemented. Do not merge main or start Phase 3 without its authorization.
 
 ## Phase 2 visual corrections — 2026-10-04
 
@@ -61,4 +61,10 @@ User's first visual review was NOT approved. Implemented only its requested corr
 
 Actual final local gates: `pnpm check` passed lint/format/token freshness/strict typecheck, **58 tests in six suites**, coverage **93.94% lines / 92.68% statements / 92.07% functions / 89.10% branches**, and all builds. All **six E2E tests** passed, including unchanged Phase 1 screenshot baselines. Targeted real-service review produced six exact-viewport default captures and **12 axe audits with zero violations**, verified source geometry, deletion copy/one-line action in three requested modes, readable 220px mobile identity/229px profile, zero horizontal overflow/independent scrolling, keyboard/focus and closed/open/Escape/route-collapse navigation. Disposable review account was removed. Dependency verification passed 459 packages/73 peer edges; audit found no known vulnerabilities; trackable files/history secret scans passed.
 
-Intentional remaining Figma differences and their reasons are recorded in DESIGN_HANDOFF.md. Visual approval remains PENDING; passing engineering/axe/overflow tests is not visual approval. Phase 1 design review remains CLOSED. Phase 3 remains NOT STARTED and requires separate authorization. Normal commit/push of the correction is on codex/phase-2-auth; final hash and remote/tree state are reported after the commit rather than stored self-referentially here.
+Intentional remaining Figma differences and their reasons are recorded in DESIGN_HANDOFF.md and accepted by the user's final closure. Passing engineering/axe/overflow tests alone was not visual approval; the separate explicit user approval below closes that gate. Phase 1 design review remains CLOSED. Phase 3 remains NOT STARTED and requires separate authorization.
+
+## Phase 2 final user approval and closure — 2026-10-04
+
+The user explicitly approved the P0 authentication/account implementation, security/ownership boundaries, refresh rotation/replay revocation, CSRF/Redis throttling, profile/preferences, privacy export/delete, Auth/Settings, Dark Login/Settings, derived Light Login/Settings and derived Light mobile Registration/Settings. Closed/open mobile navigation, accessibility substitutions, pending/loading, validation and destructive treatment are approved. The mobile profile-header blocker is resolved; corrected geometry and documented intentional deviations are accepted.
+
+Accepted implementation state: **codex/phase-2-auth**, **32ded912df0cac3407ee11f202d163e9686afa64**, clean working tree, synchronized origin, main unchanged, no merge/force-push. This closure changes documentation only; it does not change application code, Figma, Phase 1 decisions/captures or any screenshot baseline. Light/mobile approval remains approval of derived implementations because dedicated product reference frames do not exist. Phase 2 is fully CLOSED / APPROVED. STOP; await separate explicit Phase 3 authorization.

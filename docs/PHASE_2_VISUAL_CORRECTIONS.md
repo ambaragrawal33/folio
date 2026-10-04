@@ -1,6 +1,6 @@
-# Phase 2 visual corrections — awaiting visual approval
+# Phase 2 visual corrections — CLOSED / APPROVED
 
-The user requested five targeted corrections after declining visual approval. Engineering remains provisionally accepted; these captures are candidates for review, not approved regression baselines. Phase 1 foundation/captures and Figma are unchanged. Phase 3 has not started.
+The user requested five targeted corrections after declining the first visual review, then explicitly approved Phase 2 engineering and the correction pass on2026-10-04 at implementation HEAD32ded912df0cac3407ee11f202d163e9686afa64 on codex/phase-2-auth. All six reviewed states, interaction/error/pending/destructive treatments, mobile navigation and documented intentional deviations are approved; the mobile profile-header blocker is resolved. **Phase 2 is CLOSED / APPROVED.** Light/mobile are **APPROVED DERIVED IMPLEMENTATIONS**, never Figma-approved. This documentation-only closure changes no application code, screenshot/baseline or Figma/Phase 1 foundation. Phase 3 has not started and requires separate explicit authorization.
 
 ## Changed components and corrections
 
@@ -28,7 +28,7 @@ The supplied production specification and current living architecture/provider d
 
 Connected Figma `get_design_context` was read-only for **54:50** and **2:4804**, including screenshots; structured context is retained in [figma-contexts.json](evidence/phase-2/visual-corrections/figma-contexts.json). Settings references include title54:517, section54:532, profile/avatar54:535/536, action54:540, field54:550, marker54:523/524 and Save54:595. No new static asset was required; original shell assets remain unchanged.
 
-Exact remaining differences and reasons are recorded in [DESIGN_HANDOFF.md](DESIGN_HANDOFF.md): readable13px action/11px label roles;17px working-form group headings;36px mobile targets; approved fluid grid/padding; DS Primary save; native persisted preferences without System; extra P0 forms/normal-flow height; approved accessible semantic aliases. Light and mobile are **derived implementations**, not Figma-approved. They remain pending visual approval.
+Exact remaining differences and reasons are recorded in [DESIGN_HANDOFF.md](DESIGN_HANDOFF.md): readable13px action/11px label roles;17px working-form group headings;36px mobile targets; approved fluid grid/padding; DS Primary save; native persisted preferences without System; extra P0 forms/normal-flow height; approved accessible semantic aliases. The user accepted these intentional deviations in the final closure. Light and mobile are **approved derived implementations**, not Figma-approved.
 
 ## Updated six-state review
 
