@@ -67,6 +67,9 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
   };
   router.use(async (req, res, next) => {
     try {
+      // Express routes accept casing/trailing-slash aliases. They must share
+      // security counters rather than giving each spelling a fresh allowance.
+      const limitPath = req.path.toLowerCase().replace(/\/+$/, '') || '/';
       if (!EmptyRequest.safeParse(req.query).success) throw invalid();
       res.setHeader('Cache-Control', 'no-store');
       res.setHeader('Referrer-Policy', 'no-referrer');
@@ -84,7 +87,7 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
       let count: number;
       try {
         count = await cache.increment(
-          'folio:limit:' + service.digest(meta(req).ip, 'ip') + ':' + req.method + ':' + req.path,
+          'folio:limit:' + service.digest(meta(req).ip, 'ip') + ':' + req.method + ':' + limitPath,
           60,
         );
       } catch {
@@ -103,7 +106,7 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
         throw new HttpError(429, 'RATE_LIMITED', 'Too many requests. Try again later.');
       }
       if (
-        req.path.startsWith('/auth/') &&
+        limitPath.startsWith('/auth/') &&
         req.body &&
         typeof req.body === 'object' &&
         'email' in req.body &&
@@ -115,7 +118,7 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
           try {
             accountCount = await cache.increment(
               'folio:account-limit:' +
-                req.path +
+                limitPath +
                 ':' +
                 service.digest(parsed.data.email, 'account'),
               60,

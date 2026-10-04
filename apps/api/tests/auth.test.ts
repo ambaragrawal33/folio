@@ -441,6 +441,26 @@ describe('P0 auth and owned account integration', () => {
     redis.eval.mockResolvedValueOnce('bad');
     await expect(cache.increment('key', 60)).rejects.toThrow();
   });
+  it('route casing and trailing-slash aliases cannot bypass IP or account limits', async () => {
+    const logoutPaths = ['/auth/logout', '/AUTH/LOGOUT', '/auth/logout/', '/Auth/Logout/'];
+    for (let index = 0; index < 20; index++)
+      expect((await post(logoutPaths[index % logoutPaths.length]!)).status).toBe(200);
+    expect((await post('/AUTH/logout/')).status).toBe(429);
+    const emailPaths = [
+      '/auth/forgot-password',
+      '/AUTH/FORGOT-PASSWORD',
+      '/auth/forgot-password/',
+      '/Auth/Forgot-Password/',
+    ];
+    for (let index = 0; index < 10; index++)
+      expect(
+        (await post(emailPaths[index % emailPaths.length]!, { email: 'unknown@example.test' }))
+          .status,
+      ).toBe(200);
+    expect((await post('/AUTH/forgot-password/', { email: 'UNKNOWN@example.test' })).status).toBe(
+      429,
+    );
+  });
   it('every implemented auth/account endpoint has an OpenAPI contract', async () => {
     const doc = (await request(app).get('/api/openapi.json')).body;
     for (const contract of authContracts)
