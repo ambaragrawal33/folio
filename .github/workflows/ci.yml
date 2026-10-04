@@ -7,7 +7,7 @@ permissions:
   contents: read
 jobs:
   quality:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: { fetch-depth: 0 }
@@ -25,7 +25,7 @@ jobs:
           docker compose up --build -d --wait --wait-timeout 300
           node scripts/infrastructure-smoke.mjs
           node scripts/auth-infrastructure-smoke.mjs
-      - run: pnpm test:e2e
+      - run: pnpm exec playwright test auth.spec.ts
         env: { FOLIO_E2E_STACK: '1' }
       - name: Scan history and working tree for secrets
         run: |
@@ -43,6 +43,24 @@ jobs:
             coverage/coverage-summary.json
             playwright-report/
             docs/evidence/phase-2/
+  foundation-visual:
+    # Approved Phase 1 baselines were captured on Windows. Keep their 0.5% gate
+    # and compare on Windows rather than accepting Linux font-rendering drift.
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with: { node-version: 24.19.0 }
+      - run: npm install --global pnpm@11.19.0
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @folio/shared build
+      - run: pnpm exec playwright install chromium
+      - run: pnpm exec playwright test foundation.spec.ts
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: foundation-visual-evidence
+          path: playwright-report/
 
 # Public deployment is deliberately absent. It requires a later authorized phase and approval.
 
