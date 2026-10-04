@@ -1,0 +1,22 @@
+[
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 9,
+  "EndLine": 9,
+  "StartColumn": 187,
+  "EndColumn": 210,
+  "Match": "tokens, REDACTED ",
+  "Secret": "REDACTED",
+  "File": "/repo/docs/PROVIDER_AUDIT.md",
+  "SymlinkFile": "",
+  "Commit": "",
+  "Entropy": 3.5068905,
+  "Author": "",
+  "Email": "",
+  "Date": "",
+  "Message": "",
+  "Tags": [],
+  "Fingerprint": "/repo/docs/PROVIDER_AUDIT.md:generic-api-key:9"
+ }
+]

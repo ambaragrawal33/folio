@@ -10,11 +10,13 @@ import {
   GenericResponse,
   ChangePasswordRequest,
   DeleteAccountRequest,
+  type Portfolio,
 } from '@folio/shared';
 import { Button, FormField, ContentState } from '../design-system/primitives';
 import { api, request, useAccess } from './client';
 import { useSession } from './session';
 import { useTheme } from '../state/theme';
+import { usePortfolios } from '../domain/client';
 export function Account() {
   const session = useSession();
   if (session.isPending) return <ContentState loading />;
@@ -22,6 +24,9 @@ export function Account() {
   return <AccountForms user={session.data.user} />;
 }
 function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] }) {
+  const portfolios = usePortfolios();
+  const portfolio = portfolios.data?.portfolios[0];
+  const readonly = Boolean(user.demoReadonly);
   const active = useLocation().hash.slice(1) || 'profile';
   const navigate = useNavigate(),
     client = useQueryClient();
@@ -75,6 +80,27 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
       return 'Account data exported.';
     },
   });
+  if (readonly)
+    return (
+      <>
+        <h1 className="settings-title">Settings</h1>
+        <ContentState>
+          This public demo is read-only. Profile, preferences, credentials, privacy export and
+          deletion are unavailable for the shared demo identity.
+        </ContentState>
+        <Button
+          onClick={() =>
+            useTheme.getState().setTheme(useTheme.getState().theme === 'dark' ? 'light' : 'dark')
+          }
+        >
+          Switch local display theme
+        </Button>
+        <Button onClick={() => logout.mutate()} disabled={logout.isPending}>
+          Sign out
+        </Button>
+        {logout.error && <p role="alert">{logout.error.message}</p>}
+      </>
+    );
   return (
     <>
       <h1 className="settings-title" data-figma="54:517">
@@ -89,7 +115,16 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
           <a href="#profile" aria-current={active === 'profile' ? 'location' : undefined}>
             Profile &amp; Account
           </a>
-          <span className="type-caption text-secondary">Portfolio Defaults — unavailable</span>
+          {portfolio ? (
+            <a
+              href="#portfolio-defaults"
+              aria-current={active === 'portfolio-defaults' ? 'location' : undefined}
+            >
+              Portfolio Defaults
+            </a>
+          ) : (
+            <span className="type-caption text-secondary">Portfolio Defaults — unavailable</span>
+          )}
           <a href="#appearance" aria-current={active === 'appearance' ? 'location' : undefined}>
             Appearance
           </a>
@@ -190,6 +225,7 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
               )}
             </form>
           </section>
+          <PortfolioDefaults portfolio={portfolio} />
           <section id="security" className="settings-section">
             <h2 className="type-section">Security</h2>
             <form
@@ -234,7 +270,10 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
           <section id="data" className="settings-section">
             <h2 className="type-section">Data &amp; Export</h2>
             <p className="type-caption text-secondary">
-              Export your account and audit data. Portfolio data is not implemented yet.
+              Export your account and audit data.{' '}
+              {portfolio
+                ? 'Your owned portfolios, ledger and void records are included.'
+                : 'No portfolio data has been recorded.'}
             </p>
             <Button onClick={() => download.mutate('json')} disabled={download.isPending}>
               Export JSON
@@ -261,8 +300,9 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
                 onSubmit={removal.handleSubmit((data) => deletion.mutate(data))}
               >
                 <p className="type-body text-secondary">
-                  This permanently removes your account, tokens and account data. Enter your
-                  password and type DELETE to confirm.
+                  This permanently removes your account, tokens and account data
+                  {portfolio ? ', including your owned portfolios, ledger and void records' : ''}.
+                  Enter your password and type DELETE to confirm.
                 </p>
                 <FormField
                   label="Confirm password"
@@ -299,5 +339,26 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
         </div>
       </div>
     </>
+  );
+}
+
+// Appears only when the real owned portfolio exists; pre-portfolio Phase 2 geometry is unchanged.
+function PortfolioDefaults({ portfolio }: { portfolio: Portfolio | undefined }) {
+  if (!portfolio) return null;
+  return (
+    <section id="portfolio-defaults" className="settings-section" data-figma="54:50">
+      <h2 className="type-section">Portfolio defaults</h2>
+      <div className="settings-fields">
+        <FormField label="Portfolio base currency" value={portfolio.baseCurrency} readOnly />
+        <FormField label="Portfolio cost basis" value={portfolio.costBasis} readOnly />
+      </div>
+      <p className="type-caption text-secondary">
+        {portfolio.currencyLockedAt
+          ? 'Base currency is locked after the first recorded transaction. Historical revaluation is unavailable.'
+          : 'Base currency locks after the first recorded transaction.'}{' '}
+        FIFO is the supported cost-basis method. Additional portfolios and methods remain
+        unavailable.
+      </p>
+    </section>
   );
 }

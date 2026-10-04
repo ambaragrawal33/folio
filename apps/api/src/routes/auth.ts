@@ -87,7 +87,13 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
       let count: number;
       try {
         count = await cache.increment(
-          'folio:limit:' + service.digest(meta(req).ip, 'ip') + ':' + req.method + ':' + limitPath,
+          env.CACHE_NAMESPACE +
+            ':limit:' +
+            service.digest(meta(req).ip, 'ip') +
+            ':' +
+            req.method +
+            ':' +
+            limitPath,
           60,
         );
       } catch {
@@ -117,7 +123,8 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
           let accountCount: number;
           try {
             accountCount = await cache.increment(
-              'folio:account-limit:' +
+              env.CACHE_NAMESPACE +
+                ':account-limit:' +
                 limitPath +
                 ':' +
                 service.digest(parsed.data.email, 'account'),
@@ -144,6 +151,14 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
   router.post('/auth/register', async (req, res) =>
     res.json(await service.register(body(RegisterRequest, req), meta(req))),
   );
+  router.get('/auth/demo', (_req, res) => res.json({ enabled: service.demoEnabled() }));
+  router.post('/auth/demo', async (req, res) => {
+    body(EmptyRequest, req);
+    const result = await service.demoSession(meta(req));
+    res
+      .cookie(COOKIE, result.refreshToken, cookieOptions)
+      .json(SessionResponse.parse(result.response));
+  });
   router.post('/auth/verify-email', async (req, res) =>
     res.json(await service.verify(body(VerifyRequest, req).token, meta(req))),
   );
@@ -227,6 +242,9 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
         ['theme', data.user.preferences.theme],
         ['numberFormat', data.user.preferences.numberFormat],
         ...data.audit.map((a) => ['audit.' + a.action, JSON.stringify(a)]),
+        ...(data.domain?.portfolios.map((p) => ['portfolio.' + p.id, JSON.stringify(p)]) ?? []),
+        ...(data.domain?.ledger.map((row) => ['ledger.' + row.record.id, JSON.stringify(row)]) ??
+          []),
       ];
       res.setHeader('Content-Disposition', 'attachment; filename="folio-account.csv"');
       res.type('text/csv').send(rows.map((row) => row.map(safe).join(',')).join('\r\n'));

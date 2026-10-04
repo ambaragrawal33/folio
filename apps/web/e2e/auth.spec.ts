@@ -62,7 +62,7 @@ test('real MailHog registration, verification, persistence, preferences, export 
   await page.getByRole('button', { name: 'Verify email' }).click();
   await expect(page.getByRole('status')).toContainText('Email verified');
   await signIn(page, email);
-  await expect(page.getByRole('status')).toContainText('not available');
+  await expect(page.getByRole('button', { name: 'Create portfolio' })).toBeVisible();
   const cookies = await context.cookies();
   const refresh = cookies.find((c) => c.name === 'folio_refresh');
   expect(refresh?.httpOnly).toBe(true);

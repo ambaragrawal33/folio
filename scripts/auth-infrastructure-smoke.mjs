@@ -30,8 +30,22 @@ const document = await fetch(base + '/api/openapi.json').then((r) => r.json());
 const methods = Object.entries(document.paths)
   .flatMap(([path, ops]) => Object.keys(ops).map((method) => method.toUpperCase() + ' ' + path))
   .filter((item) => item.includes('/api/v1/'));
-assert.equal(methods.length, 13);
-console.log('OpenAPI: 13 implemented auth/account operations PASS');
+assert(methods.length >= 13);
+for (const operation of [
+  'POST /api/v1/auth/register',
+  'POST /api/v1/auth/login',
+  'POST /api/v1/auth/refresh',
+  'GET /api/v1/me',
+  'PATCH /api/v1/me',
+  'DELETE /api/v1/me',
+  'POST /api/v1/me/export',
+])
+  assert(methods.includes(operation), operation);
+console.log(
+  'OpenAPI: required Phase 2 auth/account operations preserved; ' +
+    methods.length +
+    ' total operations PASS',
+);
 const csrf = await fetch(base + '/api/v1/auth/logout', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },

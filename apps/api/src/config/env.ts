@@ -18,6 +18,17 @@ export const EnvSchema = z.strictObject({
     .url()
     .refine((s) => s.startsWith('redis://') || s.startsWith('rediss://')),
   WEB_ORIGIN: z.string().url(),
+  DEMO_MODE: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((v) => v === 'true'),
+  CACHE_NAMESPACE: z.enum(['folio:normal', 'folio:demo']).default('folio:normal'),
+  COINGECKO_DEMO_KEY: z.string().min(1).max(200).optional(),
+  YAHOO_DISPLAY_ENTITLED: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((v) => v === 'true'),
+  YAHOO_ENTITLEMENT_REFERENCE: z.string().min(10).max(500).optional(),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']).default('info'),
   EMAIL_TRANSPORT: z.enum(['console', 'mailhog']).default('mailhog'),
   SMTP_HOST: localOnlyHost.default('127.0.0.1'),
@@ -43,6 +54,21 @@ export function parseEnv(input: Record<string, string | undefined>): Env {
     );
   }
   if (result.data.NODE_ENV === 'production')
-    throw new Error('Production startup is not authorized in the foundation phase');
+    throw new Error('Production startup remains gated by O02/O04/O06 operational decisions');
+  const database = new URL(result.data.MONGODB_URI).pathname.slice(1);
+  if (
+    result.data.DEMO_MODE &&
+    (database !== 'folio_demo' || result.data.CACHE_NAMESPACE !== 'folio:demo')
+  )
+    throw new Error(
+      'DEMO_MODE requires the isolated folio_demo database and folio:demo cache namespace',
+    );
+  if (
+    !result.data.DEMO_MODE &&
+    (database === 'folio_demo' || result.data.CACHE_NAMESPACE !== 'folio:normal')
+  )
+    throw new Error('Normal mode must not use demo storage');
+  if (result.data.YAHOO_DISPLAY_ENTITLED && !result.data.YAHOO_ENTITLEMENT_REFERENCE)
+    throw new Error('Yahoo display requires a verified entitlement reference');
   return result.data;
 }

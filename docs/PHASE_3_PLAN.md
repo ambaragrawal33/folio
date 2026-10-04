@@ -1,6 +1,8 @@
 # Phase 3 — domain and first deployment plan
 
-Recorded 2026-10-04 after the user's explicit authorization. **Inspection and planning started; implementation has not started.** Phase 1/2 engineering, visual approvals and immutable baselines stay closed. This document proposes unresolved choices; it does not approve them. Phase 3 cannot close without the financial, visual and actual public deployment gates.
+Recorded 2026-10-04 after the user's explicit authorization. **The approved domain build order is implemented for review.** Phase 1/2 engineering, visual approvals and immutable baselines stay closed. Phase 3 cannot close without financial verification, separate visual approval and actual public deployment. Current implementation/results: [evidence](PHASE_3_EVIDENCE.md); current pending operations: [deployment boundary](DEPLOYMENT.md). Dated proposals below are preserved as approval provenance and superseded in their exact scope by the user's decision gate.
+
+**Subsequent explicit user decision-gate approval supersedes the pending status below:** X02–X05, Phase3 X07–X09, O03 academic/personal/non-commercial + Frankfurter/CoinGecko Demo/Yahoo wrapper, and O06 dedicated isolated read-only demo are approved in the precise scope recorded in DECISIONS.md. Financial implementation is authorized and resumed; pure engine/tests first. Yahoo rights remain unverified/use gated; no paid provider/Twelve Data activation approved. O02 specific free hosts/accounts/topology, O04 production email and O06 scheduler/backups/restore remain pending. Historical proposal/entry text is retained as provenance, not current approval status.
 
 ## Inspected starting state
 
@@ -21,7 +23,7 @@ Read the complete supplied master `C:/Users/ambar/Downloads/FOLIO_GREENFIELD_PRO
 9. Build production images, same-origin proxy/host configuration examples, explicit production environment validation, trusted-proxy controls, health/readiness and guarded deployment workflow. O02/O04/O06 select and supply the operational configuration before actual publication. Preserve fail-closed production startup until every required input is valid. Test an isolated production-shaped local stack; that is not a public deploy or actual Safari proof.
 10. Run all Phase 3 gates, record actual results/captures/deviations and request its separate visual review. Commit coherent verified work and normally push this branch; main untouched. Public deployment/smoke and live demo remain required before Phase 3 can close. STOP; no Phase 4.
 
-## Decisions required before affected implementation — all remain PENDING
+## Historical pre-approval decision proposals — now approved only in the explicit user scope
 
 The complete choices below are **proposals**, not confirmations. Existing C04/D07 bind Decimal/FIFO/INR/locking; they do not decide the remaining X03 cash/dividend/void schema choices. The initial financial engine depends materially on X03–X05, so implementation stops at this decision boundary after independent audit/verification.
 
@@ -52,7 +54,7 @@ Proposed X04 absolute FX convention: let remaining local cost be L, historical b
 
 D03/D04/D11/D12/D10 write confirmation/X10/O05 and X08 Phase4/X09 Phase6 methodology remain pending for their later phases. No need to resolve them to build Phase 3. Unknown exceptional exchange sessions must be marked unknown/degraded until versioned authoritative calendar evidence exists; never infer Market Open from Figma/weekdays alone.
 
-## Hand-computed fixtures and quality gates — planned, NOT executed domain tests
+## Hand-computed fixtures and quality gates — implemented executable cases
 
 Ledger fixture in INR: BUY10@100 +fee10 => cost1010; BUY5@120 +fee5 => cost605; SELL12@150 −fee12 => proceeds1788, FIFO released cost1252, realized536; remaining3 units/cost363/average121. SPLIT2:1 =>6 units/cost363/average60.5, realized unchanged. DIVIDEND gross30−fee2 => income28, units/cost unchanged. Quote70 => holdings420/unrealized57. At SELL date, any insertion/void leaving fewer than12 units must fail atomically. Repeated matching append/void cannot double-count; a conflicting idempotency payload must fail.
 
@@ -66,4 +68,4 @@ Run pnpm check, deps:verify, audit, frozen install, gitleaks, real Compose/repli
 
 ## Entry evidence and current stop
 
-[PHASE_3_EVIDENCE.md](PHASE_3_EVIDENCE.md) records actual initial gate/probe output. **No application implementation, financial test result, public deployment or Phase 3 completion is claimed.** The independent audit, live design inspection, regression verification and reviewable proposals are complete. Await X02–X05, Phase3 X07–X09, O03 and O06 demo selections before affected code. Production inputs may be supplied later at the deployment boundary.
+[PHASE_3_EVIDENCE.md](PHASE_3_EVIDENCE.md) preserves the initial inspection boundary and adds actual implemented financial/security/provider/regression results. The user approved the affected decisions before implementation. Public deployment and separate Phase 3 visual approval remain outstanding; Phase 3 is not CLOSED. No Phase 4 work or merge to main.

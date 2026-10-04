@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { DomainExport } from './domain.ts';
 export const Email = z.string().trim().toLowerCase().email().max(254);
 export const Password = z.string().min(12).max(128);
 export const SecretToken = z.string().regex(/^[A-Za-z0-9_-]{43}$/);
@@ -19,6 +20,7 @@ export const Timezone = z
     }
   }, 'Use a valid IANA timezone.');
 export const PublicUser = z.strictObject({
+  demoReadonly: z.literal(true).optional(),
   id: z.string().regex(/^[a-f0-9]{24}$/),
   name: z.string().min(1).max(100),
   email: Email,
@@ -75,7 +77,11 @@ export const AccountExport = z.strictObject({
   exportedAt: z.iso.datetime(),
   user: PublicUser,
   audit: z.array(AuditRecord),
-  scope: z.literal('Phase 2 account and audit data; financial collections are not implemented.'),
+  scope: z.enum([
+    'Phase 2 account and audit data; financial collections are not implemented.',
+    'Account, audit and owned portfolio/economic ledger/void data.',
+  ]),
+  domain: DomainExport.optional(),
 });
 export const authContracts = [
   {

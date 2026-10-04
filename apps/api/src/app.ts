@@ -14,12 +14,14 @@ import type { ErrorReporter } from './middleware/errors.ts';
 import { authRouter } from './routes/auth.ts';
 import type { AuthService } from './services/auth.ts';
 import type { CacheStore } from './services/cache.ts';
+import type { DomainService } from './services/domain.ts';
+import { domainRouter } from './routes/domain.ts';
 export function createApp(
   env: Env,
   dependencies: Dependencies,
   logger: Logger,
   reportError?: ErrorReporter,
-  authentication?: { service: AuthService; cache: CacheStore },
+  authentication?: { service: AuthService; cache: CacheStore; domain?: DomainService },
 ) {
   const app = express();
   app.disable('x-powered-by');
@@ -41,6 +43,8 @@ export function createApp(
   app.use(helmet());
   app.use(cors({ origin: env.WEB_ORIGIN, credentials: true }));
   app.use(express.json({ limit: '64kb' }));
+  if (authentication?.domain)
+    app.use('/api/v1', domainRouter(env, authentication.domain, authentication.cache));
   if (authentication)
     app.use('/api/v1', authRouter(env, authentication.service, authentication.cache));
   app.get(['/health', '/api/health'], (_req, res) =>

@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -10,28 +13,32 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "argon2": "0.45.1",
-    "jose": "6.2.12",
-    "nodemailer": "10.0.14",
-    "zod": "4.6.5",
     "@folio/shared": "workspace:*",
+    "argon2": "0.45.1",
+    "cors": "2.8.6",
+    "decimal.js": "10.6.0",
+    "dotenv": "18.0.5",
     "express": "5.2.1",
-    "mongoose": "9.10.4",
+    "helmet": "8.3.0",
     "ioredis": "6.0.0",
+    "jose": "6.2.12",
+    "lossless-json": "4.3.1",
+    "mongoose": "9.10.4",
+    "nodemailer": "10.0.14",
     "pino": "10.4.0",
     "pino-http": "11.0.0",
-    "helmet": "8.3.0",
-    "cors": "2.8.6",
-    "dotenv": "18.0.5",
-    "swagger-ui-express": "5.0.1"
+    "swagger-ui-express": "5.0.1",
+    "yahoo-finance2": "4.0.2",
+    "zod": "4.6.5"
   },
   "devDependencies": {
-    "@types/nodemailer": "8.0.2",
-    "mongodb-memory-server": "11.3.0",
-    "@types/express": "5.0.6",
     "@types/cors": "2.8.19",
+    "@types/express": "5.0.6",
+    "@types/nodemailer": "8.0.2",
+    "@types/supertest": "7.2.1",
     "@types/swagger-ui-express": "4.1.8",
-    "supertest": "7.3.1",
-    "@types/supertest": "7.2.1"
+    "fast-check": "4.10.2",
+    "mongodb-memory-server": "11.3.0",
+    "supertest": "7.3.1"
   }
 }

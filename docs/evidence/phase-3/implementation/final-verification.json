@@ -1,0 +1,215 @@
+{
+  "recordedAt": "2026-10-04T16:59:01.742Z",
+  "branch": "codex/phase-3-domain",
+  "baseHead": "9e9c165bf815dd6bc1338cea6eb61720196efa5c",
+  "main": "18223b68caf90235b59fabbfb3924140580d79b6",
+  "node": "v24.19.0",
+  "packageManager": "pnpm@11.19.0",
+  "unitIntegration": {
+    "tests": 108,
+    "suites": 12,
+    "checkExit": 0
+  },
+  "coverage": {
+    "lines": {
+      "total": 1878,
+      "covered": 1792,
+      "skipped": 0,
+      "pct": 95.42
+    },
+    "statements": {
+      "total": 2048,
+      "covered": 1935,
+      "skipped": 0,
+      "pct": 94.48
+    },
+    "functions": {
+      "total": 545,
+      "covered": 500,
+      "skipped": 0,
+      "pct": 91.74
+    },
+    "branches": {
+      "total": 1705,
+      "covered": 1518,
+      "skipped": 0,
+      "pct": 89.03
+    },
+    "branchesTrue": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "financial": [
+    {
+      "file": "apps/api/src/providers/adapters.ts",
+      "lines": {
+        "total": 125,
+        "covered": 121,
+        "skipped": 0,
+        "pct": 96.8
+      }
+    },
+    {
+      "file": "apps/api/src/providers/exact.ts",
+      "lines": {
+        "total": 14,
+        "covered": 14,
+        "skipped": 0,
+        "pct": 100
+      }
+    },
+    {
+      "file": "apps/api/src/services/financial/decimal.ts",
+      "lines": {
+        "total": 26,
+        "covered": 26,
+        "skipped": 0,
+        "pct": 100
+      }
+    },
+    {
+      "file": "apps/api/src/services/financial/ledger.ts",
+      "lines": {
+        "total": 108,
+        "covered": 108,
+        "skipped": 0,
+        "pct": 100
+      }
+    },
+    {
+      "file": "apps/api/src/services/financial/valuation.ts",
+      "lines": {
+        "total": 62,
+        "covered": 62,
+        "skipped": 0,
+        "pct": 100
+      }
+    },
+    {
+      "file": "packages/shared/src/financial-format.ts",
+      "lines": {
+        "total": 28,
+        "covered": 28,
+        "skipped": 0,
+        "pct": 100
+      }
+    }
+  ],
+  "e2e": {
+    "tests": 8,
+    "exit": 0,
+    "uniqueCaptures": 44,
+    "auditEntries": 45,
+    "axeViolations": 0,
+    "horizontalOverflow": false,
+    "independentScrolling": false
+  },
+  "approvedFoundationDiff": [],
+  "services": [
+    {
+      "service": "api",
+      "state": "running",
+      "health": "healthy",
+      "publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 3000,
+          "PublishedPort": 3000,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "service": "demo-api",
+      "state": "running",
+      "health": "healthy",
+      "publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 3000,
+          "PublishedPort": 3010,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "service": "demo-web",
+      "state": "running",
+      "health": "healthy",
+      "publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 5180,
+          "PublishedPort": 5180,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "service": "mailhog",
+      "state": "running",
+      "health": "",
+      "publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 1025,
+          "PublishedPort": 1025,
+          "Protocol": "tcp"
+        },
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 8025,
+          "PublishedPort": 8025,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "service": "mongo",
+      "state": "running",
+      "health": "healthy",
+      "publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 27017,
+          "PublishedPort": 27017,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "service": "redis",
+      "state": "running",
+      "health": "healthy",
+      "publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 6379,
+          "PublishedPort": 6379,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "service": "web",
+      "state": "running",
+      "health": "healthy",
+      "publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 5173,
+          "PublishedPort": 5173,
+          "Protocol": "tcp"
+        }
+      ]
+    }
+  ],
+  "openApiOperations": 26,
+  "releaseArtifact": "Verified non-root API; positive NODE_ENV=test smoke; production startup fail-closed",
+  "publicDeployment": "BLOCKED: O02/O04/O06; no public URL or production readiness claim",
+  "visualApproval": "AWAITING USER REVIEW; Light/mobile/workflows derived; Figma unchanged",
+  "gitBoundary": "Commit/push/clean-tree and hosted CI are recorded after this pre-commit verification"
+}

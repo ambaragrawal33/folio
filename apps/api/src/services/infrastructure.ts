@@ -36,7 +36,8 @@ export async function connectInfrastructure(env: Env): Promise<Dependencies> {
       return {
         mongo:
           hello.status === 'fulfilled' &&
-          hello.value?.setName === 'rs0' &&
+          typeof hello.value?.setName === 'string' &&
+          hello.value.setName.length > 0 &&
           hello.value?.isWritablePrimary === true,
         redis: results[1].status === 'fulfilled' && results[1].value === 'PONG',
       };

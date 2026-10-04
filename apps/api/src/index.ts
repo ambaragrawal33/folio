@@ -6,6 +6,11 @@ import { AuthService } from './services/auth.ts';
 import { RedisCache } from './services/cache.ts';
 import { PasswordAuthProvider } from './providers/password-auth.ts';
 import { developmentEmail } from './providers/email.ts';
+import { DomainService } from './services/domain.ts';
+import { LiveMarketGateway } from './providers/adapters.ts';
+import { RedisMarketCache } from './services/market-cache.ts';
+import { DemoMarketGateway, seedDemo } from './services/demo.ts';
+import { instrumentMaster } from './models/instrument-master.ts';
 let logger: ReturnType<typeof createLogger> | undefined;
 try {
   const env = parseEnv(process.env);
@@ -20,9 +25,20 @@ try {
     developmentEmail(env),
   );
   await service.initialize();
+  const market = env.DEMO_MODE
+    ? new DemoMarketGateway(env)
+    : new LiveMarketGateway(
+        env,
+        new RedisMarketCache(dependencies.redis, env.REFRESH_TOKEN_SECRET),
+        instrumentMaster,
+      );
+  const domain = new DomainService(service, market);
+  await domain.initialize(instrumentMaster);
+  if (env.DEMO_MODE) await seedDemo(env, service, domain);
   const server = createApp(env, dependencies, logger, undefined, {
     service,
     cache: new RedisCache(dependencies.redis),
+    domain,
   }).listen(env.PORT, '0.0.0.0', () =>
     logger?.info({ port: env.PORT }, 'Folio foundation started'),
   );
@@ -31,7 +47,11 @@ try {
     if (stopping) return;
     stopping = true;
     server.close(() => {
-      void dependencies.close().then(() => process.exit(0));
+      void (async () => {
+        if (market instanceof LiveMarketGateway) await market.drain();
+        await dependencies.close();
+        process.exit(0);
+      })();
     });
     setTimeout(() => process.exit(1), 10000).unref();
   };

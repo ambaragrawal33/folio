@@ -3,6 +3,7 @@ import { SignJWT, jwtVerify } from 'jose';
 import { Types } from 'mongoose';
 import type { Connection, ClientSession, HydratedDocument } from 'mongoose';
 import { PublicUser, AccountExport } from '@folio/shared';
+import type { DomainExport } from '@folio/shared';
 import type { Env } from '../config/env.ts';
 import { authModels } from '../models/auth.ts';
 import type { UserRecord } from '../models/auth.ts';
@@ -25,6 +26,19 @@ export class AuthService {
   readonly models;
   private readonly signingKey: Uint8Array;
   private dummyHash = '';
+  private resources:
+    | {
+        export: (userId: Types.ObjectId) => Promise<DomainExport>;
+        delete: (userId: Types.ObjectId, session: ClientSession) => Promise<void>;
+      }
+    | undefined;
+  registerAccountResources(resources: NonNullable<AuthService['resources']>) {
+    this.resources = resources;
+  }
+  private requireWrites(identity?: Identity) {
+    if (this.env.DEMO_MODE || identity?.user.demoReadonly)
+      throw new HttpError(403, 'DEMO_READ_ONLY', 'This public demo is read-only.');
+  }
   readonly connection: Connection;
   private readonly env: Env;
   private readonly passwords: PasswordProvider;
@@ -59,6 +73,7 @@ export class AuthService {
     if (!preferences) throw new Error('User preferences are missing');
     return PublicUser.parse({
       id: user._id.toHexString(),
+      ...(user.demoReadonly ? { demoReadonly: true } : {}),
       name: user.name,
       email: user.email,
       role: user.role,
@@ -143,6 +158,7 @@ export class AuthService {
     }
   }
   async register(input: { name: string; email: string; password: string }, meta: RequestMeta) {
+    this.requireWrites();
     const passwordHash = await this.passwords.hash(input.password);
     let user = await this.models.User.findOne({ email: input.email });
     if (!user) {
@@ -168,12 +184,14 @@ export class AuthService {
     return { message: GENERIC_EMAIL_MESSAGE };
   }
   async requestEmail(address: string, purpose: 'verify' | 'reset', meta: RequestMeta) {
+    this.requireWrites();
     const user = await this.models.User.findOne({ email: address });
     if (user && (purpose === 'reset' || !user.emailVerifiedAt))
       await this.deliver(user, purpose, meta);
     return { message: GENERIC_EMAIL_MESSAGE };
   }
   async verify(token: string, meta: RequestMeta) {
+    this.requireWrites();
     const now = this.clock();
     await this.connection.transaction(async (session) => {
       const record = await this.models.ActionToken.findOneAndUpdate(
@@ -223,6 +241,7 @@ export class AuthService {
     };
   }
   async login(input: { email: string; password: string }, meta: RequestMeta) {
+    this.requireWrites();
     let user = await this.models.User.findOne({ email: input.email }).select('+passwordHash');
     const passwordCorrect = await this.passwords.verify(
       user?.passwordHash ?? this.dummyHash,
@@ -330,7 +349,7 @@ export class AuthService {
         return { reused: true as const };
       }
       const user = await this.models.User.findById(record.userId).session(session);
-      if (!user?.emailVerifiedAt) throw unauthorized();
+      if (!user?.emailVerifiedAt || user.demoReadonly !== this.env.DEMO_MODE) throw unauthorized();
       const replacement = randomBytes(32).toString('base64url'),
         replacementId = new Types.ObjectId();
       await this.models.Refresh.updateOne(
@@ -383,7 +402,8 @@ export class AuthService {
           expiresAt: { $gt: this.clock() },
         }),
       ]);
-      if (!user?.emailVerifiedAt || !family) throw unauthorized();
+      if (!user?.emailVerifiedAt || !family || user.demoReadonly !== this.env.DEMO_MODE)
+        throw unauthorized();
       return { user, familyId: payload.fid };
     } catch {
       throw unauthorized();
@@ -407,6 +427,46 @@ export class AuthService {
       });
     return { message: 'Signed out.' };
   }
+  demoEnabled() {
+    return this.env.DEMO_MODE;
+  }
+  async demoSession(meta: RequestMeta) {
+    if (!this.env.DEMO_MODE)
+      throw new HttpError(
+        404,
+        'DEMO_UNAVAILABLE',
+        'The read-only demo is unavailable in this deployment.',
+      );
+    const token = randomBytes(32).toString('base64url');
+    return this.connection.transaction(async (session) => {
+      const user = await this.models.User.findOneAndUpdate(
+        { demoReadonly: true, email: 'demo@folio.invalid', emailVerifiedAt: { $ne: null } },
+        { $set: { lastLoginAt: this.clock() } },
+        { session, returnDocument: 'after' },
+      );
+      if (!user)
+        throw new HttpError(503, 'DEMO_UNAVAILABLE', 'The isolated demo has not been initialized.');
+      const expiresAt = new Date(this.clock().getTime() + 30 * 86400000);
+      const [family] = await this.models.Family.create([{ userId: user._id, expiresAt }], {
+        session,
+      });
+      await this.models.Refresh.create(
+        [
+          {
+            userId: user._id,
+            familyId: family!._id,
+            tokenHash: this.digest(token, 'refresh'),
+            expiresAt,
+            deviceInfo: meta.userAgent.slice(0, 300),
+            ip: meta.ip.slice(0, 100),
+          },
+        ],
+        { session },
+      );
+      await this.audit('auth.demo_session', user._id, meta, undefined, undefined, session);
+      return this.bundle(user, family!._id, token);
+    });
+  }
   private async invalidate(userId: Types.ObjectId, session: ClientSession) {
     await this.models.Family.updateMany(
       { userId },
@@ -425,6 +485,7 @@ export class AuthService {
     );
   }
   async reset(token: string, password: string, meta: RequestMeta) {
+    this.requireWrites();
     const hash = await this.passwords.hash(password),
       now = this.clock();
     await this.connection.transaction(async (session) => {
@@ -470,6 +531,7 @@ export class AuthService {
     password: string,
     meta: RequestMeta,
   ) {
+    this.requireWrites(identity);
     const user = await this.models.User.findById(identity.user._id).select('+passwordHash');
     if (!user || !(await this.passwords.verify(user.passwordHash, currentPassword)))
       throw new HttpError(400, 'PASSWORD_INVALID', 'The current password is incorrect.');
@@ -496,6 +558,7 @@ export class AuthService {
     },
     meta: RequestMeta,
   ) {
+    this.requireWrites(identity);
     const user = await this.models.User.findOneAndUpdate(
       { _id: identity.user._id, authVersion: identity.user.authVersion },
       { $set: input },
@@ -506,6 +569,12 @@ export class AuthService {
     return { user: this.publicUser(user) };
   }
   async exportAccount(identity: Identity) {
+    if (identity.user.demoReadonly)
+      throw new HttpError(
+        403,
+        'DEMO_READ_ONLY',
+        'Privacy export is unavailable for the shared read-only demo identity.',
+      );
     const audit = await this.models.Audit.find({ userId: identity.user._id })
       .sort({ at: 1, _id: 1 })
       .select('action at ip userAgent meta.reason')
@@ -520,10 +589,14 @@ export class AuthService {
         userAgent: row.userAgent,
         ...(row.meta?.reason ? { reason: row.meta.reason } : {}),
       })),
-      scope: 'Phase 2 account and audit data; financial collections are not implemented.',
+      scope: this.resources
+        ? 'Account, audit and owned portfolio/economic ledger/void data.'
+        : 'Phase 2 account and audit data; financial collections are not implemented.',
+      ...(this.resources ? { domain: await this.resources.export(identity.user._id) } : {}),
     });
   }
   async deleteAccount(identity: Identity, password: string, _meta: RequestMeta) {
+    this.requireWrites(identity);
     const user = await this.models.User.findById(identity.user._id).select('+passwordHash');
     if (!user || !(await this.passwords.verify(user.passwordHash, password)))
       throw new HttpError(400, 'PASSWORD_INVALID', 'The password is incorrect.');
@@ -537,6 +610,7 @@ export class AuthService {
       await this.models.Refresh.deleteMany({ userId: user._id }, { session });
       await this.models.ActionToken.deleteMany({ userId: user._id }, { session });
       await this.models.Audit.deleteMany({ userId: user._id }, { session });
+      await this.resources?.delete(user._id, session);
       // New resource models must register their ownership-aware cascade/export before they ship (Phase 3+).
       await this.audit(
         'account.deleted',
@@ -547,6 +621,10 @@ export class AuthService {
         session,
       );
     });
-    return { message: 'Your account and its Phase 2 data have been deleted.' };
+    return {
+      message: this.resources
+        ? 'Your account and its owned data have been deleted.'
+        : 'Your account and its Phase 2 data have been deleted.',
+    };
   }
 }

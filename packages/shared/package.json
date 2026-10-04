@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -18,7 +21,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "zod": "4.6.5",
-    "@asteasolutions/zod-to-openapi": "9.1.0"
+    "@asteasolutions/zod-to-openapi": "9.1.0",
+    "decimal.js": "10.6.0",
+    "zod": "4.6.5"
   }
 }

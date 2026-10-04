@@ -17,16 +17,31 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm deps:verify
       - run: pnpm test:database
+      - name: Start transactional Mongo and shared Redis before integration/coverage gates
+        run: docker compose up -d --wait --wait-timeout 180 mongo redis mailhog
       - run: pnpm check
+        env:
+          FOLIO_TEST_MONGODB_URI: mongodb://127.0.0.1:27017/?directConnection=true&replicaSet=rs0
+          FOLIO_TEST_REDIS_URL: redis://127.0.0.1:6379
       - run: pnpm audit --audit-level=moderate
       - run: pnpm exec playwright install --with-deps chromium
       - name: Start real local services and verify APIs
         run: |
-          docker compose up --build -d --wait --wait-timeout 300
+          docker compose -f docker-compose.yml -f docker-compose.demo.yml --profile demo up --build -d --wait --wait-timeout 300
           node scripts/infrastructure-smoke.mjs
           node scripts/auth-infrastructure-smoke.mjs
-      - run: pnpm exec playwright test auth.spec.ts
-        env: { FOLIO_E2E_STACK: '1' }
+          FOLIO_E2E_DEMO=1 node scripts/domain-infrastructure-smoke.mjs
+      - run: pnpm exec playwright test auth.spec.ts domain.spec.ts
+        env:
+          {
+            FOLIO_E2E_STACK: '1',
+            FOLIO_E2E_DEMO: '1',
+            FOLIO_E2E_EVIDENCE_DIR: '.local/phase-2-regression',
+          }
+      - name: Build release API artifact without publishing or deploying
+        run: docker build -f Dockerfile.release --target api-runtime -t folio-api-release:ci .
+      - name: Verify compiled non-root API and fail-closed deployment boundary
+        run: FOLIO_RELEASE_IMAGE=folio-api-release:ci node scripts/release-artifact-smoke.mjs
       - name: Scan history and working tree for secrets
         run: |
           docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.1 git /repo --redact --config /repo/.gitleaks.toml
@@ -34,7 +49,7 @@ jobs:
       - name: Stop local stack
         if: always()
         run: |
-          docker compose down
+          docker compose -f docker-compose.yml -f docker-compose.demo.yml --profile demo down
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
@@ -43,6 +58,7 @@ jobs:
             coverage/coverage-summary.json
             playwright-report/
             docs/evidence/phase-2/
+            docs/evidence/phase-3/visual/
   foundation-visual:
     # Approved Phase 1 baselines were captured on Windows. Keep their 0.5% gate
     # and compare on Windows rather than accepting Linux font-rendering drift.
@@ -62,5 +78,5 @@ jobs:
           name: foundation-visual-evidence
           path: playwright-report/
 
-# Public deployment is deliberately absent. It requires a later authorized phase and approval.
+# Public deployment stays gated by O02/O04/O06. Release artifacts alone are not deployment evidence.
 

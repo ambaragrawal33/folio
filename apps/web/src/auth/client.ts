@@ -33,14 +33,16 @@ export async function api<T>(
   input?: unknown,
   method = input === undefined ? 'GET' : 'POST',
   retry = true,
+  headers: Record<string, string> = {},
 ): Promise<T> {
-  return schema.parse(await (await request(path, input, method, retry)).json());
+  return schema.parse(await (await request(path, input, method, retry, headers)).json());
 }
 export async function request(
   path: string,
   input?: unknown,
   method = input === undefined ? 'GET' : 'POST',
   retry = true,
+  headers: Record<string, string> = {},
 ): Promise<Response> {
   let response: Response;
   try {
@@ -50,6 +52,7 @@ export async function request(
         method,
         credentials: 'same-origin',
         headers: {
+          ...headers,
           'Content-Type': 'application/json',
           'X-Folio-CSRF': '1',
           ...(token ? { Authorization: 'Bearer ' + token } : {}),
@@ -58,9 +61,13 @@ export async function request(
       });
     };
     const cookieMutation =
-      ['/auth/login', '/auth/logout', '/auth/reset-password', '/auth/change-password'].includes(
-        path,
-      ) ||
+      [
+        '/auth/login',
+        '/auth/logout',
+        '/auth/reset-password',
+        '/auth/change-password',
+        '/auth/demo',
+      ].includes(path) ||
       (path === '/me' && method === 'DELETE');
     response = await (cookieMutation ? sessionOperation(send) : send());
   } catch {
@@ -71,7 +78,7 @@ export async function request(
     );
   }
   if (response.status === 401 && retry && !path.startsWith('/auth/')) {
-    if (await refreshSession()) return request(path, input, method, false);
+    if (await refreshSession()) return request(path, input, method, false, headers);
     useAccess.setState({ token: null, status: 'expired' });
   }
   if (!response.ok) {

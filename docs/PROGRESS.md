@@ -1,8 +1,22 @@
 # Folio progress
 
-Updated **2026-10-04**. **Phase 1/2 remain CLOSED / APPROVED. Phase 3 — Domain + first deploy is explicitly AUTHORIZED and OPEN.** Initial repository/specification/document/code inspection, read-only live Figma reinspection, provider probes and unchanged-foundation regression checks are complete on **codex/phase-3-domain**, based on Phase 2 closure **5ad2baa58c261781e94f8f13353185f6bd7fd7c6** (approved implementation **32ded912df0cac3407ee11f202d163e9686afa64**). Main stays **18223b68caf90235b59fabbfb3924140580d79b6**. **No Phase 3 application code yet; awaiting required financial/provider/demo decisions before affected implementation.** Light/mobile remain approved derived implementations, never Figma-approved. Figma, approved foundation and all accepted captures/baselines remain unchanged. Earlier phase authorization/review statements below are historical and superseded by the latest explicit authorization.
+Updated **2026-10-04**. **Phase 1/2 remain CLOSED / APPROVED. Phase 3 domain implementation is delivered for engineering/visual review on codex/phase-3-domain; Phase 3 remains OPEN because visual approval and public deployment are outstanding.** The user's decision gate authorizes X02–X05, Phase 3 X07–X09, non-commercial O03 providers and the isolated read-only O06 demo. No merge/main update, paid service, Figma write or Phase 4 work. Main remains **18223b68caf90235b59fabbfb3924140580d79b6**. Approved foundation/captures remain unchanged; new Light/mobile states are derived implementations requiring their own review.
 
-## Phase 3 entry inspection and required decision stop
+## Phase 3 implemented; outstanding closure gates
+
+Implemented strict financial-string contracts/OpenAPI, a six-instrument canonical master, one owned P0 default INR/FIFO portfolio, immutable BUY/SELL/DIVIDEND/SPLIT records and void events, atomic replay/quantity projections, historical FX provenance/override and idempotency. The pure Decimal engine implements fees, partial/multiple lots, realized/unrealized P&L, splits preserving total cost, dividend income, deterministic economic as-of ordering, incomplete valuation/coverage, current allocation/concentration and the approved FX decomposition. Cash, snapshots/TWR/XIRR/benchmarks and automatic corporate actions are absent.
+
+Implemented bounded lossless provider adapters, encrypted Redis SWR/single-flight/circuit breakers/quota controls, versioned supported calendars, explicit missing/stale states and rights/key gates. Live ECB adapter smoke passed. Yahoo display remains gated; CoinGecko keyed smoke cannot pass without a safely configured Demo key. No keyless production fallback, commercial licensing claim or fabricated provider data.
+
+Implemented real Dashboard/Holdings/Asset/Transactions, scoped search/filter/sort/pagination, manual entry/review/void/FX override, actual portfolio defaults/currency-lock context, domain privacy export/cascade and a dedicated read-only demo. Demo uses five positions/nine economics through the real engine with labelled fixtures, isolated database/cache and denied account/financial writes; normal accounts never receive fixtures.
+
+Actual results and measured coverage: [Phase 3 evidence](PHASE_3_EVIDENCE.md). New screenshots/source mappings/intentional differences: [visual review pack](PHASE_3_VISUAL_REVIEW.md). Release API and static client artifacts are local verification only. O02 free hosts/accounts/HTTPS/proxy, O04 production email, O06 scheduler/backups/restore and deployed smoke remain unresolved. ₹0/provider-generated subdomains/Atlas Free/compatible persistent Redis are binding; no publication or production-readiness claim. STOP for review/operational decisions; no Phase 4.
+
+Final local gates: pnpm check PASS108 tests/12 suites; overall95.42% lines/all70% thresholds pass; every measured financial-core file>=90% lines (five100%, adapters96.8%; weighted98.90%). Real-stack Chromium8/8 PASS,44 unique review captures/zero axe violations/no horizontal overflow/independent scroll. Frozen host graph490 packages/82 peer edges/no failures; audit no known vulnerabilities. Working-files and15-commit history gitleaks scans exit0/no leaks. Seven Compose services running; six configured healthchecks healthy and actual MailHog SMTP/API pass. Release API artifact/local real-domain demo smoke passes; production startup stays gated. Git push/hosted CI and clean-tree state are reported after the branch commit.
+
+## Historical Phase 3 entry inspection and pre-approval stop
+
+**Historical entry record:** the required decision stop preceded the user's explicit approval of X02–X05, Phase3 X07–X09, O03 non-commercial providers and O06 read-only demo. Subsequent implementation/results above supersede not-implemented/pending-financial statements below. Specific hosts, production email and backups remain pending.
 
 Deployment constraint update: **O02 budget/shape confirmed by the user — ₹0/free-tier public demo, free provider-generated subdomains, free frontend + Express/API hosting, Atlas Free and compatible free Redis.** No domain or paid-service purchase/assumption. Vendor/account/proxy selection remains pending. Required security/persistence/financial/tests/mail/backup gates remain intact; report an evidenced free-tier blocker and STOP at the actual deployment boundary if required behavior cannot be met. Remaining financial/provider/demo choices are unchanged and pending; this clarification does not resume dependent implementation.
 
@@ -35,25 +49,25 @@ Production email O04 remains pending before public deployment; no production cre
 
 Canonical remote: https://github.com/ambaragrawal33/folio.git; default main. Hosted Phase 1 CI: https://github.com/ambaragrawal33/folio/actions/runs/37178104505. Phase 1 typography, tokens, shell, density, controls, tables, financial typography, Dark theme and accessibility substitutions are approved. Light and responsive/mobile are approved as derived implementations, not Figma-approved. Both 390×844 closed/open navigation states and inline/Escape/route-collapse/overflow/context behavior are finally approved. These decisions are closed; Figma is unchanged.
 
-Later decisions remain pending: D03/D04/D11/D12, D10 write details, X02–X05/X07–X10, O02–O06, Watchlist model/API/implementation phase and other details outside explicit approvals. No production credentials requested.
+Later decisions remain pending: D03/D04/D11/D12, D10 write details, X10/O05 and later portions of X07–X09, Watchlist model/API and other details outside explicit approvals. Phase3 X02–X05/X07–X09 and scoped O03/O06 demo choices are confirmed above. O02 hosting/accounts/proxy, O04 production email and O06 scheduler/backups/restore remain pending. No production credentials requested.
 
 ## Phase milestones
 
-| Phase                                   | Status                                                                                           |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| 0 Audit                                 | APPROVED by user 2026-10-04; retained dated [evidence](PHASE_0_EVIDENCE.md)                      |
-| 1 Foundation                            | COMPLETE; hosted CI green; design review CLOSED / APPROVED                                       |
-| 2 Auth                                  | CLOSED / APPROVED — engineering and corrected visual review; Light/mobile approved as derived    |
-| 3 Domain + first deploy                 | AUTHORIZED / OPEN — inspection and plan complete; required decisions pending; no domain code yet |
-| 4 News                                  | NOT STARTED                                                                                      |
-| 5 AI / P0 complete deploy               | NOT STARTED                                                                                      |
-| 6 Analytics / P1                        | NOT STARTED                                                                                      |
-| 7 Goals/CSV/alerts/multiportfolio       | NOT STARTED                                                                                      |
-| 8 Sentiment/write-confirm/MF/metals/2FA | NOT STARTED                                                                                      |
-| 9 Release                               | NOT STARTED                                                                                      |
-| P2                                      | NOT AUTHORIZED                                                                                   |
+| Phase                                   | Status                                                                                        |
+| --------------------------------------- | --------------------------------------------------------------------------------------------- |
+| 0 Audit                                 | APPROVED by user 2026-10-04; retained dated [evidence](PHASE_0_EVIDENCE.md)                   |
+| 1 Foundation                            | COMPLETE; hosted CI green; design review CLOSED / APPROVED                                    |
+| 2 Auth                                  | CLOSED / APPROVED — engineering and corrected visual review; Light/mobile approved as derived |
+| 3 Domain + first deploy                 | DOMAIN IMPLEMENTED / OPEN — visual approval and actual gated public deployment outstanding    |
+| 4 News                                  | NOT STARTED                                                                                   |
+| 5 AI / P0 complete deploy               | NOT STARTED                                                                                   |
+| 6 Analytics / P1                        | NOT STARTED                                                                                   |
+| 7 Goals/CSV/alerts/multiportfolio       | NOT STARTED                                                                                   |
+| 8 Sentiment/write-confirm/MF/metals/2FA | NOT STARTED                                                                                   |
+| 9 Release                               | NOT STARTED                                                                                   |
+| P2                                      | NOT AUTHORIZED                                                                                |
 
-Deliberately absent: ledger/models/seeds/transactions, financial engines/provider integrations, news, AI/chat/tools/streaming, Watchlist or other P1/P2 product features, production email, production secrets and public deployment.
+Deliberately absent: News, AI/chat/tools/streaming, cash/deposits/withdrawals, historical portfolio snapshots/TWR/XIRR/benchmarks, Watchlist, CSV import or other unauthorized P1/P2 features, production email/secrets and public deployment.
 
 ## Phase 2 implemented and verified
 

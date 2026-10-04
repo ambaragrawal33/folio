@@ -1,6 +1,81 @@
-# Phase 3 entry inspection and decision-boundary evidence
+# Phase 3 implementation and historical inspection evidence
 
-Date2026-10-04. **Phase 3 authorized and in progress; initial implementation is awaiting required financial/provider/demo decisions. This is not Phase 3 completion evidence.** No application code, dependency pin/lockfile, Compose/CI configuration, approved foundation or baseline was changed. No public deployment occurred. [Plan and complete pending choices](PHASE_3_PLAN.md).
+Date2026-10-04. **Phase 3 domain implementation is submitted for separate visual/engineering review; public deployment is blocked at O02/O04/O06. Phase 3 is OPEN, not CLOSED.** User decision-gate approvals precede implementation. [Living progress](PROGRESS.md), [decisions](DECISIONS.md), [visual pack](PHASE_3_VISUAL_REVIEW.md), [deployment boundary](DEPLOYMENT.md). No Phase 4/News/AI/main merge/paid provisioning/Figma write. Dated entry inspection below records the historical pre-approval boundary and is superseded by this implementation status.
+
+## Implemented scope and exact verification
+
+Strict contracts/OpenAPI for canonical instruments, owned default portfolio, positions/valuation/detail/history, ledger append/list/void and scoped search. Pure private100-digit Decimal/half-even ledger/valuation precedes UI; financial inputs/outputs remain strings. Immutable economics/voids, exact Decimal128 inputs, quantity projection/revision/dirty-from foundations and atomic account/portfolio mutation boundaries. One P0 INR/FIFO portfolio; no account/broker/cash model or ledger edit API.
+
+Real Dashboard/Holdings/Asset/Transactions/manual entry/review/FX override/void/onboarding/search; bounded deterministic filters/sorts/pages; true missing/stale/incomplete coverage and unavailable later engines. Actual portfolio Settings defaults/lock context, extended domain privacy export/delete, separate readonly demo DB/cache/session and visibly labelled fixtures. Read-only Figma sources inspected before frontend work; source contexts/canonical nodes in DESIGN_HANDOFF and review pack. Phase1/2 source palette/primitives/captures unchanged.
+
+Actual command outputs under [implementation evidence](evidence/phase-3/implementation/): check.txt, coverage-summary.json, dependencies.txt, dependency-audit.txt, e2e.txt, visual-state-verification.txt, compose-build.txt, infrastructure-smoke.txt, auth-infrastructure-smoke.txt, domain-infrastructure-smoke.txt, provider-adapter-smoke.txt, release-build.txt, release-smoke.txt and secret-scan.txt. Later final verification metadata records measured totals/exits. Commands:
+
+Final measured pnpm check: **108 tests /12 suites PASS**, lint/format/tokens/strict typecheck/build PASS. Overall lines **95.42% (1792/1878)**, statements94.48%, branches89.03%, functions91.74%; all70% gates pass. Financial file lines: decimal26/26, ledger108/108, valuation62/62, exact14/14, financial-format28/28 all100%; adapters121/125 **96.8%**. Six-file weighted financial lines359/363=98.90%; every individual90% gate passes. No rounding of money through JS numbers or fabricated financial result. The build reports a554.74KB/167.20KB-gzip initial JS chunk warning; code splitting is not claimed and remains a documented performance observation, not a hidden gate exemption.
+
+```powershell
+$env:FOLIO_TEST_MONGODB_URI='mongodb://127.0.0.1:27017/?directConnection=true&replicaSet=rs0'
+$env:FOLIO_TEST_REDIS_URL='redis://127.0.0.1:6379'
+pnpm check
+pnpm deps:verify
+pnpm audit --audit-level=moderate
+docker compose -f docker-compose.yml -f docker-compose.demo.yml --profile demo up --build -d --wait --wait-timeout 300
+node scripts/infrastructure-smoke.mjs
+node scripts/auth-infrastructure-smoke.mjs
+$env:FOLIO_E2E_DEMO='1'
+node scripts/domain-infrastructure-smoke.mjs
+node scripts/provider-adapter-smoke.mjs
+docker build -f Dockerfile.release --target api-runtime -t folio-api-release:phase3 .
+node scripts/release-artifact-smoke.mjs
+$env:FOLIO_E2E_STACK='1'
+$env:FOLIO_E2E_EVIDENCE_DIR='.local/phase-2-regression'
+pnpm test:e2e
+node scripts/scan-secrets.mjs
+git diff --check
+```
+
+Host Chromium cache is explicitly configured via PLAYWRIGHT_BROWSERS_PATH. CI installs its own Chromium and runs immutable foundation screenshots on Windows; Linux runs real auth/domain/demo gates. New screenshots are captured at1440×1024 and390×844 viewports, full page where natural flow exceeds the viewport. They are review evidence, not updated regression baselines. Every capture asserts actual theme/viewport/no horizontal overflow/no independent scroll container and zero WCAG2/2.1AA axe violations. The browser-checks.json records these values for every new screenshot. Human visual approval is still required; automated checks cannot grant it.
+
+Final real-stack Chromium regression **8/8 PASS in2.3minutes**, including three existing auth flows, two domain/demo flows and three immutable foundation flows. **44 unique review PNGs /45 audited capture operations** (two BUY stages share one final filename), zero axe violations, correct1440×1024/390×844 viewports/themes, no horizontal overflow or independent scrolling. [Final measured verification metadata](evidence/phase-3/implementation/final-verification.json) records each financial file and all seven running local services. Six health-checked services are healthy; MailHog has no configured Docker healthcheck and its actual SMTP/API smoke passes. No approved token/style/primitives/Phase1/Phase2 evidence files differ.
+
+The expanded browser suite initially failed only because its oversell assertion expected different wording: actual server copy correctly states that the transaction would sell more units than held at its effective date. The assertion now checks that real contract; no response or financial behavior was fabricated. [Before output](evidence/phase-3/implementation/e2e-assertion-before.txt). Review then caught stale Settings capability/export copy, corrected to the real owned defaults and domain export/deletion scope with unchanged tokens/layout. Full-page captures scroll to the document origin to avoid Chromium fixed-element artifacts; real focus/skip-link behavior is preserved. Final regression output supersedes the before run.
+
+The final working-files secret scan initially flagged one prose phrase in PROVIDER_AUDIT.md as a generic API key. The redacted finding was inspected: it matched the explanatory symbol/currency wording after the word tokens, not a credential. Rephrased that sentence for clarity; no scan rule or allowlist changed. [Redacted finding](evidence/phase-3/implementation/gitleaks-text-falsepositive-redacted.json). The subsequent complete working-files/history scan is the final gate.
+
+Final gitleaks working-files and complete15-commit history scans **exit0/no leaks**. Exact frozen host dependency verification **490 packages/82 peer edges/failures[]** and audit **no known vulnerabilities**. Final formatting and Git whitespace checks pass. Source/baseline files protected above have zero diff; no scan exclusions or financial/security thresholds were weakened.
+
+### Financial invariants with executable hand-computed evidence
+
+| Invariant                                           | Actual executable evidence                                                                                                                                                                                                                                                                                                                                         |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| BUY/SELL native fees and multiple/partial FIFO lots | BUY10@100+10 cost1010; BUY5@120+5 cost605; SELL12@150−12 proceeds1788/released1252/realized536; remaining3/cost363/average121. Tested pure and real Mongo/API.                                                                                                                                                                                                     |
+| SPLIT/DIVIDEND                                      | 2:1 produces6/cost363/average60.5; gross30−fee2 income28 with unchanged units/cost. Per-lot cost conserved; nonrepresentable units/cash-in-lieu rejected.                                                                                                                                                                                                          |
+| Valuation/local/base P&L                            | Quote70 gives420 value/57 unrealized.10×100USD at83 costs83000INR; current100/88 values88000/P&L5000; local return0 and base/FX effect6.024096…percentage points; price component0/FX5000.                                                                                                                                                                         |
+| Historical FX/fees/realized proceeds                | Multiple lots retain their actual historical native/base cost; partial sales proportionally release each lot and current sell/dividend FX converts net proceeds/income. Actual FX date/source persists; missing historic FX needs explicit provenance-bearing override. Identity currency always1; overrides reject and instrument changes clear hidden overrides. |
+| Missing/stale/zero-cost                             | Missing price/FX remains null, known subtotal+coverage only; no complete total/partial weight renormalization or heterogeneous native sum. Required aggregate ratios/movement/allocation/concentration unavailable. Stale inputs stay labelled, zero-cost returns/decomposition unavailable with reason.                                                           |
+| Movement/FX decomposition                           | Equities prior-close/crypto24h explicitly mixed-period; current units/current reference FX, no trading-flow/daily-FX movement mixed in. Price+FX components sum to base unrealized; source/as-of and unavailable references carried.                                                                                                                               |
+| Decimal/storage/rounding                            | No financial number input/coercion, tiny18dp units/exponent upstream tokens losslessly parsed, exact34-digit Decimal128 round trip and reject-loss policy, canonical strings/negative-zero/half-even Indian/international formatting. SVG display coordinates use Decimal and exact underlying prices remain accessible.                                           |
+| Determinism/as-of                                   | Effective instant then sequence, permutation-invariant replay and250 seeded property runs conserving FIFO cost; pure economic-as-of cutoff. No knowledge-as-of/historical snapshots/TWR/XIRR claim.                                                                                                                                                                |
+| Append/void/atomic concurrency                      | Matching retries commit once, conflicting payload409; immutable economics/voids; void metadata derived. Invalid insert/backdate/void causing any later oversell rejects with no sequence/projection drift. Concurrent oversells serialize; deletion racing financial write leaves no owned orphans.                                                                |
+| Ownership/security                                  | Two users: portfolio/ledger/void/valuation/holdings/detail/history IDOR denied uniformly; owned search/export scope, CSRF/strict queries/Redis fail-closed limits, precision/unsupported-field/date rejection. Privacy export includes domain; deletion atomically removes it.                                                                                     |
+| Demo isolation                                      | Actual5-position/9-economic seed yields215316/186205.4/29110.6, realized536/income28 via real engine, every quote/FX fixture labelled. No live provider in demo. Account/financial mutation403/shared export denied; normal mode cannot seed/access demo fixtures.                                                                                                 |
+
+Tests are in API financial/domain/provider/demo suites plus shared financial-format and web workflow suites. Redis encrypted cache/TTL/Lua/leases are tested with two real clients; stale-while-revalidate returns old data immediately, single-flights refresh and opens timed circuit breaker after failures. Transport constrains HTTPS hosts/paths/redirects/size/timeouts and redacts upstream failures. Dates/calendar/identity poisoning/quotas/history limits and lossless Yahoo fetch hook are executable tests, not entitlement assertions.
+
+### Provider/deployment evidence and limits
+
+Implemented live ECB adapter returned83.15/2024-01-05 for requested2024-01-06 and96.32/2026-10-02 for2026-10-04; source/reference/rate date retained. Yahoo display/history makes no calls without entitlement; CoinGecko makes no calls without Demo key. Keyed smoke/display rights remain BLOCKED, no credential requested or commercial-license assertion. Default sectorUnknown/BSE exceptional calendars degraded. No invented price/backfill.
+
+Local normal+demo Compose build/readiness and transactional Mongo/Redis/SMTP/OpenAPI smokes pass. Release image runs as node with frozen production dependencies and compiled shared links; test-mode artifact readiness/session/total215316/write403 passes. NODE_ENV=production fails closed. Initial legacy deploy symlink failure was fixed by preserving workspace layout; final artifact smoke proves module resolution/native import. Browser verification runs after heavy builds to avoid local resource contention, uses normal navigation/saved themes rather than reload storms, and does not weaken security rates.
+
+No public URL/deployment/hosting account/domain or paid infrastructure. O02 candidates/account/proxy/HTTPS/Secure-cookie/real Safari tests, O04 genuine production email and O06 scheduler/encrypted backups/restore remain unresolved. Atlas Free lacks managed backups; Render Free SMTP and volatile Free Key Value are concrete service incompatibilities documented with primary sources in DEPLOYMENT.md. No security/persistence/coverage gate is waived.
+
+### Git and outstanding review
+
+Dedicated codex/phase-3-domain based on approved Phase2 closure, coherent conventional commit and normal branch push only. Final commit/remote synchronization/CI/main/clean-tree report is recorded in the final response and verification metadata; never force-push/merge main. Phase3 visual approval and actual operational/public smoke are outstanding; no Phase3 closure or Phase4 authorization inferred.
+
+## Historical pre-approval entry inspection — 2026-10-04
+
+At the dated entry boundary no application code/dependency/Compose/CI/foundation/baseline had changed; no public deployment occurred. The remaining sections preserve that initial audit, rather than describe current implementation.
 
 ## Repository, specification and source inspection
 

@@ -1,6 +1,9 @@
 import { z } from 'zod';
 export * from './auth.ts';
-// Exact financial values cross the boundary as strings; arithmetic belongs to future domain services.
+export * from './domain.ts';
+export * from './pagination.ts';
+export * from './financial-format.ts';
+// Exact financial values cross the boundary as strings; Decimal arithmetic lives in domain services.
 export const DecimalString = z
   .string()
   .regex(/^-?(?:0|[1-9]\d*)(?:\.\d+)?$/)
@@ -14,14 +17,6 @@ export const HealthResponse = z.strictObject({ status: z.literal('ok') });
 export const ReadyResponse = z.strictObject({
   status: z.enum(['ready', 'unavailable']),
   dependencies: z.strictObject({ mongo: z.boolean(), redis: z.boolean() }),
-});
-export const NumberedPagination = z.strictObject({
-  page: z.coerce.number().int().min(1).max(10000).default(1),
-  pageSize: z.coerce.number().int().min(1).max(100).default(25),
-});
-export const CursorPagination = z.strictObject({
-  cursor: z.string().min(1).max(512).optional(),
-  limit: z.coerce.number().int().min(1).max(100).default(25),
 });
 export const DEFAULT_BASE_CURRENCY = 'INR' as const;
 export const DEFAULT_COST_BASIS = 'FIFO' as const;
@@ -45,16 +40,16 @@ export type NavigationItem = (typeof navigation)[number];
 // Changing a tier or route never ships its engine. Activate only after that feature's gate passes.
 export const capabilities = Object.freeze({
   authentication: true,
-  portfolio: false,
-  valuation: false,
+  portfolio: true,
+  valuation: true,
   news: false,
   assistant: false,
   analytics: false,
   watchlist: false,
   notifications: false,
-  dashboard: false,
-  holdings: false,
-  transactions: false,
+  dashboard: true,
+  holdings: true,
+  transactions: true,
   performance: false,
   tax: false,
   goals: false,

@@ -22,6 +22,8 @@ const userSchema = new Schema(
     lockedUntil: { type: Date, default: null },
     passwordChangedAt: { type: Date, default: null },
     authVersion: { type: Number, default: 0, required: true },
+    domainVersion: { type: Number, default: 0, required: true },
+    demoReadonly: { type: Boolean, default: false, required: true },
     actionTokenRevision: { type: Number, default: 0, required: true },
     lastLoginAt: { type: Date, default: null },
   },

@@ -11,6 +11,13 @@ import { AuthScreens, PrivacyPage } from './auth/AuthScreens';
 import { Account } from './auth/Account';
 import { useAccess } from './auth/client';
 import { useSession } from './auth/session';
+import {
+  PortfolioScreen,
+  RecordTransaction,
+  AssetDetail,
+  GlobalSearch,
+} from './domain/PortfolioScreens';
+import { usePortfolios } from './domain/client';
 function AuthGate({ children }: { children: ReactNode }) {
   const status = useAccess((s) => s.status);
   if (status === 'loading') return <ContentState loading />;
@@ -18,13 +25,19 @@ function AuthGate({ children }: { children: ReactNode }) {
     return <Navigate to={status === 'expired' ? '/auth/session-expired' : '/auth/login'} replace />;
   return children;
 }
-function Unavailable({ item }: { item?: NavigationItem | undefined }) {
+function Unavailable({
+  item,
+  foundationPreview = false,
+}: {
+  item?: NavigationItem | undefined;
+  foundationPreview?: boolean;
+}) {
   const release = item ? releaseMap[item.path] : undefined;
   return (
     <div className="unavailable">
       <h1 className="type-title">{item?.label ?? 'Page unavailable'}</h1>
       <ContentState>
-        {item && release && !release.available
+        {item && release && (foundationPreview || !release.available)
           ? item.label + ' is not available yet.'
           : 'This page does not exist.'}
       </ContentState>
@@ -41,6 +54,7 @@ export function App() {
   const location = useLocation();
   const navigate = useNavigate();
   const session = useSession();
+  const portfolios = usePortfolios();
   const authenticated = useAccess((state) => state.status === 'authenticated');
   const user = authenticated ? session.data?.user : undefined;
   const preview = import.meta.env.DEV && location.pathname === '/dev/shell';
@@ -104,7 +118,7 @@ export function App() {
               disabled
               className="context-selector portfolio-selector type-compact"
             >
-              No portfolio
+              {preview ? 'No portfolio' : (portfolios.data?.portfolios[0]?.name ?? 'No portfolio')}
               <Icon name="down" />
             </button>
             <button
@@ -116,16 +130,20 @@ export function App() {
             </button>
           </div>
           <div className="utilities">
-            <div className="global-search">
-              <Icon name="search" />
-              <input
-                type="search"
-                aria-label="Global search unavailable"
-                className="type-compact"
-                placeholder="Search unavailable"
-                disabled
-              />
-            </div>
+            {authenticated && !preview ? (
+              <GlobalSearch />
+            ) : (
+              <div className="global-search">
+                <Icon name="search" />
+                <input
+                  type="search"
+                  aria-label="Global search unavailable"
+                  className="type-compact"
+                  placeholder="Search unavailable"
+                  disabled
+                />
+              </div>
+            )}
             <div className="notification-control">
               <Button kind="Icon-only" disabled aria-label="Notifications unavailable" />
               <span className="type-compact text-secondary">Notifications</span>
@@ -168,7 +186,10 @@ export function App() {
               <Route
                 path="/dev/shell"
                 element={
-                  <Unavailable item={navigation.find((n) => n.path === '/' + previewRoute)} />
+                  <Unavailable
+                    item={navigation.find((n) => n.path === '/' + previewRoute)}
+                    foundationPreview
+                  />
                 }
               />
             )}
@@ -178,11 +199,35 @@ export function App() {
                 path={item.path}
                 element={
                   <AuthGate>
-                    {item.path === '/settings' ? <Account /> : <Unavailable item={item} />}
+                    {item.path === '/settings' ? (
+                      <Account />
+                    ) : ['/dashboard', '/holdings', '/transactions'].includes(item.path) ? (
+                      <PortfolioScreen
+                        view={item.path.slice(1) as 'dashboard' | 'holdings' | 'transactions'}
+                      />
+                    ) : (
+                      <Unavailable item={item} />
+                    )}
                   </AuthGate>
                 }
               />
             ))}
+            <Route
+              path="/transactions/new"
+              element={
+                <AuthGate>
+                  <RecordTransaction />
+                </AuthGate>
+              }
+            />
+            <Route
+              path="/holdings/:instrumentId"
+              element={
+                <AuthGate>
+                  <AssetDetail />
+                </AuthGate>
+              }
+            />
             <Route path="*" element={<Unavailable />} />
           </Routes>
         </main>

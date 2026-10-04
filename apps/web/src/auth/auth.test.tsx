@@ -35,7 +35,10 @@ let fetcher: ReturnType<typeof vi.fn<typeof fetch>>;
 beforeEach(() => {
   useAccess.setState({ token: null, status: 'anonymous' });
   fetcher = vi.fn<typeof fetch>().mockResolvedValue(response({ message: 'Email next step' }));
-  vi.stubGlobal('fetch', fetcher);
+  vi.stubGlobal('fetch', ((url, options) =>
+    String(url).endsWith('/auth/demo')
+      ? Promise.resolve(response({ enabled: false }))
+      : fetcher(url, options)) as typeof fetch);
 });
 afterEach(() => {
   cleanup();

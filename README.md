@@ -1,8 +1,8 @@
 # Folio
 
-Phase 2 adds real local P0 authentication and account/privacy controls to the approved Phase 1 foundation. Portfolios, financial engines, market data, news, AI and later-tier functionality remain unavailable. Phase 3 requires separate authorization.
+Phase 3 adds owned INR/FIFO portfolios, an immutable Decimal ledger, valuation/coverage, real financial screens and an isolated read-only fixture demo to approved P0 authentication. News, AI and later-tier engines remain unavailable. Phase 3 visual approval and public deployment are outstanding; no production-readiness claim.
 
-The [master-specification audit](docs/PHASE_0_EVIDENCE.md), [design handoff](docs/DESIGN_HANDOFF.md), [decisions](docs/DECISIONS.md), and [Phase 2 evidence](docs/PHASE_2_EVIDENCE.md) record requirements, live Figma provenance, verification and limits.
+The [master audit](docs/PHASE_0_EVIDENCE.md), [handoff](docs/DESIGN_HANDOFF.md), [decisions](docs/DECISIONS.md), [Phase 3 evidence](docs/PHASE_3_EVIDENCE.md), [visual review](docs/PHASE_3_VISUAL_REVIEW.md) and [deployment boundary](docs/DEPLOYMENT.md) record requirements, actual verification and limits. Light/mobile are derived; Figma is unchanged.
 
 ## Run the local stack
 
@@ -24,6 +24,20 @@ docker compose down
 ```
 
 The smoke commands require Node 24 on the host; the stack itself does not. Named Mongo/Redis volumes persist across down/up. Removing volumes is an explicit local data reset, not part of normal shutdown. Initial network downloads can exceed ten minutes; local timing is not a cold-network guarantee.
+
+## Domain and isolated local demo
+
+Create the default portfolio after normal login and record/review BUY/SELL/DIVIDEND/SPLIT manually. Transactions are immutable and can be voided with a reason if ordered replay stays valid. Historical FX uses actual ECB dates or a provenance-bearing override. Missing prices/FX yield explicit incomplete coverage. Yahoo display defaults off pending rights; CoinGecko requires a safely configured Demo key. No fake/keyless production fallback, cash model or TWR/XIRR.
+
+```sh
+docker compose -f docker-compose.yml -f docker-compose.demo.yml --profile demo up --build -d --wait --wait-timeout 300
+FOLIO_E2E_DEMO=1 node scripts/domain-infrastructure-smoke.mjs
+node scripts/provider-adapter-smoke.mjs
+docker build -f Dockerfile.release --target api-runtime -t folio-api-release:phase3 .
+node scripts/release-artifact-smoke.mjs
+```
+
+The dedicated demo at http://localhost:5180/auth/login has real read-only session entry, fixture banner and isolated database/cache; account/financial writes and shared export are denied. Normal accounts at5173 receive no fixtures. [Walkthrough](docs/DEMO.md). Release smoke is local test mode; production startup remains gated and no public URL/hosting account is assumed.
 
 On this Windows Codex session Docker's bin directory was missing from inherited PATH. If needed, use a process-only adjustment:
 
@@ -60,7 +74,7 @@ FOLIO_E2E_STACK=1 pnpm test:e2e
 
 In PowerShell use `$env:FOLIO_E2E_STACK='1'; pnpm test:e2e`. Browser tests require real API, Mongo, Redis and MailHog services. Test-database preparation downloads MongoDB 8.2.12 once and verifies an isolated replica set; tests create/drop only random test databases. CI performs this preparation. Windows downloads can exceed the bounded test hook, so preparation is explicit.
 
-pnpm check enforces lint, token freshness, formatting, strict typecheck, coverage and builds. Overall coverage thresholds are 70% for lines/functions/statements/branches. The financial-core 90% line gate reports no implemented financial core in this phase.
+pnpm check enforces lint, token freshness, formatting, strict typecheck, coverage and builds. Overall coverage thresholds are70% for lines/functions/statements/branches; every measured financial-core file must reach90% lines and an absent core measurement fails. Real integration/coverage uses FOLIO_TEST_MONGODB_URI=mongodb://127.0.0.1:27017/?directConnection=true&replicaSet=rs0 and FOLIO_TEST_REDIS_URL=redis://127.0.0.1:6379. Browser domain/demo verification requires both Compose profiles plus FOLIO_E2E_STACK=1/FOLIO_E2E_DEMO=1. Set FOLIO_E2E_EVIDENCE_DIR=.local/phase-2-regression to preserve approved Phase2 captures.
 
 Phase 1's user-approved gallery/shell/mobile captures are immutable regression baselines; comparisons retain the 0.5% tolerance and run on Windows, their capture platform. CI uses Windows 2025 for foundation visual/geometry/token/keyboard/axe checks and Ubuntu 24.04 for real-service auth E2E and quality/security gates. New Phase 2 captures are review evidence, not user-approved baselines. Light/mobile remain derived implementations, not Figma-approved.
 
@@ -76,7 +90,7 @@ Phase 2 uses Argon2id (19MiB, 2 iterations, 1 lane), 15-minute memory-only JWTs,
 
 Mutations require JSON, exact Origin and X-Folio-CSRF: 1. Cookies are httpOnly/SameSite=Strict; Secure is required by production policy with an explicit local HTTP exception. Redis limits fail closed; memory limits are an explicit test implementation. Progressive account lockout starts after five failed credentials.
 
-Audit retention is 90 days. JSON/CSV exports include owned public account/audit data and exclude credential hashes/tokens. CSV prefixes dangerous cells. Deletion transactionally cascades all five Phase 2 collections and retains only a deletion event with identity/IP/browser removed. Future financial models must extend export/cascade before shipping.
+Audit retention is90 days. JSON/CSV exports include owned public account/audit/domain records and exclude credentials. CSV prefixes dangerous cells. Deletion transactionally cascades auth plus owned portfolio/ledger/void/projection collections, serializes against writes and retains only a deletion event with identity/IP/browser removed.
 
 GET /health and /ready have /api aliases. Readiness verifies writable Mongo replica set and Redis PING, returning explicit 503 on failure. Production email O04, real HTTPS/trusted-proxy configuration and Safari deployment verification remain pending before public auth. The runtime rejects production startup. No production sender/key or public deployment is configured.
 

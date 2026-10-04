@@ -7,6 +7,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { GenericResponse, SessionResponse, Email, Password } from '@folio/shared';
 import { Button, FormField } from '../design-system/primitives';
 import { api, acceptSession } from './client';
+import { DemoEntry } from '../domain/DemoEntry';
 const Fields = z.strictObject({
   name: z.string().optional(),
   email: z.string().optional(),
@@ -206,8 +207,9 @@ export function AuthScreens() {
           Argon2id passwords · email verification · short-lived access tokens · rotated httpOnly
           refresh cookies.
         </p>
+        {mode === 'login' && <DemoEntry />}
         <p className="auth-footer">
-          No brokerage, custody or trade execution. Demo portfolios arrive in a future release.
+          No brokerage, custody or trade execution. Public demo access is read-only and isolated.
         </p>
       </section>
     </div>
@@ -231,9 +233,10 @@ export function PrivacyPage() {
         </p>
         <p className="auth-message">
           Export your account data or delete your account in Settings. Deletion removes your
-          account, credentials, tokens and associated audit records. An anonymous deletion event is
-          retained without your identity. Financial services and AI data processing are not
-          implemented in this phase.
+          account, credentials, tokens, owned portfolios, economic records, void events, projections
+          and associated audit records. An anonymous deletion event is retained without your
+          identity. Folio records your financial ledger and retrieves permitted market data to value
+          holdings. AI data processing is not implemented.
         </p>
         <Link className="auth-link" to="/auth/login">
           Back to sign in
