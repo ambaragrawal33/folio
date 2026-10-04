@@ -1,4 +1,5 @@
 import { z } from 'zod';
+export * from './auth.ts';
 // Exact financial values cross the boundary as strings; arithmetic belongs to future domain services.
 export const DecimalString = z
   .string()
@@ -43,7 +44,7 @@ export const navigation = [
 export type NavigationItem = (typeof navigation)[number];
 // Changing a tier or route never ships its engine. Activate only after that feature's gate passes.
 export const capabilities = Object.freeze({
-  authentication: false,
+  authentication: true,
   portfolio: false,
   valuation: false,
   news: false,
@@ -58,7 +59,7 @@ export const capabilities = Object.freeze({
   tax: false,
   goals: false,
   alerts: false,
-  settings: false,
+  settings: true,
 });
 const routeCapabilities: Record<NavigationItem['path'], keyof typeof capabilities> = {
   '/dashboard': 'dashboard',

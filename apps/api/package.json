@@ -10,6 +10,9 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
+    "argon2": "0.45.1",
+    "jose": "6.2.12",
+    "nodemailer": "10.0.14",
     "zod": "4.6.5",
     "@folio/shared": "workspace:*",
     "express": "5.2.1",
@@ -23,6 +26,8 @@
     "swagger-ui-express": "5.0.1"
   },
   "devDependencies": {
+    "@types/nodemailer": "8.0.2",
+    "mongodb-memory-server": "11.3.0",
     "@types/express": "5.0.6",
     "@types/cors": "2.8.19",
     "@types/swagger-ui-express": "4.1.8",

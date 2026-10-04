@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { randomBytes } from 'node:crypto';
 const localOnlyHost = z
   .string()
   .refine(
@@ -21,6 +22,14 @@ export const EnvSchema = z.strictObject({
   EMAIL_TRANSPORT: z.enum(['console', 'mailhog']).default('mailhog'),
   SMTP_HOST: localOnlyHost.default('127.0.0.1'),
   SMTP_PORT: z.coerce.number().int().min(1).max(65535).default(1025),
+  JWT_ACCESS_SECRET: z
+    .string()
+    .min(32)
+    .default(() => randomBytes(48).toString('base64url')),
+  REFRESH_TOKEN_SECRET: z
+    .string()
+    .min(32)
+    .default(() => randomBytes(48).toString('base64url')),
 });
 export type Env = z.infer<typeof EnvSchema>;
 export function parseEnv(input: Record<string, string | undefined>): Env {

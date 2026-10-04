@@ -11,11 +11,15 @@ import type { Env } from './config/env.ts';
 import type { Dependencies } from './services/infrastructure.ts';
 import { createErrorHandler } from './middleware/errors.ts';
 import type { ErrorReporter } from './middleware/errors.ts';
+import { authRouter } from './routes/auth.ts';
+import type { AuthService } from './services/auth.ts';
+import type { CacheStore } from './services/cache.ts';
 export function createApp(
   env: Env,
   dependencies: Dependencies,
   logger: Logger,
   reportError?: ErrorReporter,
+  authentication?: { service: AuthService; cache: CacheStore },
 ) {
   const app = express();
   app.disable('x-powered-by');
@@ -35,8 +39,10 @@ export function createApp(
     }),
   );
   app.use(helmet());
-  app.use(cors({ origin: env.WEB_ORIGIN, credentials: false }));
+  app.use(cors({ origin: env.WEB_ORIGIN, credentials: true }));
   app.use(express.json({ limit: '64kb' }));
+  if (authentication)
+    app.use('/api/v1', authRouter(env, authentication.service, authentication.cache));
   app.get(['/health', '/api/health'], (_req, res) =>
     res.json(HealthResponse.parse({ status: 'ok' })),
   );

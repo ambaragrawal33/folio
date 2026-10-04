@@ -39,17 +39,21 @@ describe('Shared boundaries', () => {
       }).success,
     ).toBe(false);
   });
-  it('exposes only foundation APIs and keeps all product capabilities off', () => {
-    expect(Object.values(capabilities).every((v) => v === false)).toBe(true);
+  it('exposes Phase 2 auth contracts while keeping financial and later-tier capabilities off', () => {
+    expect(
+      Object.entries(capabilities)
+        .filter(([, enabled]) => enabled)
+        .map(([key]) => key),
+    ).toEqual(['authentication', 'settings']);
     expect(navigation).toHaveLength(12);
     const doc = openApiDocument();
-    expect(Object.keys(doc.paths ?? {}).sort()).toEqual([
-      '/api/health',
-      '/api/openapi.json',
-      '/api/ready',
-      '/health',
-      '/ready',
-    ]);
-    expect(JSON.stringify(doc)).not.toContain('/auth');
+    expect(
+      Object.keys(doc.paths ?? {})
+        .filter((path) => !path.startsWith('/api/v1/'))
+        .sort(),
+    ).toEqual(['/api/health', '/api/openapi.json', '/api/ready', '/health', '/ready']);
+    expect(Object.keys(doc.paths ?? {}).filter((path) => path.startsWith('/api/v1/'))).toHaveLength(
+      11,
+    );
   });
 });

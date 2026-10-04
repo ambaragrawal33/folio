@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "exports": {
+    "./auth.css": "./generated/auth.css",
     "./tokens.css": "./generated/tokens.css",
     "./components.css": "./generated/components.css",
     "./tailwind.css": "./generated/tailwind.css",

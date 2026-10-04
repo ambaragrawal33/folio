@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import { Redis } from 'ioredis';
 import type { Env } from '../config/env.ts';
 export interface Dependencies {
+  mongo?: mongoose.Connection;
+  redis?: Redis;
   probe(): Promise<{ mongo: boolean; redis: boolean }>;
   close(): Promise<void>;
 }
@@ -23,6 +25,8 @@ export async function connectInfrastructure(env: Env): Promise<Dependencies> {
     throw new Error('Local infrastructure connection failed');
   }
   return {
+    mongo,
+    redis,
     async probe() {
       const results = await Promise.allSettled([
         mongo.db?.admin().command({ hello: 1 }),

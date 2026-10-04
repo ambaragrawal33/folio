@@ -1,5 +1,6 @@
 import type { ErrorRequestHandler } from 'express';
 import { ErrorEnvelope } from '@folio/shared';
+import { HttpError } from '../utils/http-error.ts';
 export type ErrorReporter = (
   event: Readonly<{
     code: 'INTERNAL_ERROR';
@@ -16,7 +17,7 @@ export function createErrorHandler(reportError?: ErrorReporter): ErrorRequestHan
       _err !== null &&
       'type' in _err &&
       _err.type === 'entity.too.large';
-    const status = badJson ? 400 : tooLarge ? 413 : 500;
+    const status = _err instanceof HttpError ? _err.status : badJson ? 400 : tooLarge ? 413 : 500;
     // No request bodies, error stacks/messages, database URI, or credentials in responses/logs.
     req.log?.error(
       { code: status === 500 ? 'INTERNAL_ERROR' : 'INVALID_REQUEST', requestId: req.id },
@@ -37,11 +38,18 @@ export function createErrorHandler(reportError?: ErrorReporter): ErrorRequestHan
     res.status(status).json(
       ErrorEnvelope.parse({
         error: {
-          code: status === 500 ? 'INTERNAL_ERROR' : 'INVALID_REQUEST',
+          code:
+            _err instanceof HttpError
+              ? _err.code
+              : status === 500
+                ? 'INTERNAL_ERROR'
+                : 'INVALID_REQUEST',
           message:
-            status === 500
-              ? 'An unexpected error occurred.'
-              : 'The request could not be processed.',
+            _err instanceof HttpError
+              ? _err.message
+              : status === 500
+                ? 'An unexpected error occurred.'
+                : 'The request could not be processed.',
           requestId: req.id,
         },
       }),

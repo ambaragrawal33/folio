@@ -1,6 +1,6 @@
 # Folio progress
 
-Updated **2026-10-04**. Phase 0 was explicitly approved and Phase 1 — Foundation explicitly authorized. Foundation implementation, local gates and isolated clean-checkout verification are complete and committed on codex/phase-1-foundation. The formal hosted-CI gate remains UNVERIFIED because no remote was supplied; provisional design review remains pending. **Phase 2 has not started and requires separate authorization.**
+Updated **2026-10-04**. Phase 1 is complete at 18223b68caf90235b59fabbfb3924140580d79b6. The canonical GitHub cutover is complete, its Foundation checks run 37178104505 succeeded, and the user closed the full Phase 1 design review, including both mobile navigation states. **Phase 2 — Auth is implemented and locally verified on codex/phase-2-auth. Commit/push/hosted evidence will be recorded at the boundary. Phase 3 remains unauthorized.**
 
 ## Phase 1
 
@@ -12,9 +12,18 @@ Observed local evidence: 16 tests in four suites,99.50% line coverage (≥70% en
 
 Command output is collected in [Phase 1 evidence](PHASE_1_EVIDENCE.md) and evidence/phase-1. The final committed-code checkout (d0f1314) started with fresh Mongo/Redis volumes in156.58 seconds, with no host node_modules, shared dist or .env. Base/service images were already cached; dependencies were downloaded inside the build. This is a measured local result, not a cold-network guarantee. The earlier checkout also passed in157.94 seconds.
 
-## Limits and pending review
+## Phase 2 implementation plan
 
-No Git remote or hosted Actions run exists; local equivalent checks are not labeled CI green. Derived Light shell, 1024/720 responsive breakpoints, unavailable copy, native semantics/accessibility substitutions and the own screenshot captures require design review. The captures are provisional evidence, not approved regression baselines. Figma was not changed.
+1. Record approval provenance and inspect Auth 57:282, Settings 54:50 and existing DS controls through read-only MCP.
+2. Implement strict shared auth/account contracts; users, hashed verification/reset/refresh tokens, refresh families and audit logs. Use Argon2id, memory-only 15-minute access JWTs, cookie refresh rotation with transaction-safe replay revocation, Redis limits and progressive account lockout.
+3. Deliver verification/reset email through actual local MailHog; implement login/register/verify/resend/forgot/reset/expired-session flows and the P0 profile/privacy milestone. Extend missing screens from the source design; keep Google/TOTP/session management gated.
+4. Verify expiry, single-use/races/replay, CSRF, two-user ownership, profile export/delete, OpenAPI, both-theme UI/accessibility, real email E2E, all quality/security gates and Compose. Commit and push the branch; do not merge or start Phase 3.
+
+Production email O04 remains pending before public deployment; no production credentials are needed for local Phase 2. Financial engines and fixtures remain Phase 3+. Full portfolio defaults/onboarding wait for their real domain models.
+
+## Limits and approval status
+
+Canonical remote: https://github.com/ambaragrawal33/folio.git; default main. Hosted Phase 1 CI: https://github.com/ambaragrawal33/folio/actions/runs/37178104505. Phase 1 typography, tokens, shell, density, controls, tables, financial typography, Dark theme and accessibility substitutions are approved. Light and responsive/mobile are approved as derived implementations, not Figma-approved. Both 390×844 closed/open navigation states and inline/Escape/route-collapse/overflow/context behavior are finally approved. These decisions are closed; Figma is unchanged.
 
 Later decisions remain pending: D03/D04/D11/D12, D10 write details, X02–X05/X07–X10, O02–O06, Watchlist model/API/implementation phase and other details outside explicit approvals. No production credentials requested.
 
@@ -23,8 +32,8 @@ Later decisions remain pending: D03/D04/D11/D12, D10 write details, X02–X05/X0
 | Phase                                   | Status                                                                      |
 | --------------------------------------- | --------------------------------------------------------------------------- |
 | 0 Audit                                 | APPROVED by user 2026-10-04; retained dated [evidence](PHASE_0_EVIDENCE.md) |
-| 1 Foundation                            | LOCAL VERIFIED / COMMITTED; hosted CI UNVERIFIED; design review pending     |
-| 2 Auth                                  | NOT AUTHORIZED / NOT STARTED                                                |
+| 1 Foundation                            | COMPLETE; hosted CI green; design review CLOSED / APPROVED                  |
+| 2 Auth                                  | IMPLEMENTED; local gates verified; hosted boundary pending                  |
 | 3 Domain + first deploy                 | NOT STARTED                                                                 |
 | 4 News                                  | NOT STARTED                                                                 |
 | 5 AI / P0 complete deploy               | NOT STARTED                                                                 |
@@ -34,4 +43,14 @@ Later decisions remain pending: D03/D04/D11/D12, D10 write details, X02–X05/X0
 | 9 Release                               | NOT STARTED                                                                 |
 | P2                                      | NOT AUTHORIZED                                                              |
 
-Deliberately absent: auth/account/privacy flows, ledger/models/seeds/transactions, financial engines/provider integrations, news, AI/chat/tools/streaming, Watchlist or other P1/P2 product features, production email, production secrets and public deployment.
+Deliberately absent: ledger/models/seeds/transactions, financial engines/provider integrations, news, AI/chat/tools/streaming, Watchlist or other P1/P2 product features, production email, production secrets and public deployment.
+
+## Phase 2 implemented and verified
+
+Implemented P0 register/verify/resend/login/refresh rotation + replay-family revocation/logout/forgot/reset/change-password; strict shared contracts and 13 OpenAPI operations; Argon2id users, hashed single-use action/refresh tokens and durable audit logs; exact Origin/custom-header CSRF, Redis limits/progressive lockout; protected UI/session restoration; real MailHog verification/reset; persisted name/theme/number format/IANA timezone; JSON/CSV privacy export and password+DELETE cascade. Google, TOTP/session management and full portfolio settings remain gated. No production credential/provider/deployment configured.
+
+Local evidence: 56 tests in six suites, 93.65% lines / 92.41% statements / 92.07% functions / 88.51% branches; all >=70% gates pass. Strict typecheck/lint/format/build/token checks pass. Six Chromium E2E tests verify actual MailHog links, sessions/preferences after reload, both exports, deletion, reset/change/logout, source geometry, both-theme axe and immutable Phase 1 gallery/shell/mobile captures. Figma source contexts were read-only; approved foundation tokens/styles/captures remain unchanged. New auth/account states and all Light/mobile layouts are derived/provisional for review.
+
+459 installed packages/73 peer edges passed verification, frozen install passed and security audit found no known vulnerabilities. Gitleaks trackable working files/history were clean. Compose API/web/Mongo/Redis healthy and MailHog running; real auth/OpenAPI/CSRF/Redis TTL/concurrency/index/email lookup smoke passed. [Phase 2 evidence](PHASE_2_EVIDENCE.md) contains actual commands/output, limitations and visual deviations. Financial-core tests are N/A, not claimed complete.
+
+Remaining: production email O04, HTTPS/trusted-proxy/Safari deployment checks and Phase 2 visual approval; production startup stays gated. Later P0 domain/provider/AI work and all P1/P2 features stay unimplemented. Do not merge main or start Phase 3 without its authorization.

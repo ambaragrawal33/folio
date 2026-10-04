@@ -1,6 +1,6 @@
 # Folio architecture and milestone plan
 
-**Plan audited 2026-10-03; Phase 0 approved and Phase 1 foundation implemented 2026-10-04.** Binding requirements and the user's explicitly confirmed D/X/O scope are in [DECISIONS.md](DECISIONS.md). Unconfirmed choices remain proposals for their specified phases; diagrams are planning artifacts, not deployed infrastructure. The local foundation stack now runs; product/domain diagrams remain plans for later authorized phases. Phase 2 remains unauthorized.
+**Plan audited 2026-10-03; Phase 0 approved and Phase 1 foundation implemented 2026-10-04.** Binding requirements and the user's explicitly confirmed D/X/O scope are in [DECISIONS.md](DECISIONS.md). Unconfirmed choices remain proposals for their specified phases; diagrams are planning artifacts, not deployed infrastructure. The local foundation stack now runs; product/domain diagrams remain plans for later authorized phases. Phase 2 is explicitly authorized and implemented on codex/phase-2-auth; Phase 3 remains unauthorized.
 
 ## Repository and module boundaries
 
@@ -29,6 +29,14 @@ React shared DS components live inside apps/web; no extra unrequested component 
 API controllers validate/authenticate/authorize then call domain services. Models never embed external provider logic. Shared schemas generate OpenAPI and response/error contracts; explicit nullable/unavailable/degraded states are part of schemas. Instrument IDs are canonical and server-verified, not user-typed provider tickers.
 
 ## System diagram
+
+Phase 2 implemented boundary: users, refresh_families, refresh_tokens, auth_tokens and audit_logs are real Mongo collections with unique email/token hashes and TTL/indexes. Session rotation, replay revocation, password invalidation and deletion use replica-set transactions. Refresh families carry a serialization revision; users carry authVersion and actionTokenRevision. JWT checks include active family, verified user and authVersion, so revocation also invalidates previously issued access tokens. TTL cleanup never authorizes expiry.
+
+JWTs expire in 15 minutes; families after 30 days absolute; verification after 24 hours and reset after 30 minutes. Redis atomic INCR/EXPIRE enforces 20 mutation requests/minute per IP/route and 10 auth email requests/minute per normalized account/route (120 read requests/minute); failures return 503. Five wrong credentials trigger progressive 30-second-to-15-minute lockout. MemoryCache exists only for explicit tests. The runtime always wires Redis. Deployment must use stable server keys and an explicit trusted-proxy/IP policy; current local HTTP uses an exact Origin/custom-header CSRF policy and a documented Secure-cookie exception.
+
+Only /api/v1/me determines account ownership from verified bearer identity. Strict schemas reject injected owner/role/currency/query fields. JSON/CSV export includes owned public profile/audit data, excludes credentials and protects spreadsheet formulas. Deletion checks password plus DELETE confirmation and transactionally removes all five collections' owned data. The remaining deletion event contains no identity/IP/browser. Any future owned collection must extend both export and deletion before it ships. Audit expiry defaults to 90 days.
+
+Frontend routes cover register, verify/resend, login, forgot/reset, expired session, privacy and account preferences/password/export/delete. TanStack Query owns in-memory account state; Zustand owns in-memory access credentials. Navigator Locks plus a single-flight promise serializes cookie rotation across tabs; no token enters browser storage. Explicit loading/error/invalid/expired/unverified/unavailable states reuse the approved DS. Portfolio defaults/onboarding, TOTP/session management and Google OAuth remain their original phases/tiers. Production EmailProvider selection O04 and HTTPS/Safari checks are deferred until authorized deployment; local MailHog is real SMTP.
 
 ```mermaid
 flowchart LR
@@ -209,7 +217,7 @@ CacheStore has Redis deployment and in-memory test/dev; SWR, single-flight, per-
 
 Deployment candidates and limits are in [PROVIDER_AUDIT.md](PROVIDER_AUDIT.md). Frontend/API/Mongo/Redis/email credentials are needed by first deployment after Phase 3. All required Dockerfiles/host configs will be produced even if deployment credentials are pending. A same-origin /api rewrite is required when hosts use separate registrable domains; never use an external redirect that reintroduces third-party cookies. Redis mandatory for deployed limits; read-only health vs ready distinguishes liveness/dependencies.
 
-The Phase 1 CI workflow is configured to run frozen install, lint, strict typecheck, tests/coverage, builds, dependency audit, gitleaks and screenshot checks for shipped UI, with Dependabot. Manual deployment approval gate applies. No remote/CI account exists yet; local validation must not be reported as CI green.
+The Phase 1 CI workflow is configured to run frozen install, lint, strict typecheck, tests/coverage, builds, dependency audit, gitleaks and screenshot checks for shipped UI, with Dependabot. Manual deployment approval gate applies. The canonical remote is ambaragrawal33/folio. Phase 1 hosted CI run 37178104505 succeeded; Phase 2 hosted results are separately recorded in its evidence.
 
 ## Milestones, risks and inputs
 
@@ -235,4 +243,4 @@ Financial tests ≥90% lines: Decimal precision (18 quantity/10 price), fees, FI
 
 Overall ≥70%, IDOR every resource endpoint, auth race/reuse/CSRF/rate limit, provider recorded fixtures without live network, failure/circuit/SWR/single-flight tests, Playwright real user path and own approved both-theme screen/state baselines. Core security/performance checks cannot be deferred just to ship a phase.
 
-500-transaction performance and release-level clean-clone timing require Phase 9 measurements. Phase 1 verifies its foundation using actual local gates and an isolated clean checkout; see [Phase 1 evidence](PHASE_1_EVIDENCE.md). No hosted CI green, public URL, financial coverage result or user-approved screenshot baseline is asserted.
+500-transaction performance and release-level clean-clone timing require Phase 9 measurements. Phase 1 verifies its foundation using actual local gates and an isolated clean checkout; see [Phase 1 evidence](PHASE_1_EVIDENCE.md). Phase 1 hosted CI and its user-approved visual foundation are confirmed. Phase 2 reuses those immutable screenshot baselines. No public URL or implemented financial-core coverage is asserted.

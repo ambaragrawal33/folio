@@ -2,12 +2,28 @@ import { parseEnv } from './config/env.ts';
 import { createLogger } from './config/logger.ts';
 import { connectInfrastructure } from './services/infrastructure.ts';
 import { createApp } from './app.ts';
+import { AuthService } from './services/auth.ts';
+import { RedisCache } from './services/cache.ts';
+import { PasswordAuthProvider } from './providers/password-auth.ts';
+import { developmentEmail } from './providers/email.ts';
 let logger: ReturnType<typeof createLogger> | undefined;
 try {
   const env = parseEnv(process.env);
   logger = createLogger(env.LOG_LEVEL);
   const dependencies = await connectInfrastructure(env);
-  const server = createApp(env, dependencies, logger).listen(env.PORT, '0.0.0.0', () =>
+  if (!dependencies.mongo || !dependencies.redis)
+    throw new Error('Auth infrastructure unavailable');
+  const service = new AuthService(
+    dependencies.mongo,
+    env,
+    new PasswordAuthProvider(),
+    developmentEmail(env),
+  );
+  await service.initialize();
+  const server = createApp(env, dependencies, logger, undefined, {
+    service,
+    cache: new RedisCache(dependencies.redis),
+  }).listen(env.PORT, '0.0.0.0', () =>
     logger?.info({ port: env.PORT }, 'Folio foundation started'),
   );
   let stopping = false;

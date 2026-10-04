@@ -1,0 +1,22 @@
+[
+  {
+    "theme": "dark",
+    "box": {
+      "x": 470,
+      "y": 132,
+      "width": 500,
+      "height": 703
+    },
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "box": {
+      "x": 470,
+      "y": 132,
+      "width": 500,
+      "height": 703
+    },
+    "violations": []
+  }
+]

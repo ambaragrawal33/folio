@@ -1,12 +1,24 @@
 import { useEffect, useState } from 'react';
-import { NavLink, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { NavLink, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import type { ReactNode } from 'react';
 import { navigation, releaseMap } from '@folio/shared';
 import type { NavigationItem } from '@folio/shared';
 import { Gallery } from './design-system/Gallery';
 import { ContentState, Button } from './design-system/primitives';
 import { Icon } from './design-system/Icon';
 import { useTheme } from './state/theme';
-function Unavailable({ item }: { item?: NavigationItem }) {
+import { AuthScreens, PrivacyPage } from './auth/AuthScreens';
+import { Account } from './auth/Account';
+import { useAccess } from './auth/client';
+import { useSession } from './auth/session';
+function AuthGate({ children }: { children: ReactNode }) {
+  const status = useAccess((s) => s.status);
+  if (status === 'loading') return <ContentState loading />;
+  if (status !== 'authenticated')
+    return <Navigate to={status === 'expired' ? '/auth/session-expired' : '/auth/login'} replace />;
+  return children;
+}
+function Unavailable({ item }: { item?: NavigationItem | undefined }) {
   const release = item ? releaseMap[item.path] : undefined;
   return (
     <div className="unavailable">
@@ -27,12 +39,18 @@ export function App() {
   const { theme } = useTheme();
   const [menu, setMenu] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const session = useSession();
+  const authenticated = useAccess((state) => state.status === 'authenticated');
+  const user = authenticated ? session.data?.user : undefined;
+  const preview = import.meta.env.DEV && location.pathname === '/dev/shell';
+  const previewRoute = new URLSearchParams(location.search).get('preview') ?? 'dashboard';
   useEffect(() => {
     document.documentElement.dataset['theme'] = theme;
   }, [theme]);
   useEffect(() => {
     setMenu(false);
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setMenu(false);
@@ -43,13 +61,18 @@ export function App() {
   const navItem = (item: NavigationItem) => (
     <NavLink
       key={item.path}
-      to={item.path}
-      className={({ isActive }) => 'shell-nav type-compact' + (isActive ? ' selected' : '')}
+      to={preview ? '/dev/shell?preview=' + item.path.slice(1) : item.path}
+      className={({ isActive }) =>
+        'shell-nav type-compact' +
+        ((preview ? previewRoute === item.path.slice(1) : isActive) ? ' selected' : '')
+      }
     >
       {item.icon && <Icon name="briefcase" />}
       <span>{item.label}</span>
     </NavLink>
   );
+  if (location.pathname.startsWith('/auth/')) return <AuthScreens key={location.pathname} />;
+  if (location.pathname === '/privacy') return <PrivacyPage />;
   return (
     <div className="app-shell">
       <a className="skip-link type-compact" href="#main">
@@ -109,10 +132,24 @@ export function App() {
             </div>
             <div className="user-menu">
               <span className="avatar type-caption" aria-hidden="true">
-                —
+                {user
+                  ? user.name
+                      .trim()
+                      .split(/\s+/)
+                      .map((n) => n[0])
+                      .slice(0, 2)
+                      .join('')
+                      .toUpperCase()
+                  : '—'}
               </span>
-              <button disabled type="button" className="account-name type-compact">
-                Signed out
+              <button
+                disabled={!user}
+                type="button"
+                className="account-name type-compact"
+                data-authenticated={Boolean(user)}
+                onClick={() => navigate('/settings')}
+              >
+                {user?.name ?? 'Signed out'}
               </button>
               <Icon name="down" />
             </div>
@@ -127,8 +164,24 @@ export function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dev/design-system" element={<Gallery />} />
+            {import.meta.env.DEV && (
+              <Route
+                path="/dev/shell"
+                element={
+                  <Unavailable item={navigation.find((n) => n.path === '/' + previewRoute)} />
+                }
+              />
+            )}
             {navigation.map((item) => (
-              <Route key={item.path} path={item.path} element={<Unavailable item={item} />} />
+              <Route
+                key={item.path}
+                path={item.path}
+                element={
+                  <AuthGate>
+                    {item.path === '/settings' ? <Account /> : <Unavailable item={item} />}
+                  </AuthGate>
+                }
+              />
             ))}
             <Route path="*" element={<Unavailable />} />
           </Routes>

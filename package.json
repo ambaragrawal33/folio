@@ -18,6 +18,7 @@
     "format:check": "prettier --check .",
     "typecheck": "pnpm --filter @folio/shared build && pnpm -r typecheck",
     "test": "vitest run",
+    "test:database": "node scripts/prepare-test-database.mjs",
     "test:coverage": "vitest run --coverage && node scripts/coverage-financial.mjs",
     "test:e2e": "playwright test",
     "deps:verify": "node scripts/verify-dependencies.mjs",

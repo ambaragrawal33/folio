@@ -31,6 +31,9 @@ services:
     ports: ['127.0.0.1:1025:1025', '127.0.0.1:8025:8025']
   api:
     build: .
+    env_file:
+      - path: .env
+        required: false
     command: ['pnpm', '--filter', '@folio/api', 'dev']
     ports: ['127.0.0.1:3000:3000']
     environment:

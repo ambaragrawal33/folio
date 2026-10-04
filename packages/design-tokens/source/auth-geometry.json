@@ -1,0 +1,17 @@
+{
+  "fileKey": "0QNLyxaAB3EJUo4llSttjk",
+  "nodeId": "57:282",
+  "inspectedAt": "2026-10-04",
+  "roles": {
+    "card-width": 500, "card-height": 700, "page-top": 132,
+    "card-padding-x": 35, "card-padding-top": 33,
+    "brand-size": 20, "brand-line": 28, "title-size": 26, "title-line": 34,
+    "heading-gap": 30, "description-gap": 6, "form-gap-top": 28,
+    "field-height": 68, "field-padding-x": 11, "field-padding-y": 9,
+    "label-size": 12, "label-line": 16, "field-gap": 6,
+    "forgot-gap": 15, "submit-gap": 21, "button-height": 34,
+    "settings-nav-width": 205, "settings-content-minheight": 803,
+    "settings-gap": 16, "settings-radius": 4
+  },
+  "provenance": "Auth card 57:283; brand/title 57:284/285; description 57:286; fields 57:287/290 and children; forgot 57:293; submit 57:294/295. Settings nav/content 54:521/531. Exact literal geometry/types become source-derived roles. Missing-state composition uses existing DS spacing and controls. Light/mobile derive from existing modes and 720 breakpoint."
+}

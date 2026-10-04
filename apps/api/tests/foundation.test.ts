@@ -123,7 +123,7 @@ describe('API foundation', () => {
     );
     const cors = await request(app).options('/api/health').set('Origin', env.WEB_ORIGIN);
     expect(cors.headers['access-control-allow-origin']).toBe(env.WEB_ORIGIN);
-    expect(cors.headers['access-control-allow-credentials']).toBeUndefined();
+    expect(cors.headers['access-control-allow-credentials']).toBe('true');
   });
   it('redacts structured credential fields', () => {
     let output = '';

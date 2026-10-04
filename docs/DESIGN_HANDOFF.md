@@ -1,4 +1,26 @@
-# Folio design handoff — Phase 0
+# Folio design handoff
+
+## Current approval and Phase 2 inspection — 2026-10-04
+
+Phase 1 final design review is CLOSED / APPROVED by the user: A–I/L, derived Light/mobile, both mobile menu states and behavior. Preserve the approved foundation without reinterpretation. Historical Phase 0/1 audit and review statements below are retained as dated provenance and are superseded by this approval.
+
+Before Phase 2 frontend coding, connected MCP get_design_context inspected Auth 57:282 (complete code and screenshot), Settings 54:50 (complete context/screenshot), DS input 2:4823 and button 2:4800. Source Auth is a literal Dark 1440×1024 frame, card 57:283 at 470/132, 500×700, 6px radius, inner x35; headings 20/26px; fields 57:287/290 are 428×68; submit 57:294 is 428×34. Colors map to existing semantic tokens; unmatched geometry/type is added only as source-derived roles in the token package, not screen literals. There are no Auth static image assets to recreate.
+
+P0 data comes from real registration/verification/login/session/reset/account endpoints; no prototype identity, demo valuation or dummy credentials. Source states: sign-in, forgot link, security and no-brokerage/custody/trade copy. Missing: registration, verify/resend, forgot/reset forms, loading/error/lockout, expired-session, privacy/change-password/delete confirmation. These are documented additions derived from the same card and shared DS controls, flagged for Phase 2 design review. Google and its separator are hidden under D05; demo entry remains unavailable until Phase 3 real demo isolation/seed exists. Added registration/privacy links occupy the removed OAuth area, with deviations recorded. Source security messaging describes only implemented controls.
+
+Settings source 54:50 / main 54:85 / navigation 54:521 / content 54:531 / profile 54:535 informs the P0 account/preferences/privacy subset. Portfolio defaults wait for Phase 3's portfolio/ledger model; Notifications and P1 session/TOTP settings remain unavailable. Actual user name/email/preferences are loaded, changes persist, export excludes credential hashes and tokens, and deletion requires explicit password confirmation. Missing form/confirmation states reuse DS controls. Light/mobile Auth and account screens are derived; no dedicated source exists. The existing shell and responsive menu geometry/behavior are preserved.
+
+This inspection is planning/source evidence, not a completed fidelity check. Phase 2 requires new both-theme 1440×1024 captures, state/contrast/keyboard checks and meaningful screenshot regression checks; new screenshots are provisional until the user reviews them. Figma remains read-only.
+
+### Phase 2 completed implementation checks
+
+The final source reinspection also checked profile detail 54:535/536–546 (raised card, square 48px avatar/4px radius, name/context, Edit profile, divider, email/account columns). [Actual MCP text responses and returned content types](evidence/phase-2/figma-contexts.json) preserve provenance; screenshots from those calls were viewed. No Figma write tool was used.
+
+Actual Chromium checks: login Dark/Light at 1440×1024 has card x470/y132/width500, 68px fields, 34px source submit and 26px heading; final card content height703 versus source700 (natural-flow footer/action extensions). Both modes have zero automated WCAG A/AA axe violations. Register and Settings at 390×844 have no horizontal overflow. [Captured measurements](evidence/phase-2/browser-design.json) and new PNGs are implementation evidence, not approval. Settings has real user identity/preferences and the inspected 205px navigation with selected semantic roles. Existing Phase 1 five approved gallery/shell/mobile captures pass immutable screenshot comparisons (0.5% platform pixel tolerance) with no baseline edits.
+
+Known extensions/deviations: Google/separator/demo action omitted per approved release gates; registration/privacy/resend controls added from existing DS. Register/verify/resend/forgot/reset/expired/privacy/loading/error and deletion confirmation have no dedicated source state. Settings exposes real editable P0 forms and unavailable later settings, uses natural document flow to fit security/privacy controls, and normalizes source 17px section labels to approved DS18, 29px Edit profile/35px nav controls to DS36 and 3px selected indicator to approved 2px. Profile padding/gaps use existing semantic DS spacing; no source sample identity or update timestamp is shown. These differences require review of the new states, not reopening the Phase 1 foundation.
+
+Accessibility substitutions reuse approved aliases: stronger existing text roles replace muted literal labels/placeholders and Light accent text; source palette remains intact. Native labelled inputs/selects, aria-invalid/describedby, role alert/status, explicit selected section, keyboard focus and Edit profile focus are verified. Light and mobile Auth/Settings are derived from the existing modes/breakpoints, never Figma-approved. Production layout has no separate visual system.
 
 Audit date: **2026-10-03**; decision status updated **2026-10-04**. Actual connected Figma file key **0QNLyxaAB3EJUo4llSttjk** was read through MCP. Design is read-only; no Figma nodes/tokens were changed, no UI recreated, and no application code exists. The user's approved Phase 0 scope is recorded in DECISIONS; later-phase details remain pending.
 

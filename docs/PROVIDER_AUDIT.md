@@ -4,6 +4,12 @@ Checked **2026-10-03** through current primary documentation, npm registry metad
 
 ## Actual endpoint probes
 
+### Phase 2 verification — 2026-10-04
+
+Phase 0 statements below are historical observations. Phase 2 installs only its auth dependencies: argon2 0.45.1, jose 6.2.12, nodemailer 10.0.14, @types/nodemailer 8.0.2 and mongodb-memory-server 11.3.0. Exact official registry engine/peer/repository metadata was checked before resolution; native Argon2 executes on Windows and in Docker. Node24.19.0/pnpm11.19.0/TS6.0.3 remain pinned. Full installed graph verification reports 459 packages and 73 peer edges with zero failures; pnpm security audit reports no known vulnerabilities. Final frozen install and scan evidence is in [Phase 2 evidence](PHASE_2_EVIDENCE.md).
+
+Local nodemailer delivers actual verification/reset messages to MailHog; E2E retrieves the real inbox links and completes both flows. MongoDB 8.2.12 runs actual transaction/rotation/replay/ownership tests; an isolated test binary is explicitly prepared before bounded test hooks. Redis atomic limits are exercised across two independent clients with TTL, and the running API rejects missing CSRF/origin and unverified bearer identity. MailHog remains loopback-only development infrastructure. O04 production sender/provider stays pending, and no external email account/key was requested. Market/news/AI/provider integrations and other O02–O06 choices remain deferred, not approved by this auth work.
+
 [provider-probes.json](evidence/provider-probes.json) records twelve successful HTTP 200 responses with content type/size, small diagnostic samples and RSS item counts. [supplemental-probes.json](evidence/supplemental-probes.json) and [bse-probes.json](evidence/bse-probes.json) record stock/benchmark/search follow-ups. Sandbox DNS was blocked; approved read-only network requests were rerun outside it. An HTTP 200 proves reachability/returned shape today, not integration correctness, SLA or redistribution permission.
 
 | Provider / request | Executed result | Limit of verification |

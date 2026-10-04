@@ -1,4 +1,4 @@
-name: Foundation checks
+name: Folio quality checks
 on:
   push:
   pull_request:
@@ -16,26 +16,33 @@ jobs:
       - run: npm install --global pnpm@11.19.0
       - run: pnpm install --frozen-lockfile
       - run: pnpm deps:verify
+      - run: pnpm test:database
       - run: pnpm check
       - run: pnpm audit --audit-level=moderate
       - run: pnpm exec playwright install --with-deps chromium
+      - name: Start real local services and verify APIs
+        run: |
+          docker compose up --build -d --wait --wait-timeout 300
+          node scripts/infrastructure-smoke.mjs
+          node scripts/auth-infrastructure-smoke.mjs
       - run: pnpm test:e2e
+        env: { FOLIO_E2E_STACK: '1' }
       - name: Scan history and working tree for secrets
         run: |
           docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.1 git /repo --redact --config /repo/.gitleaks.toml
           docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.1 dir /repo --redact --config /repo/.gitleaks.toml
-      - name: Verify local stack
+      - name: Stop local stack
+        if: always()
         run: |
-          docker compose up --build -d --wait --wait-timeout 300
-          node scripts/infrastructure-smoke.mjs
           docker compose down
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
-          name: foundation-evidence
+          name: phase-evidence
           path: |
             coverage/coverage-summary.json
             playwright-report/
+            docs/evidence/phase-2/
 
 # Public deployment is deliberately absent. It requires a later authorized phase and approval.
 

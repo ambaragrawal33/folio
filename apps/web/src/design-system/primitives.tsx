@@ -1,5 +1,5 @@
 import { useId, useState, useRef, useEffect } from 'react';
-import type { ReactNode, ButtonHTMLAttributes } from 'react';
+import type { ReactNode, ButtonHTMLAttributes, ComponentProps } from 'react';
 import families from '@folio/design-tokens/families.json';
 import variants from '@folio/design-tokens/components.json';
 import { Icon } from './Icon';
@@ -140,6 +140,37 @@ export function Field({
         <span id={id + '-help'} className="sr-only">
           {help}
         </span>
+      )}
+    </div>
+  );
+}
+export function FormField({
+  label,
+  error,
+  presentation = 'standard',
+  ref,
+  ...input
+}: {
+  label: string;
+  error?: string | undefined;
+  presentation?: 'standard' | 'auth';
+} & ComponentProps<'input'>) {
+  const generated = useId(),
+    id = input.id ?? generated;
+  return (
+    <div className="form-field" data-presentation={presentation} data-error={Boolean(error)}>
+      <label htmlFor={id}>{label}</label>
+      <input
+        {...input}
+        ref={ref}
+        id={id}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? id + '-error' : undefined}
+      />
+      {error && (
+        <p id={id + '-error'} className="type-caption text-negative" role="alert">
+          {error}
+        </p>
       )}
     </div>
   );
