@@ -147,6 +147,8 @@ export function AuthScreens() {
               type="submit"
               className="auth-submit"
               disabled={action.isPending}
+              state={action.isPending ? 'Disabled' : 'Default'}
+              aria-busy={action.isPending}
             >
               {action.isPending
                 ? 'Please wait…'

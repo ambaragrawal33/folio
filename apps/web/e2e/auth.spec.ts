@@ -4,6 +4,7 @@ import type { APIRequestContext, Page } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const password = 'A long browser test passphrase!';
+const evidenceDir = process.env['FOLIO_E2E_EVIDENCE_DIR'] ?? 'docs/evidence/phase-2';
 async function mailLink(request: APIRequestContext, email: string, purpose: 'verify' | 'reset') {
   let url = '';
   await expect
@@ -102,13 +103,26 @@ test('real MailHog registration, verification, persistence, preferences, export 
     expect(downloaded.suggestedFilename()).toBe('folio-account.' + format.toLowerCase());
     expect(await downloaded.failure()).toBeNull();
   }
-  await mkdir('docs/evidence/phase-2', { recursive: true });
+  await mkdir(evidenceDir, { recursive: true });
   await page.goto('/settings?theme=light');
   await page.getByLabel('Name', { exact: true }).waitFor();
-  await page.screenshot({ path: 'docs/evidence/phase-2/settings-light-1440.png' });
+  await page.screenshot({ path: evidenceDir + '/settings-light-1440.png' });
   await page.goto('/settings?theme=dark');
   await page.getByLabel('Name', { exact: true }).waitFor();
-  await page.screenshot({ path: 'docs/evidence/phase-2/settings-dark-1440.png' });
+  await page.screenshot({ path: evidenceDir + '/settings-dark-1440.png' });
+  expect(
+    await page.locator('.settings-title').evaluate((el) => getComputedStyle(el).fontSize),
+  ).toBe('24px');
+  expect(
+    await page
+      .locator('.settings-section h2')
+      .first()
+      .evaluate((el) => getComputedStyle(el).fontSize),
+  ).toBe('17px');
+  expect((await page.getByRole('button', { name: 'Edit profile' }).boundingBox())?.height).toBe(29);
+  expect(
+    await page.locator('.settings-avatar').evaluate((el) => getComputedStyle(el).borderTopWidth),
+  ).toBe('1px');
   expect(
     (await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze())
       .violations,
@@ -117,13 +131,32 @@ test('real MailHog registration, verification, persistence, preferences, export 
   await page.goto('/settings?theme=light');
   await page.getByLabel('Name', { exact: true }).waitFor();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
-  await page.screenshot({ path: 'docs/evidence/phase-2/settings-mobile-light-390.png' });
+  const identity = page.locator('.settings-profile-header > div');
+  expect((await identity.boundingBox())?.width).toBeGreaterThan(200);
+  expect(
+    await page.locator('.settings-profile-name').evaluate((el) => el.scrollWidth <= el.clientWidth),
+  ).toBe(true);
+  const avatar = await page.locator('.settings-avatar').boundingBox();
+  const edit = await page.getByRole('button', { name: 'Edit profile' }).boundingBox();
+  expect(edit!.y).toBeGreaterThan(avatar!.y + avatar!.height);
+  expect(edit!.height).toBe(36);
+  expect((await page.locator('.settings-profile').boundingBox())?.height).toBeLessThan(260);
+  await page.screenshot({ path: evidenceDir + '/settings-mobile-light-390.png' });
   await page.setViewportSize({ width: 1440, height: 1024 });
   const audit = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
     .analyze();
   expect(audit.violations).toEqual([]);
   await page.getByRole('button', { name: 'Delete account', exact: true }).click();
+  await page.getByRole('button', { name: 'Permanently delete account' }).click();
+  await expect(
+    page
+      .getByRole('alert')
+      .filter({ hasText: 'Enter your current password to delete your account.' }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('alert').filter({ hasText: 'Type DELETE exactly to confirm account deletion.' }),
+  ).toBeVisible();
   await page.getByLabel('Confirm password').fill(password);
   await page.getByLabel('Type DELETE').fill('DELETE');
   await page.getByRole('button', { name: 'Permanently delete account' }).click();
@@ -167,7 +200,7 @@ test('reset and password change revoke sessions; logout restores the protected-r
 test('Figma auth geometry, theme/mobile derivations and real error states are accessible', async ({
   page,
 }) => {
-  await mkdir('docs/evidence/phase-2', { recursive: true });
+  await mkdir(evidenceDir, { recursive: true });
   const evidence: unknown[] = [];
   for (const theme of ['dark', 'light']) {
     await page.setViewportSize({ width: 1440, height: 1024 });
@@ -191,13 +224,13 @@ test('Figma auth geometry, theme/mobile derivations and real error states are ac
       .analyze();
     expect(audit.violations).toEqual([]);
     evidence.push({ theme, box, violations: audit.violations });
-    await page.screenshot({ path: 'docs/evidence/phase-2/login-' + theme + '-1440.png' });
+    await page.screenshot({ path: evidenceDir + '/login-' + theme + '-1440.png' });
   }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/auth/register?theme=light');
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
   await page.screenshot({
-    path: 'docs/evidence/phase-2/register-mobile-light-390.png',
+    path: evidenceDir + '/register-mobile-light-390.png',
     fullPage: true,
   });
   expect(
@@ -216,5 +249,5 @@ test('Figma auth geometry, theme/mobile derivations and real error states are ac
   await page.getByLabel('Password', { exact: true }).fill(password);
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await expect(page.getByRole('alert')).toContainText('Unable to reach Folio');
-  await writeFile('docs/evidence/phase-2/browser-design.json', JSON.stringify(evidence, null, 2));
+  await writeFile(evidenceDir + '/browser-design.json', JSON.stringify(evidence, null, 2));
 });

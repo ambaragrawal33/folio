@@ -124,6 +124,29 @@ describe('auth client security boundaries', () => {
   });
 });
 describe('auth forms and explicit states', () => {
+  it('uses the existing disabled variant while a login request is pending', async () => {
+    let complete: (value: Response) => void = () => {};
+    fetcher.mockImplementationOnce(
+      () =>
+        new Promise<Response>((resolve) => {
+          complete = resolve;
+        }),
+    );
+    show('/auth/login');
+    fireEvent.change(screen.getByLabelText('Email address'), { target: { value: user.email } });
+    fireEvent.change(screen.getByLabelText('Password'), { target: { value: password } });
+    fireEvent.click(screen.getByRole('button', { name: /^Sign in$/ }));
+    const pending = await screen.findByRole('button', { name: 'Please wait…' });
+    expect((pending as HTMLButtonElement).disabled).toBe(true);
+    expect(pending.getAttribute('data-state')).toBe('Disabled');
+    expect(pending.getAttribute('data-figma')).toBe('2:4804');
+    expect(pending.getAttribute('aria-busy')).toBe('true');
+    complete(error(401, 'Unable to sign in'));
+    await screen.findByRole('alert');
+    expect(screen.getByRole('button', { name: /^Sign in$/ }).getAttribute('data-state')).toBe(
+      'Default',
+    );
+  });
   it('rejects invalid registration fields before calling the API', async () => {
     show('/auth/register');
     fireEvent.click(screen.getByRole('button', { name: 'Create account' }));
@@ -253,6 +276,16 @@ describe('owned settings forms', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Delete account' }));
     fireEvent.click(screen.getByRole('button', { name: 'Permanently delete account' }));
     await waitFor(() => expect(screen.getAllByRole('alert')).toHaveLength(2));
+    expect(screen.getByText('Enter your current password to delete your account.')).toBeTruthy();
+    expect(screen.getByText('Type DELETE exactly to confirm account deletion.')).toBeTruthy();
+    fireEvent.change(screen.getByLabelText('Confirm password'), { target: { value: password } });
+    fireEvent.change(screen.getByLabelText('Type DELETE'), { target: { value: 'delete' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Permanently delete account' }));
+    await waitFor(() => expect(screen.getAllByRole('alert')).toHaveLength(1));
+    expect(screen.getByRole('alert').textContent).toBe(
+      'Type DELETE exactly to confirm account deletion.',
+    );
+    expect(fetcher.mock.calls.filter((call) => call[1]?.method === 'DELETE')).toHaveLength(0);
     fireEvent.click(screen.getByRole('button', { name: 'Cancel deletion' }));
     expect(screen.queryByLabelText('Type DELETE')).toBeNull();
   });

@@ -150,3 +150,11 @@ These are routine implementation choices within the authorized foundation. They 
 F12 — The required Sentry-ready foundation is a synchronous optional reporter receiving only immutable code/requestId/status metadata. No DSN or external service is configured. Real HTTP tests verify redaction and a safe 500 response even when the reporter throws. Raw errors, stacks, request bodies and queries never cross this boundary; any future asynchronous adapter must handle its own rejection.
 
 Pending choices remain D03/D04/D11/D12, D10 writes, X02–X05/X07–X10, O02–O06, Watchlist model/API/phase and any other details outside the original approvals. No production secret, service purchase, Figma modification or public deployment is authorized by these ADRs.
+
+## Phase 2 visual correction decisions — 2026-10-04
+
+V01 — The user explicitly requested targeted corrections after declining Phase 2 visual approval. Live read-only Settings54:50 reinspection governs Settings-only title/section/action/field/profile/marker/avatar geometry. The Phase 2 auth token extension holds the traced roles; shared Phase 1 foundation and baselines remain unchanged. Mobile profile uses avatar+identity and a separate Edit row; normal names stay readable without smaller typography. Desktop actions follow29px/4px source geometry; derived mobile controls retain36px targets. Human-readable deletion copy and intrinsic-width destructive action remove technical errors/wrapping. Intentional retained differences and exact functional/accessibility reasons are in DESIGN_HANDOFF.md; none is claimed visually approved yet.
+
+V02 — Auth pending uses existing DS Primary Disabled2:4804 rather than retain active gold. The shared Button already supports the variant; pass its state locally with native disabled/aria-busy and existing “Please wait…” progress text. Figma has no loading variant/spinner, so no new spinner pattern is introduced. Active auth geometry and global primitives/palette are unchanged. Both themes were captured and browser-tested.
+
+These choices implement the authorized correction scope; no new phase, backend contract, production provider or previously pending decision is approved. Phase 2 visual approval remains pending; Phase 1 review remains closed.

@@ -11,7 +11,13 @@
     "label-size": 12, "label-line": 16, "field-gap": 6,
     "forgot-gap": 15, "submit-gap": 21, "button-height": 34,
     "settings-nav-width": 205, "settings-content-minheight": 803,
-    "settings-gap": 16, "settings-radius": 4
+    "settings-gap": 16, "settings-radius": 4,
+    "settings-title-size": 24, "settings-title-line": 33.6,
+    "settings-section-size": 17, "settings-section-line": 23.8,
+    "settings-action-height": 29, "settings-field-height": 34,
+    "settings-profile-minheight": 142, "settings-identity-gap": 14,
+    "settings-edit-width": 114, "settings-save-width": 132,
+    "settings-marker-width": 3, "settings-nav-height": 35
   },
-  "provenance": "Auth card 57:283; brand/title 57:284/285; description 57:286; fields 57:287/290 and children; forgot 57:293; submit 57:294/295. Settings nav/content 54:521/531. Exact literal geometry/types become source-derived roles. Missing-state composition uses existing DS spacing and controls. Light/mobile derive from existing modes and 720 breakpoint."
+  "provenance": "Auth card 57:283; brand/title 57:284/285; description 57:286; fields 57:287/290 and children; forgot 57:293; submit 57:294/295. Settings nav/content 54:521/531; live reinspection 2026-10-04: title 54:517, section 54:532, action/edit 54:540, save 54:595, native field 54:550, profile 54:535, identity gap from avatar 54:536 and name 54:538, marker/row 54:523/524. Exact literal geometry/types become source-derived roles. Missing-state composition uses existing DS spacing and controls. Light/mobile derive from existing modes and 720 breakpoint; mobile actions retain DS 36px touch targets."
 }

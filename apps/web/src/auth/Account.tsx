@@ -77,7 +77,9 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
   });
   return (
     <>
-      <h1 className="type-title">Settings</h1>
+      <h1 className="settings-title" data-figma="54:517">
+        Settings
+      </h1>
       <p className="type-caption text-secondary">
         Manage your workspace, portfolio preferences and account security.
       </p>
@@ -114,7 +116,9 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
                     .toUpperCase()}
                 </span>
                 <div>
-                  <p className="type-body">{user.name}</p>
+                  <p className="type-body settings-profile-name" title={user.name}>
+                    {user.name}
+                  </p>
                   <p className="type-caption text-secondary">Personal investment workspace</p>
                 </div>
                 <Button onClick={() => profile.setFocus('name')}>Edit profile</Button>
@@ -132,7 +136,7 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
             </div>
             <form
               onSubmit={profile.handleSubmit((data) => save.mutate(data))}
-              className="settings-section"
+              className="settings-form"
             >
               <div className="settings-fields">
                 <FormField
@@ -166,7 +170,12 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
                   </select>
                 </label>
               </div>
-              <Button kind="Primary" type="submit" disabled={save.isPending}>
+              <Button
+                kind="Primary"
+                type="submit"
+                className="settings-save"
+                disabled={save.isPending}
+              >
                 Save changes
               </Button>
               {save.data && (
@@ -184,7 +193,7 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
           <section id="security" className="settings-section">
             <h2 className="type-section">Security</h2>
             <form
-              className="settings-section"
+              className="settings-form"
               onSubmit={password.handleSubmit((data) => change.mutate(data))}
             >
               <FormField
@@ -248,7 +257,7 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
             </Button>
             {confirm && (
               <form
-                className="settings-section"
+                className="settings-form"
                 onSubmit={removal.handleSubmit((data) => deletion.mutate(data))}
               >
                 <p className="type-body text-secondary">
@@ -260,12 +269,20 @@ function AccountForms({ user }: { user: z.infer<typeof ProfileResponse>['user'] 
                   type="password"
                   autoComplete="current-password"
                   {...removal.register('password')}
-                  error={removal.formState.errors.password?.message}
+                  error={
+                    removal.formState.errors.password
+                      ? 'Enter your current password to delete your account.'
+                      : undefined
+                  }
                 />
                 <FormField
                   label="Type DELETE"
                   {...removal.register('confirmation')}
-                  error={removal.formState.errors.confirmation?.message}
+                  error={
+                    removal.formState.errors.confirmation
+                      ? 'Type DELETE exactly to confirm account deletion.'
+                      : undefined
+                  }
                 />
                 <Button kind="Destructive" type="submit" disabled={deletion.isPending}>
                   Permanently delete account

@@ -29,19 +29,19 @@ Later decisions remain pending: D03/D04/D11/D12, D10 write details, X02–X05/X0
 
 ## Phase milestones
 
-| Phase                                   | Status                                                                      |
-| --------------------------------------- | --------------------------------------------------------------------------- |
-| 0 Audit                                 | APPROVED by user 2026-10-04; retained dated [evidence](PHASE_0_EVIDENCE.md) |
-| 1 Foundation                            | COMPLETE; hosted CI green; design review CLOSED / APPROVED                  |
-| 2 Auth                                  | COMPLETE; committed/pushed branch; local gates and both hosted jobs green   |
-| 3 Domain + first deploy                 | NOT STARTED                                                                 |
-| 4 News                                  | NOT STARTED                                                                 |
-| 5 AI / P0 complete deploy               | NOT STARTED                                                                 |
-| 6 Analytics / P1                        | NOT STARTED                                                                 |
-| 7 Goals/CSV/alerts/multiportfolio       | NOT STARTED                                                                 |
-| 8 Sentiment/write-confirm/MF/metals/2FA | NOT STARTED                                                                 |
-| 9 Release                               | NOT STARTED                                                                 |
-| P2                                      | NOT AUTHORIZED                                                              |
+| Phase                                   | Status                                                                                            |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| 0 Audit                                 | APPROVED by user 2026-10-04; retained dated [evidence](PHASE_0_EVIDENCE.md)                       |
+| 1 Foundation                            | COMPLETE; hosted CI green; design review CLOSED / APPROVED                                        |
+| 2 Auth                                  | Engineering provisionally accepted; targeted visual corrections verified; visual approval PENDING |
+| 3 Domain + first deploy                 | NOT STARTED                                                                                       |
+| 4 News                                  | NOT STARTED                                                                                       |
+| 5 AI / P0 complete deploy               | NOT STARTED                                                                                       |
+| 6 Analytics / P1                        | NOT STARTED                                                                                       |
+| 7 Goals/CSV/alerts/multiportfolio       | NOT STARTED                                                                                       |
+| 8 Sentiment/write-confirm/MF/metals/2FA | NOT STARTED                                                                                       |
+| 9 Release                               | NOT STARTED                                                                                       |
+| P2                                      | NOT AUTHORIZED                                                                                    |
 
 Deliberately absent: ledger/models/seeds/transactions, financial engines/provider integrations, news, AI/chat/tools/streaming, Watchlist or other P1/P2 product features, production email, production secrets and public deployment.
 
@@ -54,3 +54,11 @@ Local evidence: 57 tests in six suites, 93.94% lines / 92.68% statements / 92.07
 459 installed packages/73 peer edges passed verification, frozen install passed and security audit found no known vulnerabilities. Gitleaks trackable working files/history were clean. Compose API/web/Mongo/Redis healthy and MailHog running; real auth/OpenAPI/CSRF/Redis TTL/concurrency/index/email lookup smoke passed. [Phase 2 evidence](PHASE_2_EVIDENCE.md) contains actual commands/output, limitations and visual deviations. Financial-core tests are N/A, not claimed complete.
 
 Remaining: production email O04, HTTPS/trusted-proxy/Safari deployment checks and Phase 2 visual approval; production startup stays gated. Later P0 domain/provider/AI work and all P1/P2 features stay unimplemented. Do not merge main or start Phase 3 without its authorization.
+
+## Phase 2 visual corrections — 2026-10-04
+
+User's first visual review was NOT approved. Implemented only its requested corrections: Settings-only source type/geometry and avatar border, readable mobile profile grid with Edit below identity, single section separators, human-readable deletion validation, intrinsic-width one-line permanent deletion action, and the existing DS Disabled variant during auth submission. No shared Phase 1 primitive/style/token/responsive rule or approved capture changed; Figma remains read-only. Dark/Light desktop and derived mobile captures are in [visual correction evidence](PHASE_2_VISUAL_CORRECTIONS.md).
+
+Actual final local gates: `pnpm check` passed lint/format/token freshness/strict typecheck, **58 tests in six suites**, coverage **93.94% lines / 92.68% statements / 92.07% functions / 89.10% branches**, and all builds. All **six E2E tests** passed, including unchanged Phase 1 screenshot baselines. Targeted real-service review produced six exact-viewport default captures and **12 axe audits with zero violations**, verified source geometry, deletion copy/one-line action in three requested modes, readable 220px mobile identity/229px profile, zero horizontal overflow/independent scrolling, keyboard/focus and closed/open/Escape/route-collapse navigation. Disposable review account was removed. Dependency verification passed 459 packages/73 peer edges; audit found no known vulnerabilities; trackable files/history secret scans passed.
+
+Intentional remaining Figma differences and their reasons are recorded in DESIGN_HANDOFF.md. Visual approval remains PENDING; passing engineering/axe/overflow tests is not visual approval. Phase 1 design review remains CLOSED. Phase 3 remains NOT STARTED and requires separate authorization. Normal commit/push of the correction is on codex/phase-2-auth; final hash and remote/tree state are reported after the commit rather than stored self-referentially here.

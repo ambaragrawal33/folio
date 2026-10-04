@@ -1,0 +1,23 @@
+Command: PLAYWRIGHT_BROWSERS_PATH=C:/Users/ambar/AppData/Local/ms-playwright node .local/phase-2-visual-corrections.mjs
+Exit: 0
+Actual output:
+Six exact-viewport captures: PASS; 12 default/loading/confirmation/open-menu axe audits: PASS; source Settings geometry: PASS; mobile identity readability/layout: PASS; zero horizontal overflow/independent scrollers: PASS; validation copy/one-line deletion/focus/menu: PASS; real-account cleanup: PASS.
+
+Independent PNG-header checks:
+login-dark-1440 1440x1024
+login-light-1440 1440x1024
+settings-dark-1440 1440x1024
+settings-light-1440 1440x1024
+register-mobile-light-390 390x844
+settings-mobile-light-390 390x844
+
+Commands: pnpm deps:verify; pnpm audit --audit-level=moderate
+Actual output:
+$ node scripts/verify-dependencies.mjs
+{
+  "node": "v24.19.0",
+  "packages": 459,
+  "peerEdges": 73,
+  "failures": []
+}
+No known vulnerabilities found

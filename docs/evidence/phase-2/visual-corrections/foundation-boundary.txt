@@ -1,0 +1,5 @@
+Command: git diff --exit-code HEAD -- approved foundation files (correction base 34c38b4)
+Exit: 0
+Command: git diff --exit-code main -- Phase 1 captures, canonical tokens/components/responsive/style/geometry files
+Exit: 0
+Both comparisons produced no diff output.
