@@ -63,6 +63,8 @@ Fresh primary documentation: [Frankfurter](https://frankfurter.dev/) confirms pr
 
 ## Not yet implemented or verified
 
+Subsequent user clarification confirms O02 budget/shape: ₹0/free-tier public demo, provider-generated subdomains, free frontend/Express API, Atlas Free and compatible free Redis; no custom domain or paid services. Living decisions/architecture/plan/provider audit/progress now record that constraint separately from pending vendor/account/topology inputs. This documentation update does not add a hosting capability test, public deployment, financial implementation or approval of pending X/O choices. Report exact free-tier incompatibilities at the deployment boundary without weakening required behavior.
+
 Required X02–X05/Phase3 X07–X09/O03/O06 demo proposals are pending, enumerated with alternatives in the plan. No ledger/valuation/instrument/seed/UI implementation; no dependency install; no snapshot/TWR/XIRR/P1/P2/News/AI work. O02hosting/O04production email/O06scheduler/backups and actual keyed provider permissions/smokes remain operational gates. No hosting account/domain/credential or public deployment is invented. Actual public HTTPS/proxy/Chrome+Safari/email/backup/restore/financial security smoke cannot be claimed from local evidence.
 
 The phase stops at this required decision boundary. Documentation/evidence is committed/pushed separately from future implementation; see the final Git report for the resulting documentation HEAD. Phase3 remains OPEN, not complete.

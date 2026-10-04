@@ -213,6 +213,8 @@ P1 propose tools create pending_actions (expiry 10 minutes). Confirm endpoint va
 
 ## Jobs, providers and deployment
 
+The user has confirmed the first deployment's budget and shape: **₹0/free-tier public demo**, free frontend and Express/API hosts on provider-generated subdomains, Atlas Free, compatible free Redis. No purchased/custom domain or paid-service fallback. Concrete hosts/accounts and proxy topology are not selected. Use the required same-origin /api proxy on the frontend-generated origin when the frontend/API origins differ; preserve HTTPS/Secure cookies, verified trusted-proxy/IP behavior, Redis-backed security, durable Mongo/Redis semantics, real production email, backups and all test gates. Verify the selected free services actually support these requirements before publication. A quota, retention, protocol, proxy, email or storage incompatibility is an explicit deployment blocker to report, not permission to replace persistence with memory, relax security or assume a paid plan.
+
 JobRunner supports local BullMQ+Redis and stateless HMAC HTTP/CLI. Every job is bounded/idempotent with lock/checkpoint and job_runs evidence; verify shared-secret signature, replay window and fixed allowlist of job names. Free cloud API can sleep, so durable external scheduler triggers ingestion/refresh/backfill; schedules can delay and stale data remains visible.
 
 CacheStore has Redis deployment and in-memory test/dev; SWR, single-flight, per-provider breaker/backoff and bounded retries. Cache keys include canonical instrument/provider/range/currency and policy version. Circuit breakers do not fabricate fallback prices. Global crypto batches use monthly reserve accounting; old history and fallback entitlements are unresolved O03/X05.
