@@ -1,0 +1,116 @@
+{
+  "ledger": {
+    "items": [
+      {
+        "record": {
+          "instrumentId": "INFY:NSE",
+          "effectiveAt": "2026-01-05T15:00:00.000Z",
+          "tradingDate": "2026-01-05",
+          "type": "BUY",
+          "quantity": "2",
+          "price": "100",
+          "fees": "1",
+          "id": "6ac3cf0dfc45e0ec536c578d",
+          "sequence": 1,
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "fx": {
+            "rate": "1",
+            "rateDate": "2026-01-05",
+            "source": "identity",
+            "reference": "INR/INR"
+          }
+        },
+        "nativeCashFlow": "-201",
+        "void": null
+      }
+    ],
+    "page": 1,
+    "pageSize": 25,
+    "total": 1
+  },
+  "valuation": {
+    "baseCurrency": "INR",
+    "complete": false,
+    "status": "partial",
+    "asOf": null,
+    "coverage": {
+      "valued": 0,
+      "total": 1
+    },
+    "holdings": [
+      {
+        "instrumentId": "INFY:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "2",
+        "localCost": "201",
+        "baseCost": "201",
+        "averageCost": "100.5",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "lots": [
+          {
+            "transactionId": "6ac3cf0dfc45e0ec536c578d",
+            "quantity": "2",
+            "localCost": "201",
+            "baseCost": "201"
+          }
+        ],
+        "instrument": {
+          "id": "INFY:NSE",
+          "symbol": "INFY",
+          "name": "Infosys Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "INFY.NS",
+          "metadataSource": "2026-10-05 issuer infosys.com/investors/shares/share-details.html; Yahoo identity INFY.NS/INR/NSI/EQUITY"
+        },
+        "quote": null,
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-05",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-05T16:23:41.827Z",
+          "status": "fresh"
+        },
+        "localValue": null,
+        "baseValue": null,
+        "unrealizedBase": null,
+        "localReturn": null,
+        "baseReturn": null,
+        "fxReturnEffect": null,
+        "priceContribution": null,
+        "fxContribution": null,
+        "movementBase": null,
+        "movementReferenceBase": null,
+        "weight": null,
+        "unavailableReason": "Market price is unavailable.",
+        "returnUnavailableReason": "Market price is unavailable."
+      }
+    ],
+    "knownValuedSubtotal": "0",
+    "totalValue": null,
+    "totalBaseCost": "201",
+    "unrealizedBase": null,
+    "costBasedReturn": null,
+    "realizedBase": "0",
+    "dividendBase": "0",
+    "movementBase": null,
+    "movementReturn": null,
+    "movementLabel": "Current holdings/current reference FX: equities versus previous close; crypto rolling 24h. Mixed periods; excludes trading flows and daily FX movement.",
+    "allocation": null,
+    "concentration": null,
+    "sectorCoverage": {
+      "classified": 0,
+      "total": 1
+    },
+    "sectorConcentrationUnavailableReason": "Sector concentration is unavailable because sector metadata is incomplete."
+  }
+}

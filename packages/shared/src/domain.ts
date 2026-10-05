@@ -65,6 +65,7 @@ export const Instrument = z.strictObject({
   provider: z.enum(['yahoo', 'coingecko']),
   providerId: z.string().min(1).max(100),
   metadataSource: z.string().min(1).max(240),
+  aliases: z.array(z.string().trim().min(1).max(100)).max(12).optional(),
 });
 export type Instrument = z.infer<typeof Instrument>;
 export const OutputDecimal = z
@@ -223,6 +224,27 @@ export const HoldingsQuery = NumberedPagination.extend({
 export type HoldingsQuery = z.infer<typeof HoldingsQuery>;
 export const SearchQuery = z.strictObject({ q: z.string().trim().min(2).max(100) });
 export const InstrumentQuery = z.strictObject({ q: z.string().trim().max(100).default('') });
+export const InstrumentSearchQuery = z.strictObject({
+  q: z
+    .string()
+    .trim()
+    .max(100)
+    .regex(/^[^\u0000-\u001f\u007f]*$/)
+    .default(''),
+  limit: z.coerce.number().int().min(1).max(30).default(20),
+});
+export const DiscoveryCapability = z.strictObject({
+  provider: z.string().min(1).max(40),
+  status: z.enum(['available', 'capability-unavailable', 'unavailable', 'invalid-response']),
+  reason: z.string().max(240),
+});
+export const InstrumentSearchResponse = z.strictObject({
+  instruments: z.array(Instrument).max(30),
+  limit: z.number().int().min(1).max(30),
+  truncated: z.boolean(),
+  source: z.literal('verified-catalogue'),
+  providers: z.array(DiscoveryCapability).max(5),
+});
 export const HoldingsPage = z.strictObject({
   items: z.array(ValuedHolding),
   page: z.number().int(),
@@ -267,6 +289,12 @@ export const domainContracts = [
     response: z.strictObject({ instruments: z.array(Instrument) }),
   },
   { method: 'get', path: '/api/v1/search', request: SearchQuery, response: SearchResponse },
+  {
+    method: 'get',
+    path: '/api/v1/instruments/search',
+    request: InstrumentSearchQuery,
+    response: InstrumentSearchResponse,
+  },
   {
     method: 'get',
     path: '/api/v1/portfolios/{portfolioId}/ledger',

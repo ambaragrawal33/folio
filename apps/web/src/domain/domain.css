@@ -248,6 +248,54 @@
 .local-fixture-notice {
   margin-bottom: var(--space-12);
 }
+.instrument-picker {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-12);
+  margin-bottom: var(--space-12);
+}
+.instrument-picker .portfolio-select,
+.instrument-picker select {
+  min-width: 0;
+  width: 100%;
+}
+.instrument-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-12);
+  align-items: end;
+  position: relative;
+}
+.instrument-search-field {
+  position: relative;
+  min-width: 0;
+}
+.instrument-search-field > .figma-icon {
+  position: absolute;
+  width: var(--space-16);
+  height: var(--space-16);
+  left: var(--space-12);
+  bottom: calc((var(--control-standard) - var(--space-16)) / 2);
+  pointer-events: none;
+}
+.instrument-search input {
+  padding-left: var(--space-32);
+}
+.instrument-selection {
+  padding: var(--space-12);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-panel);
+  background: var(--surface-raised);
+  overflow-wrap: anywhere;
+}
+.instrument-picker p {
+  margin: 0;
+}
+@media (max-width: 720px) {
+  .instrument-search {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 .portfolio-global-search {
   position: relative;
 }

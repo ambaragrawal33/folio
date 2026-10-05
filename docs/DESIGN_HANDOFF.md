@@ -1,5 +1,15 @@
 # Folio design handoff
 
+## Priority 1 CLOSED; Priority 2 discovery source/derivation — 2026-10-05
+
+The user closes Priority 1 engineering and visual review, including all 14 states and corrected FX display. All existing approvals remain binding. Light/mobile remain DERIVED, never Figma-approved.
+
+Before building the discovery picker, read-only connected Figma MCP refreshed **Search input 7:109**, including Default **2:4830**, Hover **7:89**, Focus **7:93**, Error **7:97**, Disabled **7:101**, Readonly **7:105**, and its actual source screenshot. Direct measurements: 36px control, 6px radius, 12px horizontal padding, 8px gap, 16px existing search icon, Inter 13px/18px medium, existing variable-bound surfaces/borders and accent focus. An initial table-row inspection **2:4868** is only supplementary, not the search source. No Figma write. [Plan](PRIORITY_2_PLAN.md).
+
+Compose existing controlled FormField, Button and native canonical select. The search icon is the existing local Figma SVG. A persistent visible field label, explicit Search catalogue action, live result count/error/retry, exchange/currency collision disambiguation, selected provenance and truthful provider gating are **derived workflow composition**, with no dedicated source frame. The existing manual-entry reference remains **57:301 / 47:2**. Existing tokens, shell, foundation primitives and approved states are preserved. New search layout uses the existing 720px responsive breakpoint and natural document flow.
+
+Intentional accessibility substitutions: persistent labels instead of placeholder-only identity; stronger existing semantic text roles; native keyboard select with exchange/currency/name, explicit focus ring, aria-live result status; no implicit selection/booking on typing; readable provenance wrapping. Pending search uses the existing DS Disabled button variant. **14 states /28 PNGs**, all zero axe/horizontal overflow/independent scroll; actual native arrow selection, explicit retry, Dark/derived Light desktop/mobile/tablet pass. [Focused review](PRIORITY_2_VISUAL_REVIEW.md). All113 prior approved PNGs and foundation files unchanged. New picker/provenance adds natural content height; selected identity uses an existing raised surface/panel radius token, not an exact source product frame. Automated checks are not user visual approval: **Priority 2 visual gate remains pending**. Figma unchanged; STOP before Priority3.
+
 ## Priority 1 fixture-mode review — 2026-10-05
 
 L01 adds a visible synthetic-fixture notice and honest history/FX copy using existing **demo-banner**, compact roles, semantic colors/borders and **12px space token**. Shell/top bar/navigation/primitives/palette/type hierarchy/responsive rules and prior captures are unchanged. Connected read-only Figma MCP **get_design_context** refreshed Dashboard **10:485**, returning source IDs/styles/code and a viewed source screenshot. [Actual check](evidence/priority-1/2026-10-05/figma-source-check.json). No Figma write/new assets/palette.

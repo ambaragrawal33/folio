@@ -25,6 +25,7 @@ import { api } from '../auth/client';
 import { useSession } from '../auth/session';
 import { useFinancialDisplay, usePortfolios, useValuation } from './client';
 import './domain.css';
+import { InstrumentPicker } from './InstrumentPicker';
 const instrumentResponse = z.strictObject({ instruments: z.array(Instrument) });
 function Metric({
   label,
@@ -910,6 +911,17 @@ function TransactionForm({ p }: { p: z.infer<typeof Portfolio> }) {
       ) : (
         <Panel title="Manual economic entry">
           <form className="portfolio-form" noValidate onSubmit={prepare}>
+            <InstrumentPicker
+              catalogue={instruments.data.instruments}
+              value={instrumentId}
+              onSelect={(id) => {
+                setInstrument(id);
+                setOverride(false);
+                setRate('');
+                setRateDate('');
+                setReference('');
+              }}
+            />
             <div className="portfolio-form-grid">
               <label className="portfolio-select">
                 Transaction type
@@ -920,27 +932,6 @@ function TransactionForm({ p }: { p: z.infer<typeof Portfolio> }) {
                 >
                   {['BUY', 'SELL', 'DIVIDEND', 'SPLIT'].map((t) => (
                     <option key={t}>{t}</option>
-                  ))}
-                </select>
-              </label>
-              <label className="portfolio-select">
-                Canonical instrument
-                <select
-                  aria-label="Canonical instrument"
-                  value={instrumentId}
-                  onChange={(e) => {
-                    setInstrument(e.target.value);
-                    setOverride(false);
-                    setRate('');
-                    setRateDate('');
-                    setReference('');
-                  }}
-                >
-                  <option value="">Choose instrument</option>
-                  {instruments.data.instruments.map((i) => (
-                    <option key={i.id} value={i.id}>
-                      {i.symbol} · {i.exchange} · {i.currency}
-                    </option>
                   ))}
                 </select>
               </label>

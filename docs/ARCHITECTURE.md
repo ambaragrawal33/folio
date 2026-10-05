@@ -1,5 +1,15 @@
 # Folio architecture and milestone plan
 
+## Priority 2 canonical discovery boundary — 2026-10-05
+
+Authenticated **GET /api/v1/instruments/search?q=&limit=20** uses the authoritative local registry; limits 1–30, query length <=100, strict unknown/control-character rejection, no-store and the shared instrument-route Redis bucket. Exact canonical ID > verified alias > exact symbol > exact name > symbol prefix > substring matches; NFKC/case/whitespace normalization, multi-token matching and ASCII symbol/canonical-ID tie-breaks. Empty query is bounded catalogue browsing. Responses explicitly report truncation and provider capability states. Legacy GET /instruments and global owned-ledger search remain compatible.
+
+Registry validation rejects canonical/exchange/currency conflicts and ambiguous primary provider aliases; initialization inserts verified additions without changing existing identities. Bounded DB read <=1000 identities, fail-closed capacity guard; no arbitrary provider symbol or automatic candidate registration. The 13-record supported universe is curated, not exchange-wide coverage. Primary aliases remain providerId; only verified extra alias 532540 is added for TCS:BSE.
+
+DiscoveryAdapter declares search/entitlement/coverage/credential verification separately. All must pass before a bounded candidate search; 3-second timeout, max30 candidates, malformed/conflicting/unknown identities rejected; fallback visits only permitted adapters, with authoritative catalogue available throughout. Runtime Yahoo/CoinGecko search adapters stay capability-unavailable, with no network transport/key auto-activation. Provider metadata verification does not confer market rights: API startup passes the original six-record market scope to LiveMarketGateway, and unsupported new quote/history requests make no network call. Demo/local fixture gateways and Decimal engine are unchanged.
+
+The UI submits search explicitly, shows exchange/currency/name before selection, preserves a canonical selection across no-results/outage, and allows explicit retry. Typing never becomes a transaction ID. No server-authoritative transaction preview or later-priority work is introduced. [Plan](PRIORITY_2_PLAN.md).
+
 ## Implemented local writable fixture boundary — 2026-10-05
 
 Approved L01 is implemented for **Priority 1 only**. Startup explicitly selects normal, read-only demo or local writable fixture gateway. LiveMarketGateway rejects fixture/demo mode. LocalFixtureMarketGateway supplies labelled string quotes/reference prices, current FX, one historical USD/INR date and two synthetic history points without upstream/cache/live fallback. Real authentication/ownership/CSRF/throttling and existing transactional immutable ledger/Decimal engine are reused; no writable identity/ledger is seeded.

@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-05",
+  "method": "Connected Figma MCP get_design_context read-only; returned source screenshot viewed",
+  "designFileId": "0QNLyxaAB3EJUo4llSttjk",
+  "nodeId": "7:109",
+  "skill": "figma:figma-design-to-code",
+  "returnedTextBlocks": 6,
+  "returnedImageBlocks": 1,
+  "searchVariants": { "default": "2:4830", "hover": "7:89", "focus": "7:93", "error": "7:97", "disabled": "7:101", "readonly": "7:105" },
+  "measurements": { "controlHeight": 36, "cornerRadius": 6, "horizontalPadding": 12, "gap": 8, "searchIcon": 16, "fontFamily": "Inter", "fontWeight": 500, "fontSize": 13, "lineHeight": 18 },
+  "directlyDerived": ["Existing DS control/type tokens", "Variable-bound surfaces and borders", "Existing search SVG and focus treatment"],
+  "derived": ["Explicit submit/search/result count", "Native canonical selection and provenance", "Collision/currency disambiguation", "Provider capability/retry states", "Light and responsive composition"],
+  "accessibility": ["Persistent visible label explicitly required by source descriptions", "Existing stronger semantic text roles", "Native keyboard selection", "Polite result status and explicit recovery"],
+  "supplementaryNode": "2:4868 compact table row, not the search source",
+  "figmaModified": false,
+  "lightMobileFigmaApproved": false
+}

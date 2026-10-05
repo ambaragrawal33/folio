@@ -8,6 +8,7 @@ import { calendarVersion, marketSession, quoteFreshness } from '../src/providers
 import { CachedProvider, RedisMarketCache } from '../src/services/market-cache.ts';
 import type { MarketCache } from '../src/services/market-cache.ts';
 import type { Instrument } from '@folio/shared';
+import { instrumentMaster, marketInstrumentMaster } from '../src/models/instrument-master.ts';
 const config = {
   NODE_ENV: 'test',
   MONGODB_URI: 'mongodb://localhost/folio',
@@ -85,6 +86,22 @@ const entitled = {
   YAHOO_ENTITLEMENT_REFERENCE: 'Explicit synthetic test entitlement; not production authorization',
 };
 describe('bounded exact provider transports', () => {
+  it('does not expand price or history eligibility when discovery identities are added', async () => {
+    const fetcher = vi.fn<typeof fetch>().mockRejectedValue(new Error('Must never fetch'));
+    const provider = gateway(
+      fetcher,
+      { ...entitled, COINGECKO_DEMO_KEY: 'synthetic-test-key' },
+      new TestMarketCache(),
+      marketInstrumentMaster,
+    );
+    const discovered = instrumentMaster.slice(6);
+    expect(discovered).toHaveLength(7);
+    expect(await provider.quotes(discovered)).toEqual([]);
+    for (const instrument of discovered) {
+      expect((await provider.history(instrument)).status).toBe('unavailable');
+    }
+    expect(fetcher).not.toHaveBeenCalled();
+  });
   it('preserves raw financial tokens including exponents without a JS-number intermediate', () => {
     expect(parseExact('{"price":123.4567890123456789012345678901234,"small":1e-18}')).toEqual({
       price: '123.4567890123456789012345678901234',

@@ -7,6 +7,8 @@ import {
   HoldingsQuery,
   LedgerQuery,
   InstrumentQuery,
+  InstrumentSearchQuery,
+  InstrumentSearchResponse,
   SearchQuery,
   SearchResponse,
   VoidInput,
@@ -51,7 +53,7 @@ export function domainRouter(env: Env, service: DomainService, cache: CacheStore
   // Apply only to domain paths so existing auth query/CSRF semantics remain unchanged.
   router.use(async (req, res, next) => {
     const path = req.path.toLowerCase().replace(/\/+$/, '');
-    if (!/^\/(portfolios(?:\/|$)|instruments$|search$)/.test(path)) {
+    if (!/^\/(portfolios(?:\/|$)|instruments(?:\/search)?$|search$)/.test(path)) {
       next('router');
       return;
     }
@@ -81,7 +83,7 @@ export function domainRouter(env: Env, service: DomainService, cache: CacheStore
             ':' +
             req.method +
             ':' +
-            (path === '/search' || path === '/instruments' ? 'search' : 'portfolio'),
+            (path === '/search' || path.startsWith('/instruments') ? 'search' : 'portfolio'),
           60,
         );
       } catch {
@@ -118,6 +120,13 @@ export function domainRouter(env: Env, service: DomainService, cache: CacheStore
   });
   router.get('/instruments', async (req, res) =>
     res.json({ instruments: await service.instruments(parsed(InstrumentQuery, req.query).q) }),
+  );
+  router.get('/instruments/search', async (req, res) =>
+    res.json(
+      InstrumentSearchResponse.parse(
+        await service.discover(parsed(InstrumentSearchQuery, req.query)),
+      ),
+    ),
   );
   router.get('/search', async (req, res) =>
     res.json(

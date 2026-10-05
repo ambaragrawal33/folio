@@ -1,5 +1,31 @@
 # Provider and dependency audit
 
+## Priority 2 identity/search audit — 2026-10-05
+
+Discovery verification is separate from market-price/history acceptance. The curated catalogue now has **13 canonical identities**; original six semantics remain unchanged. Seven additions use issuer/project identity references and bounded manual provider identity probes. No fixture proves an identity. Sector remains **Unknown** for every record. No full-exchange/global-universe claim, paid provider, runtime discovery activation, new key or entitlement approval.
+
+| Canonical ID | Currency / class | Verified provider alias | Identity reference / scope |
+| --- | --- | --- | --- |
+| TCS:NSE | INR / equity | yahoo:TCS.NS | Existing approved identity; unchanged |
+| RELIANCE:BSE | INR / equity | yahoo:RELIANCE.BO | Existing approved identity; unchanged |
+| AAPL:US | USD / equity | yahoo:AAPL | Existing approved identity; unchanged |
+| VTI:US | USD / ETF | yahoo:VTI | Existing approved identity/name; unchanged |
+| BTC:CRYPTO | USD / crypto | coingecko:bitcoin | Existing approved identity/quote-unit convention; unchanged |
+| ETH:CRYPTO | USD / crypto | coingecko:ethereum | Existing approved identity/quote-unit convention; unchanged |
+| INFY:NSE | INR / equity | yahoo:INFY.NS | [Infosys share details](https://www.infosys.com/investors/shares/share-details.html) lists INR, NSE INFY and INFY.NS; Yahoo identity NSI/EQUITY/INR HTTP200 |
+| INFY:BSE | INR / equity | yahoo:INFY.BO | Same issuer lists BSE INFY and INFY.BO; Yahoo identity BSE/EQUITY/INR HTTP200 |
+| TCS:BSE | INR / equity | yahoo:TCS.BO; extra alias 532540 | [TCS investor FAQ](https://www.tcs.com/investor-relations/investor-faqs) lists BSE532540; Yahoo identity BSE/EQUITY/INR HTTP200 |
+| MSFT:US | USD / equity | yahoo:MSFT | [Microsoft investor stock lookup](https://www.microsoft.com/en-us/investor/stock-lookup) identifies MSFT; Yahoo identity NMS/EQUITY/USD HTTP200 |
+| SCHB:US | USD / ETF | yahoo:SCHB | [Schwab issuer page](https://www.schwabassetmanagement.com/products/schb) identifies U.S. Broad Market ETF; Yahoo PCX/ETF/USD HTTP200 |
+| VOO:US | USD / ETF | yahoo:VOO | [Vanguard issuer fact sheet](https://workplace.vanguard.com/assets/corp/fund_communications/pdf_publish/us-products/fact-sheet/F0968.pdf), as of2026-06-30, identifies VOO / NYSE Arca; Yahoo PCX/ETF/USD HTTP200 |
+| SOL:CRYPTO | USD / crypto | coingecko:solana | [Solana project reference](https://tokens.solana.com/solana) / [native SOL explanation](https://solana.com/learn/introduction-to-solana-tokens); actual CoinGecko coins/list HTTP200 returns id solana, symbol sol, name Solana. USD is Folio's crypto quote-unit convention, not SOL's native currency |
+
+Actual probes retained only identity/status/URL/time fields, never prices/history/key headers. These HTTP responses prove current metadata observations, **not permission to redistribute financial data**. [Machine identity evidence](evidence/priority-2/2026-10-05/identity-probes.json). US is the existing canonical exchange bucket, not a new listing-venue model. NSE/BSE collisions remain separate canonical IDs; no guessing or symbol-based merging.
+
+Runtime search uses the verified catalogue and reports Yahoo/CoinGecko discovery **capability-unavailable**. Yahoo search/display rights remain unverified; CoinGecko keyed-search entitlement/coverage/smoke remain unverified. Merely adding/configuring a key does not activate discovery. A future adapter must independently verify capability, terms, coverage and credentials, validate candidates against stored canonical identities, and stay bounded; test-only permitted adapters verify failure/fallback behavior, not actual vendor activation.
+
+The original six-record LiveMarketGateway scope remains separate. New seven identities return unavailable prices/history without upstream calls, even if older provider configuration is enabled. Local fixture quotes and read-only demo economics are unchanged; new records receive **no invented fixtures or prices**. [NSE terms](https://www.nseindia.com/static/nse-terms-of-use) prohibit automated collection without permission, so no exchange-wide scrape/import was performed. [CoinGecko API terms](https://www.coingecko.com/en/api_terms) remain a separate use/key gate. No hosting or price-plan research was performed for Priority 2.
+
 ## Priority 1 / L01 local-only fixture gateway — 2026-10-05
 
 Explicitly approved **LocalFixtureMarketGateway** is separate from normal/demo adapters, with no upstream network/provider cache/live fallback. Source: **Local writable fixture v1 · synthetic; not live provider data**; quote/history carry fixture metadata/dates, FX source **local-fixture**. Fresh means generated test input, not market observation. Historical USD/INR **83 on 2026-01-05 only**; current synthetic **88**. ETH is deliberately stale; RELIANCE missing; unsupported dates/currencies/identities unavailable. History is exactly two labelled synthetic points, not reconstructed provider history. [Matrix](LOCAL_FIXTURE_MODE.md).

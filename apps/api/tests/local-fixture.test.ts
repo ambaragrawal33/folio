@@ -203,6 +203,67 @@ async function account(suffix: string) {
   return { login, identity: await auth.authenticate(login.response.accessToken) };
 }
 describe('real writable fixture accounts and Decimal ledger', () => {
+  it('discovers canonical collisions/aliases and books only an owned verified identity without extending fixtures', async () => {
+    expect((await domain.discover({ q: 'INFY', limit: 20 })).instruments.map((i) => i.id)).toEqual([
+      'INFY:BSE',
+      'INFY:NSE',
+    ]);
+    expect((await domain.discover({ q: 'infy.ns', limit: 1 })).instruments[0]?.id).toBe('INFY:NSE');
+    const owner = await account('discovery-owner'),
+      outsider = await account('discovery-outsider');
+    const p = await domain.createDefault(owner.identity);
+    const input: TransactionInput = {
+      instrumentId: 'INFY:NSE',
+      type: 'BUY',
+      quantity: '2',
+      price: '100',
+      fees: '1',
+      tradingDate: '2026-01-05',
+      effectiveAt: '2026-01-05T10:00:00.000Z',
+    };
+    await domain.append(owner.identity, p.id, input, 'verified-discovery');
+    const v = await domain.valuation(owner.identity, p.id);
+    expect(v).toMatchObject({
+      complete: false,
+      totalValue: null,
+      totalBaseCost: '201',
+      holdings: [{ instrumentId: 'INFY:NSE', quantity: '2', baseCost: '201', quote: null }],
+    });
+    const count = await domain.models.Economic.countDocuments();
+    for (const [index, instrumentId] of ['INFY.NS', 'UNKNOWN:NSE', 'INFY'].entries())
+      await expect(
+        domain.append(owner.identity, p.id, { ...input, instrumentId }, 'raw-discovery-' + index),
+      ).rejects.toMatchObject({ status: 404 });
+    await expect(
+      domain.append(outsider.identity, p.id, input, 'idor-discovery'),
+    ).rejects.toMatchObject({ status: 404 });
+    expect(await domain.models.Economic.countDocuments()).toBe(count);
+    const app = createApp(
+      env,
+      { probe: async () => ({ mongo: true, redis: true }), close: async () => {} },
+      createLogger('silent'),
+      undefined,
+      { service: auth, domain, cache: new MemoryCache() },
+    );
+    expect((await request(app).get('/api/v1/instruments/search?q=INFY')).status).toBe(401);
+    const get = (q: string) =>
+      request(app)
+        .get('/api/v1/instruments/search?' + q)
+        .set('Authorization', 'Bearer ' + owner.login.response.accessToken);
+    const response = await get('q=INFY&limit=1');
+    expect(response.status).toBe(200);
+    expect(response.headers['cache-control']).toBe('no-store');
+    expect(response.body).toMatchObject({ truncated: true, instruments: [{ id: 'INFY:BSE' }] });
+    expect(
+      response.body.providers.every(
+        (x: { status: string }) => x.status === 'capability-unavailable',
+      ),
+    ).toBe(true);
+    for (const query of ['limit=31', 'q[]=INFY', 'q=INFY&userId=other'])
+      expect((await get(query)).status).toBe(400);
+    for (let n = 0; n < 56; n++) expect((await get('q=INFY')).status).toBe(200);
+    expect((await get('q=INFY')).status).toBe(429);
+  });
   it('rejects an actual connection override into nonfixture storage before initialization', async () => {
     const invalid = new AuthService(
       connection,

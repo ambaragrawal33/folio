@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { Types } from 'mongoose';
 import type { ClientSession, HydratedDocument } from 'mongoose';
+import type { z } from 'zod';
 import {
   Instrument,
   TransactionInput,
@@ -19,6 +20,9 @@ import type { EconomicRecord, VoidEvent } from './financial/ledger.ts';
 import { FinancialError, decimal, readStoredDecimal, storedDecimal } from './financial/decimal.ts';
 import { valuePortfolio } from './financial/valuation.ts';
 import { HttpError } from '../utils/http-error.ts';
+import { catalogueSearch, gatedDiscovery, verifiedRegistry } from '../providers/discovery.ts';
+import type { InstrumentDiscovery } from '../providers/discovery.ts';
+import type { InstrumentSearchQuery } from '@folio/shared';
 
 const notFound = () => new HttpError(404, 'RESOURCE_NOT_FOUND', 'This resource is unavailable.');
 const readonly = () => new HttpError(403, 'DEMO_READ_ONLY', 'This public demo is read-only.');
@@ -110,10 +114,17 @@ export class DomainService {
   readonly auth: AuthService;
   readonly market: MarketGateway;
   private readonly clock: () => Date;
-  constructor(auth: AuthService, market: MarketGateway, clock: () => Date = () => new Date()) {
+  private readonly discovery: InstrumentDiscovery;
+  constructor(
+    auth: AuthService,
+    market: MarketGateway,
+    clock: () => Date = () => new Date(),
+    discovery: InstrumentDiscovery = gatedDiscovery(),
+  ) {
     this.auth = auth;
     this.market = market;
     this.clock = clock;
+    this.discovery = discovery;
     this.models = domainModels(auth.connection);
     auth.registerAccountResources({
       export: (userId) => this.exportOwned(userId),
@@ -122,8 +133,15 @@ export class DomainService {
   }
   async initialize(master: readonly Instrument[]) {
     await Promise.all(Object.values(this.models).map((m) => m.init()));
-    for (const candidate of master) {
+    for (const candidate of verifiedRegistry(master)) {
       const { id, ...entry } = Instrument.parse(candidate);
+      const existing = await this.models.Instrument.findById(id).lean();
+      if (existing) {
+        const { _id, ...stored } = existing;
+        const current = Instrument.parse({ id: _id, ...stored });
+        if (JSON.stringify(current) !== JSON.stringify(Instrument.parse(candidate)))
+          throw new Error('Stored canonical instrument conflicts with verified registry');
+      }
       await this.models.Instrument.updateOne(
         { _id: id },
         { $setOnInsert: entry },
@@ -173,21 +191,20 @@ export class DomainService {
     return doc;
   }
   async instruments(query: string) {
-    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const found = await this.models.Instrument.find(
-      query
-        ? {
-            $or: [
-              { symbol: { $regex: escaped, $options: 'i' } },
-              { name: { $regex: escaped, $options: 'i' } },
-            ],
-          }
-        : {},
-    )
-      .sort({ symbol: 1, _id: 1 })
-      .limit(30)
-      .lean();
+    return catalogueSearch(await this.catalogue(), query, 30).instruments;
+  }
+  private async catalogue() {
+    const found = await this.models.Instrument.find().sort({ _id: 1 }).limit(1001).lean();
+    if (found.length > 1000)
+      throw new HttpError(
+        503,
+        'CATALOGUE_CAPACITY',
+        'The verified instrument catalogue is unavailable.',
+      );
     return found.map(({ _id, ...data }) => Instrument.parse({ id: _id, ...data }));
+  }
+  async discover(query: z.infer<typeof InstrumentSearchQuery>) {
+    return this.discovery.search(await this.catalogue(), query);
   }
   private async entries(identity: Identity, portfolioId: Types.ObjectId, session?: ClientSession) {
     const economicQuery = this.models.Economic.find({ userId: identity.user._id, portfolioId })

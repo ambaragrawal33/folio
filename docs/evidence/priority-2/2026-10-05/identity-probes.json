@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-05T15:44:29.940Z",
+  "purpose": "Manual bounded identity audit only; no runtime activation, entitlement, quote/history/price acceptance or key used",
+  "results": [
+    {
+      "symbol": "INFY.NS",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/INFY.NS?interval=1d&range=5d",
+      "status": 200,
+      "identity": {
+        "symbol": "INFY.NS",
+        "currency": "INR",
+        "exchangeName": "NSI",
+        "instrumentType": "EQUITY",
+        "longName": "Infosys Limited",
+        "shortName": "INFOSYS LIMITED"
+      }
+    },
+    {
+      "symbol": "INFY.BO",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/INFY.BO?interval=1d&range=5d",
+      "status": 200,
+      "identity": {
+        "symbol": "INFY.BO",
+        "currency": "INR",
+        "exchangeName": "BSE",
+        "instrumentType": "EQUITY",
+        "longName": "Infosys Limited",
+        "shortName": "INFOSYS LTD."
+      }
+    },
+    {
+      "symbol": "TCS.BO",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/TCS.BO?interval=1d&range=5d",
+      "status": 200,
+      "identity": {
+        "symbol": "TCS.BO",
+        "currency": "INR",
+        "exchangeName": "BSE",
+        "instrumentType": "EQUITY",
+        "longName": "Tata Consultancy Services Limited",
+        "shortName": "TATA CONSULTANCY SERVICES LTD."
+      }
+    },
+    {
+      "symbol": "MSFT",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MSFT?interval=1d&range=5d",
+      "status": 200,
+      "identity": {
+        "symbol": "MSFT",
+        "currency": "USD",
+        "exchangeName": "NMS",
+        "instrumentType": "EQUITY",
+        "longName": "Microsoft Corporation",
+        "shortName": "Microsoft Corporation"
+      }
+    },
+    {
+      "symbol": "SCHB",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/SCHB?interval=1d&range=5d",
+      "status": 200,
+      "identity": {
+        "symbol": "SCHB",
+        "currency": "USD",
+        "exchangeName": "PCX",
+        "instrumentType": "ETF",
+        "longName": "Schwab U.S. Broad Market ETF",
+        "shortName": "Schwab U.S. Broad Market ETF"
+      }
+    },
+    {
+      "symbol": "VOO",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/VOO?interval=1d&range=5d",
+      "status": 200,
+      "identity": {
+        "symbol": "VOO",
+        "currency": "USD",
+        "exchangeName": "PCX",
+        "instrumentType": "ETF",
+        "longName": "Vanguard S&P 500 ETF",
+        "shortName": "Vanguard S&P 500 ETF"
+      }
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/coins/list",
+      "status": 200,
+      "identity": [
+        {
+          "id": "solana",
+          "symbol": "sol",
+          "name": "Solana"
+        }
+      ]
+    }
+  ]
+}

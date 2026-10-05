@@ -166,6 +166,23 @@ beforeEach(() => {
     },
     '/search': { instruments: [instrument], ledger: [{ record, portfolioId: p.id }] },
     '/auth/demo': { enabled: true },
+    '/instruments/search': {
+      instruments: [
+        instrument,
+        {
+          ...instrument,
+          id: 'AAPL:US',
+          symbol: 'AAPL',
+          currency: 'USD',
+          exchange: 'US',
+          providerId: 'AAPL',
+        },
+      ],
+      limit: 20,
+      truncated: false,
+      source: 'verified-catalogue',
+      providers: [],
+    },
   };
   fetcher = vi.fn(async (address, options) => {
     const path = String(address).replace('/api/v1', '').split('?')[0]!;
@@ -293,7 +310,7 @@ it('reviews an exact transaction, preserves an idempotency key on confirmation, 
 });
 it('requires explicit historical FX provenance and supports split/dividend entry without unsupported fields', async () => {
   show(<RecordTransaction />, '/transactions/new');
-  await screen.findByLabelText('Canonical instrument');
+  await screen.findByRole('option', { name: /AAPL/ });
   fireEvent.change(screen.getByLabelText('Canonical instrument'), { target: { value: 'AAPL:US' } });
   fireEvent.change(screen.getByLabelText('Transaction type'), { target: { value: 'DIVIDEND' } });
   fireEvent.change(screen.getByLabelText('Gross native dividend'), { target: { value: '30' } });

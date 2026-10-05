@@ -10,7 +10,7 @@ import { DomainService } from './services/domain.ts';
 import { LiveMarketGateway } from './providers/adapters.ts';
 import { RedisMarketCache } from './services/market-cache.ts';
 import { DemoMarketGateway, seedDemo } from './services/demo.ts';
-import { instrumentMaster } from './models/instrument-master.ts';
+import { instrumentMaster, marketInstrumentMaster } from './models/instrument-master.ts';
 import { LocalFixtureMarketGateway } from './providers/local-fixture.ts';
 let logger: ReturnType<typeof createLogger> | undefined;
 try {
@@ -33,7 +33,7 @@ try {
       : new LiveMarketGateway(
           env,
           new RedisMarketCache(dependencies.redis, env.REFRESH_TOKEN_SECRET),
-          instrumentMaster,
+          marketInstrumentMaster,
         );
   const domain = new DomainService(service, market);
   await domain.initialize(instrumentMaster);

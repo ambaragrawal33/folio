@@ -74,4 +74,108 @@ export const instrumentMaster: readonly Instrument[] = [
     providerId: 'ethereum',
     metadataSource: 'CoinGecko coins/list identity audit 2026-10-04',
   },
+  {
+    id: 'INFY:NSE',
+    symbol: 'INFY',
+    name: 'Infosys Limited',
+    exchange: 'NSE',
+    currency: 'INR',
+    assetClass: 'equity',
+    sector: 'Unknown',
+    provider: 'yahoo',
+    providerId: 'INFY.NS',
+    metadataSource:
+      '2026-10-05 issuer infosys.com/investors/shares/share-details.html; Yahoo identity INFY.NS/INR/NSI/EQUITY',
+  },
+  {
+    id: 'INFY:BSE',
+    symbol: 'INFY',
+    name: 'Infosys Limited',
+    exchange: 'BSE',
+    currency: 'INR',
+    assetClass: 'equity',
+    sector: 'Unknown',
+    provider: 'yahoo',
+    providerId: 'INFY.BO',
+    metadataSource:
+      '2026-10-05 issuer infosys.com/investors/shares/share-details.html; Yahoo identity INFY.BO/INR/BSE/EQUITY',
+  },
+  {
+    id: 'TCS:BSE',
+    symbol: 'TCS',
+    name: 'Tata Consultancy Services Limited',
+    exchange: 'BSE',
+    currency: 'INR',
+    assetClass: 'equity',
+    sector: 'Unknown',
+    provider: 'yahoo',
+    providerId: 'TCS.BO',
+    aliases: ['532540'],
+    metadataSource:
+      '2026-10-05 issuer tcs.com/investor-relations/investor-faqs BSE532540; Yahoo identity TCS.BO/INR/BSE/EQUITY',
+  },
+  {
+    id: 'MSFT:US',
+    symbol: 'MSFT',
+    name: 'Microsoft Corporation',
+    exchange: 'US',
+    currency: 'USD',
+    assetClass: 'equity',
+    sector: 'Unknown',
+    provider: 'yahoo',
+    providerId: 'MSFT',
+    metadataSource:
+      '2026-10-05 issuer microsoft.com/en-us/investor/stock-lookup; Yahoo identity MSFT/USD/NMS/EQUITY',
+  },
+  {
+    id: 'SCHB:US',
+    symbol: 'SCHB',
+    name: 'Schwab U.S. Broad Market ETF',
+    exchange: 'US',
+    currency: 'USD',
+    assetClass: 'etf',
+    sector: 'Unknown',
+    provider: 'yahoo',
+    providerId: 'SCHB',
+    metadataSource:
+      '2026-10-05 issuer schwabassetmanagement.com/products/schb; Yahoo identity SCHB/USD/PCX/ETF',
+  },
+  {
+    id: 'VOO:US',
+    symbol: 'VOO',
+    name: 'Vanguard S&P 500 ETF',
+    exchange: 'US',
+    currency: 'USD',
+    assetClass: 'etf',
+    sector: 'Unknown',
+    provider: 'yahoo',
+    providerId: 'VOO',
+    metadataSource:
+      '2026-10-05 issuer Vanguard F0968 fact sheet NYSEArca VOO; Yahoo identity VOO/USD/PCX/ETF',
+  },
+  {
+    id: 'SOL:CRYPTO',
+    symbol: 'SOL',
+    name: 'Solana',
+    exchange: 'CRYPTO',
+    currency: 'USD',
+    assetClass: 'crypto',
+    sector: 'Unknown',
+    provider: 'coingecko',
+    providerId: 'solana',
+    metadataSource:
+      '2026-10-05 tokens.solana.com/solana + CoinGecko coins/list solana/sol/Solana; USD quote convention, not native token currency',
+  },
 ];
+
+// Discovery verification is not a price/history entitlement or coverage approval.
+// Keep the pre-discovery market scope unchanged until its separate provider gate passes.
+const existingMarketIds = new Set([
+  'TCS:NSE',
+  'RELIANCE:BSE',
+  'AAPL:US',
+  'VTI:US',
+  'BTC:CRYPTO',
+  'ETH:CRYPTO',
+]);
+export const marketInstrumentMaster = instrumentMaster.filter((i) => existingMarketIds.has(i.id));

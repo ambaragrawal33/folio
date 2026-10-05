@@ -1,5 +1,15 @@
 # Folio decisions — updated 2026-10-05
 
+## Priority 1 CLOSED; Priority 2 authorized — 2026-10-05
+
+The user explicitly accepts L01, its engineering evidence, hand reconciliation, corrected 6.63 percentage-point FX display and all 14 visual states. **Priority 1 engineering/visual gate is CLOSED / APPROVED.** Light/mobile remain approved derived implementations. The 556.24 kB JS warning remains unresolved/unsuppressed and is not a Priority 2 blocker. L02 stays approved/unimplemented.
+
+Only **Priority 2 instrument discovery** is now authorized. [Implementation plan](PRIORITY_2_PLAN.md): preserve the six original identities; add seven manually verified identities with dated issuer/provider provenance; canonical-only explicit selection, deterministic bounded catalogue search; strict capability/entitlement/coverage/key gates for optional provider candidates. No runtime Yahoo/CoinGecko discovery is authorized or activated. Adding an identity does not expand the pre-existing market-price/history eligibility list or fixture prices. Sector stays Unknown. No paid provider/new dependency, engine rewrite, Priority 3+, Phase 4/5, hosting/deployment or main merge.
+
+These are implementation choices within the approved Priority 2 scope, not new financial/provider approvals. Source metadata cannot silently overwrite an existing conflicting canonical record. Provider responses cannot create canonical records or alter their identity/currency. Search text cannot book an arbitrary symbol. New workflow states require their own visual review; Figma and previously approved capture paths remain unchanged. Earlier dated scope/status statements below are historical.
+
+Priority 2 engineering verified:126 tests/16 suites,95.61% overall lines, all core files >=90%,12 E2E,14 review states with zero axe/overflow/independent scroll. [Evidence](PRIORITY_2_EVIDENCE.md). **User Priority 2 visual approval remains pending**, not inferred from automated passes. Search/pending/retry/result/provenance composition is derived; Light/mobile never Figma-approved. Explicit original six-record market allowlist prevents new identities activating prices/history. Warning559.45kB remains unsuppressed. STOP before Priority3.
+
 ## Local completion approval and Priority 1 execution — 2026-10-05
 
 **L01 APPROVED:** explicit isolated local-only writable fixture/provider-test mode with real owned account/ledger writes, source/date labels, separate normal/demo storage/cache and fail-closed configuration. No silent live-provider fallback or entitlement claim. **L02 APPROVED:** rename default portfolio; delete only without economic records; reject populated deletion; preserve immutable ledger, INR/FIFO, ownership/concurrency and separate privacy erasure. L02 is recorded but **not implemented in Priority 1**.

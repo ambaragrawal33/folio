@@ -29,6 +29,7 @@ const instrumentSchema = new Schema(
     provider: { type: String, enum: ['yahoo', 'coingecko'], required: true },
     providerId: { type: String, required: true },
     metadataSource: { type: String, required: true },
+    aliases: { type: [String], default: undefined },
   },
   { strict: 'throw', versionKey: false },
 );

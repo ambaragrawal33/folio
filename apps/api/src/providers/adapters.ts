@@ -307,19 +307,19 @@ export class LiveMarketGateway implements MarketGateway {
   }
   async quotes(instruments: readonly Instrument[]) {
     const result: z.infer<typeof Quote>[] = [];
-    const crypto = instruments.some((i) => i.provider === 'coingecko')
+    const eligible = instruments.filter((instrument) =>
+      this.master.some(
+        (i) =>
+          i.id === instrument.id &&
+          i.provider === instrument.provider &&
+          i.providerId === instrument.providerId &&
+          i.currency === instrument.currency,
+      ),
+    );
+    const crypto = eligible.some((i) => i.provider === 'coingecko')
       ? await this.cryptoQuotes()
       : [];
-    for (const instrument of instruments) {
-      if (
-        !this.master.some(
-          (i) =>
-            i.id === instrument.id &&
-            i.providerId === instrument.providerId &&
-            i.currency === instrument.currency,
-        )
-      )
-        continue;
+    for (const instrument of eligible) {
       const quote =
         instrument.provider === 'coingecko'
           ? crypto.find((q) => q.instrumentId === instrument.id)

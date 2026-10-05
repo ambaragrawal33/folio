@@ -1,5 +1,17 @@
 # Folio progress
 
+## Priority 1 CLOSED; Priority 2 implemented / verified — 2026-10-05
+
+The user explicitly **APPROVES / CLOSES Priority 1/L01 engineering and all14 visual states**, including fixture isolation, hand totals and6.63 percentage-point FX display. Existing Light/mobile approvals remain derived. Only **Priority 2 instrument discovery** is now implemented; user review is pending. [Plan](PRIORITY_2_PLAN.md), [measured evidence](PRIORITY_2_EVIDENCE.md), [14-state rendered review](PRIORITY_2_VISUAL_REVIEW.md).
+
+Catalogue6→**13 verified identities** with issuer/project/provider provenance; original six unchanged. Authenticated strict/no-store/shared-rate-limited `/instruments/search` supports canonical/provider-qualified aliases/symbols/names, normalization, ranked exact matches, explicit collisions and stable bounded results(default20/max30). Explicit search/native selection displays currency/exchange/source, preserves selection across no-results/outage and offers retry. Yahoo/CoinGecko discovery remains disabled; new seven identities do not expand price/history scope or fixture quotes. Sector Unknown. No engine rewrite/dependency/raw-symbol workaround.
+
+Actual final **pnpm check PASS:126 tests /16 suites**, **95.61% lines(1941/2030),94.67% statements,92.26% functions,89.59% branches**. Every financial-core file >=90%: discovery98.30%, adapters96.82%, remaining six100%. Full real-service **12/12 E2E PASS(3.8minutes)** preserves auth/privacy/FIFO/FX/P&L/demo/fixture/security/foundation gates. Fresh account→search INFY→explicit NSE choice→BUY2×100+fee1→owned ledger/holding quantity2/cost201; missing quote/total stay null. Fourteen review states/28PNGs: zero axe/overflow/independent scroll, Dark/derived Light desktop,390px mobile/768px tablet, keyboard/recovery. All **113 approved PNGs** and protected foundation/engine/Compose/package paths unchanged; Figma read-only.
+
+Mongo replica-set/Decimal128, Redis/MailHog/auth/CSRF, **28 OpenAPI operations**, unchanged demo totals and fixture fail-closed checks pass. Graph490/82/no failures; audit clean; final Gitleaks output in evidence. JS warning **559.45kB** (previous556.24) remains unresolved/unsuppressed; performance investigation stays later in order.
+
+**STOP for Priority 2 review; Priority3+ has not begun. L02 approved/unimplemented. No News/AI, hosting/spending/deployment, Figma change, main merge or push.** Local P0 is not complete; operational gates remain deferred, not waived. Earlier entries below are historical and superseded only within explicit approvals.
+
 ## Priority 1 / L01 implemented and verified — 2026-10-05
 
 Only **Priority 1** is implemented. Fresh verified accounts at **http://127.0.0.1:5190** create real owned INR/FIFO portfolios and record BUY/SELL/DIVIDEND/SPLIT through the existing browser workflow, with an explicit local-only synthetic market gateway. Mongo **folio_local_fixture**, Redis **DB 1 / folio:local-fixture**, distinct **folio_fixture_refresh** and independently generated local secrets isolate normal accounts and the read-only demo. Production/remote/mixed-storage configuration fails closed. No writable account/ledger is seeded; no normal-mode fixture fallback. [Startup/exercise](LOCAL_FIXTURE_MODE.md).
