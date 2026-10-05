@@ -2,6 +2,8 @@
 
 **Public deployment is BLOCKED / NOT PERFORMED.** ₹0, free provider-generated subdomains, free frontend/Express hosting, Atlas Free and compatible persistent Redis are binding. No account, paid plan, domain, production secret or actual host selection is assumed. O02/O04/O06 operations remain pending. Local artifacts do not meet the master's public-URL completion requirement.
 
+**Approval boundary updated2026-10-05:** Phase 3 engineering and visual review are approved and the visual gate is CLOSED. Phase 3 itself remains OPEN for the operational/provider gates below. [Final approval record](PHASE_3_VISUAL_APPROVAL.md). This is no host selection, credential configuration, publication or gate waiver; await separate deployment/operational authorization.
+
 ## Verified artifacts and required topology
 
 Dockerfile.release builds strict static client and compiled non-root Express artifacts. A frozen production install preserves API/shared workspace links; packaged native Argon2 imports without dev dependencies. Health/readiness distinguish liveness from writable replica-set/Redis readiness. Normal development and isolated read-only demo Compose profiles are verified locally. Production startup intentionally fails closed; positive artifact smoke is explicitly NODE_ENV=test.
@@ -28,4 +30,4 @@ Render Free Key Value loses data on restart and cannot replace required persiste
 - O06 operations: choose scheduler/authenticated trigger, encrypted backup destination/retention/key policy and restore process; verify actual Mongo/Redis capabilities and a restore. Persistence alone is not DR readiness.
 - Verify Atlas transaction commit/rollback/concurrency/TLS; Redis counters/leases/TTL/fail-closed/recovery/durability/quota; hosted HTTPS/CSRF/IP-spoof protection/no-store/Secure cookies; Chrome and real Safari refresh/logout; isolated provider-disabled demo/mutation403; real email where authorized; public health/readiness/cold-start/security/redaction smoke.
 
-Yahoo entitlement and safely configured CoinGecko Demo key/smoke remain optional normal-mode provider activation boundaries, not permission to fabricate live fixture-demo prices. No production financial-data service. No deploy workflow is enabled before operational choices; CI builds artifacts and runs local smoke only. Stop at this boundary and separate Phase 3 visual review; no Phase 4.
+Yahoo entitlement and safely configured CoinGecko Demo key/smoke remain normal-mode provider activation boundaries where applicable, not permission to fabricate live fixture-demo prices. No production financial-data service. No deploy workflow is enabled before operational choices; CI builds artifacts and runs local smoke only. The separate Phase 3 visual review is approved; stop at the operational boundary and await explicit authorization. No Phase 4 or main merge.

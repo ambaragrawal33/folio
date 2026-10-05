@@ -1,6 +1,6 @@
 # Folio
 
-Phase 3 adds owned INR/FIFO portfolios, an immutable Decimal ledger, valuation/coverage, real financial screens and an isolated read-only fixture demo to approved P0 authentication. News, AI and later-tier engines remain unavailable. Phase 3 visual approval and public deployment are outstanding; no production-readiness claim.
+Phase 3 adds owned INR/FIFO portfolios, an immutable Decimal ledger, valuation/coverage, real financial screens and an isolated read-only fixture demo to approved P0 authentication. News, AI and later-tier engines remain unavailable. Phase 3 engineering and visual review are approved; the phase remains open for public deployment and separate operational/provider gates, with no production-readiness claim. [Final visual approval](docs/PHASE_3_VISUAL_APPROVAL.md).
 
 The [master audit](docs/PHASE_0_EVIDENCE.md), [handoff](docs/DESIGN_HANDOFF.md), [decisions](docs/DECISIONS.md), [Phase 3 evidence](docs/PHASE_3_EVIDENCE.md), [visual review](docs/PHASE_3_VISUAL_REVIEW.md) and [deployment boundary](docs/DEPLOYMENT.md) record requirements, actual verification and limits. Light/mobile are derived; Figma is unchanged.
 

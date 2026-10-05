@@ -1,6 +1,6 @@
 # Phase 3 visual review pack
 
-**AWAITING USER APPROVAL.** Phase 1/2 design reviews remain closed. These are actual captures of the Phase 3 branch with real local owned ledger operations or explicitly labelled isolated demo fixtures. No Figma changes, source palette changes, baseline update or fabricated live financial data. [Source/intentional differences](DESIGN_HANDOFF.md), [engineering evidence](PHASE_3_EVIDENCE.md).
+**VISUAL APPROVAL GATE CLOSED / APPROVED by the user2026-10-05.** Engineering is approved; Phase3 itself remains OPEN for separate deployment/operational/provider gates. [Final approval scope and focused14-state evidence](PHASE_3_VISUAL_APPROVAL.md). Phase1/2 design reviews remain closed. These are actual captures of the Phase3 branch with real local owned ledger operations or explicitly labelled isolated demo fixtures. No Figma changes, source palette changes, baseline update or fabricated live financial data. [Source/intentional differences](DESIGN_HANDOFF.md), [engineering evidence](PHASE_3_EVIDENCE.md).
 
 Open [the capture gallery](evidence/phase-3/visual/review.html). Each image opens at its actual size;1440×1024/390×844 are viewport dimensions, while full-page images preserve natural document flow. [Machine browser checks](evidence/phase-3/visual/browser-checks.json) record theme, width/height, document width, independent-scroll count and axe violations per capture. Do not infer human design approval from passing automated checks.
 
@@ -22,9 +22,9 @@ Typography remains Inter for UI/IBM Plex Mono for finance; approved numeric grou
 
 Intentional differences are functional, tiering and accessibility: no Figma sample values or unsupported account/execution/performance fields; real source/as-of and partial explanations need more height; real IDs/precise values need wrapping, fitted actions and labelled mobile rows; absent workflows are derived. Light text/selected accents use already-approved stronger semantic roles where literal source gold would fail contrast. Palette/tokens are unchanged. Exact reason/source mappings are in DESIGN_HANDOFF.md.
 
-**All new Light/tablet/mobile screens are DERIVED IMPLEMENTATIONS awaiting this Phase 3 approval, never Figma-approved.** There are no dedicated matching product references. Mobile viewport390×844, approved720/1024 breakpoints, no horizontal overflow or unnecessary independent scrolling. Readable stacked forms/rows remain keyboard accessible. The approved56px top bar/inline menu/no backdrop/document flow/selected route/Escape/aria-expanded/route collapse and hidden desktop context controls are unchanged and tested. Approval requested for derived density/layout and all new states, not reopening Phase1/2.
+**Reviewed Light desktop/mobile screens are APPROVED DERIVED IMPLEMENTATIONS, never Figma-approved.** There are no dedicated matching product references. Mobile viewport390×844, approved720/1024 breakpoints, no horizontal overflow or unnecessary independent scrolling. Readable stacked forms/rows remain keyboard accessible. The approved56px top bar/inline menu/no backdrop/document flow/selected route/Escape/aria-expanded/route collapse and hidden desktop context controls are unchanged and tested. The user approved the reviewed derived density/layout and new states without reopening Phase1/2. The source/fidelity table's original review prompts describe the review that is now complete, not pending choices.
 
-## Review checklist
+## User-approved review checklist
 
 - Typography/hierarchy and mono financial-value readability/precision.
 - Existing colors/tokens/surfaces/borders and stronger semantic accessibility roles.
@@ -37,4 +37,4 @@ Intentional differences are functional, tiering and accessibility: no Figma samp
 - Read-only demo entry/banner/fixture dates and disabled writes; normal-data isolation.
 - Desktop Dark, derived Light,390×844 derived mobile, keyboard/focus/menu behavior and normal scrolling.
 
-Approve the new Phase 3 compositions or request specific corrections. Engineering evidence is separate; public deployment also remains gated. No Phase3 closure/Phase4 authorization is inferred.
+The user explicitly approved all A–Q areas and the complete original/focused review evidence on2026-10-05. This is a documentation-only status update: preserve implementation, Figma and Phase1/2 baselines. Engineering and visual review are approved; Phase3 operational closure remains pending at O02/O04/O06 and applicable provider gates. STOP and await separate deployment/operational authorization; no main merge or Phase4.

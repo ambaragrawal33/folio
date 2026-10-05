@@ -1,6 +1,6 @@
 # Phase 3 implementation and historical inspection evidence
 
-Date2026-10-04. **Phase 3 domain implementation is submitted for separate visual/engineering review; public deployment is blocked at O02/O04/O06. Phase 3 is OPEN, not CLOSED.** User decision-gate approvals precede implementation. [Living progress](PROGRESS.md), [decisions](DECISIONS.md), [visual pack](PHASE_3_VISUAL_REVIEW.md), [deployment boundary](DEPLOYMENT.md). No Phase 4/News/AI/main merge/paid provisioning/Figma write. Dated entry inspection below records the historical pre-approval boundary and is superseded by this implementation status.
+Implementation evidence dated2026-10-04; approval status updated2026-10-05. **Phase 3 engineering and visual review are APPROVED; the visual gate is CLOSED. Public deployment/operational verification remains blocked at O02/O04/O06 and applicable provider entitlement/keyed-smoke gates. Phase 3 itself is OPEN, not CLOSED.** User decision-gate approvals precede implementation. [Living progress](PROGRESS.md), [decisions](DECISIONS.md), [visual pack](PHASE_3_VISUAL_REVIEW.md), [final approval](PHASE_3_VISUAL_APPROVAL.md), [deployment boundary](DEPLOYMENT.md). No Phase 4/News/AI/main merge/paid provisioning/Figma write. Dated entry inspection below records the historical pre-approval boundary and is superseded by this implementation status.
 
 ## Implemented scope and exact verification
 
@@ -33,7 +33,7 @@ node scripts/scan-secrets.mjs
 git diff --check
 ```
 
-Host Chromium cache is explicitly configured via PLAYWRIGHT_BROWSERS_PATH. CI installs its own Chromium and runs immutable foundation screenshots on Windows; Linux runs real auth/domain/demo gates. New screenshots are captured at1440×1024 and390×844 viewports, full page where natural flow exceeds the viewport. They are review evidence, not updated regression baselines. Every capture asserts actual theme/viewport/no horizontal overflow/no independent scroll container and zero WCAG2/2.1AA axe violations. The browser-checks.json records these values for every new screenshot. Human visual approval is still required; automated checks cannot grant it.
+Host Chromium cache is explicitly configured via PLAYWRIGHT_BROWSERS_PATH. CI installs its own Chromium and runs immutable foundation screenshots on Windows; Linux runs real auth/domain/demo gates. New screenshots are captured at1440×1024 and390×844 viewports, full page where natural flow exceeds the viewport. They are review evidence, not updated regression baselines. Every capture asserts actual theme/viewport/no horizontal overflow/no independent scroll container and zero WCAG2/2.1AA axe violations. The browser-checks.json records these values for every new screenshot. Automated checks cannot grant human visual approval; the user's separate explicit final approval on2026-10-05 now closes that gate.
 
 Final real-stack Chromium regression **8/8 PASS in2.3minutes**, including three existing auth flows, two domain/demo flows and three immutable foundation flows. **44 unique review PNGs /45 audited capture operations** (two BUY stages share one final filename), zero axe violations, correct1440×1024/390×844 viewports/themes, no horizontal overflow or independent scrolling. [Final measured verification metadata](evidence/phase-3/implementation/final-verification.json) records each financial file and all seven running local services. Six health-checked services are healthy; MailHog has no configured Docker healthcheck and its actual SMTP/API smoke passes. No approved token/style/primitives/Phase1/Phase2 evidence files differ.
 
@@ -69,9 +69,9 @@ Local normal+demo Compose build/readiness and transactional Mongo/Redis/SMTP/Ope
 
 No public URL/deployment/hosting account/domain or paid infrastructure. O02 candidates/account/proxy/HTTPS/Secure-cookie/real Safari tests, O04 genuine production email and O06 scheduler/encrypted backups/restore remain unresolved. Atlas Free lacks managed backups; Render Free SMTP and volatile Free Key Value are concrete service incompatibilities documented with primary sources in DEPLOYMENT.md. No security/persistence/coverage gate is waived.
 
-### Git and outstanding review
+### Git and outstanding operational closure
 
-Dedicated codex/phase-3-domain based on approved Phase2 closure, coherent conventional commit and normal branch push only. Final commit/remote synchronization/CI/main/clean-tree report is recorded in the final response and verification metadata; never force-push/merge main. Phase3 visual approval and actual operational/public smoke are outstanding; no Phase3 closure or Phase4 authorization inferred.
+Dedicated codex/phase-3-domain based on approved Phase2 closure, coherent conventional commit and normal branch push only. Reviewed implementation is9db1a60a1f4c014d8225cc44025fef7b753204de, synchronized with origin at review time. The user's final engineering/visual approval is recorded in [PHASE_3_VISUAL_APPROVAL.md](PHASE_3_VISUAL_APPROVAL.md); its focused evidence pass added14 states/28 unaltered PNGs,2/2 focused browser tests, zero axe/overflow/independent-scroll findings and a24-page rendered PDF without implementation changes. Actual operational/public smoke and applicable provider entitlement/keyed smoke remain outstanding; no Phase3 closure or Phase4 authorization inferred. No force-push or main merge.
 
 ## Historical pre-approval entry inspection — 2026-10-04
 

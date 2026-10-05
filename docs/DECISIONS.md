@@ -1,6 +1,12 @@
-# Folio decisions — updated 2026-10-04
+# Folio decisions — updated 2026-10-05
 
-Status: **Phase 1/2 engineering/design reviews remain CLOSED / APPROVED. Phase 3 is explicitly AUTHORIZED and OPEN on codex/phase-3-domain, based on closure5ad2baa58c261781e94f8f13353185f6bd7fd7c6 of approved Phase2 implementation32ded912df0cac3407ee11f202d163e9686afa64. Light/mobile are APPROVED DERIVED IMPLEMENTATIONS, never Figma-approved. Main remains Phase 1.** Earlier dated phase boundaries below are historical; this explicit Phase 3 authorization supersedes their authorization status, not their financial/provider decisions.
+Status: **Phase 1/2 engineering/design reviews remain CLOSED / APPROVED. Phase 3 engineering and visual review are APPROVED; its visual approval gate is CLOSED. Phase 3 itself remains OPEN on codex/phase-3-domain for deployment/operational gates. Reviewed Light/mobile are APPROVED DERIVED IMPLEMENTATIONS, never Figma-approved. Main remains Phase 1.** Earlier dated phase boundaries below are historical; explicit approvals supersede only their recorded scope, not unresolved financial/provider/operational decisions.
+
+## Phase 3 final engineering and visual approval — 2026-10-05
+
+V03 — The user's **PHASE 3 FINAL VISUAL APPROVAL** closes the Phase 3 visual gate and approves its engineering implementation at **9db1a60a1f4c014d8225cc44025fef7b753204de** on **codex/phase-3-domain**. The original Dark desktop review, all 14 focused Light/mobile states and 390×844 navigation OPEN state are accepted, including source/derivation/accessibility notes and full-page continuations. All A–Q areas listed in [the approval record](PHASE_3_VISUAL_APPROVAL.md) are approved. Light desktop, mobile and mobile navigation remain product-approved DERIVED implementations against the existing Figma DS/source references; never call them Figma-approved. No visual implementation, Figma or Phase 1/2 baseline alteration is authorized by this review.
+
+This closes a visual gate, **not Phase 3**. O02 specific free hosts/accounts/HTTPS/proxy/Secure-cookie topology, O04 production email, O06 scheduler/encrypted backups/restore and applicable provider entitlements/keyed smoke remain separate unresolved gates. The approved O06 isolated read-only demo is distinct from unapproved scheduler/backup operations. No operational proposal becomes a confirmed choice; no production readiness, deployment or Phase 3 closure is asserted. Record approval and STOP; await the user's next deployment/operational authorization. No main merge, Phase 4, News or AI work.
 
 ## Phase 3 authorization and pending decision boundary — 2026-10-04
 
