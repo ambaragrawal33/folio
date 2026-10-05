@@ -1,5 +1,9 @@
 # Folio design handoff
 
+## Local P0 audit — no design changes, 2026-10-05
+
+Existing Phase 1/2/3 visual approvals remain binding. Read-only connected MCP metadata refreshed Onboarding **57:301** and Asset Detail **32:143**, confirming Asset Detail recent-activity **34:165** (heading **34:167**, table **34:170**). The current position API returns lots but the screen does not render lots/activity; [remaining-work plan](REMAINING_PRODUCT_WORK.md) records this functional gap. This structural inspection does not claim fresh style measurements or reopen the approved compact onboarding treatment. No Figma, palette, application or approved baseline changed. Future added workflow states require their own source/derivation notes and visual review; Light/mobile remain approved derived implementations.
+
 ## Phase 3 visual gate CLOSED / APPROVED — 2026-10-05
 
 The user's **PHASE 3 FINAL VISUAL APPROVAL** accepts the original Dark desktop states, all 14 focused Light/mobile states, 390×844 navigation OPEN, source/derivation/accessibility notes and full-page continuations at implementation **9db1a60a1f4c014d8225cc44025fef7b753204de**, **codex/phase-3-domain**. All A–Q visual areas and documented intentional functional/accessibility differences are approved. [Complete approval scope/evidence](PHASE_3_VISUAL_APPROVAL.md).

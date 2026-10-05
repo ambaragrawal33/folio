@@ -1,5 +1,7 @@
 # Folio infrastructure and spending decision
 
+**DEFERRED by the user's latest instruction, 2026-10-05.** No domain, hosting, paid service or budget allocation is approved. Do not continue this research or implement its recommendations until planned P0 is complete and verified locally and the user reopens the deployment decision gate. The content below is historical, unapproved research. [Current product milestone](REMAINING_PRODUCT_WORK.md).
+
 Research date: **2026-10-05**. **PROPOSAL — awaiting user approval.** This document selects a recommended target, not an authorized purchase or deployment. ₹600–700 is an **initial/one-time budget**, not a monthly allowance. No account, service, domain or production credential was created; application/provider code and approved visuals are unchanged.
 
 **Recommendation: use the managed architecture in Option A. Do not buy folioonline.me. Reserve approximately ₹589 for an available, non-premium .co.in domain that enables verified transactional email and a portable address. Keep frontend/data/cache/email/monitoring free initially. The first worthwhile recurring upgrade is the $7/month always-on API, approximately ₹818/month with the planning allowances below. That recurring expense needs separate approval. Until then, the free API is a demo compromise, not an always-on production service.**

@@ -1,5 +1,9 @@
 # Phase 3 deployment boundary
 
+**LATEST USER DIRECTION — DEFERRED 2026-10-05:** finish and verify planned P0 on the local machine first. Stop hosting comparisons, infrastructure cost optimization, domains/purchases/paid accounts and all public deployment work. No previously researched architecture or budget allocation is approved. O02/O04/O06 operations and actual provider entitlement/keyed-smoke gates remain unresolved; deferral does not weaken production startup/security requirements. Local P0 jobs are product work, distinct from the deferred production scheduler/backup selection. [Local milestone plan](REMAINING_PRODUCT_WORK.md), [fresh verification](LOCAL_P0_AUDIT.md).
+
+The deployment/cost discussion below is a historical record, not the active milestone or implementation authorization.
+
 **Public deployment is BLOCKED / NOT PERFORMED.** The latest research request clarifies a ₹600–700 **initial/one-time** budget and allows comparison of paid/free architectures; it does not authorize purchases, recurring spend or deployment. No account, paid plan, domain, production secret or actual host selection is assumed. O02/O04/O06 operations remain pending. Local artifacts do not meet the master's public-URL completion requirement.
 
 [Current infrastructure/spending proposal](INFRASTRUCTURE_DECISION.md) compares managed/VPS options and separately prices domain renewal and paid API compute. The earlier ₹0/subdomain candidate table and decision list below are historical proposals for that previous constraint, not approved hosting selections. Do not interpret the new research recommendation as an O02/O04/O06 approval or an application/configuration change.

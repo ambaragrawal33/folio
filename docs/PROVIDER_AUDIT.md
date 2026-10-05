@@ -1,5 +1,11 @@
 # Provider and dependency audit
 
+## Fresh local audit — 2026-10-05
+
+Actual adapter smoke: historical USD/INR request **2024-01-06 → 83.15 dated 2024-01-05**; current request **2026-10-05 → 96.32 dated 2026-10-02**, Frankfurter/ECB, actual source/rate date retained. Yahoo entitlement absent means no requests/quotes/history. CoinGecko Demo key unconfigured means no requests/quotes; keyed smoke is not passed. Current host dependency graph **490 packages/82 peer edges/failures []** and audit no known vulnerabilities. [Command evidence and limits](LOCAL_P0_AUDIT.md). No key/rights bypass or commercial licensing claim.
+
+Hosting/spending comparisons and production operations are deferred by the user's local-first direction. Broader verified instrument discovery/search and optional fallback capabilities are product gaps, not currently implemented features; any future activated provider must still meet actual terms/key/coverage requirements. The proposed explicit isolated local fixture profile is not a production data source or silently approved architecture change.
+
 ## Implemented Phase 3 verification — 2026-10-04
 
 O03 explicitly approves academic/personal/non-commercial demo scope and Frankfurter/ECB, CoinGecko Demo and Yahoo wrapper, subject to actual provider rights. No commercial market-data license is asserted. O06 isolated read-only demo is approved; hosting/email/backup operations remain pending. Dated probes/proposals below are historical, superseded only within these explicit approvals.

@@ -1,8 +1,16 @@
 # Folio decisions — updated 2026-10-05
 
-Status: **Phase 1/2 engineering/design reviews remain CLOSED / APPROVED. Phase 3 engineering and visual review are APPROVED; its visual approval gate is CLOSED. Phase 3 itself remains OPEN on codex/phase-3-domain for deployment/operational gates. Reviewed Light/mobile are APPROVED DERIVED IMPLEMENTATIONS, never Figma-approved. Main remains Phase 1.** Earlier dated phase boundaries below are historical; explicit approvals supersede only their recorded scope, not unresolved financial/provider/operational decisions.
+Status: **Local P0 completion is the current milestone; hosting/money/deployment work is DEFERRED. Phase 1/2 remain CLOSED / APPROVED. Phase 3 implemented engineering and visual review remain APPROVED; Phase 3 itself is not closed. Light/mobile are APPROVED DERIVED IMPLEMENTATIONS, never Figma-approved. Main remains Phase 1.** Earlier dated phase boundaries below are historical; explicit approvals supersede only their recorded scope, not unresolved financial/provider/operational decisions.
 
-## Infrastructure spending research boundary — 2026-10-05
+## Local-first priority — CONFIRMED 2026-10-05
+
+The user explicitly stops hosting/provider-cost comparison, budget optimization, purchases, paid accounts, production DNS/database/Redis/email and deployment. Complete planned P0 end to end locally first, with local frontend/API/Mongo/Redis/MailHog/Compose. O02/O04/O06 production operational gates are **deferred, not resolved or waived**; earlier infrastructure recommendations remain unapproved historical research. No budget allocation or service purchase is inferred.
+
+Preserve the approved financial, security, architecture and visual foundation. Explicit local/test/demo implementations behind adapter boundaries are permitted by the user's instruction where compatible with the architecture; no hidden mock/live-data fallback, fake success or weakening of correctness. News and read-only AI remain P0 in their scheduled phases; no P1/P2 expansion or automatic Phase 4 start. Current authorization is inspect/verify/produce the plan, then STOP before implementation. Communicate in English from now on.
+
+[Remaining Product Work](REMAINING_PRODUCT_WORK.md) and [fresh evidence](LOCAL_P0_AUDIT.md) distinguish implemented passing behavior from gaps. **L01 proposed isolated local-only writable fixture profile** and **L02 proposed default-portfolio rename/empty-only deletion** are not approved choices. Public demo stays read-only and normal-mode accounts never receive fixtures. Populated-portfolio deletion must not erase immutable economics without a separately resolved policy. These proposals do not change X02–X05, P3-I02–I04 or provider rights.
+
+## Historical infrastructure spending research boundary — DEFERRED
 
 The user explicitly clarifies that **₹600–700 is an initial/one-time budget**, not a recurring monthly allowance. The earlier ₹679 folioonline.me quotation is **not purchase approval**. Research may compare paid and free architectures and justify a larger spend; the earlier ₹0-only target is not an exclusive research constraint. No paid service/domain/account, deployment, provider-specific code change or commercial product/provider scope expansion is authorized.
 

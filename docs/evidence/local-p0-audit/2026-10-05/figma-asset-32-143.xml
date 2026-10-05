@@ -1,0 +1,278 @@
+<frame id="32:143" name="Folio / Asset Detail · Bitcoin" x="-412" y="1618" width="1440" height="1024">
+  <frame id="32:144" name="Sidebar" x="0" y="0" width="220" height="1024">
+    <frame id="32:145" name="Brand header" x="0" y="0" width="220" height="56">
+      <text id="32:146" name="Brand" x="24" y="16" width="42" height="24" />
+    </frame>
+    <frame id="32:147" name="Primary navigation" x="0" y="56" width="220" height="452">
+      <instance id="32:148" name="Navigation item" x="12" y="12" width="196" height="36" />
+      <instance id="32:149" name="Navigation item" x="12" y="52" width="196" height="36" />
+      <instance id="32:150" name="Navigation item" x="12" y="92" width="196" height="36" />
+      <instance id="32:151" name="Navigation item" x="12" y="132" width="196" height="36" />
+      <instance id="32:152" name="Navigation item" x="12" y="172" width="196" height="36" />
+      <instance id="32:153" name="Navigation item" x="12" y="212" width="196" height="36" />
+      <instance id="32:154" name="Navigation item" x="12" y="252" width="196" height="36" />
+      <instance id="32:155" name="Navigation item" x="12" y="292" width="196" height="36" />
+      <frame id="57:998" name="Navigation item" x="12" y="332" width="196" height="36">
+        <text id="57:999" name="Label" x="12" y="9" width="160" height="18" />
+      </frame>
+      <frame id="57:1000" name="Navigation item" x="12" y="372" width="196" height="36">
+        <text id="57:1001" name="Label" x="12" y="9" width="160" height="18" />
+      </frame>
+      <frame id="57:1002" name="Navigation item" x="12" y="412" width="196" height="36">
+        <text id="57:1003" name="Label" x="12" y="9" width="160" height="18" />
+      </frame>
+    </frame>
+    <frame id="32:156" name="Navigation spacer" x="0" y="508" width="220" height="455" />
+    <frame id="32:157" name="Bottom navigation" x="0" y="963" width="220" height="61">
+      <rounded-rectangle id="32:158" name="Navigation separator" x="12" y="0" width="196" height="1" />
+      <instance id="32:159" name="Navigation item" x="12" y="13" width="196" height="36" />
+    </frame>
+  </frame>
+  <frame id="32:160" name="Workspace" x="220" y="0" width="1220" height="1024">
+    <frame id="32:161" name="Top bar" x="0" y="0" width="1220" height="56">
+      <frame id="32:162" name="Portfolio context" x="20" y="10" width="272" height="36">
+        <instance id="32:163" name="Portfolio selector" x="0" y="0" width="164" height="36" />
+        <instance id="32:164" name="Currency selector" x="172" y="0" width="100" height="36" />
+      </frame>
+      <frame id="32:165" name="Global utilities" x="590" y="10" width="610" height="36">
+        <frame id="32:166" name="Global search" x="0" y="0" width="280" height="36">
+          <instance id="32:167" name="Search input" x="0" y="0" width="241" height="36" />
+          <text id="32:168" name="Keyboard shortcut" x="249" y="11" width="19" height="14" />
+        </frame>
+        <frame id="32:169" name="Notifications control" x="292" y="0" width="124" height="36">
+          <instance id="32:170" name="Notifications" x="0" y="0" width="36" height="36" />
+          <text id="32:171" name="Notifications label" x="44" y="9" width="80" height="18" />
+        </frame>
+        <frame id="32:172" name="User account menu" x="428" y="0" width="182" height="36">
+          <frame id="32:173" name="Avatar" x="0" y="4" width="28" height="28">
+            <text id="32:174" name="Initials" x="6" y="7" width="16" height="14" />
+          </frame>
+          <instance id="32:175" name="Account name" x="32" y="0" width="130" height="36" />
+          <frame id="32:176" name="chevron-down" x="166" y="10" width="16" height="16" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="32:178" name="Main content" x="0" y="56" width="1220" height="968">
+      <frame id="34:51" name="asset-header" x="32" y="28" width="1156" height="80">
+        <frame id="34:52" name="identity-group" x="0" y="7.5" width="440" height="65">
+          <instance id="34:53" name="Folio/Breadcrumb/State=Default" x="0" y="0" width="440" height="32" />
+          <frame id="34:58" name="title-row" x="0" y="36" width="233" height="29">
+            <text id="34:59" name="Bitcoin" x="0" y="0" width="82" height="29" />
+            <text id="34:60" name="BTC · Cryptocurrency" x="90" y="9" width="143" height="17" />
+          </frame>
+        </frame>
+        <frame id="34:61" name="price-group" x="580" y="0" width="188" height="80">
+          <text id="34:62" name="₹9,82,450.00" x="15" y="0" width="173" height="31" />
+          <frame id="34:63" name="Frame" x="0" y="35" width="188" height="28">
+            <instance id="34:64" name="Folio/Financial delta" x="0" y="0" width="94" height="28" />
+            <text id="34:66" name="+₹18,240.00" x="102" y="5.5" width="86" height="17" />
+          </frame>
+          <text id="34:220" name="As of 02 Oct 2026 · 20:25 IST" x="33" y="67" width="155" height="13" />
+        </frame>
+        <frame id="35:324" name="action-group" x="908" y="24" width="248" height="32">
+          <instance id="35:325" name="Add to Watchlist" x="0" y="0" width="160" height="32" />
+          <instance id="35:328" name="Trade" x="168" y="0" width="80" height="32" />
+        </frame>
+      </frame>
+      <rounded-rectangle id="34:67" name="divider" x="32" y="116" width="1156" height="1" />
+      <frame id="34:68" name="position-summary" x="32" y="125" width="1156" height="56">
+        <frame id="34:69" name="metric" x="0" y="0" width="221.60000610351562" height="34">
+          <text id="34:70" name="Position" x="0" y="0" width="42" height="13" />
+          <text id="34:71" name="9.67 BTC" x="0" y="17" width="63" height="17" />
+        </frame>
+        <frame id="34:72" name="metric" x="233.60000610351562" y="0" width="221.60000610351562" height="34">
+          <text id="34:73" name="Market Value" x="0" y="0" width="68" height="13" />
+          <text id="34:74" name="₹95,00,000.00" x="0" y="17" width="102" height="17" />
+        </frame>
+        <frame id="34:75" name="metric" x="467.20001220703125" y="0" width="221.6000213623047" height="34">
+          <text id="34:76" name="Average Cost" x="0" y="0" width="70" height="13" />
+          <text id="34:77" name="₹84,20,000.00" x="0" y="17" width="102" height="17" />
+        </frame>
+        <frame id="34:78" name="metric" x="700.800048828125" y="0" width="221.60000610351562" height="56">
+          <text id="34:79" name="Unrealized P&amp;L" x="0" y="0" width="79" height="13" />
+          <text id="34:80" name="+₹10,80,000.00" x="0" y="17" width="110" height="17" />
+          <text id="36:66" name="Unrealized return" x="0" y="38" width="55" height="18" />
+        </frame>
+        <frame id="34:81" name="metric" x="934.4000244140625" y="0" width="221.60000610351562" height="34">
+          <text id="34:82" name="Portfolio Weight" x="0" y="0" width="84" height="13" />
+          <text id="34:83" name="89.39%" x="0" y="17" width="47" height="17" />
+        </frame>
+      </frame>
+      <rounded-rectangle id="34:84" name="divider" x="32" y="189" width="1156" height="1" />
+      <frame id="34:85" name="chart-section" x="32" y="198" width="1156" height="265">
+        <frame id="34:86" name="chart-header" x="0" y="0" width="1156" height="35">
+          <frame id="36:65" name="Performance title and description" x="0" y="0" width="148" height="35">
+            <text id="34:87" name="Bitcoin Performance" x="0" y="0" width="148" height="18" />
+            <text id="35:65" name="Historical price performance" x="0" y="22" width="148" height="13" />
+          </frame>
+          <frame id="34:88" name="tabs" x="796" y="1.5" width="360" height="32">
+            <instance id="34:89" name="Folio/Tab" x="0" y="0" width="48" height="32" />
+            <instance id="34:92" name="Folio/Tab" x="52" y="0" width="48" height="32" />
+            <instance id="34:95" name="Folio/Tab" x="104" y="0" width="48" height="32" />
+            <instance id="34:97" name="Folio/Tab" x="156" y="0" width="48" height="32" />
+            <instance id="34:100" name="Folio/Tab" x="208" y="0" width="48" height="32" />
+            <instance id="34:103" name="Folio/Tab" x="260" y="0" width="48" height="32" />
+            <instance id="34:106" name="Folio/Tab" x="312" y="0" width="48" height="32" />
+          </frame>
+        </frame>
+        <frame id="34:109" name="chart-container" x="0" y="43" width="1156" height="180">
+          <text id="35:66" name="₹10,00,000" x="8" y="7" width="78" height="18" />
+          <text id="35:67" name="₹9,50,000" x="8" y="51" width="71" height="18" />
+          <text id="35:68" name="₹9,00,000" x="8" y="95" width="71" height="18" />
+          <text id="35:69" name="₹8,50,000" x="8" y="139" width="71" height="18" />
+          <rounded-rectangle id="35:70" name="Rectangle" x="96" y="16" width="960" height="1" />
+          <rounded-rectangle id="35:71" name="Rectangle" x="96" y="60" width="960" height="1" />
+          <rounded-rectangle id="35:72" name="Rectangle" x="96" y="104" width="960" height="1" />
+          <rounded-rectangle id="35:73" name="Rectangle" x="96" y="148" width="960" height="1" />
+          <text id="35:74" name="02 Sep" x="96" y="162" width="38" height="14" />
+          <text id="35:75" name="12 Sep" x="416" y="162" width="36" height="14" />
+          <text id="35:76" name="22 Sep" x="736" y="162" width="37" height="14" />
+          <text id="35:77" name="02 Oct" x="1020" y="162" width="36" height="14" />
+          <frame id="35:79" name="Editable Bitcoin price series" x="96" y="16" width="960" height="132">
+            <vector id="35:80" name="Bitcoin · fictional daily closes" x="0" y="4.223999977111816" width="960" height="108.94400024414062" />
+          </frame>
+          <frame id="34:114" name="Frame" x="1061" y="18.444000244140625" width="87" height="26">
+            <text id="34:115" name="₹9,82,450" x="8" y="4" width="71" height="18" />
+          </frame>
+          <ellipse id="36:67" name="Latest price point" x="1054" y="29.444000244140625" width="4" height="4" />
+        </frame>
+        <frame id="34:116" name="chart-stats" x="0" y="231" width="1156" height="34">
+          <frame id="34:117" name="Frame" x="0" y="0" width="59" height="34">
+            <text id="34:118" name="Return · 1M" x="0" y="0" width="59" height="13" />
+            <text id="34:119" name="+8.42%" x="0" y="17" width="47" height="17" />
+          </frame>
+          <frame id="34:120" name="Frame" x="536.5" y="0" width="71" height="34">
+            <text id="34:121" name="High" x="0" y="0" width="24" height="13" />
+            <text id="34:122" name="₹9,95,200" x="0" y="17" width="71" height="17" />
+          </frame>
+          <frame id="34:123" name="Frame" x="1085" y="0" width="71" height="34">
+            <text id="34:124" name="Low" x="0" y="0" width="22" height="13" />
+            <text id="34:125" name="₹8,71,400" x="0" y="17" width="71" height="17" />
+          </frame>
+        </frame>
+      </frame>
+      <rounded-rectangle id="34:126" name="divider" x="32" y="471" width="1156" height="1" />
+      <frame id="34:127" name="context-row" x="32" y="480" width="1156" height="146">
+        <frame id="34:128" name="position-performance" x="0" y="0" width="572" height="124">
+          <text id="34:129" name="Position Performance" x="12" y="12" width="136" height="16" />
+          <frame id="34:130" name="Frame" x="12" y="32" width="548" height="80">
+            <frame id="34:131" name="Frame" x="0" y="0" width="548" height="17">
+              <text id="34:132" name="Cost Basis" x="0" y="0" width="55" height="13" />
+              <text id="34:133" name="₹84,20,000.00" x="446" y="0" width="102" height="17" />
+            </frame>
+            <frame id="34:134" name="Frame" x="0" y="21" width="548" height="17">
+              <text id="34:135" name="Current Value" x="0" y="0" width="71" height="13" />
+              <text id="34:136" name="₹95,00,000.00" x="446" y="0" width="102" height="17" />
+            </frame>
+            <frame id="34:137" name="Frame" x="0" y="42" width="548" height="17">
+              <text id="34:138" name="Unrealized Gain" x="0" y="0" width="82" height="13" />
+              <text id="34:139" name="+₹10,80,000.00" x="438" y="0" width="110" height="17" />
+            </frame>
+            <frame id="34:140" name="Frame" x="0" y="63" width="548" height="17">
+              <text id="34:141" name="Return" x="0" y="0" width="35" height="13" />
+              <text id="34:142" name="+12.83%" x="493" y="0" width="55" height="17" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="34:143" name="portfolio-exposure" x="584" y="0" width="572" height="146">
+          <text id="34:144" name="Portfolio Exposure" x="12" y="12" width="116" height="16" />
+          <frame id="34:145" name="Frame" x="12" y="32" width="548" height="102">
+            <frame id="34:146" name="Frame" x="0" y="0" width="548" height="17">
+              <text id="34:147" name="Portfolio Weight" x="0" y="0" width="84" height="13" />
+              <text id="34:148" name="89.39%" x="501" y="0" width="47" height="17" />
+            </frame>
+            <frame id="34:149" name="Frame" x="0" y="21" width="548" height="13">
+              <text id="34:150" name="Asset Allocation" x="0" y="0" width="84" height="13" />
+              <text id="34:151" name="Crypto" x="512" y="0" width="36" height="13" />
+            </frame>
+            <frame id="34:152" name="Frame" x="0" y="38" width="548" height="30">
+              <frame id="34:153" name="Frame" x="0" y="0" width="548" height="18">
+                <text id="34:154" name="Bitcoin (BTC)" x="0" y="0" width="69" height="13" />
+                <text id="34:155" name="89.39%" x="501" y="0" width="47" height="18" />
+              </frame>
+              <frame id="34:156" name="Frame" x="0" y="22" width="548" height="8">
+                <rounded-rectangle id="34:157" name="Rectangle" x="0" y="0" width="489.8572082519531" height="8" />
+              </frame>
+            </frame>
+            <frame id="34:158" name="Frame" x="0" y="72" width="548" height="30">
+              <frame id="34:159" name="Frame" x="0" y="0" width="548" height="18">
+                <text id="34:160" name="Remaining Portfolio" x="0" y="0" width="102" height="13" />
+                <text id="34:161" name="10.61%" x="501" y="0" width="47" height="18" />
+              </frame>
+              <frame id="34:162" name="Frame" x="0" y="22" width="548" height="8">
+                <rounded-rectangle id="34:163" name="Rectangle" x="0" y="0" width="58.142799377441406" height="8" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <rounded-rectangle id="34:164" name="divider" x="32" y="634" width="1156" height="1" />
+      <frame id="34:165" name="recent-activity" x="32" y="643" width="1156" height="208">
+        <frame id="34:166" name="Frame" x="0" y="0" width="1156" height="32">
+          <text id="34:167" name="Recent Activity" x="0" y="7" width="111" height="18" />
+          <instance id="34:168" name="Folio/Button/Tertiary" x="992" y="0" width="164" height="32" />
+        </frame>
+        <frame id="34:170" name="table" x="0" y="44" width="1156" height="164">
+          <frame id="34:171" name="table-header" x="0" y="0" width="1156" height="32">
+            <text id="34:172" name="Date" x="12" y="9.5" width="150" height="13" />
+            <text id="34:173" name="Type" x="162" y="9.5" width="80" height="13" />
+            <text id="34:174" name="Quantity" x="242" y="9.5" width="120" height="13" />
+            <text id="34:175" name="Price (INR)" x="362" y="9.5" width="150" height="13" />
+            <text id="34:176" name="Amount (INR)" x="512" y="9.5" width="632" height="13" />
+          </frame>
+          <frame id="34:177" name="row" x="0" y="32" width="1156" height="44">
+            <text id="34:178" name="02 Oct 2026" x="12" y="14" width="150" height="16" />
+            <text id="34:179" name="Buy" x="162" y="14" width="80" height="16" />
+            <text id="34:180" name="0.20 BTC" x="242" y="13.5" width="120" height="17" />
+            <text id="34:181" name="₹9,82,450" x="362" y="13.5" width="150" height="17" />
+            <text id="34:182" name="₹1,96,490" x="512" y="13.5" width="632" height="17" />
+          </frame>
+          <frame id="34:183" name="row" x="0" y="76" width="1156" height="44">
+            <text id="34:184" name="18 Sep 2026" x="12" y="14" width="150" height="16" />
+            <text id="34:185" name="Buy" x="162" y="14" width="80" height="16" />
+            <text id="34:186" name="0.35 BTC" x="242" y="13.5" width="120" height="17" />
+            <text id="34:187" name="₹9,10,200" x="362" y="13.5" width="150" height="17" />
+            <text id="34:188" name="₹3,18,570" x="512" y="13.5" width="632" height="17" />
+          </frame>
+          <frame id="34:189" name="row" x="0" y="120" width="1156" height="44">
+            <text id="34:190" name="02 Aug 2026" x="12" y="14" width="150" height="16" />
+            <text id="34:191" name="Buy" x="162" y="14" width="80" height="16" />
+            <text id="34:192" name="0.50 BTC" x="242" y="13.5" width="120" height="17" />
+            <text id="34:193" name="₹8,72,000" x="362" y="13.5" width="150" height="17" />
+            <text id="34:194" name="₹4,36,000" x="512" y="13.5" width="632" height="17" />
+          </frame>
+        </frame>
+      </frame>
+      <rounded-rectangle id="34:195" name="divider" x="32" y="859" width="1156" height="1" />
+      <frame id="34:196" name="asset-info" x="32" y="868" width="1156" height="56">
+        <text id="34:197" name="Asset Information" x="0" y="0" width="130" height="18" />
+        <frame id="34:198" name="Frame" x="0" y="26" width="1156" height="30">
+          <frame id="34:200" name="Frame" x="0" y="0" width="182.6666717529297" height="30">
+            <text id="34:201" name="Asset Type" x="0" y="0" width="59" height="13" />
+            <text id="34:202" name="Cryptocurrency" x="0" y="17" width="82" height="13" />
+          </frame>
+          <frame id="34:203" name="Frame" x="194.6666717529297" y="0" width="182.66665649414062" height="30">
+            <text id="34:204" name="Symbol" x="0" y="0" width="39" height="13" />
+            <text id="34:205" name="BTC" x="0" y="17" width="22" height="13" />
+          </frame>
+          <frame id="34:206" name="Frame" x="389.33331298828125" y="0" width="182.66665649414062" height="30">
+            <text id="34:207" name="Currency" x="0" y="0" width="48" height="13" />
+            <text id="34:208" name="INR" x="0" y="17" width="19" height="13" />
+          </frame>
+          <frame id="34:210" name="Frame" x="584" y="0" width="182.6666717529297" height="30">
+            <text id="34:211" name="Portfolio" x="0" y="0" width="45" height="13" />
+            <text id="34:212" name="All Portfolios" x="0" y="17" width="66" height="13" />
+          </frame>
+          <frame id="34:213" name="Frame" x="778.6666870117188" y="0" width="182.66665649414062" height="30">
+            <text id="34:214" name="Custody" x="0" y="0" width="44" height="13" />
+            <text id="34:215" name="Hardware Wallet" x="0" y="17" width="86" height="13" />
+          </frame>
+          <frame id="34:216" name="Frame" x="973.3333740234375" y="0" width="182.66665649414062" height="30">
+            <text id="34:217" name="Network" x="0" y="0" width="45" height="13" />
+            <text id="34:218" name="Bitcoin" x="0" y="17" width="36" height="13" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+</frame>
