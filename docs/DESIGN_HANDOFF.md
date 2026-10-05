@@ -1,5 +1,17 @@
 # Folio design handoff
 
+## Priority 1 fixture-mode review — 2026-10-05
+
+L01 adds a visible synthetic-fixture notice and honest history/FX copy using existing **demo-banner**, compact roles, semantic colors/borders and **12px space token**. Shell/top bar/navigation/primitives/palette/type hierarchy/responsive rules and prior captures are unchanged. Connected read-only Figma MCP **get_design_context** refreshed Dashboard **10:485**, returning source IDs/styles/code and a viewed source screenshot. [Actual check](evidence/priority-1/2026-10-05/figma-source-check.json). No Figma write/new assets/palette.
+
+Notice, local mode explanation and synthetic-history wording have no dedicated product source and are **derived workflow states**. Existing mappings: Dashboard **10:485**, Holdings **27:390**, Asset **32:143**, Transactions **47:2**, Auth **57:282/57:283**, Onboarding **57:301**, inputs **2:4823**, buttons **2:4800**. These references never make new states or Light/mobile Figma-approved. Notice grows content in natural flow to keep provenance readable; no prototype sample financial values.
+
+Accessibility retains stronger existing text roles, explicit source/date/status labels, approved focus/36px controls and chart exact-price table/ARIA. Notice is a labelled aside, with no modal/backdrop or independent scrolling. Mobile keeps **56px top bar**, inline/static menu, selected route and hidden desktop context; Escape/route selection close and update aria-expanded. **14 new states: zero axe/overflow/independent scroll**; keyboard and unchanged foundation comparisons pass. [Focused visual review](PRIORITY_1_VISUAL_REVIEW.md).
+
+Visual inspection found an existing FX-unit error: fractional base-minus-local return must use exact percent display scaling before labelling percentage points. AAPL now shows **6.63 percentage points**, replacing erroneous **0.07**; positive/negative/zero/null verified. No engine/stored precision/layout/token change. Existing approved captures remain historical evidence, never overwritten.
+
+**New Priority 1 visual evidence awaits user review.** Existing Phase 1/2 and original Phase 3 approvals stay closed in their accepted scope. Light/mobile here are **DERIVED**, never Figma-approved. Earlier audit entries below are historical.
+
 ## Local P0 audit — no design changes, 2026-10-05
 
 Existing Phase 1/2/3 visual approvals remain binding. Read-only connected MCP metadata refreshed Onboarding **57:301** and Asset Detail **32:143**, confirming Asset Detail recent-activity **34:165** (heading **34:167**, table **34:170**). The current position API returns lots but the screen does not render lots/activity; [remaining-work plan](REMAINING_PRODUCT_WORK.md) records this functional gap. This structural inspection does not claim fresh style measurements or reopen the approved compact onboarding treatment. No Figma, palette, application or approved baseline changed. Future added workflow states require their own source/derivation notes and visual review; Light/mobile remain approved derived implementations.

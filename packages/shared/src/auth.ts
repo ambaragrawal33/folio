@@ -21,6 +21,7 @@ export const Timezone = z
   }, 'Use a valid IANA timezone.');
 export const PublicUser = z.strictObject({
   demoReadonly: z.literal(true).optional(),
+  localFixture: z.literal(true).optional(),
   id: z.string().regex(/^[a-f0-9]{24}$/),
   name: z.string().min(1).max(100),
   email: Email,
@@ -58,6 +59,7 @@ export const DeleteAccountRequest = z.strictObject({
   confirmation: z.literal('DELETE'),
 });
 export const EmptyRequest = z.strictObject({});
+export const LocalFixtureStatus = z.strictObject({ enabled: z.boolean() });
 export const GenericResponse = z.strictObject({ message: z.string() });
 export const SessionResponse = z.strictObject({
   accessToken: z.string().min(1),
@@ -84,6 +86,13 @@ export const AccountExport = z.strictObject({
   domain: DomainExport.optional(),
 });
 export const authContracts = [
+  {
+    method: 'get',
+    path: '/api/v1/auth/local-fixture',
+    request: EmptyRequest,
+    response: LocalFixtureStatus,
+    authenticated: false,
+  },
   {
     method: 'post',
     path: '/api/v1/auth/register',

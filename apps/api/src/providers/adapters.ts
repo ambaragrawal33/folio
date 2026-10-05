@@ -75,7 +75,8 @@ export class LiveMarketGateway implements MarketGateway {
     transport = new ProviderTransport(),
     now: () => Date = () => new Date(),
   ) {
-    if (env.DEMO_MODE) throw new Error('Live providers cannot run in DEMO_MODE.');
+    if (env.DEMO_MODE || env.LOCAL_FIXTURE_MODE)
+      throw new Error('Live providers cannot run in DEMO_MODE or local fixture mode.');
     this.env = env;
     this.cache = cache;
     this.master = master;

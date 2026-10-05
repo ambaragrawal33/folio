@@ -13,6 +13,7 @@ import {
   EmptyRequest,
   ExportRequest,
   SessionResponse,
+  LocalFixtureStatus,
 } from '@folio/shared';
 import type { Env } from '../config/env.ts';
 import type { AuthService } from '../services/auth.ts';
@@ -26,17 +27,26 @@ function body<T>(schema: z.ZodType<T>, req: Request): T {
   if (!result.success) throw invalid();
   return result.data;
 }
-function cookieToken(req: Request) {
+function cookieToken(req: Request, cookieName: string) {
   const matches = (req.headers.cookie ?? '')
     .split(';')
     .map((v) => v.trim())
-    .filter((v) => v.startsWith(COOKIE + '='));
+    .filter((v) => v.startsWith(cookieName + '='));
   if (matches.length !== 1) return '';
-  const value = matches[0]!.slice(COOKIE.length + 1);
+  const value = matches[0]!.slice(cookieName.length + 1);
   return /^[A-Za-z0-9_-]{43}$/.test(value) ? value : '';
 }
 export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
+  const cookieName = env.LOCAL_FIXTURE_MODE ? 'folio_fixture_refresh' : COOKIE;
   const router = Router();
+  router.get('/auth/local-fixture', (req, res, next) => {
+    if (!EmptyRequest.safeParse(req.query).success) {
+      next(invalid());
+      return;
+    }
+    res.setHeader('Cache-Control', 'no-store');
+    res.json(LocalFixtureStatus.parse({ enabled: env.LOCAL_FIXTURE_MODE }));
+  });
   const origins = new Set([new URL(env.WEB_ORIGIN).origin]);
   if (env.NODE_ENV !== 'production') {
     const base = new URL(env.WEB_ORIGIN);
@@ -54,7 +64,7 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
     path: '/api/v1/auth',
     maxAge: 30 * 86400000,
   };
-  const clear = (res: Response) => res.clearCookie(COOKIE, { ...cookieOptions, maxAge: 0 });
+  const clear = (res: Response) => res.clearCookie(cookieName, { ...cookieOptions, maxAge: 0 });
   const meta = (req: Request): RequestMeta => ({
     ip: req.ip ?? 'unknown',
     userAgent: req.get('user-agent') ?? 'unknown',
@@ -156,7 +166,7 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
     body(EmptyRequest, req);
     const result = await service.demoSession(meta(req));
     res
-      .cookie(COOKIE, result.refreshToken, cookieOptions)
+      .cookie(cookieName, result.refreshToken, cookieOptions)
       .json(SessionResponse.parse(result.response));
   });
   router.post('/auth/verify-email', async (req, res) =>
@@ -171,16 +181,16 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
   router.post('/auth/login', async (req, res) => {
     const result = await service.login(body(LoginRequest, req), meta(req));
     res
-      .cookie(COOKIE, result.refreshToken, cookieOptions)
+      .cookie(cookieName, result.refreshToken, cookieOptions)
       .json(SessionResponse.parse(result.response));
   });
   router.post('/auth/refresh', async (req, res) => {
     body(EmptyRequest, req);
-    const token = cookieToken(req);
+    const token = cookieToken(req, cookieName);
     try {
       const result = await service.refresh(token, meta(req));
       res
-        .cookie(COOKIE, result.refreshToken, cookieOptions)
+        .cookie(cookieName, result.refreshToken, cookieOptions)
         .json(SessionResponse.parse(result.response));
     } catch (error) {
       clear(res);
@@ -189,7 +199,7 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
   });
   router.post('/auth/logout', async (req, res) => {
     body(EmptyRequest, req);
-    const result = await service.logout(cookieToken(req), meta(req));
+    const result = await service.logout(cookieToken(req, cookieName), meta(req));
     clear(res);
     res.json(result);
   });

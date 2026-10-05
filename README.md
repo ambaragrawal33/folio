@@ -61,6 +61,8 @@ pnpm dev
 
 Do not run host and Docker web/API on the same ports. Stop Docker web/API first when switching workflows. Docker web uses polling for Windows bind mounts; rebuild images after dependency/shared-contract changes, and restart API if its watcher misses a Windows event.
 
+For the explicitly enabled **local writable fixture mode**, use [LOCAL_FIXTURE_MODE.md](docs/LOCAL_FIXTURE_MODE.md) and `docker compose -f docker-compose.yml -f docker-compose.fixture.yml --profile fixture up --build -d fixture-api fixture-web`, then open http://127.0.0.1:5190. It uses isolated Mongo/Redis state and cookies, real account/ledger writes and labelled synthetic market inputs. It is not normal mode, a live-provider fallback or the read-only demo. Normal mode remains http://127.0.0.1:5173; read-only demo remains http://127.0.0.1:5180.
+
 ```sh
 pnpm tokens:sync
 pnpm deps:verify

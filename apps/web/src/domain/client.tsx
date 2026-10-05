@@ -29,7 +29,7 @@ export function useFinancialDisplay() {
     money: (v: string | null, currency = 'INR') => formatMoney(v, currency, format),
     percent: (v: string | null) => formatPercent(v, format),
     percentagePoints: (v: string | null) =>
-      v === null ? '—' : formatDecimal(v, 2, format) + ' percentage points',
+      v === null ? '—' : formatPercent(v, format).replace('%', ' percentage points'),
     quantity: (v: string | null) => formatDecimal(v, 18, format, true),
     price: (v: string | null, currency: string) =>
       v === null ? '—' : currency + ' ' + formatDecimal(v, 10, format, true),

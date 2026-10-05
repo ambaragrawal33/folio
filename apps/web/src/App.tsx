@@ -18,6 +18,7 @@ import {
   GlobalSearch,
 } from './domain/PortfolioScreens';
 import { usePortfolios } from './domain/client';
+import { LocalFixtureNotice } from './domain/LocalFixtureNotice';
 function AuthGate({ children }: { children: ReactNode }) {
   const status = useAccess((s) => s.status);
   if (status === 'loading') return <ContentState loading />;
@@ -179,6 +180,7 @@ export function App() {
           </nav>
         )}
         <main id="main" tabIndex={-1}>
+          {!preview && location.pathname !== '/dev/design-system' && <LocalFixtureNotice />}
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dev/design-system" element={<Gallery />} />

@@ -871,7 +871,9 @@ function TransactionForm({ p }: { p: z.infer<typeof Portfolio> }) {
                   review.historicalFxOverride.reference
                 : instrument?.currency === 'INR'
                   ? 'Identity · INR/INR'
-                  : 'Latest available ECB daily reference on or before the trading date, verified by the server.'}
+                  : user?.localFixture
+                    ? 'Explicit local historical FX fixture, resolved by the server when recording. See supported date and source in the fixture notice.'
+                    : 'Latest available ECB daily reference on or before the trading date, verified by the server.'}
             </dd>
           </dl>
           <p className="type-compact text-secondary">
@@ -1073,6 +1075,7 @@ function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
     f = useFinancialDisplay(),
     navigate = useNavigate();
   const readonly = useSession().data?.user.demoReadonly;
+  const localFixture = useSession().data?.user.localFixture;
   const prefix = '/portfolios/' + p.id;
   const holding = useQuery({
     queryKey: ['domain', 'holding', p.id, instrumentId],
@@ -1130,7 +1133,10 @@ function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
         <Metric label="Current weight" value={f.percent(h.weight)} />
       </div>
       <div className="portfolio-two-columns">
-        <Panel title="Observed price history" source="34:85">
+        <Panel
+          title={localFixture ? 'Synthetic local price history' : 'Observed price history'}
+          source="34:85"
+        >
           {history.isPending ? (
             <ContentState loading />
           ) : history.error ? (
@@ -1140,12 +1146,20 @@ function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
               <p className="type-caption text-secondary">{history.data.label}</p>
               {history.data.status === 'available' && history.data.points.length > 0 ? (
                 <>
-                  <ObservedChart points={history.data.points} currency={h.currency} />
+                  <ObservedChart
+                    points={history.data.points}
+                    currency={h.currency}
+                    fixture={Boolean(localFixture)}
+                  />
                   <details>
-                    <summary className="auth-link type-compact">View exact observed prices</summary>
+                    <summary className="auth-link type-compact">
+                      {localFixture ? 'View exact fixture prices' : 'View exact observed prices'}
+                    </summary>
                     <table className="portfolio-table">
                       <caption className="sr-only">
-                        Observed price-only series, never a historical portfolio valuation
+                        {localFixture
+                          ? 'Synthetic local test prices; not observed market data'
+                          : 'Observed price-only series, never a historical portfolio valuation'}
                       </caption>
                       <thead>
                         <tr>
@@ -1168,8 +1182,10 @@ function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
                 <ContentState>{history.data.reason}</ContentState>
               )}
               <p className="type-caption text-muted">
-                {history.data.source ?? 'No permitted history source'} · No fabricated backfill.
-                Split-adjusted prices are never paired with pre-split ledger quantities.
+                {history.data.source ?? 'No permitted history source'} ·{' '}
+                {localFixture
+                  ? 'Two explicit synthetic test points; no live or reconstructed history.'
+                  : 'No fabricated backfill. Split-adjusted prices are never paired with pre-split ledger quantities.'}
               </p>
             </>
           )}
@@ -1227,9 +1243,11 @@ function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
 function ObservedChart({
   points,
   currency,
+  fixture = false,
 }: {
   points: z.infer<typeof PriceHistory>['points'];
   currency: string;
+  fixture?: boolean;
 }) {
   const plot = pricePlot(points.map((p) => p.price)),
     f = useFinancialDisplay();
@@ -1240,7 +1258,9 @@ function ObservedChart({
         viewBox="-4 -4 648 188"
         role="img"
         aria-label={
-          'Observed native closing prices from ' +
+          (fixture
+            ? 'Synthetic local fixture prices from '
+            : 'Observed native closing prices from ') +
           points[0]!.date +
           ' to ' +
           points.at(-1)!.date +

@@ -1,8 +1,22 @@
 # Folio decisions — updated 2026-10-05
 
+## Local completion approval and Priority 1 execution — 2026-10-05
+
+**L01 APPROVED:** explicit isolated local-only writable fixture/provider-test mode with real owned account/ledger writes, source/date labels, separate normal/demo storage/cache and fail-closed configuration. No silent live-provider fallback or entitlement claim. **L02 APPROVED:** rename default portfolio; delete only without economic records; reject populated deletion; preserve immutable ledger, INR/FIFO, ownership/concurrency and separate privacy erasure. L02 is recorded but **not implemented in Priority 1**.
+
+The user approves the priority-ordered plan but authorizes execution of **Priority 1 only now**, with full financial/browser/isolation verification and documentation, then STOP for review before Priority 2. No Phase 4/5, hosting/spending/deployment/Figma work. Later proposals below are historical and superseded only by these exact approvals. [Fixture configuration and hand-computed inputs](LOCAL_FIXTURE_MODE.md). New fixture gateway, mode-status contract, session marker and separate refresh-cookie name implement the approved isolation boundary; no financial-engine rewrite or package addition.
+
 Status: **Local P0 completion is the current milestone; hosting/money/deployment work is DEFERRED. Phase 1/2 remain CLOSED / APPROVED. Phase 3 implemented engineering and visual review remain APPROVED; Phase 3 itself is not closed. Light/mobile are APPROVED DERIVED IMPLEMENTATIONS, never Figma-approved. Main remains Phase 1.** Earlier dated phase boundaries below are historical; explicit approvals supersede only their recorded scope, not unresolved financial/provider/operational decisions.
 
-## Local-first priority — CONFIRMED 2026-10-05
+### Priority 1 implementation decisions and limits
+
+L01 uses local Mongo **folio_local_fixture**, Redis **DB 1 / folio:local-fixture**, loopback **5190/3020**, independent generated local secrets and separate **folio_fixture_refresh**. The cookie distinction is necessary because ports do not isolate cookies. No live-provider network/cache fallback or writable seed. Strict read-only mode-status and verified session marker keep synthetic provenance visible. These are implementation details of approved L01, not changes to normal/demo financial policy. [Evidence](PRIORITY_1_EVIDENCE.md).
+
+Financial display correction: use exact percent formatting for the fractional FX return difference before labelling percentage points; AAPL hand case displays **6.63**, not erroneous **0.07**. Existing engine/layout/tokens remain unchanged. Positive/negative/zero/null tests and browser assertion pass. Bounded two-file Vitest parallelism addresses replica-set/Argon contention without changing concurrency tests, timeouts or gates. No new dependency. New derived fixture UI awaits focused review; old visual approvals/baselines stay intact.
+
+L01 engineering verification is complete; STOP before Priority 2 for the user's review. L02 remains approved/unimplemented. Earlier local-first proposal entries below are historical; no later phase or operational proposal is silently approved.
+
+## Historical local-first priority — CONFIRMED 2026-10-05
 
 The user explicitly stops hosting/provider-cost comparison, budget optimization, purchases, paid accounts, production DNS/database/Redis/email and deployment. Complete planned P0 end to end locally first, with local frontend/API/Mongo/Redis/MailHog/Compose. O02/O04/O06 production operational gates are **deferred, not resolved or waived**; earlier infrastructure recommendations remain unapproved historical research. No budget allocation or service purchase is inferred.
 

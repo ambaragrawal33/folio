@@ -39,7 +39,7 @@ const fxSchema = new Schema(
     rateDate: { type: String, required: true },
     source: {
       type: String,
-      enum: ['identity', 'Frankfurter/ECB', 'manual', 'demo-fixture'],
+      enum: ['identity', 'Frankfurter/ECB', 'manual', 'demo-fixture', 'local-fixture'],
       required: true,
     },
     reference: { type: String, required: true },

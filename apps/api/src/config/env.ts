@@ -22,7 +22,13 @@ export const EnvSchema = z.strictObject({
     .enum(['true', 'false'])
     .default('false')
     .transform((v) => v === 'true'),
-  CACHE_NAMESPACE: z.enum(['folio:normal', 'folio:demo']).default('folio:normal'),
+  LOCAL_FIXTURE_MODE: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((v) => v === 'true'),
+  CACHE_NAMESPACE: z
+    .enum(['folio:normal', 'folio:demo', 'folio:local-fixture'])
+    .default('folio:normal'),
   COINGECKO_DEMO_KEY: z.string().min(1).max(200).optional(),
   YAHOO_DISPLAY_ENTITLED: z
     .enum(['true', 'false'])
@@ -43,6 +49,33 @@ export const EnvSchema = z.strictObject({
     .default(() => randomBytes(48).toString('base64url')),
 });
 export type Env = z.infer<typeof EnvSchema>;
+export function assertLocalFixtureEnv(env: Env) {
+  const mongo = new URL(env.MONGODB_URI),
+    redis = new URL(env.REDIS_URL),
+    web = new URL(env.WEB_ORIGIN);
+  const database = mongo.pathname.slice(1);
+  const testDatabase =
+    env.NODE_ENV === 'test' && /^folio_local_fixture_test_[a-f0-9]{16}$/.test(database);
+  if (
+    !env.LOCAL_FIXTURE_MODE ||
+    env.NODE_ENV === 'production' ||
+    env.DEMO_MODE ||
+    env.CACHE_NAMESPACE !== 'folio:local-fixture' ||
+    (database !== 'folio_local_fixture' && !testDatabase) ||
+    mongo.protocol !== 'mongodb:' ||
+    !['localhost', '127.0.0.1', 'mongo'].includes(mongo.hostname) ||
+    redis.protocol !== 'redis:' ||
+    !['localhost', '127.0.0.1', 'redis'].includes(redis.hostname) ||
+    redis.pathname !== '/1' ||
+    !['localhost', '127.0.0.1'].includes(web.hostname) ||
+    !['http:', 'https:'].includes(web.protocol) ||
+    env.COINGECKO_DEMO_KEY ||
+    env.YAHOO_DISPLAY_ENTITLED
+  )
+    throw new Error(
+      'Local fixtures require explicit local/test mode, isolated storage and no live providers',
+    );
+}
 export function parseEnv(input: Record<string, string | undefined>): Env {
   const known = Object.fromEntries(Object.keys(EnvSchema.shape).map((key) => [key, input[key]]));
   const result = EnvSchema.safeParse(known);
@@ -56,6 +89,16 @@ export function parseEnv(input: Record<string, string | undefined>): Env {
   if (result.data.NODE_ENV === 'production')
     throw new Error('Production startup remains gated by O02/O04/O06 operational decisions');
   const database = new URL(result.data.MONGODB_URI).pathname.slice(1);
+  if (result.data.LOCAL_FIXTURE_MODE) {
+    assertLocalFixtureEnv(result.data);
+    return result.data;
+  }
+  if (
+    database.startsWith('folio_local_fixture') ||
+    result.data.CACHE_NAMESPACE === 'folio:local-fixture' ||
+    new URL(result.data.REDIS_URL).pathname === '/1'
+  )
+    throw new Error('Local fixture storage is reserved for explicit fixture mode');
   if (
     result.data.DEMO_MODE &&
     (database !== 'folio_demo' || result.data.CACHE_NAMESPACE !== 'folio:demo')

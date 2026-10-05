@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page, APIRequestContext } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdir, writeFile } from 'node:fs/promises';
-const evidence = 'docs/evidence/phase-3/visual';
+const evidence = process.env['FOLIO_DOMAIN_EVIDENCE_DIR'] ?? 'docs/evidence/phase-3/visual';
 const password = 'A long financial browser test passphrase!';
 const audits: unknown[] = [];
 async function route(page: Page, path: string) {

@@ -1,0 +1,11 @@
+http://127.0.0.1:3000/api/health 200
+http://127.0.0.1:3000/api/ready 200
+{"status":"ready","dependencies":{"mongo":true,"redis":true}}
+http://127.0.0.1:5173/api/ready 200
+{"status":"ready","dependencies":{"mongo":true,"redis":true}}
+http://127.0.0.1:3000/api/openapi.json 200
+http://127.0.0.1:3000/docs/ 200
+http://127.0.0.1:5173/dev/design-system 200
+http://127.0.0.1:8025/api/v2/messages 200
+Local MailHog SMTP: 220 mailhog.example ESMTP MailHog
+Foundation stack smoke PASS

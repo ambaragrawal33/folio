@@ -36,7 +36,7 @@ beforeEach(() => {
   useAccess.setState({ token: null, status: 'anonymous' });
   fetcher = vi.fn<typeof fetch>().mockResolvedValue(response({ message: 'Email next step' }));
   vi.stubGlobal('fetch', ((url, options) =>
-    String(url).endsWith('/auth/demo')
+    String(url).endsWith('/auth/demo') || String(url).endsWith('/auth/local-fixture')
       ? Promise.resolve(response({ enabled: false }))
       : fetcher(url, options)) as typeof fetch);
 });

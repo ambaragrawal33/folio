@@ -1,5 +1,11 @@
 # Provider and dependency audit
 
+## Priority 1 / L01 local-only fixture gateway — 2026-10-05
+
+Explicitly approved **LocalFixtureMarketGateway** is separate from normal/demo adapters, with no upstream network/provider cache/live fallback. Source: **Local writable fixture v1 · synthetic; not live provider data**; quote/history carry fixture metadata/dates, FX source **local-fixture**. Fresh means generated test input, not market observation. Historical USD/INR **83 on 2026-01-05 only**; current synthetic **88**. ETH is deliberately stale; RELIANCE missing; unsupported dates/currencies/identities unavailable. History is exactly two labelled synthetic points, not reconstructed provider history. [Matrix](LOCAL_FIXTURE_MODE.md).
+
+Evidence proves real local account/ledger/Decimal/browser behavior, **not live provider entitlement or expanded coverage**. Normal TCS valuation remains unavailable without permitted market data; demo stays separately read-only. Fixture startup rejects enabled Yahoo entitlement/configured CoinGecko key; Live gateway rejects fixture mode. No provider activated/key requested/rights bypassed/commercial licensing claimed. Yahoo entitlement/CoinGecko keyed-smoke requirements remain unresolved. ECB live integration is unchanged and was not newly verified by fixture tests. [Measured evidence](PRIORITY_1_EVIDENCE.md).
+
 ## Fresh local audit — 2026-10-05
 
 Actual adapter smoke: historical USD/INR request **2024-01-06 → 83.15 dated 2024-01-05**; current request **2026-10-05 → 96.32 dated 2026-10-02**, Frankfurter/ECB, actual source/rate date retained. Yahoo entitlement absent means no requests/quotes/history. CoinGecko Demo key unconfigured means no requests/quotes; keyed smoke is not passed. Current host dependency graph **490 packages/82 peer edges/failures []** and audit no known vulnerabilities. [Command evidence and limits](LOCAL_P0_AUDIT.md). No key/rights bypass or commercial licensing claim.

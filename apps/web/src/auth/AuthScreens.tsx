@@ -8,6 +8,7 @@ import { GenericResponse, SessionResponse, Email, Password } from '@folio/shared
 import { Button, FormField } from '../design-system/primitives';
 import { api, acceptSession } from './client';
 import { DemoEntry } from '../domain/DemoEntry';
+import { LocalFixtureNotice } from '../domain/LocalFixtureNotice';
 const Fields = z.strictObject({
   name: z.string().optional(),
   email: z.string().optional(),
@@ -91,6 +92,7 @@ export function AuthScreens() {
   return (
     <div className="auth-page">
       <section className="auth-card" aria-labelledby="auth-title" data-figma="57:283">
+        <LocalFixtureNotice />
         <p className="auth-brand">Folio</p>
         <h1 id="auth-title" className="auth-title">
           {titles[mode] ?? 'Sign in to your account'}

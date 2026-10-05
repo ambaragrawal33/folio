@@ -1,5 +1,15 @@
 # Folio architecture and milestone plan
 
+## Implemented local writable fixture boundary — 2026-10-05
+
+Approved L01 is implemented for **Priority 1 only**. Startup explicitly selects normal, read-only demo or local writable fixture gateway. LiveMarketGateway rejects fixture/demo mode. LocalFixtureMarketGateway supplies labelled string quotes/reference prices, current FX, one historical USD/INR date and two synthetic history points without upstream/cache/live fallback. Real authentication/ownership/CSRF/throttling and existing transactional immutable ledger/Decimal engine are reused; no writable identity/ledger is seeded.
+
+Dedicated loopback-only Compose profile publishes **5190/3020**, Mongo **folio_local_fixture** and Redis **DB 1 / folio:local-fixture** on existing local hardware. Explicit flag, dev/test environment, local storage/origin and actual Mongo connection name are validated before model initialization. Random integration DB names are allowed only in test. Normal/demo reject reserved fixture storage; fixture mode rejects enabled live providers/demo. Host-process fixture API binds loopback; Docker-internal binding remains behind loopback-only ports. Existing production guard stays intact. Separate **folio_fixture_refresh** prevents overwriting normal/demo cookies, since ports do not isolate cookies. No normal .env/credential inheritance.
+
+Strict no-store **GET /api/v1/auth/local-fixture** exposes only a mode boolean before signup. Verified fixture PublicUser includes optional `localFixture: true`, retaining the notice during status-request failure. Shared FX provenance adds `local-fixture`; string financial contracts remain. OpenAPI documents the separate cookie and **27 auth/demo/fixture/domain operations**. [Configuration](LOCAL_FIXTURE_MODE.md), [actual evidence](PRIORITY_1_EVIDENCE.md).
+
+Vitest caps simultaneous test files at two to bound Argon2 memory and replica-set index initialization. Concurrent-mutation tests still issue parallel requests. No timeouts/coverage thresholds/tests relaxed. No new dependency/lockfile, engine rewrite, discovery/jobs/CRUD or deployment change. L02 is approved but awaits Priority 6. Prior audit statements below are historical; fixture UI awaits focused review.
+
 ## Current local-first audit boundary — 2026-10-05
 
 [Remaining Product Work](REMAINING_PRODUCT_WORK.md) records actual missing product capabilities after fresh local regression checks. No architecture or application change is made by the audit. The proposed explicit local-only writable fixture profile would require isolated database/cache, visible provenance and fail-closed configuration; it is not approved or implemented and must preserve normal-account fixture prohibition and read-only public demo. Local P0 JobRunner work is separate from deferred production scheduler/backup choices. Keep Node/pnpm/strict TypeScript, Mongo replica-set transactions, Decimal128/string contracts and security guards. Public infrastructure selection and purchases are deferred until local P0 passes. The following phase/deployment statements are historical status; latest priority is local product completion.

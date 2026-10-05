@@ -11,6 +11,7 @@ import { LiveMarketGateway } from './providers/adapters.ts';
 import { RedisMarketCache } from './services/market-cache.ts';
 import { DemoMarketGateway, seedDemo } from './services/demo.ts';
 import { instrumentMaster } from './models/instrument-master.ts';
+import { LocalFixtureMarketGateway } from './providers/local-fixture.ts';
 let logger: ReturnType<typeof createLogger> | undefined;
 try {
   const env = parseEnv(process.env);
@@ -27,11 +28,13 @@ try {
   await service.initialize();
   const market = env.DEMO_MODE
     ? new DemoMarketGateway(env)
-    : new LiveMarketGateway(
-        env,
-        new RedisMarketCache(dependencies.redis, env.REFRESH_TOKEN_SECRET),
-        instrumentMaster,
-      );
+    : env.LOCAL_FIXTURE_MODE
+      ? new LocalFixtureMarketGateway(env)
+      : new LiveMarketGateway(
+          env,
+          new RedisMarketCache(dependencies.redis, env.REFRESH_TOKEN_SECRET),
+          instrumentMaster,
+        );
   const domain = new DomainService(service, market);
   await domain.initialize(instrumentMaster);
   if (env.DEMO_MODE) await seedDemo(env, service, domain);
@@ -39,8 +42,12 @@ try {
     service,
     cache: new RedisCache(dependencies.redis),
     domain,
-  }).listen(env.PORT, '0.0.0.0', () =>
-    logger?.info({ port: env.PORT }, 'Folio foundation started'),
+  }).listen(
+    env.PORT,
+    env.LOCAL_FIXTURE_MODE && new URL(env.MONGODB_URI).hostname !== 'mongo'
+      ? '127.0.0.1'
+      : '0.0.0.0',
+    () => logger?.info({ port: env.PORT }, 'Folio foundation started'),
   );
   let stopping = false;
   const stop = () => {

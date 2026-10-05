@@ -1,6 +1,9 @@
 import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
+    // Bound simultaneous replica-set index initialization and Argon2 memory use.
+    // Concurrent mutation tests still execute their own parallel requests.
+    maxWorkers: 2,
     include: [
       'packages/shared/tests/**/*.test.ts',
       'apps/api/tests/**/*.test.ts',

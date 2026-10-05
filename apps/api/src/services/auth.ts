@@ -4,6 +4,7 @@ import { Types } from 'mongoose';
 import type { Connection, ClientSession, HydratedDocument } from 'mongoose';
 import { PublicUser, AccountExport } from '@folio/shared';
 import type { DomainExport } from '@folio/shared';
+import { assertLocalFixtureEnv } from '../config/env.ts';
 import type { Env } from '../config/env.ts';
 import { authModels } from '../models/auth.ts';
 import type { UserRecord } from '../models/auth.ts';
@@ -60,6 +61,11 @@ export class AuthService {
     this.signingKey = new TextEncoder().encode(env.JWT_ACCESS_SECRET);
   }
   async initialize() {
+    if (this.env.LOCAL_FIXTURE_MODE) {
+      assertLocalFixtureEnv(this.env);
+      if (this.connection.name !== new URL(this.env.MONGODB_URI).pathname.slice(1))
+        throw new Error('Local fixture connection does not match its isolated database');
+    }
     await Promise.all(Object.values(this.models).map((m) => m.init()));
     this.dummyHash = await this.passwords.hash(randomBytes(32).toString('base64url'));
   }
@@ -74,6 +80,7 @@ export class AuthService {
     return PublicUser.parse({
       id: user._id.toHexString(),
       ...(user.demoReadonly ? { demoReadonly: true } : {}),
+      ...(this.env.LOCAL_FIXTURE_MODE ? { localFixture: true } : {}),
       name: user.name,
       email: user.email,
       role: user.role,

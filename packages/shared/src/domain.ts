@@ -14,7 +14,7 @@ export const TradingDate = z.iso.date();
 export const FxProvenance = z.strictObject({
   rate: PositiveFinancialString,
   rateDate: TradingDate,
-  source: z.enum(['identity', 'Frankfurter/ECB', 'manual', 'demo-fixture']),
+  source: z.enum(['identity', 'Frankfurter/ECB', 'manual', 'demo-fixture', 'local-fixture']),
   reference: z.string().trim().min(1).max(240),
 });
 export type FxProvenance = z.infer<typeof FxProvenance>;

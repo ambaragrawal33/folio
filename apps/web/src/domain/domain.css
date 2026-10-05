@@ -245,6 +245,9 @@
   margin-top: var(--space-4);
   color: var(--text-secondary);
 }
+.local-fixture-notice {
+  margin-bottom: var(--space-12);
+}
 .portfolio-global-search {
   position: relative;
 }

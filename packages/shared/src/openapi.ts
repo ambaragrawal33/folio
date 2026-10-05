@@ -27,6 +27,12 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
     in: 'cookie',
     name: 'folio_refresh',
   });
+  registry.registerComponent('securitySchemes', 'fixtureRefreshCookie', {
+    type: 'apiKey',
+    in: 'cookie',
+    name: 'folio_fixture_refresh',
+    description: 'Explicit isolated local fixture mode only. Normal/demo cookie is unchanged.',
+  });
   for (const contract of authContracts) {
     registry.registerPath({
       method: contract.method,
@@ -37,7 +43,7 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
       security: contract.authenticated
         ? [{ bearerAuth: [] }]
         : contract.path.endsWith('/refresh')
-          ? [{ refreshCookie: [] }]
+          ? [{ refreshCookie: [] }, { fixtureRefreshCookie: [] }]
           : [],
       ...(contract.method === 'get'
         ? {}

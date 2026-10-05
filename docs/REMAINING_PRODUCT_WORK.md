@@ -1,5 +1,7 @@
 # Remaining Product Work — local P0
 
+**UPDATE 2026-10-05:** plan, L01 and L02 are explicitly approved. **Priority 1 is implemented and verified**, with 116 tests, 95.54% overall lines, per-file financial gates and 11/11 real-service E2E. [Evidence](PRIORITY_1_EVIDENCE.md), [focused visual review](PRIORITY_1_VISUAL_REVIEW.md), [local fixture guide](LOCAL_FIXTURE_MODE.md). STOP for Priority 1 review before Priority 2. Priorities 2–6 remain unimplemented; L02 is approved but awaits Priority 6. News/AI remain separately authorized phases. The following table/proposal/stop language records the preceding historical inspection boundary, not the current approval state.
+
 Audit date: **2026-10-05**. **Plan for review; implementation has not started.** The current milestone is **Folio P0 works completely and correctly on the local machine**. Hosting research, money allocation, purchases and public deployment are deferred until that milestone passes. Operational gates are deferred, not waived.
 
 Inspected branch **codex/phase-3-domain**, HEAD **fe54859f08669e952928fc5cd946b2d8e328c46f**, initially clean and one commit ahead of its local origin tracking ref. Accepted implementation is **9db1a60a1f4c014d8225cc44025fef7b753204de**. No fetch, push, merge or application change was made for this inspection. [Fresh commands, results and limitations](LOCAL_P0_AUDIT.md).

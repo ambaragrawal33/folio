@@ -61,7 +61,8 @@ describe('Shared boundaries', () => {
         .sort(),
     ).toEqual(['/api/health', '/api/openapi.json', '/api/ready', '/health', '/ready']);
     expect(Object.keys(doc.paths ?? {}).filter((path) => path.startsWith('/api/v1/'))).toHaveLength(
-      22,
+      23,
     );
+    expect(doc.paths?.['/api/v1/auth/local-fixture']?.get).toBeDefined();
   });
 });
