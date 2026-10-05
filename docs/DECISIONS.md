@@ -2,6 +2,12 @@
 
 Status: **Phase 1/2 engineering/design reviews remain CLOSED / APPROVED. Phase 3 engineering and visual review are APPROVED; its visual approval gate is CLOSED. Phase 3 itself remains OPEN on codex/phase-3-domain for deployment/operational gates. Reviewed Light/mobile are APPROVED DERIVED IMPLEMENTATIONS, never Figma-approved. Main remains Phase 1.** Earlier dated phase boundaries below are historical; explicit approvals supersede only their recorded scope, not unresolved financial/provider/operational decisions.
 
+## Infrastructure spending research boundary — 2026-10-05
+
+The user explicitly clarifies that **₹600–700 is an initial/one-time budget**, not a recurring monthly allowance. The earlier ₹679 folioonline.me quotation is **not purchase approval**. Research may compare paid and free architectures and justify a larger spend; the earlier ₹0-only target is not an exclusive research constraint. No paid service/domain/account, deployment, provider-specific code change or commercial product/provider scope expansion is authorized.
+
+[INFRASTRUCTURE_DECISION.md](INFRASTRUCTURE_DECISION.md) proposes a managed stack, cheaper sender domain and separately approved always-on API expense. Its vendors, domain name/checkout, monthly allowance, email and backup/scheduler/RPO/RTO/recovery policy remain **PROPOSED / PENDING**, not confirmed O02/O04/O06 choices. The only confirmed new decisions are the budget period and research-only boundary. Earlier dated ₹0/deployment entries below describe the previous target and must be read with this later clarification. Engineering/visual approval stands; no implementation or operational readiness is inferred. STOP awaiting approval.
+
 ## Phase 3 final engineering and visual approval — 2026-10-05
 
 V03 — The user's **PHASE 3 FINAL VISUAL APPROVAL** closes the Phase 3 visual gate and approves its engineering implementation at **9db1a60a1f4c014d8225cc44025fef7b753204de** on **codex/phase-3-domain**. The original Dark desktop review, all 14 focused Light/mobile states and 390×844 navigation OPEN state are accepted, including source/derivation/accessibility notes and full-page continuations. All A–Q areas listed in [the approval record](PHASE_3_VISUAL_APPROVAL.md) are approved. Light desktop, mobile and mobile navigation remain product-approved DERIVED implementations against the existing Figma DS/source references; never call them Figma-approved. No visual implementation, Figma or Phase 1/2 baseline alteration is authorized by this review.

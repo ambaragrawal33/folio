@@ -1,6 +1,8 @@
 # Phase 3 deployment boundary
 
-**Public deployment is BLOCKED / NOT PERFORMED.** ₹0, free provider-generated subdomains, free frontend/Express hosting, Atlas Free and compatible persistent Redis are binding. No account, paid plan, domain, production secret or actual host selection is assumed. O02/O04/O06 operations remain pending. Local artifacts do not meet the master's public-URL completion requirement.
+**Public deployment is BLOCKED / NOT PERFORMED.** The latest research request clarifies a ₹600–700 **initial/one-time** budget and allows comparison of paid/free architectures; it does not authorize purchases, recurring spend or deployment. No account, paid plan, domain, production secret or actual host selection is assumed. O02/O04/O06 operations remain pending. Local artifacts do not meet the master's public-URL completion requirement.
+
+[Current infrastructure/spending proposal](INFRASTRUCTURE_DECISION.md) compares managed/VPS options and separately prices domain renewal and paid API compute. The earlier ₹0/subdomain candidate table and decision list below are historical proposals for that previous constraint, not approved hosting selections. Do not interpret the new research recommendation as an O02/O04/O06 approval or an application/configuration change.
 
 **Approval boundary updated2026-10-05:** Phase 3 engineering and visual review are approved and the visual gate is CLOSED. Phase 3 itself remains OPEN for the operational/provider gates below. [Final approval record](PHASE_3_VISUAL_APPROVAL.md). This is no host selection, credential configuration, publication or gate waiver; await separate deployment/operational authorization.
 
