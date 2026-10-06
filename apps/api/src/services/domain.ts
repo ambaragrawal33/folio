@@ -11,8 +11,10 @@ import {
   Valuation,
   TransactionPreview,
   FxProvenance,
+  AssetDetailResponse,
 } from '@folio/shared';
 import type { HoldingsQuery } from '@folio/shared';
+import type { AssetDetailQuery } from '@folio/shared';
 import { domainModels } from '../models/domain.ts';
 import type { EconomicDocument, VoidDocument, PortfolioDocument } from '../models/domain.ts';
 import type { AuthService, Identity } from './auth.ts';
@@ -765,6 +767,94 @@ export class DomainService {
     );
     if (!holding) throw notFound();
     return holding;
+  }
+  async assetDetail(
+    identity: Identity,
+    portfolioId: string,
+    instrumentId: string,
+    query: z.infer<typeof AssetDetailQuery>,
+  ) {
+    const { portfolio, data } = await this.state(identity, portfolioId);
+    if (instrumentId.length > 100 || /[\u0000-\u001f\u007f]/.test(instrumentId)) throw notFound();
+    const projection = replayLedger(data.records, data.voids);
+    const ids = [...new Set([instrumentId, ...projection.positions.map((p) => p.instrumentId)])];
+    const docs = await this.models.Instrument.find({ _id: { $in: ids } }).lean();
+    const instruments = docs.map(({ _id, ...fields }) => Instrument.parse({ id: _id, ...fields }));
+    const instrument = instruments.find((i) => i.id === instrumentId);
+    if (!instrument) throw notFound();
+    const activeIds = new Set(
+      projection.positions.filter((p) => !decimal(p.quantity).isZero()).map((p) => p.instrumentId),
+    );
+    const ownedInstruments = instruments.filter((i) => activeIds.has(i.id));
+    const quotes = ownedInstruments.length ? await this.market.quotes(ownedInstruments) : [];
+    const rates = ownedInstruments.length
+      ? await this.market.rates(
+          [...new Set(ownedInstruments.map((i) => i.currency))],
+          portfolio.baseCurrency,
+        )
+      : {};
+    const valuation = valuePortfolio(
+      projection.positions,
+      ownedInstruments,
+      quotes,
+      rates,
+      portfolio.baseCurrency,
+    );
+    const position = projection.positions.find((p) => p.instrumentId === instrumentId);
+    const holding = valuation.holdings.find((p) => p.instrumentId === instrumentId);
+    const records = new Map(data.records.map((record) => [record.id, record]));
+    const voids = new Map(data.voids.map((event) => [event.transactionId, event]));
+    const lots = position?.lots ?? [];
+    const activity = data.records.filter((r) => r.instrumentId === instrumentId).reverse();
+    const summary = <T extends { lots: unknown }>(value: T | undefined) => {
+      if (!value) return null;
+      const { lots: omitted, ...fields } = value;
+      void omitted;
+      return fields;
+    };
+    return AssetDetailResponse.parse({
+      instrument,
+      portfolioId: portfolio._id.toHexString(),
+      revision: portfolio.revision,
+      baseCurrency: portfolio.baseCurrency,
+      position: summary(position),
+      holding: summary(holding),
+      valuation: {
+        complete: valuation.complete,
+        status: valuation.status,
+        asOf: valuation.asOf,
+        coverage: valuation.coverage,
+      },
+      lots: {
+        page: query.lotPage,
+        pageSize: query.lotPageSize,
+        total: lots.length,
+        items: lots
+          .slice((query.lotPage - 1) * query.lotPageSize, query.lotPage * query.lotPageSize)
+          .map((lot) => {
+            const acquisition = records.get(lot.transactionId);
+            if (!acquisition || acquisition.type !== 'BUY')
+              throw new HttpError(
+                500,
+                'ASSET_DATA_UNAVAILABLE',
+                'Lot provenance is unavailable. Please retry.',
+              );
+            return { ...lot, acquisition };
+          }),
+      },
+      activity: {
+        page: query.page,
+        pageSize: query.pageSize,
+        total: activity.length,
+        items: activity
+          .slice((query.page - 1) * query.pageSize, query.page * query.pageSize)
+          .map((record) => ({
+            record,
+            nativeCashFlow: projection.cashFlows[record.id] ?? nativeCashFlow(record),
+            void: voids.get(record.id) ?? null,
+          })),
+      },
+    });
   }
   async history(identity: Identity, portfolioId: string, instrumentId: string) {
     await this.owned(identity, portfolioId);

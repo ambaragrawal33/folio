@@ -1,5 +1,11 @@
 # Folio architecture and milestone plan
 
+## Priority4 Asset Detail boundary — 2026-10-06
+
+Priority1–3 CLOSED / APPROVED; only Priority4 implemented. New scoped GET `/portfolios/:portfolioId/instruments/:instrumentId/detail` joins current server FIFO lots to original owned BUY provenance and returns immutable instrument-only activity/void metadata. Four fixed domain reads from the consistent economic state plus batch canonical metadata; one replay and existing active-instrument quote/FX batches. No per-row request/query or financial-engine rewrite. Independent bounded numbered pages default20/max100. Position/holding summaries omit unbounded lot arrays; no unrelated holdings/accounts are exposed. Known canonical/no-owned-position is explicit empty; unknown/unowned404. [Exact contract](ASSET_DETAIL_API.md).
+
+Asset UI reuses the approved shell/panels/tables/financial formatters; full-width provenance disclosure avoids narrow-column fragmentation, and only the new tables reuse stacked rows below1024px. History remains one separate permitted bounded request with60-second reuse across pages; existing detail-cache/write invalidation behavior remains. Provider observations cannot be transaction-locked; accepted provenance remains immutable. No Priority5/6, provider activation, dependency, deployment or account/financial policy change.
+
 ## Priority 2 canonical discovery boundary — 2026-10-05
 
 Authenticated **GET /api/v1/instruments/search?q=&limit=20** uses the authoritative local registry; limits 1–30, query length <=100, strict unknown/control-character rejection, no-store and the shared instrument-route Redis bucket. Exact canonical ID > verified alias > exact symbol > exact name > symbol prefix > substring matches; NFKC/case/whitespace normalization, multi-token matching and ASCII symbol/canonical-ID tie-breaks. Empty query is bounded catalogue browsing. Responses explicitly report truncation and provider capability states. Legacy GET /instruments and global owned-ledger search remain compatible.

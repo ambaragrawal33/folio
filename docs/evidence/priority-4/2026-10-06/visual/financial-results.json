@@ -1,0 +1,2079 @@
+{
+  "observations": [
+    {
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 1,
+      "baseCurrency": "INR",
+      "position": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "10",
+        "localCost": "1010",
+        "baseCost": "1010",
+        "averageCost": "101",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0"
+      },
+      "holding": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "10",
+        "localCost": "1010",
+        "baseCost": "1010",
+        "averageCost": "101",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "quote": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "price": "70",
+          "referencePrice": "68",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-06T06:01:41.721Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T06:01:41.721Z",
+          "status": "fresh"
+        },
+        "localValue": "700",
+        "baseValue": "700",
+        "unrealizedBase": "-310",
+        "localReturn": "-0.3069306930693069306930693069306930693069306930693069306930693069306930693069306930693069306930693069",
+        "baseReturn": "-0.3069306930693069306930693069306930693069306930693069306930693069306930693069306930693069306930693069",
+        "fxReturnEffect": "0",
+        "priceContribution": "-310",
+        "fxContribution": "0",
+        "movementBase": "20",
+        "movementReferenceBase": "680",
+        "weight": "1",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      "valuation": {
+        "complete": true,
+        "status": "fresh",
+        "asOf": "2026-10-06T06:01:41.721Z",
+        "coverage": {
+          "valued": 1,
+          "total": 1
+        }
+      },
+      "lots": {
+        "items": [
+          {
+            "transactionId": "6ac48ec5f1b3990e568f33a1",
+            "quantity": "10",
+            "localCost": "1010",
+            "baseCost": "1010",
+            "acquisition": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "10",
+              "price": "100",
+              "fees": "10",
+              "id": "6ac48ec5f1b3990e568f33a1",
+              "sequence": 1,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            }
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      },
+      "activity": {
+        "items": [
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "10",
+              "price": "100",
+              "fees": "10",
+              "id": "6ac48ec5f1b3990e568f33a1",
+              "sequence": 1,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1010",
+            "void": null
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      }
+    },
+    {
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 2,
+      "baseCurrency": "INR",
+      "position": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "15",
+        "localCost": "2015",
+        "baseCost": "2015",
+        "averageCost": "134.3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0"
+      },
+      "holding": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "15",
+        "localCost": "2015",
+        "baseCost": "2015",
+        "averageCost": "134.3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "quote": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "price": "70",
+          "referencePrice": "68",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-06T06:01:46.595Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T06:01:46.595Z",
+          "status": "fresh"
+        },
+        "localValue": "1050",
+        "baseValue": "1050",
+        "unrealizedBase": "-965",
+        "localReturn": "-0.4789081885856079404466501240694789081885856079404466501240694789081885856079404466501240694789081886",
+        "baseReturn": "-0.4789081885856079404466501240694789081885856079404466501240694789081885856079404466501240694789081886",
+        "fxReturnEffect": "0",
+        "priceContribution": "-965",
+        "fxContribution": "0",
+        "movementBase": "30",
+        "movementReferenceBase": "1020",
+        "weight": "1",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      "valuation": {
+        "complete": true,
+        "status": "fresh",
+        "asOf": "2026-10-06T06:01:46.595Z",
+        "coverage": {
+          "valued": 1,
+          "total": 1
+        }
+      },
+      "lots": {
+        "items": [
+          {
+            "transactionId": "6ac48ec5f1b3990e568f33a1",
+            "quantity": "10",
+            "localCost": "1010",
+            "baseCost": "1010",
+            "acquisition": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "10",
+              "price": "100",
+              "fees": "10",
+              "id": "6ac48ec5f1b3990e568f33a1",
+              "sequence": 1,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            }
+          },
+          {
+            "transactionId": "6ac48ecaf1b3990e568f33a5",
+            "quantity": "5",
+            "localCost": "1005",
+            "baseCost": "1005",
+            "acquisition": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            }
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 2
+      },
+      "activity": {
+        "items": [
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1005",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "10",
+              "price": "100",
+              "fees": "10",
+              "id": "6ac48ec5f1b3990e568f33a1",
+              "sequence": 1,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1010",
+            "void": null
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 2
+      }
+    },
+    {
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 3,
+      "baseCurrency": "INR",
+      "position": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "3",
+        "localCost": "603",
+        "baseCost": "603",
+        "averageCost": "201",
+        "realizedLocal": "1586",
+        "realizedBase": "1586",
+        "dividendLocal": "0",
+        "dividendBase": "0"
+      },
+      "holding": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "3",
+        "localCost": "603",
+        "baseCost": "603",
+        "averageCost": "201",
+        "realizedLocal": "1586",
+        "realizedBase": "1586",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "quote": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "price": "70",
+          "referencePrice": "68",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-06T06:01:48.827Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T06:01:48.827Z",
+          "status": "fresh"
+        },
+        "localValue": "210",
+        "baseValue": "210",
+        "unrealizedBase": "-393",
+        "localReturn": "-0.6517412935323383084577114427860696517412935323383084577114427860696517412935323383084577114427860697",
+        "baseReturn": "-0.6517412935323383084577114427860696517412935323383084577114427860696517412935323383084577114427860697",
+        "fxReturnEffect": "0",
+        "priceContribution": "-393",
+        "fxContribution": "0",
+        "movementBase": "6",
+        "movementReferenceBase": "204",
+        "weight": "1",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      "valuation": {
+        "complete": true,
+        "status": "fresh",
+        "asOf": "2026-10-06T06:01:48.827Z",
+        "coverage": {
+          "valued": 1,
+          "total": 1
+        }
+      },
+      "lots": {
+        "items": [
+          {
+            "transactionId": "6ac48ecaf1b3990e568f33a5",
+            "quantity": "3",
+            "localCost": "603",
+            "baseCost": "603",
+            "acquisition": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            }
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      },
+      "activity": {
+        "items": [
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "SELL",
+              "quantity": "12",
+              "price": "250",
+              "fees": "2",
+              "id": "6ac48eccf1b3990e568f33a9",
+              "sequence": 3,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "2998",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1005",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "10",
+              "price": "100",
+              "fees": "10",
+              "id": "6ac48ec5f1b3990e568f33a1",
+              "sequence": 1,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1010",
+            "void": null
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 3
+      }
+    },
+    {
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 4,
+      "baseCurrency": "INR",
+      "position": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "6",
+        "localCost": "603",
+        "baseCost": "603",
+        "averageCost": "100.5",
+        "realizedLocal": "1586",
+        "realizedBase": "1586",
+        "dividendLocal": "0",
+        "dividendBase": "0"
+      },
+      "holding": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "6",
+        "localCost": "603",
+        "baseCost": "603",
+        "averageCost": "100.5",
+        "realizedLocal": "1586",
+        "realizedBase": "1586",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "quote": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "price": "70",
+          "referencePrice": "68",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-06T06:01:51.254Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T06:01:51.254Z",
+          "status": "fresh"
+        },
+        "localValue": "420",
+        "baseValue": "420",
+        "unrealizedBase": "-183",
+        "localReturn": "-0.3034825870646766169154228855721393034825870646766169154228855721393034825870646766169154228855721393",
+        "baseReturn": "-0.3034825870646766169154228855721393034825870646766169154228855721393034825870646766169154228855721393",
+        "fxReturnEffect": "0",
+        "priceContribution": "-183",
+        "fxContribution": "0",
+        "movementBase": "12",
+        "movementReferenceBase": "408",
+        "weight": "1",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      "valuation": {
+        "complete": true,
+        "status": "fresh",
+        "asOf": "2026-10-06T06:01:51.254Z",
+        "coverage": {
+          "valued": 1,
+          "total": 1
+        }
+      },
+      "lots": {
+        "items": [
+          {
+            "transactionId": "6ac48ecaf1b3990e568f33a5",
+            "quantity": "6",
+            "localCost": "603",
+            "baseCost": "603",
+            "acquisition": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            }
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      },
+      "activity": {
+        "items": [
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "SPLIT",
+              "numerator": "2",
+              "denominator": "1",
+              "id": "6ac48ecef1b3990e568f33ad",
+              "sequence": 4,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "0",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "SELL",
+              "quantity": "12",
+              "price": "250",
+              "fees": "2",
+              "id": "6ac48eccf1b3990e568f33a9",
+              "sequence": 3,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "2998",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1005",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "10",
+              "price": "100",
+              "fees": "10",
+              "id": "6ac48ec5f1b3990e568f33a1",
+              "sequence": 1,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1010",
+            "void": null
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 4
+      }
+    },
+    {
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 5,
+      "baseCurrency": "INR",
+      "position": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "6",
+        "localCost": "603",
+        "baseCost": "603",
+        "averageCost": "100.5",
+        "realizedLocal": "1586",
+        "realizedBase": "1586",
+        "dividendLocal": "28",
+        "dividendBase": "28"
+      },
+      "holding": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "6",
+        "localCost": "603",
+        "baseCost": "603",
+        "averageCost": "100.5",
+        "realizedLocal": "1586",
+        "realizedBase": "1586",
+        "dividendLocal": "28",
+        "dividendBase": "28",
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "quote": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "price": "70",
+          "referencePrice": "68",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-06T06:01:53.876Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T06:01:53.876Z",
+          "status": "fresh"
+        },
+        "localValue": "420",
+        "baseValue": "420",
+        "unrealizedBase": "-183",
+        "localReturn": "-0.3034825870646766169154228855721393034825870646766169154228855721393034825870646766169154228855721393",
+        "baseReturn": "-0.3034825870646766169154228855721393034825870646766169154228855721393034825870646766169154228855721393",
+        "fxReturnEffect": "0",
+        "priceContribution": "-183",
+        "fxContribution": "0",
+        "movementBase": "12",
+        "movementReferenceBase": "408",
+        "weight": "1",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      "valuation": {
+        "complete": true,
+        "status": "fresh",
+        "asOf": "2026-10-06T06:01:53.876Z",
+        "coverage": {
+          "valued": 1,
+          "total": 1
+        }
+      },
+      "lots": {
+        "items": [
+          {
+            "transactionId": "6ac48ecaf1b3990e568f33a5",
+            "quantity": "6",
+            "localCost": "603",
+            "baseCost": "603",
+            "acquisition": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            }
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      },
+      "activity": {
+        "items": [
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "DIVIDEND",
+              "grossAmount": "30",
+              "fees": "2",
+              "id": "6ac48ed1f1b3990e568f33b1",
+              "sequence": 5,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "28",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "SPLIT",
+              "numerator": "2",
+              "denominator": "1",
+              "id": "6ac48ecef1b3990e568f33ad",
+              "sequence": 4,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "0",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "SELL",
+              "quantity": "12",
+              "price": "250",
+              "fees": "2",
+              "id": "6ac48eccf1b3990e568f33a9",
+              "sequence": 3,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "2998",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1005",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "10",
+              "price": "100",
+              "fees": "10",
+              "id": "6ac48ec5f1b3990e568f33a1",
+              "sequence": 1,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1010",
+            "void": null
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 5
+      }
+    },
+    {
+      "instrument": {
+        "id": "SOL:CRYPTO",
+        "symbol": "SOL",
+        "name": "Solana",
+        "exchange": "CRYPTO",
+        "currency": "USD",
+        "assetClass": "crypto",
+        "sector": "Unknown",
+        "provider": "coingecko",
+        "providerId": "solana",
+        "metadataSource": "2026-10-05 tokens.solana.com/solana + CoinGecko coins/list solana/sol/Solana; USD quote convention, not native token currency"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 5,
+      "baseCurrency": "INR",
+      "position": null,
+      "holding": null,
+      "valuation": {
+        "complete": true,
+        "status": "fresh",
+        "asOf": "2026-10-06T06:02:01.850Z",
+        "coverage": {
+          "valued": 1,
+          "total": 1
+        }
+      },
+      "lots": {
+        "items": [],
+        "page": 1,
+        "pageSize": 20,
+        "total": 0
+      },
+      "activity": {
+        "items": [],
+        "page": 1,
+        "pageSize": 20,
+        "total": 0
+      }
+    },
+    {
+      "instrument": {
+        "id": "AAPL:US",
+        "symbol": "AAPL",
+        "name": "Apple Inc.",
+        "exchange": "US",
+        "currency": "USD",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "AAPL",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 6,
+      "baseCurrency": "INR",
+      "position": {
+        "instrumentId": "AAPL:US",
+        "currency": "USD",
+        "baseCurrency": "INR",
+        "quantity": "2",
+        "localCost": "205",
+        "baseCost": "17015",
+        "averageCost": "102.5",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0"
+      },
+      "holding": {
+        "instrumentId": "AAPL:US",
+        "currency": "USD",
+        "baseCurrency": "INR",
+        "quantity": "2",
+        "localCost": "205",
+        "baseCost": "17015",
+        "averageCost": "102.5",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "instrument": {
+          "id": "AAPL:US",
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "exchange": "US",
+          "currency": "USD",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "AAPL",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+        },
+        "quote": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "price": "110",
+          "referencePrice": "108",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-06T06:02:04.955Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "88",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T06:02:04.955Z",
+          "status": "fresh"
+        },
+        "localValue": "220",
+        "baseValue": "19360",
+        "unrealizedBase": "2345",
+        "localReturn": "0.073170731707317073170731707317073170731707317073170731707317073170731707317073170731707317073170732",
+        "baseReturn": "0.137819570966794005289450484866294446076990890390831619159565089626799882456655891860123420511313547",
+        "fxReturnEffect": "0.064648839259476932118718777549221275345283573317660887452248016456068175139582721128416103438142815",
+        "priceContribution": "1245",
+        "fxContribution": "1100",
+        "movementBase": "352",
+        "movementReferenceBase": "19008",
+        "weight": "0.9787664307381193124368048533872598584428715874620829120323559150657229524772497472194135490394337715",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      "valuation": {
+        "complete": true,
+        "status": "fresh",
+        "asOf": "2026-10-06T06:02:04.955Z",
+        "coverage": {
+          "valued": 2,
+          "total": 2
+        }
+      },
+      "lots": {
+        "items": [
+          {
+            "transactionId": "6ac48edcf1b3990e568f33b6",
+            "quantity": "2",
+            "localCost": "205",
+            "baseCost": "17015",
+            "acquisition": {
+              "instrumentId": "AAPL:US",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "2",
+              "price": "100",
+              "fees": "5",
+              "id": "6ac48edcf1b3990e568f33b6",
+              "sequence": 6,
+              "currency": "USD",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "83",
+                "rateDate": "2026-01-05",
+                "source": "local-fixture",
+                "reference": "Local writable fixture v1 · synthetic; not live provider data · historical USD/INR test input"
+              }
+            }
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      },
+      "activity": {
+        "items": [
+          {
+            "record": {
+              "instrumentId": "AAPL:US",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "2",
+              "price": "100",
+              "fees": "5",
+              "id": "6ac48edcf1b3990e568f33b6",
+              "sequence": 6,
+              "currency": "USD",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "83",
+                "rateDate": "2026-01-05",
+                "source": "local-fixture",
+                "reference": "Local writable fixture v1 · synthetic; not live provider data · historical USD/INR test input"
+              }
+            },
+            "nativeCashFlow": "-205",
+            "void": null
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      }
+    },
+    {
+      "instrument": {
+        "id": "ETH:CRYPTO",
+        "symbol": "ETH",
+        "name": "Ethereum",
+        "exchange": "CRYPTO",
+        "currency": "USD",
+        "assetClass": "crypto",
+        "sector": "Unknown",
+        "provider": "coingecko",
+        "providerId": "ethereum",
+        "metadataSource": "CoinGecko coins/list identity audit 2026-10-04"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 7,
+      "baseCurrency": "INR",
+      "position": {
+        "instrumentId": "ETH:CRYPTO",
+        "currency": "USD",
+        "baseCurrency": "INR",
+        "quantity": "1",
+        "localCost": "100",
+        "baseCost": "8300",
+        "averageCost": "100",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0"
+      },
+      "holding": {
+        "instrumentId": "ETH:CRYPTO",
+        "currency": "USD",
+        "baseCurrency": "INR",
+        "quantity": "1",
+        "localCost": "100",
+        "baseCost": "8300",
+        "averageCost": "100",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "instrument": {
+          "id": "ETH:CRYPTO",
+          "symbol": "ETH",
+          "name": "Ethereum",
+          "exchange": "CRYPTO",
+          "currency": "USD",
+          "assetClass": "crypto",
+          "sector": "Unknown",
+          "provider": "coingecko",
+          "providerId": "ethereum",
+          "metadataSource": "CoinGecko coins/list identity audit 2026-10-04"
+        },
+        "quote": {
+          "instrumentId": "ETH:CRYPTO",
+          "currency": "USD",
+          "price": "2600",
+          "referencePrice": "2550",
+          "referencePeriod": "rolling-24h",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-01-06T15:00:00.000Z",
+          "status": "stale",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "88",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T06:02:07.183Z",
+          "status": "fresh"
+        },
+        "localValue": "2600",
+        "baseValue": "228800",
+        "unrealizedBase": "220500",
+        "localReturn": "25",
+        "baseReturn": "26.56626506024096385542168674698795180722891566265060240963855421686746987951807228915662650602409639",
+        "fxReturnEffect": "1.56626506024096385542168674698795180722891566265060240963855421686746987951807228915662650602409639",
+        "priceContribution": "207500",
+        "fxContribution": "13000",
+        "movementBase": "4400",
+        "movementReferenceBase": "224400",
+        "weight": "0.920428031217314345482339689435996459892187625714055837155040630782846568509131869016010942151420066",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      "valuation": {
+        "complete": true,
+        "status": "stale",
+        "asOf": "2026-01-06T15:00:00.000Z",
+        "coverage": {
+          "valued": 3,
+          "total": 3
+        }
+      },
+      "lots": {
+        "items": [
+          {
+            "transactionId": "6ac48edef1b3990e568f33bb",
+            "quantity": "1",
+            "localCost": "100",
+            "baseCost": "8300",
+            "acquisition": {
+              "instrumentId": "ETH:CRYPTO",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "1",
+              "price": "100",
+              "fees": "0",
+              "id": "6ac48edef1b3990e568f33bb",
+              "sequence": 7,
+              "currency": "USD",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "83",
+                "rateDate": "2026-01-05",
+                "source": "local-fixture",
+                "reference": "Local writable fixture v1 · synthetic; not live provider data · historical USD/INR test input"
+              }
+            }
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      },
+      "activity": {
+        "items": [
+          {
+            "record": {
+              "instrumentId": "ETH:CRYPTO",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "1",
+              "price": "100",
+              "fees": "0",
+              "id": "6ac48edef1b3990e568f33bb",
+              "sequence": 7,
+              "currency": "USD",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "83",
+                "rateDate": "2026-01-05",
+                "source": "local-fixture",
+                "reference": "Local writable fixture v1 · synthetic; not live provider data · historical USD/INR test input"
+              }
+            },
+            "nativeCashFlow": "-100",
+            "void": null
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      }
+    },
+    {
+      "instrument": {
+        "id": "RELIANCE:BSE",
+        "symbol": "RELIANCE",
+        "name": "Reliance Industries Limited",
+        "exchange": "BSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "RELIANCE.BO",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; RELIANCE.BO/INR/BSE"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 8,
+      "baseCurrency": "INR",
+      "position": {
+        "instrumentId": "RELIANCE:BSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "1",
+        "localCost": "100",
+        "baseCost": "100",
+        "averageCost": "100",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0"
+      },
+      "holding": {
+        "instrumentId": "RELIANCE:BSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "1",
+        "localCost": "100",
+        "baseCost": "100",
+        "averageCost": "100",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "instrument": {
+          "id": "RELIANCE:BSE",
+          "symbol": "RELIANCE",
+          "name": "Reliance Industries Limited",
+          "exchange": "BSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "RELIANCE.BO",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; RELIANCE.BO/INR/BSE"
+        },
+        "quote": null,
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T06:02:10.519Z",
+          "status": "fresh"
+        },
+        "localValue": null,
+        "baseValue": null,
+        "unrealizedBase": null,
+        "localReturn": null,
+        "baseReturn": null,
+        "fxReturnEffect": null,
+        "priceContribution": null,
+        "fxContribution": null,
+        "movementBase": null,
+        "movementReferenceBase": null,
+        "weight": null,
+        "unavailableReason": "Market price is unavailable.",
+        "returnUnavailableReason": "Market price is unavailable."
+      },
+      "valuation": {
+        "complete": false,
+        "status": "partial",
+        "asOf": "2026-01-06T15:00:00.000Z",
+        "coverage": {
+          "valued": 3,
+          "total": 4
+        }
+      },
+      "lots": {
+        "items": [
+          {
+            "transactionId": "6ac48ee2f1b3990e568f33c1",
+            "quantity": "1",
+            "localCost": "100",
+            "baseCost": "100",
+            "acquisition": {
+              "instrumentId": "RELIANCE:BSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "1",
+              "price": "100",
+              "fees": "0",
+              "id": "6ac48ee2f1b3990e568f33c1",
+              "sequence": 8,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            }
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      },
+      "activity": {
+        "items": [
+          {
+            "record": {
+              "instrumentId": "RELIANCE:BSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "1",
+              "price": "100",
+              "fees": "0",
+              "id": "6ac48ee2f1b3990e568f33c1",
+              "sequence": 8,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-100",
+            "void": null
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      }
+    },
+    {
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 8,
+      "baseCurrency": "INR",
+      "position": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "6",
+        "localCost": "603",
+        "baseCost": "603",
+        "averageCost": "100.5",
+        "realizedLocal": "1586",
+        "realizedBase": "1586",
+        "dividendLocal": "28",
+        "dividendBase": "28"
+      },
+      "holding": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "6",
+        "localCost": "603",
+        "baseCost": "603",
+        "averageCost": "100.5",
+        "realizedLocal": "1586",
+        "realizedBase": "1586",
+        "dividendLocal": "28",
+        "dividendBase": "28",
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "quote": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "price": "70",
+          "referencePrice": "68",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-06T06:02:13.419Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T06:02:13.419Z",
+          "status": "fresh"
+        },
+        "localValue": "420",
+        "baseValue": "420",
+        "unrealizedBase": "-183",
+        "localReturn": "-0.3034825870646766169154228855721393034825870646766169154228855721393034825870646766169154228855721393",
+        "baseReturn": "-0.3034825870646766169154228855721393034825870646766169154228855721393034825870646766169154228855721393",
+        "fxReturnEffect": "0",
+        "priceContribution": "-183",
+        "fxContribution": "0",
+        "movementBase": "12",
+        "movementReferenceBase": "408",
+        "weight": null,
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      "valuation": {
+        "complete": false,
+        "status": "partial",
+        "asOf": "2026-01-06T15:00:00.000Z",
+        "coverage": {
+          "valued": 3,
+          "total": 4
+        }
+      },
+      "lots": {
+        "items": [
+          {
+            "transactionId": "6ac48ecaf1b3990e568f33a5",
+            "quantity": "6",
+            "localCost": "603",
+            "baseCost": "603",
+            "acquisition": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            }
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 1
+      },
+      "activity": {
+        "items": [
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "DIVIDEND",
+              "grossAmount": "30",
+              "fees": "2",
+              "id": "6ac48ed1f1b3990e568f33b1",
+              "sequence": 5,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "28",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "SPLIT",
+              "numerator": "2",
+              "denominator": "1",
+              "id": "6ac48ecef1b3990e568f33ad",
+              "sequence": 4,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "0",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "SELL",
+              "quantity": "12",
+              "price": "250",
+              "fees": "2",
+              "id": "6ac48eccf1b3990e568f33a9",
+              "sequence": 3,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "2998",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1005",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "10",
+              "price": "100",
+              "fees": "10",
+              "id": "6ac48ec5f1b3990e568f33a1",
+              "sequence": 1,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1010",
+            "void": null
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 5
+      }
+    },
+    {
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac48ec4f1b3990e568f33a0",
+      "revision": 9,
+      "baseCurrency": "INR",
+      "position": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "30",
+        "localCost": "2015",
+        "baseCost": "2015",
+        "averageCost": "67.16666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "28",
+        "dividendBase": "28"
+      },
+      "holding": {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "30",
+        "localCost": "2015",
+        "baseCost": "2015",
+        "averageCost": "67.16666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "28",
+        "dividendBase": "28",
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "quote": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "price": "70",
+          "referencePrice": "68",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-06T06:02:17.375Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T06:02:17.376Z",
+          "status": "fresh"
+        },
+        "localValue": "2100",
+        "baseValue": "2100",
+        "unrealizedBase": "85",
+        "localReturn": "0.042183622828784119106699751861042183622828784119106699751861042183622828784119106699751861042183623",
+        "baseReturn": "0.042183622828784119106699751861042183622828784119106699751861042183622828784119106699751861042183623",
+        "fxReturnEffect": "0",
+        "priceContribution": "85",
+        "fxContribution": "0",
+        "movementBase": "60",
+        "movementReferenceBase": "2040",
+        "weight": null,
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      "valuation": {
+        "complete": false,
+        "status": "partial",
+        "asOf": "2026-01-06T15:00:00.000Z",
+        "coverage": {
+          "valued": 3,
+          "total": 4
+        }
+      },
+      "lots": {
+        "items": [
+          {
+            "transactionId": "6ac48ec5f1b3990e568f33a1",
+            "quantity": "20",
+            "localCost": "1010",
+            "baseCost": "1010",
+            "acquisition": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "10",
+              "price": "100",
+              "fees": "10",
+              "id": "6ac48ec5f1b3990e568f33a1",
+              "sequence": 1,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            }
+          },
+          {
+            "transactionId": "6ac48ecaf1b3990e568f33a5",
+            "quantity": "10",
+            "localCost": "1005",
+            "baseCost": "1005",
+            "acquisition": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            }
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 2
+      },
+      "activity": {
+        "items": [
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "DIVIDEND",
+              "grossAmount": "30",
+              "fees": "2",
+              "id": "6ac48ed1f1b3990e568f33b1",
+              "sequence": 5,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "28",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "SPLIT",
+              "numerator": "2",
+              "denominator": "1",
+              "id": "6ac48ecef1b3990e568f33ad",
+              "sequence": 4,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "0",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "SELL",
+              "quantity": "12",
+              "price": "250",
+              "fees": "2",
+              "id": "6ac48eccf1b3990e568f33a9",
+              "sequence": 3,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "2998",
+            "void": {
+              "id": "6ac48ee9f1b3990e568f33c8",
+              "transactionId": "6ac48eccf1b3990e568f33a9",
+              "reason": "Explicit local review correction · original sale retained",
+              "recordedAt": "2026-10-06T06:02:17.113Z"
+            }
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "5",
+              "price": "200",
+              "fees": "5",
+              "id": "6ac48ecaf1b3990e568f33a5",
+              "sequence": 2,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1005",
+            "void": null
+          },
+          {
+            "record": {
+              "instrumentId": "TCS:NSE",
+              "effectiveAt": "2026-01-05T15:00:00.000Z",
+              "tradingDate": "2026-01-05",
+              "type": "BUY",
+              "quantity": "10",
+              "price": "100",
+              "fees": "10",
+              "id": "6ac48ec5f1b3990e568f33a1",
+              "sequence": 1,
+              "currency": "INR",
+              "baseCurrency": "INR",
+              "fx": {
+                "rate": "1",
+                "rateDate": "2026-01-05",
+                "source": "identity",
+                "reference": "INR/INR"
+              }
+            },
+            "nativeCashFlow": "-1010",
+            "void": null
+          }
+        ],
+        "page": 1,
+        "pageSize": 20,
+        "total": 5
+      }
+    }
+  ],
+  "originalSaleRetained": true,
+  "noPerLotRequests": true,
+  "readOnlyAssetRetrieval": true
+}

@@ -1,5 +1,9 @@
 # Provider and dependency audit
 
+## Priority 4 — no provider scope change — 2026-10-06
+
+Owned Asset Detail reuses the existing quote/FX gateway and separately permitted history adapter. One gateway batch per active owned instrument set avoids per-lot/activity provider requests; underlying permitted provider/cache calls remain bounded by existing capabilities, not one universal upstream request. Economic reads are consistent Mongo snapshots; external observations are not transaction-lockable. No provider/key/entitlement activation, paid assumption, new identity, new price/history fixture or dependency. The reviewed local captures use explicitly labelled isolated synthetic quotes/history/FX; they do not establish live-provider acceptance or commercial entitlement. Existing Yahoo/CoinGecko gates and Frankfurter historical policy remain unchanged. No hosting research or deployment work.
+
 ## Priority 2 identity/search audit — 2026-10-05
 
 Discovery verification is separate from market-price/history acceptance. The curated catalogue now has **13 canonical identities**; original six semantics remain unchanged. Seven additions use issuer/project identity references and bounded manual provider identity probes. No fixture proves an identity. Sector remains **Unknown** for every record. No full-exchange/global-universe claim, paid provider, runtime discovery activation, new key or entitlement approval.

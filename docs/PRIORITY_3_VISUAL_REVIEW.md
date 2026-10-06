@@ -1,4 +1,6 @@
-# Priority 3 visual review — awaiting user approval
+# Priority 3 visual review — APPROVED / CLOSED
+
+User approval recorded2026-10-06: all17 states, engineering, FX/confirmation/security and derived Light/mobile/tablet are explicitly accepted. Accepted commit573438f6bac3cf77f84c6a155de1a74e00a78b5a. Figma/engine and141 earlier captures unchanged. External-provider locking/entitlement limitations and unsuppressed564.34kB warning remain binding. Following evidence describes the preceding review submission; its pending language is historical. Priority4 separately authorized; no Priority5+.
 
 2026-10-06. [Actual rendered gallery](evidence/priority-3/2026-10-06/review.html). **17 states /34 viewport and full-page captures**. [Browser checks](evidence/priority-3/2026-10-06/visual/browser-checks.json), [financial assertions](evidence/priority-3/2026-10-06/visual/financial-results.json), [read-only Figma evidence](evidence/priority-3/2026-10-06/figma-source-check.json).
 

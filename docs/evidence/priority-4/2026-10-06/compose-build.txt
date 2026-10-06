@@ -1,0 +1,224 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 463B 0.1s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/node:24.19.0-bookworm-slim
+#2 DONE 2.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 185B 0.0s done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/8] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#5 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.0s done
+#5 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 213.06kB 0.1s done
+#4 DONE 0.1s
+
+#6 [2/8] WORKDIR /workspace
+#6 CACHED
+
+#7 [3/8] RUN npm install --global pnpm@11.19.0
+#7 CACHED
+
+#8 [4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#8 CACHED
+
+#9 [5/8] COPY packages ./packages
+#9 DONE 0.1s
+
+#10 [6/8] COPY apps ./apps
+#10 DONE 0.3s
+
+#11 [7/8] COPY scripts ./scripts
+#11 DONE 0.1s
+
+#12 [8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#12 2.772 Scope: all 5 workspace projects
+#12 2.953 ? Verifying lockfile against supply-chain policies (535 entries)...
+#12 2.967 Lockfile is up to date, resolution step is skipped
+#12 3.253 Progress: resolved 1, reused 0, downloaded 0, added 0
+#12 3.549 Packages: +489
+#12 3.549 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#12 4.278 Progress: resolved 489, reused 0, downloaded 0, added 0
+#12 5.306 Progress: resolved 489, reused 0, downloaded 21, added 0
+#12 5.605 Packages are hard linked from the content-addressable store to the virtual store.
+#12 5.605   Content-addressable store is at: /workspace/.pnpm-store/v11
+#12 5.605   Virtual store is at:             node_modules/.pnpm
+#12 6.470 [WARN] Tarball download average speed 12 KiB/s (size 15 KiB) is below 50 KiB/s: https://registry.npmjs.org/pretty-format/-/pretty-format-27.5.1.tgz (GET)
+#12 6.670 Progress: resolved 489, reused 0, downloaded 37, added 14
+#12 7.329 [WARN] Tarball download average speed 0 KiB/s (size 2 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/express/-/express-5.0.6.tgz (GET)
+#12 8.088 [WARN] Tarball download average speed 0 KiB/s (size 3 KiB) is below 50 KiB/s: https://registry.npmjs.org/react-is/-/react-is-19.3.0.tgz (GET)
+#12 8.530 [WARN] Tarball download average speed 4 KiB/s (size 20 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/nodemailer/-/nodemailer-8.0.2.tgz (GET)
+#12 8.548 Progress: resolved 489, reused 0, downloaded 45, added 18
+#12 10.25 [WARN] Tarball download average speed 12 KiB/s (size 77 KiB) is below 50 KiB/s: https://registry.npmjs.org/lossless-json/-/lossless-json-4.3.1.tgz (GET)
+#12 10.63 Progress: resolved 489, reused 0, downloaded 52, added 22
+#12 12.81 Progress: resolved 489, reused 0, downloaded 60, added 26
+#12 14.01 [WARN] Tarball download average speed 1 KiB/s (size 18 KiB) is below 50 KiB/s: https://registry.npmjs.org/pino-http/-/pino-http-11.0.0.tgz (GET)
+#12 14.02 Progress: resolved 489, reused 0, downloaded 70, added 30
+#12 14.03 [WARN] Request took 10961ms: https://registry.npmjs.org/@ioredis%2Fcommands
+#12 14.04 [WARN] Request took 11030ms: https://registry.npmjs.org/@csstools%2Fcss-calc
+#12 14.05 [WARN] Request took 11064ms: https://registry.npmjs.org/@babel%2Fhelper-string-parser
+#12 14.30 [WARN] Request took 11230ms: https://registry.npmjs.org/@jridgewell%2Fresolve-uri
+#12 14.51 [WARN] Request took 11480ms: https://registry.npmjs.org/@eslint-community%2Feslint-utils
+#12 14.52 [WARN] Request took 11504ms: https://registry.npmjs.org/@csstools%2Fcss-tokenizer
+#12 14.53 [WARN] Request took 11509ms: https://registry.npmjs.org/@deno%2Fshim-deno-test
+#12 14.64 [WARN] Request took 11633ms: https://registry.npmjs.org/@csstools%2Fcss-color-parser
+#12 14.77 [WARN] Request took 11751ms: https://registry.npmjs.org/@csstools%2Fcss-syntax-patches-for-csstree
+#12 14.87 [WARN] Request took 11876ms: https://registry.npmjs.org/@bramus%2Fspecificity
+#12 14.89 [WARN] Request took 11863ms: https://registry.npmjs.org/@eslint-community%2Fregexpp
+#12 14.95 [WARN] Request took 11976ms: https://registry.npmjs.org/@asamuzakjp%2Fcss-color
+#12 14.99 [WARN] Request took 11994ms: https://registry.npmjs.org/@babel%2Fhelper-validator-identifier
+#12 15.04 Progress: resolved 489, reused 0, downloaded 119, added 49
+#12 15.07 [WARN] Request took 12024ms: https://registry.npmjs.org/@fontsource%2Finter
+#12 15.08 [WARN] Request took 11998ms: https://registry.npmjs.org/@noble%2Fhashes
+#12 15.10 [WARN] Request took 12053ms: https://registry.npmjs.org/@fontsource%2Fibm-plex-mono
+#12 15.11 [WARN] Request took 12090ms: https://registry.npmjs.org/@deno%2Fshim-deno
+#12 15.15 [WARN] Request took 12062ms: https://registry.npmjs.org/@modelcontextprotocol%2Fsdk
+#12 15.23 [WARN] Request took 12146ms: https://registry.npmjs.org/@jridgewell%2Ftrace-mapping
+#12 15.30 [WARN] Request took 12240ms: https://registry.npmjs.org/@hono%2Fnode-server
+#12 15.42 [WARN] Request took 12331ms: https://registry.npmjs.org/@oxc-project%2Ftypes
+#12 15.66 [WARN] Request took 12688ms: https://registry.npmjs.org/@asteasolutions%2Fzod-to-openapi
+#12 15.82 [WARN] Request took 12837ms: https://registry.npmjs.org/@babel%2Fcode-frame
+#12 16.06 Progress: resolved 489, reused 0, downloaded 160, added 110
+#12 16.19 [WARN] Request took 10654ms: https://registry.npmjs.org/@rolldown%2Fbinding-linux-arm64-musl
+#12 16.21 [WARN] Request took 10492ms: https://registry.npmjs.org/@rolldown%2Fbinding-linux-x64-gnu
+#12 16.24 [WARN] Tarball download average speed 3 KiB/s (size 5 KiB) is below 50 KiB/s: https://registry.npmjs.org/@typescript-eslint/parser/-/parser-8.71.0.tgz (GET)
+#12 16.41 [WARN] Request took 13313ms: https://registry.npmjs.org/@reduxjs%2Ftoolkit
+#12 16.59 [WARN] Request took 13611ms: https://registry.npmjs.org/@asamuzakjp%2Fdom-selector
+#12 16.65 [WARN] Request took 13656ms: https://registry.npmjs.org/@babel%2Fruntime
+#12 16.75 [WARN] Request took 13757ms: https://registry.npmjs.org/@babel%2Ftypes
+#12 16.82 [WARN] Request took 13723ms: https://registry.npmjs.org/@rolldown%2Fbinding-darwin-arm64
+#12 16.86 [WARN] Request took 10838ms: https://registry.npmjs.org/@rolldown%2Fbinding-win32-arm64-msvc
+#12 16.89 [WARN] Request took 13836ms: https://registry.npmjs.org/@hookform%2Fresolvers
+#12 17.02 [WARN] Request took 10715ms: https://registry.npmjs.org/@tailwindcss%2Foxide-android-arm64
+#12 17.16 [WARN] Request took 14069ms: https://registry.npmjs.org/@rolldown%2Fbinding-freebsd-x64
+#12 17.34 Progress: resolved 489, reused 0, downloaded 200, added 200
+#12 17.50 [WARN] Request took 14401ms: https://registry.npmjs.org/@rolldown%2Fbinding-darwin-x64
+#12 17.55 [WARN] Request took 14568ms: https://registry.npmjs.org/@babel%2Fparser
+#12 17.85 [WARN] Request took 11822ms: https://registry.npmjs.org/@rolldown%2Fbinding-win32-x64-msvc
+#12 18.71 Progress: resolved 489, reused 0, downloaded 213, added 213
+#12 19.23 [WARN] Tarball download average speed 7 KiB/s (size 31 KiB) is below 50 KiB/s: https://registry.npmjs.org/expect-type/-/expect-type-1.4.0.tgz (GET)
+#12 20.01 Progress: resolved 489, reused 0, downloaded 230, added 218
+#12 21.35 Progress: resolved 489, reused 0, downloaded 232, added 223
+#12 21.73 [WARN] Tarball download average speed 15 KiB/s (size 109 KiB) is below 50 KiB/s: https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz (GET)
+#12 22.16 [WARN] Request took 19065ms: https://registry.npmjs.org/@rolldown%2Fbinding-linux-arm-gnueabihf
+#12 22.32 [WARN] Request took 19224ms: https://registry.npmjs.org/@rolldown%2Fbinding-linux-arm64-gnu
+#12 22.54 Progress: resolved 489, reused 0, downloaded 260, added 240
+#12 23.00 [WARN] Request took 17263ms: https://registry.npmjs.org/@rolldown%2Fbinding-linux-x64-musl
+#12 23.67 Progress: resolved 489, reused 0, downloaded 287, added 263
+#12 24.29 [WARN] Request took 11265ms: https://registry.npmjs.org/@tailwindcss%2Foxide-wasm32-wasi
+#12 24.73 Progress: resolved 489, reused 0, downloaded 326, added 295
+#12 25.56 [WARN] Request took 16923ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-arm-gnueabihf
+#12 25.67 [WARN] Request took 17050ms: https://registry.npmjs.org/@tailwindcss%2Foxide-darwin-x64
+#12 25.78 Progress: resolved 489, reused 0, downloaded 381, added 341
+#12 26.26 [WARN] Request took 17575ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-arm64-gnu
+#12 26.85 Progress: resolved 489, reused 0, downloaded 410, added 365
+#12 26.95 [WARN] Request took 20661ms: https://registry.npmjs.org/@tailwindcss%2Fnode
+#12 27.02 [WARN] Request took 24044ms: https://registry.npmjs.org/@axe-core%2Fplaywright
+#12 27.62 [WARN] Request took 14750ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-x64-gnu
+#12 27.91 Progress: resolved 489, reused 0, downloaded 437, added 401
+#12 28.04 [WARN] Request took 10753ms: https://registry.npmjs.org/ajv
+#12 28.43 [WARN] Request took 12447ms: https://registry.npmjs.org/@types%2Freact
+#12 29.18 Progress: resolved 489, reused 0, downloaded 474, added 440
+#12 29.46 [WARN] Tarball download average speed 43 KiB/s (size 58 KiB) is below 50 KiB/s: https://registry.npmjs.org/hookified/-/hookified-2.2.0.tgz (GET)
+#12 29.81 [WARN] Request took 16965ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-arm64-musl
+#12 30.17 [WARN] Request took 13700ms: https://registry.npmjs.org/@typescript-eslint%2Ftsconfig-utils
+#12 30.22 Progress: resolved 489, reused 0, downloaded 484, added 473
+#12 30.44 [WARN] Request took 14022ms: https://registry.npmjs.org/@typescript-eslint%2Fproject-service
+#12 30.64 [WARN] Request took 16602ms: https://registry.npmjs.org/@tailwindcss%2Foxide-win32-x64-msvc
+#12 30.73 [WARN] Request took 22102ms: https://registry.npmjs.org/@tailwindcss%2Foxide-freebsd-x64
+#12 31.00 [WARN] Request took 24296ms: https://registry.npmjs.org/@tailwindcss%2Foxide-darwin-arm64
+#12 31.05 [WARN] Request took 18057ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-x64-musl
+#12 31.23 Progress: resolved 489, reused 0, downloaded 485, added 485
+#12 31.62 [WARN] Request took 17582ms: https://registry.npmjs.org/@tailwindcss%2Foxide
+#12 31.71 [WARN] Request took 28927ms: https://registry.npmjs.org/pnpm
+#12 31.78
+#12 31.78    ╭─────────────────────────────────────────╮
+#12 31.78    │                                         │
+#12 31.78    │   Update available! 11.19.0 → 12.9.1.   │
+#12 31.78    │   Changelog: https://pnpm.io/v/12.9.1   │
+#12 31.78    │    To update, run: pnpm add -g pnpm     │
+#12 31.78    │                                         │
+#12 31.78    ╰─────────────────────────────────────────╯
+#12 31.78
+#12 32.42 [WARN] Request took 16807ms: https://registry.npmjs.org/@types%2Fnode
+#12 33.83 [WARN] Request took 15092ms: https://registry.npmjs.org/axe-core
+#12 33.95 [WARN] Request took 30853ms: https://registry.npmjs.org/@playwright%2Ftest
+#12 34.13 [WARN] Request took 17652ms: https://registry.npmjs.org/@typescript-eslint%2Futils
+#12 34.52 [WARN] Request took 18041ms: https://registry.npmjs.org/@typescript-eslint%2Ftype-utils
+#12 34.56 Progress: resolved 489, reused 0, downloaded 486, added 485
+#12 35.57 Progress: resolved 489, reused 0, downloaded 486, added 486
+#12 36.00 [WARN] Request took 19516ms: https://registry.npmjs.org/@typescript-eslint%2Ftypes
+#12 36.61 Progress: resolved 489, reused 0, downloaded 487, added 487
+#12 37.57 [WARN] Request took 21057ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
+#12 38.34 Progress: resolved 489, reused 0, downloaded 488, added 487
+#12 38.55 [WARN] Request took 22126ms: https://registry.npmjs.org/@typescript-eslint%2Fscope-manager
+#12 39.47 Progress: resolved 489, reused 0, downloaded 488, added 488
+#12 40.22 [WARN] Request took 23858ms: https://registry.npmjs.org/@typescript-eslint%2Fparser
+#12 40.44 [WARN] Request took 23961ms: https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree
+#12 40.74 [WARN] Request took 24373ms: https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin
+#12 41.35 [WARN] Request took 10147ms: https://registry.npmjs.org/playwright
+#12 41.77 [WARN] Request took 10545ms: https://registry.npmjs.org/playwright-core
+#12 43.66 ✓ Lockfile passes supply-chain policies (535 entries in 40.6s)
+#12 43.66 [WARN] Tarball download average speed 22 KiB/s (size 348 KiB) is below 50 KiB/s: https://registry.npmjs.org/bare-fs/-/bare-fs-4.8.2.tgz (GET)
+#12 43.70 Progress: resolved 489, reused 0, downloaded 489, added 488
+#12 43.72 Progress: resolved 489, reused 0, downloaded 489, added 489, done
+#12 44.23 .../argon2@0.45.1/node_modules/argon2 install$ cross-env ZERO_AR_DATE=1 node-gyp-build
+#12 44.55 .../argon2@0.45.1/node_modules/argon2 install: Done
+#12 44.92
+#12 44.92 devDependencies:
+#12 44.92 + @axe-core/playwright 4.13.0
+#12 44.92 + @playwright/test 1.63.0
+#12 44.92 + @testing-library/dom 10.4.2
+#12 44.92 + @testing-library/react 16.3.3
+#12 44.92 + @types/node 24.19.1
+#12 44.92 + @vitest/coverage-v8 5.0.3
+#12 44.92 + eslint 10.12.0
+#12 44.92 + husky 9.1.7
+#12 44.92 + jsdom 30.1.1
+#12 44.92 + lint-staged 17.6.0
+#12 44.92 + prettier 3.9.9
+#12 44.92 + semver 7.8.5
+#12 44.92 + typescript 6.0.3
+#12 44.92 + typescript-eslint 8.71.0
+#12 44.92 + vitest 5.0.3
+#12 44.92
+#12 44.96 . prepare$ husky
+#12 45.09 . prepare: HUSKY=0 skip install
+#12 45.09 . prepare: Done
+#12 45.24 Done in 44s using pnpm v11.19.0
+#12 46.58 $ tsc -p tsconfig.json
+#12 53.34 $ node packages/design-tokens/scripts/sync.mjs --check
+#12 53.45 Figma token check: 40 canonical variables, 8 text styles, 119 states, both themes
+#12 DONE 54.3s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 27.3s done
+#13 exporting manifest sha256:9904a42f1fb0a913052c573fc955201a5f8fa75a6bfaa5e0235705187ca37016 0.0s done
+#13 exporting config sha256:b197f3b57029e0ece8fe18c9bc44ba633ce3170a41bf490a781f3f9d5cedf474 0.0s done
+#13 exporting attestation manifest sha256:033d260bec01389c5aabce64fc9fe3c446afb507b4aa56113da1c8119341dbb6 0.0s done
+#13 exporting manifest list sha256:a026b7e2a7acbbd09f2acd4e7a620773ab734ca43086f5521914cf290161cadd 0.0s done
+#13 naming to docker.io/library/folio-api:latest done
+#13 unpacking to docker.io/library/folio-api:latest
+#13 unpacking to docker.io/library/folio-api:latest 13.7s done
+#13 naming to docker.io/library/folio-web:latest done
+#13 unpacking to docker.io/library/folio-web:latest 0.0s done
+#13 naming to docker.io/library/folio-demo-api:latest done
+#13 unpacking to docker.io/library/folio-demo-api:latest 0.0s done
+#13 naming to docker.io/library/folio-demo-web:latest done
+#13 unpacking to docker.io/library/folio-demo-web:latest 0.0s done
+#13 naming to docker.io/library/folio-fixture-api:latest
+#13 naming to docker.io/library/folio-fixture-api:latest done
+#13 unpacking to docker.io/library/folio-fixture-api:latest 0.0s done
+#13 naming to docker.io/library/folio-fixture-web:latest done
+#13 unpacking to docker.io/library/folio-fixture-web:latest 0.0s done
+#13 DONE 41.6s

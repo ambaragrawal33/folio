@@ -413,3 +413,38 @@
     min-height: var(--control-standard);
   }
 }
+
+/* New Asset Detail tables reuse stacked rows on tablet; the approved sidebar
+   leaves too little space for readable provenance columns at that width. */
+@media (max-width: 1024px) {
+  .asset-ledger-table,
+  .asset-ledger-table tbody,
+  .asset-ledger-table tr,
+  .asset-ledger-table td {
+    display: block;
+    width: 100%;
+  }
+  .asset-ledger-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+  }
+  .asset-ledger-table tr {
+    border-bottom: 1px solid var(--border-default);
+    padding: var(--space-8) 0;
+  }
+  .asset-ledger-table td {
+    border: 0;
+    padding: var(--space-4) 0;
+  }
+  .asset-ledger-table td::before {
+    content: attr(data-label);
+    display: block;
+    font: var(--type-caption-weight) var(--type-caption-size)/var(--type-caption-line)
+      var(--type-caption-family);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+  }
+}

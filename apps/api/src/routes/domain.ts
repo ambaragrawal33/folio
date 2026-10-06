@@ -17,6 +17,8 @@ import {
   HoldingsPage,
   ValuedHolding,
   PriceHistory,
+  AssetDetailQuery,
+  AssetDetailResponse,
 } from '@folio/shared';
 import type { Env } from '../config/env.ts';
 import type { DomainService } from '../services/domain.ts';
@@ -205,6 +207,18 @@ export function domainRouter(env: Env, service: DomainService, cache: CacheStore
           await identity(req),
           parameter(req, 'portfolioId'),
           parameter(req, 'instrumentId'),
+        ),
+      ),
+    );
+  });
+  router.get('/portfolios/:portfolioId/instruments/:instrumentId/detail', async (req, res) => {
+    res.json(
+      AssetDetailResponse.parse(
+        await service.assetDetail(
+          await identity(req),
+          parameter(req, 'portfolioId'),
+          parameter(req, 'instrumentId'),
+          parsed(AssetDetailQuery, req.query),
         ),
       ),
     );

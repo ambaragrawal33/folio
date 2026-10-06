@@ -7,6 +7,7 @@ import { useAccess } from '../auth/client';
 import { PortfolioScreen, RecordTransaction, GlobalSearch, AssetDetail } from './PortfolioScreens';
 import { DemoEntry } from './DemoEntry';
 import { Account } from '../auth/Account';
+import { AssetDetailResponse, AssetLot } from '@folio/shared';
 const user = {
   id: '000000000000000000000001',
   name: 'Domain Tester',
@@ -156,6 +157,42 @@ beforeEach(() => {
       total: 1,
     },
     ['/portfolios/' + p.id + '/holdings/TCS%3ANSE']: h,
+    ['/portfolios/' + p.id + '/instruments/TCS%3ANSE/detail']: {
+      instrument,
+      portfolioId: p.id,
+      revision: 1,
+      baseCurrency: 'INR',
+      position: {
+        instrumentId: h.instrumentId,
+        currency: h.currency,
+        baseCurrency: h.baseCurrency,
+        quantity: h.quantity,
+        localCost: h.localCost,
+        baseCost: h.baseCost,
+        averageCost: h.averageCost,
+        realizedLocal: h.realizedLocal,
+        realizedBase: h.realizedBase,
+        dividendLocal: h.dividendLocal,
+        dividendBase: h.dividendBase,
+      },
+      holding: (({ lots, ...value }) => {
+        void lots;
+        return value;
+      })(h),
+      valuation: {
+        complete: true,
+        status: 'fresh',
+        asOf: quote.asOf,
+        coverage: { valued: 1, total: 1 },
+      },
+      lots: { items: [], page: 1, pageSize: 20, total: 0 },
+      activity: {
+        items: [{ record, nativeCashFlow: '-1010', void: null }],
+        page: 1,
+        pageSize: 20,
+        total: 1,
+      },
+    },
     ['/portfolios/' + p.id + '/instruments/TCS%3ANSE/history']: {
       status: 'unavailable',
       reason: 'No permitted history',
@@ -501,6 +538,109 @@ it('makes void explicit with a reason and exposes original immutable record meta
   );
   fireEvent.click(screen.getByRole('button', { name: 'Close details' }));
   expect(screen.queryByRole('heading', { name: 'Recorded transaction' })).toBeNull();
+});
+it('renders server FIFO lot quantities/costs and original provenance without recalculation', async () => {
+  const path = '/portfolios/' + p.id + '/instruments/TCS%3ANSE/detail',
+    value = AssetDetailResponse.parse(replies[path]);
+  value.lots = {
+    items: [
+      AssetLot.parse({
+        transactionId: record.id,
+        quantity: '6',
+        localCost: '363',
+        baseCost: '363',
+        acquisition: record,
+      }),
+    ],
+    total: 1,
+    page: 1,
+    pageSize: 20,
+  };
+  replies[path] = value;
+  show(<AssetDetail />, '/holdings/TCS%3ANSE');
+  await screen.findByRole('table', { name: 'Remaining FIFO lots' });
+  expect(screen.getByRole('heading', { name: instrument.name })).toBe(document.activeElement);
+  fireEvent.click(screen.getByText('Original BUY provenance'));
+  expect(screen.getByText('Open BUY ' + record.id).getAttribute('href')).toBe(
+    '/transactions?record=' + record.id,
+  );
+  expect(screen.getByText('1 INR per INR · 2026-01-05')).toBeTruthy();
+  expect(screen.getAllByText('₹363.00').length).toBeGreaterThanOrEqual(2);
+  expect(screen.getByRole('table', { name: 'Owned instrument activity' }).textContent).toContain(
+    'BUY',
+  );
+});
+it('renders immutable voids and explicit no-position activity without fabricated valuation', async () => {
+  const path = '/portfolios/' + p.id + '/instruments/TCS%3ANSE/detail',
+    value = AssetDetailResponse.parse(replies[path]);
+  value.holding = null;
+  value.position = null;
+  value.valuation = {
+    complete: true,
+    status: 'empty',
+    asOf: null,
+    coverage: { valued: 0, total: 0 },
+  };
+  value.activity.items[0]!.void = {
+    id: 'void-id',
+    transactionId: record.id,
+    reason: 'Incorrect acquisition',
+    recordedAt: record.effectiveAt,
+  };
+  replies[path] = value;
+  show(<AssetDetail />, '/holdings/TCS%3ANSE');
+  await screen.findByText(/No owned position/);
+  expect(screen.getByText('Voided · excluded from position')).toBeTruthy();
+  expect(screen.getByRole('table', { name: 'Owned instrument activity' }).textContent).toContain(
+    '-₹1,010.00',
+  );
+  expect(screen.getByText(/No remaining FIFO lots/)).toBeTruthy();
+});
+it('requests independent bounded lot/activity pages with no per-row endpoint calls', async () => {
+  const path = '/portfolios/' + p.id + '/instruments/TCS%3ANSE/detail',
+    value = AssetDetailResponse.parse(replies[path]);
+  value.lots.total = 21;
+  value.activity.total = 21;
+  replies[path] = value;
+  const original = fetcher.getMockImplementation()!;
+  fetcher.mockImplementation(async (address, options) => {
+    const url = new URL(String(address), 'http://localhost');
+    if (url.pathname.endsWith('/detail'))
+      return response({
+        ...value,
+        lots: { ...value.lots, page: Number(url.searchParams.get('lotPage')) },
+        activity: { ...value.activity, page: Number(url.searchParams.get('page')) },
+      });
+    return original(address, options);
+  });
+  show(<AssetDetail />, '/holdings/TCS%3ANSE');
+  const lotPages = await screen.findByRole('navigation', { name: 'FIFO lot pages' });
+  fireEvent.click([...lotPages.querySelectorAll('button')].find((b) => b.textContent === 'Next')!);
+  await waitFor(() =>
+    expect(screen.getByRole('navigation', { name: 'FIFO lot pages' }).textContent).toContain(
+      'page 2 of 2',
+    ),
+  );
+  const activity = screen.getByRole('navigation', { name: 'Instrument activity pages' });
+  fireEvent.click([...activity.querySelectorAll('button')].find((b) => b.textContent === 'Next')!);
+  await waitFor(() =>
+    expect(
+      screen.getByRole('navigation', { name: 'Instrument activity pages' }).textContent,
+    ).toContain('page 2 of 2'),
+  );
+  expect(fetcher.mock.calls.filter(([url]) => String(url).includes('/history'))).toHaveLength(1);
+  expect(fetcher.mock.calls.some(([url]) => String(url).includes('lotPage=2'))).toBe(true);
+});
+it('handles malformed asset responses with safe copy and explicit retry', async () => {
+  const path = '/portfolios/' + p.id + '/instruments/TCS%3ANSE/detail';
+  replies[path] = { invalid: 'schema-details' };
+  show(<AssetDetail />, '/holdings/TCS%3ANSE');
+  await screen.findByText('Asset data could not be validated. Please retry.');
+  expect(screen.queryByText(/Zod|schema-details/)).toBeNull();
+  fireEvent.click(screen.getByRole('button', { name: 'Retry asset detail' }));
+  await waitFor(() =>
+    expect(fetcher.mock.calls.filter(([url]) => String(url).includes('/detail?')).length).toBe(2),
+  );
 });
 it('displays permitted observed history and source/FX decomposition rather than inventing portfolio history', async () => {
   replies['/portfolios/' + p.id + '/instruments/TCS%3ANSE/history'] = {

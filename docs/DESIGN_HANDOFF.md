@@ -1,5 +1,15 @@
 # Folio design handoff
 
+## Priority3 CLOSED; Priority4 Asset Detail derivation — 2026-10-06
+
+Priority3 engineering and all17 visual/product states are explicitly APPROVED / CLOSED. Only Priority4 adds workflow UI. Connected read-only Figma MCP refreshed full Asset Detail **32:143** code and screenshot; actual Recent Activity **34:165** uses15px section heading,32px header,44px sample rows,13px financial IBM Plex Mono and12px padding with existing semantic surfaces/borders. Position context **34:128**, metadata **34:196** and existing approved primitives/type/tokens/shell/chart remain references. No Figma/static asset/palette/foundation changes. Prototype numbers, trade/custody fields and unsupported analytics remain excluded under approved domain decisions.
+
+Remaining-lot provenance, complete immutable instrument activity, void exclusion labels and coverage/empty/error states have no dedicated product frame and are DERIVED. Existing Panel/table/description-list/Button/pagination and financial display are composed. Full-width native details retain original BUY price/fees/FX/date without squeezing into a column; closed rows show current engine quantities/costs and source. New tables alone reuse the existing stacked labelled-row pattern at1024px and below, where the220px tablet sidebar leaves insufficient width for6 financial columns. Type sizes/palette/shell breakpoints remain unchanged. Rich source/void information adds natural height beyond the source44px sample rows; it is not silently omitted to match a screenshot.
+
+Accessibility retains stronger existing semantic text roles, persistent labels/captions, native details/keyboard focus, explicit ownership/void/missing status, independently named pagination landmarks and programmatic heading focus after retrieval/page changes. No nested scrolling container. Light/mobile/tablet remain DERIVED, never Figma-approved. New capture paths preserve all175 approved PNGs. Focused Priority4 user visual review is pending; automated checks do not approve it.
+
+[Actual Priority4 visual review](PRIORITY_4_VISUAL_REVIEW.md):22 states/44 exact-viewport and continuation PNGs, all0 axe/overflow/independent-scroll. One/multiple/consumed/split lots, dividend/mixed/void activity, foreign cost provenance, no position, unknown ID and complete/stale/missing/partial coverage;1440×1024 Dark/derived Light,390×844 mobile,768×1024 tablet. All175 prior captures hash-verified unchanged; existing foundation regression passes. Full-page views expose all disclosures/page controls in normal document flow. User product visual approval remains pending; STOP at Priority4.
+
 ## Priority 1 CLOSED; Priority 2 discovery source/derivation — 2026-10-05
 
 The user closes Priority 1 engineering and visual review, including all 14 states and corrected FX display. All existing approvals remain binding. Light/mobile remain DERIVED, never Figma-approved.

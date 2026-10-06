@@ -164,6 +164,9 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
       path: contract.path,
       summary: contract.path.split('/').at(-1) ?? 'Portfolio',
       description:
+        (contract.path.endsWith('/detail')
+          ? 'Owned Asset Detail: server FIFO summaries, bounded lots joined to original BUY provenance, instrument-only immutable activity including void metadata, and current valuation coverage. Independent numbered lot/activity pages default 20, maximum 100. Known canonical instrument with no owned position is explicit empty; unknown or unowned resource is uniformly 404. No per-lot requests or frontend financial recomputation. '
+          : '') +
         'Authenticated ownership scope is enforced server-side. String financial values and provider provenance. POST ledger/preview is non-mutating and returns actual historical FX and complete-ledger replay effects, not current market valuation. Append requires Idempotency-Key and the signed Transaction-Preview receipt; changed/expired reviews require revalidation. Missing or stale historical FX fails closed; no current-rate substitution. Writes require Origin, X-Folio-CSRF: 1 and JSON. Public demo financial writes are denied. Immutable economics/voids; holdings exclude cash.',
       security: [{ bearerAuth: [] }],
       parameters: [

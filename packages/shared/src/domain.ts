@@ -261,6 +261,28 @@ export const PriceHistory = z.strictObject({
 });
 export const AppendResponse = z.strictObject({ record: EconomicRecord, duplicate: z.boolean() });
 export const PreviewPosition = Position.omit({ lots: true });
+export const AssetDetailQuery = NumberedPagination.extend({
+  pageSize: NumberedPagination.shape.pageSize.default(20),
+  lotPage: NumberedPagination.shape.page,
+  lotPageSize: NumberedPagination.shape.pageSize.default(20),
+});
+export const AssetLot = Lot.extend({ acquisition: EconomicRecord.options[0] });
+export const AssetDetailResponse = z.strictObject({
+  instrument: Instrument,
+  portfolioId: z.string(),
+  revision: z.number().int().nonnegative(),
+  baseCurrency: Currency,
+  position: PreviewPosition.nullable(),
+  holding: ValuedHolding.omit({ lots: true }).nullable(),
+  valuation: Valuation.pick({ complete: true, status: true, asOf: true, coverage: true }),
+  lots: z.strictObject({
+    items: z.array(AssetLot).max(100),
+    page: z.number().int(),
+    pageSize: z.number().int(),
+    total: z.number().int(),
+  }),
+  activity: LedgerPage.extend({ items: z.array(LedgerRow).max(100) }),
+});
 export const TransactionEffects = z.strictObject({
   grossNative: OutputDecimal,
   feesNative: OutputDecimal,
@@ -374,5 +396,11 @@ export const domainContracts = [
     path: '/api/v1/portfolios/{portfolioId}/instruments/{instrumentId}/history',
     request: empty,
     response: PriceHistory,
+  },
+  {
+    method: 'get',
+    path: '/api/v1/portfolios/{portfolioId}/instruments/{instrumentId}/detail',
+    request: AssetDetailQuery,
+    response: AssetDetailResponse,
   },
 ] as const;

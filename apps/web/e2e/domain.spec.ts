@@ -177,7 +177,7 @@ test('real ledger entry/review/FIFO/split/dividend/void, truthful degraded valua
       ).toHaveCount(0);
       if (route === 'holdings/TCS%3ANSE') {
         await expect(page.getByText('₹536.00')).toBeVisible();
-        await expect(page.getByText('₹28.00')).toBeVisible();
+        await expect(page.getByRole('definition').filter({ hasText: /^₹28\.00$/ })).toBeVisible();
         await expect(page.getByText('INR 60.5')).toBeVisible();
       }
       await capture(page, route.replace('/TCS%3ANSE', '-asset') + '-' + theme + '-1440');

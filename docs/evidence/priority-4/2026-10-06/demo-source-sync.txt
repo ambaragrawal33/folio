@@ -1,0 +1,17 @@
+
+Path : C:\Users\ambar\OneDrive\Documents\ChatGPT\Folio\packages\shared\dist\domain.js
+Hash : 7204DE38FFC1A7406E245B051EFAD9BD92E2D4AE9DE3A6F5A999855E89609BC9
+
+Path : C:\Users\ambar\OneDrive\Documents\ChatGPT\Folio\packages\shared\dist\openapi.js
+Hash : 8BBDDBEF9A3BDB44B79EE28C3679652AEE8C17CC64B85A28839859C4EE807AFE
+
+Path : C:\Users\ambar\OneDrive\Documents\ChatGPT\Folio\apps\web\src\domain\PortfolioScreens.tsx
+Hash : D5AFF121026321563C2715D14F99F22844B9C4E94962A58DFF0833C8FAB87517
+
+Path : C:\Users\ambar\OneDrive\Documents\ChatGPT\Folio\apps\web\src\domain\domain.css
+Hash : 701E0FAF971E05B0283FDB5EF42C755A0A4FAB22F9078D3680CA14DB03666FBC
+
+7204de38ffc1a7406e245b051efad9bd92e2d4ae9de3a6f5a999855e89609bc9  /workspace/packages/shared/dist/domain.js
+8bbddbef9a3bdb44b79ee28c3679652aee8c17cc64b85a28839859c4ee807afe  /workspace/packages/shared/dist/openapi.js
+d5aff121026321563c2715d14f99f22844b9c4e94962a58dff0833c8fab87517  /workspace/apps/web/src/domain/PortfolioScreens.tsx
+701e0faf971e05b0283fdb5ef42c755a0a4fab22f9078d3680ca14db03666fbc  /workspace/apps/web/src/domain/domain.css

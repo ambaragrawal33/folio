@@ -1,5 +1,13 @@
 # Folio progress
 
+## Current execution — Priority3 CLOSED; Priority4 implemented / verified — 2026-10-06
+
+Priority1/L01, Priority2 and Priority3 engineering/visual gates are explicitly CLOSED / APPROVED. Priority3 accepted at573438f6bac3cf77f84c6a155de1a74e00a78b5a. Only **Priority4 Asset Detail** implemented/verified: strict scoped combined GET, server FIFO acquisition provenance and current remaining costs, immutable instrument activity/void metadata, independent bounded pagination and safe empty/error/coverage states. [Plan](PRIORITY_4_PLAN.md), [measured evidence](PRIORITY_4_EVIDENCE.md), [focused visual review pending](PRIORITY_4_VISUAL_REVIEW.md). Engine, formatter, providers and approved foundation unchanged.
+
+Actual **pnpm check PASS:150 tests /18 suites;96.02% lines(2127/2215)**; every financial-core file >=90%(97.67–100%). Full real-service **15/15 E2E PASS(4.3minutes)**. Twenty-two review states/44 captures:0 axe/overflow/independent scroll; Dark/derived Light1440×1024, mobile390×844, tablet768×1024. **175 approved PNGs unchanged**, read-only Figma32:143 inspected with no write. Fixed4 domain reads/no per-lot request; history remains one separate permitted request with60-second reuse. Ownership/uniform404/non-mutation/paging/void/split/dividend/current FX missing provenance tests pass. Local9-service Docker/Mongo RS/Decimal128/Redis/MailHog/fail-closed/OpenAPI30 gates pass; dependency graph490/82 clean, audit clean, final secret scan in evidence. Warning **572.73kB** remains unsuppressed/unresolved.
+
+**STOP for Priority4 review.** User visual/product approval is pending; automated checks do not close it. Priority5/6, News/AI, hosting/spending/deployment remain outside this pass; L02 approved/unimplemented. No push/main merge. Main unchanged. Earlier dated status entries below are historical.
+
 ## Priority 1 CLOSED; Priority 2 implemented / verified — 2026-10-05
 
 The user explicitly **APPROVES / CLOSES Priority 1/L01 engineering and all14 visual states**, including fixture isolation, hand totals and6.63 percentage-point FX display. Existing Light/mobile approvals remain derived. Only **Priority 2 instrument discovery** is now implemented; user review is pending. [Plan](PRIORITY_2_PLAN.md), [measured evidence](PRIORITY_2_EVIDENCE.md), [14-state rendered review](PRIORITY_2_VISUAL_REVIEW.md).

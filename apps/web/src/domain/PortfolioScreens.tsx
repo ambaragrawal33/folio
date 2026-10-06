@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { z } from 'zod';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
@@ -10,7 +10,7 @@ import {
   LedgerPage,
   SearchResponse,
   PriceHistory,
-  ValuedHolding,
+  AssetDetailResponse,
   TransactionInput,
   TransactionPreview,
   AppendResponse,
@@ -275,15 +275,17 @@ function Pagination({
   total,
   size,
   change,
+  label = 'Table pages',
 }: {
   page: number;
   total: number;
   size: number;
   change: (p: number) => void;
+  label?: string;
 }) {
   const pages = Math.max(1, Math.ceil(total / size));
   return (
-    <nav className="portfolio-pagination" aria-label="Table pages">
+    <nav className="portfolio-pagination" aria-label={label}>
       <span className="type-caption text-secondary">
         {total} records · page {page} of {pages}
       </span>
@@ -1092,43 +1094,85 @@ function TransactionForm({ p }: { p: z.infer<typeof Portfolio> }) {
   );
 }
 export function AssetDetail() {
-  return <PortfolioBoundary>{(p) => <AssetContent p={p} />}</PortfolioBoundary>;
+  const { instrumentId = '' } = useParams();
+  return (
+    <PortfolioBoundary>{(p) => <AssetContent key={p.id + instrumentId} p={p} />}</PortfolioBoundary>
+  );
 }
 function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
   const { instrumentId = '' } = useParams(),
     f = useFinancialDisplay(),
     navigate = useNavigate();
+  const [page, setPage] = useState(1),
+    [lotPage, setLotPage] = useState(1);
+  const heading = useRef<HTMLHeadingElement>(null);
   const readonly = useSession().data?.user.demoReadonly;
   const localFixture = useSession().data?.user.localFixture;
   const prefix = '/portfolios/' + p.id;
   const holding = useQuery({
-    queryKey: ['domain', 'holding', p.id, instrumentId],
-    queryFn: () => api(prefix + '/holdings/' + encodeURIComponent(instrumentId), ValuedHolding),
+    queryKey: ['domain', 'asset-detail', p.id, instrumentId, page, lotPage],
+    queryFn: () =>
+      api(
+        prefix +
+          '/instruments/' +
+          encodeURIComponent(instrumentId) +
+          '/detail?' +
+          new URLSearchParams({
+            page: String(page),
+            pageSize: '20',
+            lotPage: String(lotPage),
+            lotPageSize: '20',
+          }),
+        AssetDetailResponse,
+      ),
     retry: false,
   });
   const history = useQuery({
+    enabled: holding.isSuccess,
     queryKey: ['domain', 'history', p.id, instrumentId],
+    staleTime: 60000,
     queryFn: () =>
       api(prefix + '/instruments/' + encodeURIComponent(instrumentId) + '/history', PriceHistory),
     retry: false,
   });
+  useEffect(() => {
+    if (holding.isSuccess) heading.current?.focus();
+  }, [holding.isSuccess, page, lotPage]);
   if (holding.isPending) return <ContentState loading />;
-  if (holding.error) return <ContentState>{holding.error.message}</ContentState>;
-  const h = holding.data;
+  if (holding.error)
+    return (
+      <ContentState>
+        <span>
+          {holding.error instanceof ApiError
+            ? holding.error.message
+            : 'Asset data could not be validated. Please retry.'}
+        </span>
+        <Button onClick={() => void holding.refetch()}>Retry asset detail</Button>
+        <Link className="auth-link" to="/holdings">
+          Back to holdings
+        </Link>
+      </ContentState>
+    );
+  const detail = holding.data,
+    h = detail.holding,
+    position = detail.position,
+    instrument = detail.instrument;
   return (
     <div className="portfolio-screen asset-detail" data-figma="32:143">
       <DemoBanner />
       <Link className="auth-link type-caption" to="/holdings">
-        Holdings / {h.instrument.symbol}
+        Holdings / {instrument.symbol}
       </Link>
       <div className="portfolio-heading">
         <div>
-          <h1>{h.instrument.name}</h1>
+          <h1 ref={heading} tabIndex={-1}>
+            {instrument.name}
+          </h1>
           <p className="type-body text-secondary">
-            {h.instrument.symbol} · {h.instrument.assetClass} · {h.instrument.exchange}
+            {instrument.symbol} · {instrument.assetClass} · {instrument.exchange}
           </p>
         </div>
-        <p className="type-metric">{f.price(h.quote?.price ?? null, h.currency)}</p>
+        <p className="type-metric">{f.price(h?.quote?.price ?? null, instrument.currency)}</p>
         <div className="portfolio-actions">
           <Button disabled size="Compact">
             Watchlist · P1
@@ -1146,16 +1190,40 @@ function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
         </div>
       </div>
       <div className="portfolio-summary" data-figma="34:68">
-        <Metric label="Quantity" value={f.quantity(h.quantity)} />
-        <Metric label="Base value · INR" value={f.money(h.baseValue)} />
-        <Metric label="Average native cost" value={f.price(h.averageCost, h.currency)} />
+        <Metric label="Quantity" value={f.quantity(position?.quantity ?? '0')} />
+        <Metric label="Base value · INR" value={f.money(h?.baseValue ?? null)} />
+        <Metric
+          label="Average native cost"
+          value={f.price(position?.averageCost ?? null, instrument.currency)}
+        />
         <Metric
           label="Unrealized P&L · INR"
-          value={f.money(h.unrealizedBase)}
-          tone={financialTone(h.unrealizedBase)}
+          value={f.money(h?.unrealizedBase ?? null)}
+          tone={financialTone(h?.unrealizedBase ?? null)}
         />
-        <Metric label="Current weight" value={f.percent(h.weight)} />
+        <Metric label="Current weight" value={f.percent(h?.weight ?? null)} />
       </div>
+      <aside className="portfolio-status type-compact" aria-label="Asset valuation state">
+        <div>
+          <strong>Portfolio valuation · {detail.valuation.status}</strong>
+          <p>
+            Valued {detail.valuation.coverage.valued} of {detail.valuation.coverage.total} current
+            positions.{' '}
+            {detail.valuation.complete
+              ? 'Complete current coverage.'
+              : 'Coverage is incomplete; portfolio weights remain unavailable.'}
+          </p>
+          {!position && (
+            <p>
+              No owned position for this instrument. Only your own recorded activity appears below.
+            </p>
+          )}
+          {position?.quantity === '0' && (
+            <p>No units currently held; realized income and recorded activity remain available.</p>
+          )}
+          {h?.unavailableReason && <p>{h.unavailableReason}</p>}
+        </div>
+      </aside>
       <div className="portfolio-two-columns">
         <Panel
           title={localFixture ? 'Synthetic local price history' : 'Observed price history'}
@@ -1172,7 +1240,7 @@ function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
                 <>
                   <ObservedChart
                     points={history.data.points}
-                    currency={h.currency}
+                    currency={instrument.currency}
                     fixture={Boolean(localFixture)}
                   />
                   <details>
@@ -1188,14 +1256,16 @@ function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
                       <thead>
                         <tr>
                           <th>Date</th>
-                          <th>Native close · {h.currency}</th>
+                          <th>Native close · {instrument.currency}</th>
                         </tr>
                       </thead>
                       <tbody>
                         {history.data.points.map((point) => (
                           <tr key={point.date}>
                             <td data-label="Date">{point.date}</td>
-                            <td data-label="Native close">{f.price(point.price, h.currency)}</td>
+                            <td data-label="Native close">
+                              {f.price(point.price, instrument.currency)}
+                            </td>
                           </tr>
                         ))}
                       </tbody>
@@ -1217,51 +1287,257 @@ function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
         <Panel title="Cost-based return / FX" source="34:128">
           <dl className="portfolio-details">
             <dt>Local return</dt>
-            <dd>{f.percent(h.localReturn)}</dd>
+            <dd>{f.percent(h?.localReturn ?? null)}</dd>
             <dt>Base return</dt>
-            <dd>{f.percent(h.baseReturn)}</dd>
+            <dd>{f.percent(h?.baseReturn ?? null)}</dd>
             <dt>FX return effect</dt>
-            <dd>{f.percentagePoints(h.fxReturnEffect)}</dd>
+            <dd>{f.percentagePoints(h?.fxReturnEffect ?? null)}</dd>
             <dt>Price contribution · INR</dt>
-            <dd>{f.money(h.priceContribution)}</dd>
+            <dd>{f.money(h?.priceContribution ?? null)}</dd>
             <dt>FX contribution · INR</dt>
-            <dd>{f.money(h.fxContribution)}</dd>
+            <dd>{f.money(h?.fxContribution ?? null)}</dd>
             <dt>Realized FIFO P&L · INR</dt>
-            <dd>{f.money(h.realizedBase)}</dd>
+            <dd>{f.money(position?.realizedBase ?? null)}</dd>
             <dt>Net dividend income · INR</dt>
-            <dd>{f.money(h.dividendBase)}</dd>
+            <dd>{f.money(position?.dividendBase ?? null)}</dd>
           </dl>
-          {h.returnUnavailableReason && (
-            <p className="type-caption text-secondary">{h.returnUnavailableReason}</p>
+          {h?.returnUnavailableReason && (
+            <p className="type-caption text-secondary">{h?.returnUnavailableReason}</p>
           )}
         </Panel>
       </div>
+      <AssetRecords detail={detail} setPage={setPage} setLotPage={setLotPage} />
       <Panel title="Sources and instrument metadata" source="34:196">
         <dl className="portfolio-details">
           <dt>Quote</dt>
           <dd>
-            {h.quote
-              ? h.quote.source + ' · ' + f.date(h.quote.asOf) + ' · ' + h.quote.status
+            {h?.quote
+              ? h?.quote.source + ' · ' + f.date(h?.quote.asOf) + ' · ' + h?.quote.status
               : 'Unavailable · no permitted/provider price'}
           </dd>
           <dt>Current FX</dt>
           <dd>
-            {h.fx
-              ? h.fx.rate + ' · ' + h.fx.source + ' · ' + h.fx.rateDate + ' · ' + h.fx.status
+            {h?.fx
+              ? h?.fx.rate + ' · ' + h?.fx.source + ' · ' + h?.fx.rateDate + ' · ' + h?.fx.status
               : 'Unavailable'}
           </dd>
           <dt>Sector</dt>
-          <dd>{h.instrument.sector}</dd>
+          <dd>{instrument.sector}</dd>
           <dt>Metadata</dt>
-          <dd>{h.instrument.metadataSource}</dd>
+          <dd>{instrument.metadataSource}</dd>
         </dl>
-        {h.quote?.source.startsWith('CoinGecko Demo') && (
+        {h?.quote?.source.startsWith('CoinGecko Demo') && (
           <a className="auth-link type-caption" href="https://www.coingecko.com/">
             Powered by CoinGecko
           </a>
         )}
       </Panel>
     </div>
+  );
+}
+function AssetRecords({
+  detail,
+  setPage,
+  setLotPage,
+}: {
+  detail: z.infer<typeof AssetDetailResponse>;
+  setPage: (page: number) => void;
+  setLotPage: (page: number) => void;
+}) {
+  const f = useFinancialDisplay(),
+    currency = detail.instrument.currency,
+    base = detail.baseCurrency;
+  return (
+    <>
+      <Panel title="Remaining FIFO lots" source="34:128">
+        <p className="type-caption text-secondary">
+          Server-derived remaining units and costs, in FIFO acquisition order. Original BUY inputs
+          stay unchanged after sells and splits; fees are included in remaining cost.
+        </p>
+        <table className="portfolio-table asset-ledger-table" aria-label="Remaining FIFO lots">
+          <caption className="sr-only">
+            Owned remaining FIFO lots with immutable acquisition provenance
+          </caption>
+          <thead>
+            <tr>
+              <th>Acquisition</th>
+              <th>Remaining quantity</th>
+              <th>Remaining local cost · {currency}</th>
+              <th>Remaining base cost · {base}</th>
+              <th>Cost provenance</th>
+            </tr>
+          </thead>
+          <tbody>
+            {detail.lots.items.map((lot) => (
+              <Fragment key={lot.transactionId}>
+                <tr data-asset-lot="true">
+                  <td data-label="Acquisition">
+                    {f.date(lot.acquisition.effectiveAt)}
+                    <span className="type-caption text-secondary">
+                      Exchange date {lot.acquisition.tradingDate}
+                    </span>
+                  </td>
+                  <td data-label="Remaining quantity">{f.quantity(lot.quantity)}</td>
+                  <td data-label="Remaining local cost">{f.money(lot.localCost, currency)}</td>
+                  <td data-label="Remaining base cost">{f.money(lot.baseCost, base)}</td>
+                  <td data-label="Cost provenance">
+                    <span className="type-caption text-secondary">
+                      {lot.acquisition.fx.source} · {lot.acquisition.fx.rateDate}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan={5} data-label="Acquisition provenance">
+                    <details>
+                      <summary className="auth-link type-compact">Original BUY provenance</summary>
+                      <dl className="portfolio-details">
+                        <dt>Recorded BUY</dt>
+                        <dd>
+                          <Link
+                            to={'/transactions?record=' + encodeURIComponent(lot.transactionId)}
+                          >
+                            Open BUY {lot.transactionId}
+                          </Link>
+                        </dd>
+                        <dt>Original quantity</dt>
+                        <dd>{f.quantity(lot.acquisition.quantity)}</dd>
+                        <dt>Original native unit price</dt>
+                        <dd>{f.price(lot.acquisition.price, currency)}</dd>
+                        <dt>Original fees</dt>
+                        <dd>{f.money(lot.acquisition.fees, currency)}</dd>
+                        <dt>Recorded historical FX</dt>
+                        <dd>
+                          {lot.acquisition.fx.rate} {base} per {currency} ·{' '}
+                          {lot.acquisition.fx.rateDate}
+                        </dd>
+                        <dt>FX source / reference</dt>
+                        <dd>
+                          {lot.acquisition.fx.source} · {lot.acquisition.fx.reference}
+                        </dd>
+                        <dt>Effective UTC instant</dt>
+                        <dd>{lot.acquisition.effectiveAt}</dd>
+                      </dl>
+                    </details>
+                  </td>
+                </tr>
+              </Fragment>
+            ))}
+          </tbody>
+        </table>
+        {!detail.lots.total && (
+          <ContentState>
+            No remaining FIFO lots. Fully sold or voided acquisitions are not remaining holdings.
+          </ContentState>
+        )}
+        <Pagination
+          label="FIFO lot pages"
+          page={detail.lots.page}
+          total={detail.lots.total}
+          size={detail.lots.pageSize}
+          change={setLotPage}
+        />
+      </Panel>
+      <Panel title="Transaction activity" source="34:165">
+        <p className="type-caption text-secondary">
+          Your immutable records, newest effective instant and sequence first. Voiding excludes an
+          event from the position replay; its original record and cash flow remain visible below.
+        </p>
+        <table
+          className="portfolio-table asset-ledger-table"
+          aria-label="Owned instrument activity"
+        >
+          <caption className="sr-only">
+            Owned BUY SELL DIVIDEND SPLIT activity and immutable void effects
+          </caption>
+          <thead>
+            <tr>
+              <th>Effective date</th>
+              <th>Type / status</th>
+              <th>Quantity / split</th>
+              <th>Native price / gross / fees</th>
+              <th>Original signed native cash flow</th>
+              <th>Record / provenance</th>
+            </tr>
+          </thead>
+          <tbody>
+            {detail.activity.items.map((row) => (
+              <Fragment key={row.record.id}>
+                <tr>
+                  <td data-label="Effective date">
+                    {f.date(row.record.effectiveAt)}
+                    <span className="type-caption text-secondary">
+                      Exchange date {row.record.tradingDate}
+                    </span>
+                  </td>
+                  <td data-label="Type / status">
+                    {row.record.type}
+                    <span className="type-caption text-secondary">
+                      {row.void ? 'Voided · excluded from position' : 'Recorded'}
+                    </span>
+                    {row.void && (
+                      <span className="type-caption text-secondary">
+                        {row.void.reason} · {f.date(row.void.recordedAt)} · void ID {row.void.id}
+                      </span>
+                    )}
+                  </td>
+                  <td data-label="Quantity / split">
+                    {'quantity' in row.record
+                      ? f.quantity(row.record.quantity)
+                      : 'numerator' in row.record
+                        ? row.record.numerator + ':' + row.record.denominator
+                        : '—'}
+                  </td>
+                  <td data-label="Native price / gross / fees">
+                    {'price' in row.record
+                      ? f.price(row.record.price, currency)
+                      : 'grossAmount' in row.record
+                        ? f.money(row.record.grossAmount, currency)
+                        : 'No price · unit adjustment'}
+                    {'fees' in row.record && (
+                      <span className="type-caption text-secondary">
+                        Fees / withholding {f.money(row.record.fees, currency)}
+                      </span>
+                    )}
+                  </td>
+                  <td data-label="Original signed native cash flow">
+                    {f.money(row.nativeCashFlow, currency)}
+                  </td>
+                  <td data-label="Record / provenance">
+                    <Link to={'/transactions?record=' + encodeURIComponent(row.record.id)}>
+                      Inspect {row.record.type} {row.record.id}
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan={6} data-label="Recorded provenance">
+                    <details>
+                      <summary className="auth-link type-caption">Recorded FX / dates</summary>
+                      <p className="type-caption text-secondary">
+                        {row.record.fx.rate} {base} per {currency} · {row.record.fx.rateDate} ·{' '}
+                        {row.record.fx.source} · {row.record.fx.reference}
+                      </p>
+                      <p className="type-caption text-secondary">
+                        {row.record.effectiveAt} · sequence {row.record.sequence}
+                      </p>
+                    </details>
+                  </td>
+                </tr>
+              </Fragment>
+            ))}
+          </tbody>
+        </table>
+        {!detail.activity.total && (
+          <ContentState>No owned transaction activity for this instrument.</ContentState>
+        )}
+        <Pagination
+          label="Instrument activity pages"
+          page={detail.activity.page}
+          total={detail.activity.total}
+          size={detail.activity.pageSize}
+          change={setPage}
+        />
+      </Panel>
+    </>
   );
 }
 function ObservedChart({

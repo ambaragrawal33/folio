@@ -1,5 +1,13 @@
 # Folio decisions — updated 2026-10-06
 
+## Priority3 CLOSED; Priority4 authorized — 2026-10-06
+
+The user explicitly APPROVES/CLOSES Priority3 engineering and all17 visual/product states at573438f6bac3cf77f84c6a155de1a74e00a78b5a. Signed3-minute preview/atomic confirmation/idempotent recovery, non-mutation, dated FX and external-provider locking limitation are accepted. No upstream lock/live-provider/commercial entitlement claim. Light/mobile/tablet remain approved DERIVED. Warning564.34kB remains unresolved/unsuppressed; performance stays later in order.
+
+Only Priority4 Asset Detail is authorized. [Plan](PRIORITY_4_PLAN.md): scoped combined response, existing replay/valuation, original BUY provenance joined to bounded remaining FIFO lots, immutable instrument-only activity, independent numbered pages default20/max100, canonical no-owned-position empty state and uniform unknown/unowned404. No new financial rules/provider/dependency, engine rewrite, Priority5/6, News/AI, hosting/spending/deployment, Figma write or main merge. Earlier dated pending-review statements are historical.
+
+Implemented choices within that scope: same consistent owned ledger read, batch canonical metadata and record/void maps; no per-lot query. One current quote/FX gateway batch preserves portfolio coverage without exposing unrelated holdings. Full-width native provenance disclosures prevent narrow-column fragmentation; only new tables use the existing stacked-row pattern at <=1024px. Existing detail-cache/write invalidation retained; permitted history reused60 seconds across paging. No new accounting/provider policy. [Verified evidence](PRIORITY_4_EVIDENCE.md), [derived visual review awaiting user approval](PRIORITY_4_VISUAL_REVIEW.md). Warning572.73kB unsuppressed. STOP; Priority5/6 remain unauthorized.
+
 ## Priority 3 implemented; review pending
 
 The approved scope uses a three-minute stateless purpose-separated HMAC receipt, mandatory `Transaction-Preview` HTTP confirmation header, owner/auth-version/payload/revision/sequence/metadata/FX/effects binding and exact full-ledger replay. Preview is financially read-only; operational rate limiting/provider cache activity is allowed. Each Mongo attempt revalidates before writes and checks expiry again. Existing idempotency returns an already-booked matching record even after expiry; uncertain retries preserve their key. Stale historical cache observations fail closed for new preview/append; old valuation cache behavior is preserved. No provider/accounting policy or entitlement change. [Exact contract/limits](TRANSACTION_PREVIEW_API.md).

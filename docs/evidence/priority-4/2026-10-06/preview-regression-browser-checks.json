@@ -1,0 +1,172 @@
+[
+  {
+    "name": "inr-review-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "automatic-fx-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "manual-fx-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "manual-fx-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "manual-fx-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "exact-decimals-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "expired-review-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "revalidated-review-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "missing-fx-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "entry-validation-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "financial-validation-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "changed-review-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "fresh-review-after-change-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "automatic-fx-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "automatic-fx-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "automatic-fx-light-768",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "uncertain-confirmation-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  }
+]
