@@ -16,5 +16,10 @@ export interface MarketGateway {
     baseCurrency: string,
     tradingDate: string,
   ): Promise<FxProvenance | null>;
+  historicalFxForCommit?(
+    currency: string,
+    baseCurrency: string,
+    tradingDate: string,
+  ): Promise<{ fx: FxProvenance; stale: boolean } | null>;
   history(instrument: Instrument): Promise<PriceHistory>;
 }

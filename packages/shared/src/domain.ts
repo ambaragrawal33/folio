@@ -260,6 +260,38 @@ export const PriceHistory = z.strictObject({
   fixture: z.boolean(),
 });
 export const AppendResponse = z.strictObject({ record: EconomicRecord, duplicate: z.boolean() });
+export const PreviewPosition = Position.omit({ lots: true });
+export const TransactionEffects = z.strictObject({
+  grossNative: OutputDecimal,
+  feesNative: OutputDecimal,
+  nativeCashFlow: OutputDecimal,
+  grossBase: OutputDecimal,
+  feesBase: OutputDecimal,
+  baseCashFlow: OutputDecimal,
+  before: PreviewPosition,
+  after: PreviewPosition,
+  quantityChange: OutputDecimal,
+  localCostChange: OutputDecimal,
+  baseCostChange: OutputDecimal,
+  realizedLocalChange: OutputDecimal,
+  realizedBaseChange: OutputDecimal,
+  dividendLocalChange: OutputDecimal,
+  dividendBaseChange: OutputDecimal,
+});
+export const TransactionPreview = z.strictObject({
+  input: TransactionInput,
+  instrument: Instrument,
+  portfolioId: z.string(),
+  portfolioRevision: z.number().int().nonnegative(),
+  baseCurrency: Currency,
+  fxMode: z.enum(['identity', 'automatic', 'override']),
+  fx: FxProvenance,
+  effects: TransactionEffects,
+  issuedAt: z.iso.datetime(),
+  expiresAt: z.iso.datetime(),
+  receipt: z.string().min(1).max(2048),
+});
+export type TransactionPreview = z.infer<typeof TransactionPreview>;
 export const VoidResponse = z.strictObject({
   event: z.strictObject({
     id: z.string(),
@@ -306,6 +338,12 @@ export const domainContracts = [
     path: '/api/v1/portfolios/{portfolioId}/ledger',
     request: TransactionInput,
     response: AppendResponse,
+  },
+  {
+    method: 'post',
+    path: '/api/v1/portfolios/{portfolioId}/ledger/preview',
+    request: TransactionInput,
+    response: TransactionPreview,
   },
   {
     method: 'post',

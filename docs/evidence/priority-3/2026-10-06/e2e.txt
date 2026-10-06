@@ -1,0 +1,22 @@
+$ playwright test
+
+Running 14 tests using 1 worker
+
+(node:27196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › apps\web\e2e\auth.spec.ts:53:1 › real MailHog registration, verification, persistence, preferences, export and confirmed deletion (11.6s)
+  ok  2 [chromium] › apps\web\e2e\auth.spec.ts:169:1 › reset and password change revoke sessions; logout restores the protected-route boundary (8.5s)
+  ok  3 [chromium] › apps\web\e2e\auth.spec.ts:200:1 › Figma auth geometry, theme/mobile derivations and real error states are accessible (6.2s)
+  ok  4 [chromium] › apps\web\e2e\discovery.spec.ts:85:1 › fresh account discovers verified collisions/aliases, records canonical identity, preserves missing data and keyboard/mobile recovery (23.2s)
+  ok  5 [chromium] › apps\web\e2e\domain.spec.ts:97:1 › real ledger entry/review/FIFO/split/dividend/void, truthful degraded valuation, desktop/mobile accessibility (48.3s)
+  ok  6 [chromium] › apps\web\e2e\domain.spec.ts:309:1 › isolated real read-only demo with labelled fixtures and no live providers (10.5s)
+  ok  7 [chromium] › apps\web\e2e\foundation.spec.ts:5:3 › dark shell, 119 states, geometry, fonts, contrast and screenshot (5.7s)
+  ok  8 [chromium] › apps\web\e2e\foundation.spec.ts:5:3 › light shell, 119 states, geometry, fonts, contrast and screenshot (5.8s)
+  ok  9 [chromium] › apps\web\e2e\foundation.spec.ts:89:1 › keyboard, forms, navigation and derived mobile layout (3.4s)
+  ok 10 [chromium] › apps\web\e2e\local-fixture.spec.ts:131:1 › fresh real account: all ledger types, FIFO/FX/P&L aggregates, source-labelled states and responsive navigation (36.1s)
+  ok 11 [chromium] › apps\web\e2e\local-fixture.spec.ts:331:1 › missing-only portfolio stays unavailable, never a zero total (8.1s)
+  ok 12 [chromium] › apps\web\e2e\local-fixture.spec.ts:350:1 › normal and public-demo accounts/cookies cannot access or be overwritten by local fixtures (6.9s)
+  ok 13 [chromium] › apps\web\e2e\preview.spec.ts:125:1 › real server preview: exact FX/effects, no booking, override, missing/error, expiry and concurrent-ledger revalidation across themes/mobile (28.4s)
+  ok 14 [chromium] › apps\web\e2e\preview.spec.ts:307:1 › uncertain booking response retries the original idempotency key and never books twice (6.8s)
+
+  14 passed (3.5m)

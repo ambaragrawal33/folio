@@ -166,6 +166,38 @@ describe('bounded exact provider transports', () => {
   });
 });
 describe('current approved providers and capabilities', () => {
+  it('exposes historical-cache staleness for confirmation while preserving existing valuation reads', async () => {
+    const cache = new TestMarketCache();
+    const fx = {
+      rate: '82.1234567890123456789',
+      rateDate: '2026-01-02',
+      source: 'Frankfurter/ECB',
+      reference: 'Synthetic cached adapter test; not live FX',
+    };
+    await cache.set(
+      'folio:normal:market:fx:USD:INR:2026-01-06',
+      JSON.stringify({ fetchedAt: new Date(instant).getTime() - 86400001, value: fx }),
+      365 * 86400,
+    );
+    const provider = gateway(async () => new Response('[]'), {}, cache);
+    expect(await provider.historicalFxForCommit('USD', 'INR', '2026-01-06')).toEqual({
+      fx,
+      stale: true,
+    });
+    await provider.drain();
+    expect(await provider.historicalFx('USD', 'INR', '2026-01-06')).toEqual(fx);
+    await provider.drain();
+    expect(await provider.historicalFxForCommit('INR', 'INR', '2026-01-06')).toMatchObject({
+      stale: false,
+      fx: { rate: '1', source: 'identity' },
+    });
+    expect(await provider.historicalFxForCommit('bad', 'INR', '2026-01-06')).toBeNull();
+    expect(
+      await gateway(
+        async () => new Response('[{"date":"2026-01-02","base":"USD","quote":"INR","rate":83}]'),
+      ).historicalFxForCommit('USD', 'INR', '2026-01-06'),
+    ).toMatchObject({ stale: false, fx: { rate: '83', rateDate: '2026-01-02' } });
+  });
   it('keeps missing keys/unverified Yahoo rights unavailable without network calls', async () => {
     const fetcher = vi.fn<typeof fetch>();
     const provider = gateway(fetcher);

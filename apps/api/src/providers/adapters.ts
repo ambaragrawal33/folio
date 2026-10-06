@@ -84,11 +84,7 @@ export class LiveMarketGateway implements MarketGateway {
     this.now = now;
     this.cached = new CachedProvider(cache, env.CACHE_NAMESPACE, () => this.now().getTime());
   }
-  async historicalFx(
-    currency: string,
-    baseCurrency: string,
-    date: string,
-  ): Promise<z.infer<typeof FxProvenance> | null> {
+  private async historicalFxResult(currency: string, baseCurrency: string, date: string) {
     if (
       !/^[A-Z]{3}$/.test(currency) ||
       !/^[A-Z]{3}$/.test(baseCurrency) ||
@@ -98,10 +94,13 @@ export class LiveMarketGateway implements MarketGateway {
       return null;
     if (currency === baseCurrency)
       return {
-        rate: '1',
-        rateDate: date,
-        source: 'identity',
-        reference: `${currency}/${baseCurrency}`,
+        value: FxProvenance.parse({
+          rate: '1',
+          rateDate: date,
+          source: 'identity',
+          reference: `${currency}/${baseCurrency}`,
+        }),
+        stale: false,
       };
     const key = `fx:${currency}:${baseCurrency}:${date}`;
     const result = await this.cached.get(
@@ -132,7 +131,14 @@ export class LiveMarketGateway implements MarketGateway {
       365 * 86400,
       'frankfurter',
     );
-    return result?.value ?? null;
+    return result;
+  }
+  async historicalFx(currency: string, baseCurrency: string, date: string) {
+    return (await this.historicalFxResult(currency, baseCurrency, date))?.value ?? null;
+  }
+  async historicalFxForCommit(currency: string, baseCurrency: string, date: string) {
+    const result = await this.historicalFxResult(currency, baseCurrency, date);
+    return result ? { fx: result.value, stale: result.stale } : null;
   }
   async rates(currencies: readonly string[], baseCurrency: string) {
     const result: Record<string, z.infer<typeof CurrentFx>> = {};

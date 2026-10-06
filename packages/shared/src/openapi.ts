@@ -164,7 +164,7 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
       path: contract.path,
       summary: contract.path.split('/').at(-1) ?? 'Portfolio',
       description:
-        'Authenticated ownership scope is enforced server-side. Stable bounded numbered pagination, string financial values and provider provenance. Writes require Origin, X-Folio-CSRF: 1 and JSON; append also requires Idempotency-Key. Public demo financial writes are denied. Immutable economics/voids; holdings exclude cash.',
+        'Authenticated ownership scope is enforced server-side. String financial values and provider provenance. POST ledger/preview is non-mutating and returns actual historical FX and complete-ledger replay effects, not current market valuation. Append requires Idempotency-Key and the signed Transaction-Preview receipt; changed/expired reviews require revalidation. Missing or stale historical FX fails closed; no current-rate substitution. Writes require Origin, X-Folio-CSRF: 1 and JSON. Public demo financial writes are denied. Immutable economics/voids; holdings exclude cash.',
       security: [{ bearerAuth: [] }],
       parameters: [
         ...pathParameters,
@@ -176,6 +176,14 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
                 in: 'header' as const,
                 required: true,
                 schema: { type: 'string' as const, minLength: 8, maxLength: 128 },
+              },
+              {
+                name: 'Transaction-Preview',
+                in: 'header' as const,
+                required: true,
+                schema: { type: 'string' as const, maxLength: 2048 },
+                description:
+                  'Signed three-minute receipt from the non-mutating preview operation. A matching already-booked idempotent retry returns the original record even after expiry.',
               },
             ]
           : []),
@@ -196,7 +204,7 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
           content: { 'application/json': { schema: schemaFor(contract.response) } },
         },
         ...Object.fromEntries(
-          [400, 401, 403, 404, 409, 415, 422, 429, 500, 503].map((code) => [
+          [400, 401, 403, 404, 409, 415, 422, 428, 429, 500, 503].map((code) => [
             code,
             {
               description: 'Explicit redacted error; missing data never becomes zero',

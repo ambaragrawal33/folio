@@ -1,0 +1,17 @@
+{
+  "checkedOn": "2026-10-06",
+  "tool": "connected Figma MCP get_design_context",
+  "designFileId": "0QNLyxaAB3EJUo4llSttjk",
+  "nodeId": "57:301",
+  "readOnly": true,
+  "returnedCodeCharacters": 7769,
+  "sourceExcerpt": "export default function FolioOnboardingDesktop() {\n  return (\n    <div className=\"bg-[#080808] relative size-full\" data-node-id=\"57:301\" data-name=\"Folio / Onboarding · Desktop\">\n      <div className=\"[word-break:break-word] absolute bg-[#101010] border border-[#2b2b2b] border-solid h-[760px] leading-[normal] left-[170px] not-italic overflow-clip rounded-[6px] top-[130px] w-[280px]\" data-node-id=\"57:302\" data-name=\"Onboarding rail\">\n        <p className=\"absolute font-['Inter:Semi_Bold'] font-semibold h-[24px] left-[27px] text-[#f5f5f5] text-[18px] top-[27px] w-[200px]\" data-node-id=\"57:303\">\n          Folio\n        </p>\n        <div className=\"absolute bg-[#101010] border border-[#2b2b2b] border-solid h-[48px] left-[19px] overflow-clip rounded-[6px] top-[91px] w-[240px]\" data-node-id=\"57:304\" data-name=\"Step\">\n          <p className=\"absolute font-['IBM_Plex_Mono:Medium'] h-[18px] left-[13px] text-[#747474] text-[12px] top-[13px] w-[28px]\" data-node-id=\"57:305\">\n            01\n          </p>\n          <p className=\"absolute font-['Inter:Medium'] font-medium h-[18px] left-[51px] text-[#b5b5b5] text-[13px] top-[13px] w-[160px]\" data-node-id=\"57:306\">\n            Account\n          </p>\n        </div>\n        <div className=\"absolute bg-[#242424] border border-[#d8a900] border-solid h-[48px] left-[19px] overflow-clip rounded-[6px] top-[165px] w-[240px]\" data-node-id=\"57:307\" data-name=\"Step\">\n          <p className=\"absolute font-['IBM_Plex_Mono:Medium'] h-[18px] left-[13px] text-[#d8a900] text-[12px] top-[13px] w-[28px]\" data-node-id=\"57:308\">\n            02\n          </p>\n  ",
+  "returnedScreenshot": true,
+  "existingMappings": [
+    "47:2",
+    "2:4823",
+    "2:4800"
+  ],
+  "newComposition": "DERIVED; no dedicated product frame; Light/mobile/tablet never Figma-approved",
+  "figmaWrites": 0
+}

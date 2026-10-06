@@ -90,9 +90,7 @@ async function record(
     page.getByRole('heading', { name: 'Review transaction', exact: true }),
   ).toBeFocused();
   if (instrument === 'AAPL:US') {
-    await expect(
-      page.getByText(/Explicit local historical FX fixture, resolved by the server/),
-    ).toBeVisible();
+    await expect(page.getByText('83 INR per USD · 2026-01-05')).toBeVisible();
     await capture(page, 'foreign-review-dark-1440');
   }
   await page.getByRole('button', { name: 'Confirm record', exact: true }).click();
@@ -407,7 +405,29 @@ test('normal and public-demo accounts/cookies cannot access or be overwritten by
   expect(
     (
       await request.post(origin + '/api/v1/portfolios/' + normalPortfolio.id + '/ledger', {
-        headers: { ...normalHeaders, 'Idempotency-Key': 'normal-isolation-' + Date.now() },
+        headers: {
+          ...normalHeaders,
+          'Idempotency-Key': 'normal-isolation-' + Date.now(),
+          'Transaction-Preview': (
+            await (
+              await request.post(
+                origin + '/api/v1/portfolios/' + normalPortfolio.id + '/ledger/preview',
+                {
+                  headers: normalHeaders,
+                  data: {
+                    instrumentId: 'TCS:NSE',
+                    type: 'BUY',
+                    quantity: '1',
+                    price: '100',
+                    fees: '0',
+                    effectiveAt: '2026-01-05T15:00:00.000Z',
+                    tradingDate: '2026-01-05',
+                  },
+                },
+              )
+            ).json()
+          ).receipt,
+        },
         data: {
           instrumentId: 'TCS:NSE',
           type: 'BUY',

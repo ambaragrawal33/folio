@@ -1,4 +1,16 @@
-# Folio decisions — updated 2026-10-05
+# Folio decisions — updated 2026-10-06
+
+## Priority 3 implemented; review pending
+
+The approved scope uses a three-minute stateless purpose-separated HMAC receipt, mandatory `Transaction-Preview` HTTP confirmation header, owner/auth-version/payload/revision/sequence/metadata/FX/effects binding and exact full-ledger replay. Preview is financially read-only; operational rate limiting/provider cache activity is allowed. Each Mongo attempt revalidates before writes and checks expiry again. Existing idempotency returns an already-booked matching record even after expiry; uncertain retries preserve their key. Stale historical cache observations fail closed for new preview/append; old valuation cache behavior is preserved. No provider/accounting policy or entitlement change. [Exact contract/limits](TRANSACTION_PREVIEW_API.md).
+
+The review exposes full-precision values through native details while reusing existing financial formatting/type and description-list geometry. Derived recovery/FX composition awaits user visual approval. Performance warning564.34kB is not suppressed; Priority4+ remain unauthorized. [Measured implementation evidence](PRIORITY_3_EVIDENCE.md).
+
+## Priority 2 CLOSED; Priority 3 authorized — 2026-10-06
+
+The user explicitly approves/closes Priority2 engineering and all14 visual states, the exact13 canonical identities/currency conventions, bounded search/collision selection, Unknown sectors and disabled live discovery/provider boundaries. Light/mobile/tablet are approved DERIVED implementations, never Figma-approved. Warning559.45kB remains unsuppressed; performance stays later in order. L01 complete; L02 approved/unimplemented.
+
+Only Priority3 server-authoritative non-mutating transaction/FX preview is now authorized. [Inspected plan](PRIORITY_3_PLAN.md): reuse existing replay/Decimal rules, strict preview operation, signed three-minute owner/payload/state/FX/effects receipt; mandatory HTTP confirmation header, atomic revalidation and idempotent booking retry. Trusted internal fixture/seed append compatibility remains; no public approval bypass. These are implementation choices within the authorized confirmation/security scope. No provider/accounting policy, entitlement, Figma/foundation, new dependency, Priority4+, News/AI, hosting/spending/deployment or main merge.
 
 ## Priority 1 CLOSED; Priority 2 authorized — 2026-10-05
 

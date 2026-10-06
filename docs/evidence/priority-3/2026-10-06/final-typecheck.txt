@@ -1,0 +1,12 @@
+$ pnpm --filter @folio/shared build && pnpm -r typecheck
+$ tsc -p tsconfig.json
+Scope: 4 of 5 workspace projects
+packages/design-tokens typecheck$ node scripts/sync.mjs --check
+packages/shared typecheck$ tsc -p tsconfig.json --noEmit
+packages/design-tokens typecheck: Figma token check: 40 canonical variables, 8 text styles, 119 states, both themes
+packages/design-tokens typecheck: Done
+packages/shared typecheck: Done
+apps/api typecheck$ tsc -p tsconfig.json --noEmit
+apps/web typecheck$ tsc --noEmit
+apps/web typecheck: Done
+apps/api typecheck: Done

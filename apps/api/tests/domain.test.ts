@@ -160,12 +160,22 @@ const buy = (quantity = '10', price = '100', fees = '10') => ({
   fees,
 });
 const key = () => randomBytes(12).toString('hex');
-function api(
+async function api(
   method: 'post' | 'get' | 'delete' | 'patch',
   path: string,
   token: string,
   body: unknown = {},
 ) {
+  let receipt = '';
+  if (method === 'post' && path.endsWith('/ledger')) {
+    const preview = await request(app)
+      .post('/api/v1' + path + '/preview')
+      .set('Authorization', 'Bearer ' + token)
+      .set('Origin', env.WEB_ORIGIN)
+      .set('X-Folio-CSRF', '1')
+      .send(body);
+    receipt = preview.body.receipt ?? '';
+  }
   const test = request(app)
     [method]('/api/v1' + path)
     .set('Authorization', 'Bearer ' + token);
@@ -174,6 +184,7 @@ function api(
     .set('Origin', env.WEB_ORIGIN)
     .set('X-Folio-CSRF', '1')
     .set('Idempotency-Key', key())
+    .set('Transaction-Preview', receipt)
     .send(body);
 }
 async function recorded(

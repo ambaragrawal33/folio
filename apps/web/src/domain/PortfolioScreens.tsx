@@ -12,6 +12,7 @@ import {
   PriceHistory,
   ValuedHolding,
   TransactionInput,
+  TransactionPreview,
   AppendResponse,
   VoidResponse,
   financialTone,
@@ -21,7 +22,8 @@ import {
 import type { Valuation, ValuedHolding as Holding } from '@folio/shared';
 import { Button, ContentState, DataStatus, FormField, Tab } from '../design-system/primitives';
 import { Icon } from '../design-system/Icon';
-import { api } from '../auth/client';
+import { api, ApiError } from '../auth/client';
+import { TransactionReview } from './TransactionReview';
 import { useSession } from '../auth/session';
 import { useFinancialDisplay, usePortfolios, useValuation } from './client';
 import './domain.css';
@@ -728,7 +730,6 @@ export function RecordTransaction() {
 }
 function TransactionForm({ p }: { p: z.infer<typeof Portfolio> }) {
   const user = useSession().data?.user,
-    f = useFinancialDisplay(),
     client = useQueryClient(),
     navigate = useNavigate();
   const [params] = useSearchParams();
@@ -752,23 +753,53 @@ function TransactionForm({ p }: { p: z.infer<typeof Portfolio> }) {
     [rateDate, setRateDate] = useState(''),
     [reference, setReference] = useState(''),
     [error, setError] = useState('');
-  const [review, setReview] = useState<TransactionInput | null>(null),
+  const [review, setReview] = useState<TransactionPreview | null>(null),
     [key, setKey] = useState('');
+  const [blocked, setBlocked] = useState(false),
+    [expired, setExpired] = useState(false);
+  useEffect(() => {
+    if (!review) return;
+    const update = () => setExpired(Date.now() >= Date.parse(review.expiresAt));
+    update();
+    const timer = window.setInterval(update, 1000);
+    return () => window.clearInterval(timer);
+  }, [review]);
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     if (review) heading.current?.focus();
-  }, [review]);
+  }, [review, blocked]);
   const instrument = instruments.data?.instruments.find((i) => i.id === instrumentId);
   const action = useMutation({
     mutationFn: (data: TransactionInput) =>
       api('/portfolios/' + p.id + '/ledger', AppendResponse, data, 'POST', true, {
         'Idempotency-Key': key,
+        'Transaction-Preview': review?.receipt ?? '',
       }),
+    onError: (failure) => {
+      if (failure instanceof ApiError && [409, 422, 428].includes(failure.status)) setBlocked(true);
+    },
     onSuccess: async () => {
       await client.invalidateQueries({ queryKey: ['domain'] });
       navigate('/transactions');
     },
   });
+  const previewAction = useMutation({
+    mutationFn: (input: TransactionInput) =>
+      api('/portfolios/' + p.id + '/ledger/preview', TransactionPreview, input),
+    onSuccess: (value) => {
+      setReview(value);
+      setBlocked(false);
+      setExpired(false);
+      action.reset();
+    },
+  });
+  const uncertain = Boolean(
+    action.error && (!(action.error instanceof ApiError) || action.error.status >= 500),
+  );
+  const previewError =
+    previewAction.error instanceof ApiError
+      ? previewAction.error.message
+      : 'The server review could not be validated. Retry before recording.';
   function prepare(e: React.FormEvent) {
     e.preventDefault();
     setError('');
@@ -794,7 +825,7 @@ function TransactionForm({ p }: { p: z.infer<typeof Portfolio> }) {
       return;
     }
     setKey(crypto.randomUUID());
-    setReview(parsed.data);
+    previewAction.mutate(parsed.data);
     action.reset();
   }
   return (
@@ -825,86 +856,77 @@ function TransactionForm({ p }: { p: z.infer<typeof Portfolio> }) {
         <ContentState>{instruments.error.message}</ContentState>
       ) : review ? (
         <Panel title="Confirm economic record">
-          <dl className="portfolio-details">
-            <dt>Type / instrument</dt>
-            <dd>
-              {review.type} · {instrument?.symbol} · {instrument?.currency}
-            </dd>
-            <dt>Effective UTC instant</dt>
-            <dd>{review.effectiveAt}</dd>
-            <dt>Exchange trading date</dt>
-            <dd>{review.tradingDate}</dd>
-            {'quantity' in review && (
-              <>
-                <dt>Quantity</dt>
-                <dd>{f.quantity(review.quantity)}</dd>
-                <dt>Native price</dt>
-                <dd>{f.price(review.price, instrument!.currency)}</dd>
-              </>
-            )}
-            {'grossAmount' in review && (
-              <>
-                <dt>Gross native dividend</dt>
-                <dd>{f.money(review.grossAmount, instrument!.currency)}</dd>
-              </>
-            )}
-            {'fees' in review && (
-              <>
-                <dt>Fees / withholding</dt>
-                <dd>{f.money(review.fees, instrument!.currency)}</dd>
-              </>
-            )}
-            {'numerator' in review && (
-              <>
-                <dt>Split ratio</dt>
-                <dd>
-                  {review.numerator}:{review.denominator} · preserves total lot cost
-                </dd>
-              </>
-            )}
-            <dt>Historical FX</dt>
-            <dd>
-              {review.historicalFxOverride
-                ? review.historicalFxOverride.rate +
-                  ' · ' +
-                  review.historicalFxOverride.rateDate +
-                  ' · ' +
-                  review.historicalFxOverride.reference
-                : instrument?.currency === 'INR'
-                  ? 'Identity · INR/INR'
-                  : user?.localFixture
-                    ? 'Explicit local historical FX fixture, resolved by the server when recording. See supported date and source in the fixture notice.'
-                    : 'Latest available ECB daily reference on or before the trading date, verified by the server.'}
-            </dd>
-          </dl>
+          <TransactionReview preview={review} />
           <p className="type-compact text-secondary">
-            The server validates the complete ordered ledger and resolves historical FX before
-            recording. Missing FX requires an explicit override; no current rate is substituted. An
-            incorrect record can be voided, never edited.
+            Confirmation rechecks ownership, ledger and historical FX. Changed or expired inputs
+            require revalidation and another confirmation. An incorrect booked record can be voided,
+            never edited.
           </p>
+          {(blocked || expired) && (
+            <p role="alert" className="text-negative">
+              {blocked
+                ? 'This review needs revalidation. No new transaction was recorded by the rejected confirmation.'
+                : 'This review has expired. Revalidate and review the updated values before confirming.'}
+            </p>
+          )}
+          {uncertain && (
+            <p role="status" className="type-compact text-secondary">
+              The booking result could not be confirmed. Retry confirmation uses the same request
+              identifier and cannot book twice.
+            </p>
+          )}
           <div className="portfolio-actions">
+            {(blocked || expired) && (
+              <Button
+                disabled={previewAction.isPending || action.isPending}
+                state={previewAction.isPending ? 'Disabled' : 'Default'}
+                onClick={() => previewAction.mutate(review.input)}
+              >
+                {previewAction.isPending ? 'Revalidating…' : 'Revalidate transaction'}
+              </Button>
+            )}
             <Button
               kind="Primary"
-              disabled={action.isPending}
-              state={action.isPending ? 'Disabled' : 'Default'}
+              disabled={
+                action.isPending || previewAction.isPending || blocked || (expired && !uncertain)
+              }
+              state={
+                action.isPending || previewAction.isPending || blocked || (expired && !uncertain)
+                  ? 'Disabled'
+                  : 'Default'
+              }
               aria-busy={action.isPending}
-              onClick={() => action.mutate(review)}
+              onClick={() => action.mutate(review.input)}
             >
-              {action.isPending ? 'Recording…' : 'Confirm record'}
+              {action.isPending
+                ? 'Recording…'
+                : uncertain
+                  ? 'Retry confirmation'
+                  : 'Confirm record'}
             </Button>
             <Button
-              disabled={action.isPending}
+              disabled={action.isPending || previewAction.isPending}
               onClick={() => {
                 setReview(null);
+                setBlocked(false);
+                setExpired(false);
+                previewAction.reset();
                 action.reset();
               }}
             >
               Back to entry
             </Button>
           </div>
+          {previewAction.error && (
+            <p role="alert" className="text-negative">
+              {previewError}
+            </p>
+          )}
           {action.error && (
             <p role="alert" className="text-negative">
-              {action.error.message}
+              {action.error instanceof ApiError
+                ? action.error.message
+                : 'The booking result could not be validated. Retry confirmation using the same request identifier.'}
             </p>
           )}
         </Panel>
@@ -1039,14 +1061,25 @@ function TransactionForm({ p }: { p: z.infer<typeof Portfolio> }) {
               records positive net income without changing units. SPLIT preserves lot cost and
               rejects unsupported fractional cash-in-lieu.
             </p>
+            {previewAction.error && (
+              <p role="alert" className="text-negative">
+                {previewError}
+              </p>
+            )}
             {error && (
               <p role="alert" className="text-negative">
                 {error}
               </p>
             )}
             <div className="portfolio-actions">
-              <Button kind="Primary" type="submit">
-                Review transaction
+              <Button
+                kind="Primary"
+                type="submit"
+                disabled={previewAction.isPending}
+                state={previewAction.isPending ? 'Disabled' : 'Default'}
+                aria-busy={previewAction.isPending}
+              >
+                {previewAction.isPending ? 'Resolving review…' : 'Review transaction'}
               </Button>
               <Button disabled title="CSV import is P1">
                 Import CSV · unavailable

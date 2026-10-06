@@ -9,8 +9,10 @@ import {
   DomainExport,
   LedgerPage,
   Valuation,
+  TransactionPreview,
+  FxProvenance,
 } from '@folio/shared';
-import type { FxProvenance, HoldingsQuery } from '@folio/shared';
+import type { HoldingsQuery } from '@folio/shared';
 import { domainModels } from '../models/domain.ts';
 import type { EconomicDocument, VoidDocument, PortfolioDocument } from '../models/domain.ts';
 import type { AuthService, Identity } from './auth.ts';
@@ -23,6 +25,10 @@ import { HttpError } from '../utils/http-error.ts';
 import { catalogueSearch, gatedDiscovery, verifiedRegistry } from '../providers/discovery.ts';
 import type { InstrumentDiscovery } from '../providers/discovery.ts';
 import type { InstrumentSearchQuery } from '@folio/shared';
+
+import { transactionEffects } from './transaction-preview.ts';
+import { previewHash, signPreview, readPreview } from './preview-receipt.ts';
+import type { PreviewScope } from './preview-receipt.ts';
 
 const notFound = () => new HttpError(404, 'RESOURCE_NOT_FOUND', 'This resource is unavailable.');
 const readonly = () => new HttpError(403, 'DEMO_READ_ONLY', 'This public demo is read-only.');
@@ -250,35 +256,19 @@ export class DomainService {
       );
     return projection;
   }
-  async append(identity: Identity, portfolioId: string, raw: unknown, idempotencyKey: string) {
-    if (identity.user.demoReadonly) throw readonly();
+  private parsedTransaction(raw: unknown) {
     const parsed = TransactionInput.safeParse(raw);
     if (!parsed.success)
       throw new HttpError(400, 'VALIDATION_ERROR', 'Check the transaction fields and dates.');
-    if (!/^[A-Za-z0-9_-]{8,128}$/.test(idempotencyKey))
-      throw new HttpError(
-        400,
-        'IDEMPOTENCY_REQUIRED',
-        'A valid transaction request identifier is required.',
-      );
-    const input = parsed.data;
-    const portfolio = await this.owned(identity, portfolioId);
-    const requestHash = createHash('sha256').update(canonical(input)).digest('hex');
-    const previous = await this.models.Economic.findOne({
-      userId: identity.user._id,
-      portfolioId: portfolio._id,
-      idempotencyKey,
-    });
-    if (previous) {
-      if (previous.requestHash !== requestHash)
-        throw new HttpError(
-          409,
-          'IDEMPOTENCY_CONFLICT',
-          'This request identifier was already used for a different transaction.',
-        );
-      return { record: economicRecord(previous), duplicate: true };
-    }
-    const rawInstrument = await this.models.Instrument.findById(input.instrumentId).lean();
+    return parsed.data;
+  }
+  private async resolvedTransaction(
+    portfolio: HydratedDocument<PortfolioDocument>,
+    input: TransactionInput,
+    session?: ClientSession,
+  ) {
+    const query = this.models.Instrument.findById(input.instrumentId);
+    const rawInstrument = await (session ? query.session(session) : query).lean();
     if (!rawInstrument) throw notFound();
     const { _id, ...instrumentData } = rawInstrument;
     const instrument = Instrument.parse({ id: _id, ...instrumentData });
@@ -307,24 +297,169 @@ export class DomainService {
         'IDENTITY_FX_OVERRIDE',
         'Base-currency transactions use an FX rate of 1. Remove the FX override.',
       );
-    const fx =
-      instrument.currency === portfolio.baseCurrency
-        ? sameCurrency(instrument.currency, input.tradingDate)
-        : (input.historicalFxOverride ??
-          (await this.market.historicalFx(
-            instrument.currency,
-            portfolio.baseCurrency,
-            input.tradingDate,
-          )));
-    if (!fx)
+    if (
+      !['INR', 'USD'].includes(instrument.currency) ||
+      !['INR', 'USD'].includes(portfolio.baseCurrency)
+    )
+      throw new HttpError(
+        422,
+        'UNSUPPORTED_CURRENCY',
+        'This instrument or portfolio currency is not supported.',
+      );
+    let resolved: FxProvenance | null;
+    if (instrument.currency === portfolio.baseCurrency)
+      resolved = sameCurrency(instrument.currency, input.tradingDate);
+    else if (input.historicalFxOverride) resolved = input.historicalFxOverride;
+    else if (this.market.historicalFxForCommit) {
+      const observation = await this.market.historicalFxForCommit(
+        instrument.currency,
+        portfolio.baseCurrency,
+        input.tradingDate,
+      );
+      if (observation?.stale)
+        throw new HttpError(
+          422,
+          'HISTORICAL_FX_STALE',
+          'Historical FX is awaiting a fresh provider check. Retry the review; no transaction was recorded.',
+        );
+      resolved = observation?.fx ?? null;
+    } else
+      resolved = await this.market.historicalFx(
+        instrument.currency,
+        portfolio.baseCurrency,
+        input.tradingDate,
+      );
+    if (!resolved)
       throw new HttpError(
         422,
         'HISTORICAL_FX_UNAVAILABLE',
         'Historical reference FX is unavailable. Add an explicit historical FX override with its source.',
       );
+    const parsedFx = FxProvenance.safeParse(resolved);
+    if (!parsedFx.success)
+      throw new HttpError(
+        422,
+        'HISTORICAL_FX_INVALID',
+        'Historical FX could not be validated. Retry or enter a sourced override.',
+      );
+    return { instrument, effective, fx: parsedFx.data };
+  }
+  private previewScope(
+    identity: Identity,
+    portfolio: HydratedDocument<PortfolioDocument>,
+    input: TransactionInput,
+    instrument: Instrument,
+    fx: FxProvenance,
+    effects: unknown,
+  ): PreviewScope {
+    return {
+      owner: identity.user._id.toHexString(),
+      portfolio: portfolio._id.toHexString(),
+      authVersion: identity.user.authVersion,
+      requestHash: createHash('sha256').update(canonical(input)).digest('hex'),
+      revision: portfolio.revision,
+      sequence: portfolio.nextSequence,
+      instrumentHash: previewHash(instrument),
+      fxHash: previewHash(fx),
+      effectsHash: previewHash(effects),
+    };
+  }
+  private candidate(
+    portfolio: HydratedDocument<PortfolioDocument>,
+    input: TransactionInput,
+    instrument: Instrument,
+    fx: FxProvenance,
+  ): EconomicRecord {
+    return {
+      ...input,
+      id: '__preview__',
+      sequence: portfolio.nextSequence + 1,
+      currency: instrument.currency,
+      baseCurrency: portfolio.baseCurrency,
+      fx,
+    };
+  }
+  async preview(identity: Identity, portfolioId: string, raw: unknown) {
+    if (identity.user.demoReadonly) throw readonly();
+    const input = this.parsedTransaction(raw);
+    try {
+      return await this.auth.connection.transaction(
+        async (session) => {
+          const portfolio = await this.owned(identity, portfolioId, session);
+          const { instrument, fx } = await this.resolvedTransaction(portfolio, input, session);
+          const data = await this.entries(identity, portfolio._id, session);
+          if (data.records.length >= 10000)
+            throw new HttpError(
+              409,
+              'LEDGER_CAPACITY',
+              'A portfolio supports at most 10,000 economic records.',
+            );
+          const effects = transactionEffects(
+            data.records,
+            data.voids,
+            this.candidate(portfolio, input, instrument, fx),
+          );
+          const binding = this.previewScope(identity, portfolio, input, instrument, fx, effects),
+            now = this.clock();
+          return TransactionPreview.parse({
+            input,
+            instrument,
+            portfolioId: portfolio._id.toHexString(),
+            portfolioRevision: portfolio.revision,
+            baseCurrency: portfolio.baseCurrency,
+            fxMode:
+              instrument.currency === portfolio.baseCurrency
+                ? 'identity'
+                : input.historicalFxOverride
+                  ? 'override'
+                  : 'automatic',
+            fx,
+            effects,
+            issuedAt: now.toISOString(),
+            expiresAt: new Date(now.getTime() + 180000).toISOString(),
+            receipt: signPreview(binding, now, this.auth.digest.bind(this.auth)),
+          });
+        },
+        { readConcern: { level: 'snapshot' } },
+      );
+    } catch (error) {
+      if (error instanceof FinancialError) throw new HttpError(422, error.code, error.message);
+      throw error;
+    }
+  }
+  async append(
+    identity: Identity,
+    portfolioId: string,
+    raw: unknown,
+    idempotencyKey: string,
+    receipt?: string,
+  ) {
+    if (identity.user.demoReadonly) throw readonly();
+    const input = this.parsedTransaction(raw);
+    if (!/^[A-Za-z0-9_-]{8,128}$/.test(idempotencyKey))
+      throw new HttpError(
+        400,
+        'IDEMPOTENCY_REQUIRED',
+        'A valid transaction request identifier is required.',
+      );
+    const portfolio = await this.owned(identity, portfolioId);
+    const requestHash = createHash('sha256').update(canonical(input)).digest('hex');
+    const previous = await this.models.Economic.findOne({
+      userId: identity.user._id,
+      portfolioId: portfolio._id,
+      idempotencyKey,
+    });
+    if (previous) {
+      if (previous.requestHash !== requestHash)
+        throw new HttpError(
+          409,
+          'IDEMPOTENCY_CONFLICT',
+          'This request identifier was already used for a different transaction.',
+        );
+      return { record: economicRecord(previous), duplicate: true };
+    }
     try {
       return await this.auth.connection.transaction(async (session) => {
-        await this.touchUser(identity, session);
         const current = await this.owned(identity, portfolioId, session);
         const duplicate = await this.models.Economic.findOne({
           userId: identity.user._id,
@@ -347,6 +482,52 @@ export class DomainService {
             'LEDGER_CAPACITY',
             'A portfolio supports at most 10,000 economic records.',
           );
+        // Public confirmation is mandatory; internal seed/test calls may omit a receipt.
+        const proof =
+          receipt === undefined
+            ? null
+            : readPreview(receipt, this.clock(), this.auth.digest.bind(this.auth));
+        if (
+          proof &&
+          (proof.revision !== current.revision || proof.sequence !== current.nextSequence)
+        )
+          throw new HttpError(
+            409,
+            'PREVIEW_CHANGED',
+            'The portfolio changed after this review. Revalidate and review the updated values.',
+          );
+        if (
+          proof &&
+          (proof.owner !== identity.user._id.toHexString() ||
+            proof.portfolio !== current._id.toHexString() ||
+            proof.authVersion !== identity.user.authVersion ||
+            proof.requestHash !== requestHash)
+        )
+          throw new HttpError(
+            409,
+            'PREVIEW_INVALID',
+            'This review does not match the transaction. Revalidate before confirming.',
+          );
+        const { instrument, effective, fx } = await this.resolvedTransaction(
+          current,
+          input,
+          session,
+        );
+        const effects = transactionEffects(
+          data.records,
+          data.voids,
+          this.candidate(current, input, instrument, fx),
+        );
+        if (proof) {
+          const binding = this.previewScope(identity, current, input, instrument, fx, effects);
+          if (Object.entries(binding).some(([k, v]) => proof[k as keyof typeof proof] !== v))
+            throw new HttpError(
+              409,
+              'PREVIEW_CHANGED',
+              'Portfolio, instrument or historical FX inputs changed. Revalidate and review the updated values.',
+            );
+        }
+        await this.touchUser(identity, session);
         current.revision += 1;
         current.nextSequence += 1;
         current.currencyLockedAt ??= this.clock();
@@ -410,6 +591,8 @@ export class DomainService {
           session,
         );
         void projection;
+        if (receipt !== undefined)
+          readPreview(receipt, this.clock(), this.auth.digest.bind(this.auth));
         return { record, duplicate: false };
       });
     } catch (error) {

@@ -3,6 +3,7 @@ import type { Request } from 'express';
 import type { z } from 'zod';
 import {
   AppendResponse,
+  TransactionPreview,
   EmptyRequest,
   HoldingsQuery,
   LedgerQuery,
@@ -157,7 +158,15 @@ export function domainRouter(env: Env, service: DomainService, cache: CacheStore
           parameter(req, 'portfolioId'),
           req.body,
           req.get('Idempotency-Key') ?? '',
+          req.get('Transaction-Preview') ?? '',
         ),
+      ),
+    ),
+  );
+  router.post('/portfolios/:portfolioId/ledger/preview', async (req, res) =>
+    res.json(
+      TransactionPreview.parse(
+        await service.preview(await identity(req), parameter(req, 'portfolioId'), req.body),
       ),
     ),
   );

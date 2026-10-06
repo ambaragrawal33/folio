@@ -251,6 +251,7 @@ test('real ledger entry/review/FIFO/split/dividend/void, truthful degraded valua
     .fill('Explicit browser-test historical FX fixture');
   await capture(page, 'fx-override-light-390', true);
   await page.getByRole('button', { name: 'Review transaction' }).click();
+  await expect(page.getByRole('heading', { name: 'Review transaction' })).toBeFocused();
   await capture(page, 'transaction-review-light-390', true);
   await page.getByRole('button', { name: 'Back to entry', exact: true }).click();
   await page.getByLabel('Canonical instrument').selectOption('TCS:NSE');
@@ -258,8 +259,8 @@ test('real ledger entry/review/FIFO/split/dividend/void, truthful degraded valua
   await page.getByLabel('Transaction type').selectOption('SELL');
   await page.getByLabel('Quantity', { exact: true }).fill('100');
   await page.getByRole('button', { name: 'Review transaction' }).click();
-  await page.getByRole('button', { name: 'Confirm record', exact: true }).click();
   await expect(page.getByRole('alert')).toContainText('sell more units than held');
+  await expect(page.getByRole('button', { name: 'Confirm record', exact: true })).toHaveCount(0);
   await capture(page, 'oversell-error-light-390', true);
   await nav.click();
   await expect(nav).toHaveAttribute('aria-expanded', 'true');

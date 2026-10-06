@@ -186,6 +186,69 @@ beforeEach(() => {
   };
   fetcher = vi.fn(async (address, options) => {
     const path = String(address).replace('/api/v1', '').split('?')[0]!;
+    if (options?.method === 'POST' && path.endsWith('/ledger/preview')) {
+      const input = JSON.parse(String(options.body));
+      const chosen = (
+        replies['/instruments'] as { instruments: (typeof instrument)[] }
+      ).instruments.find((i) => i.id === input.instrumentId)!;
+      const position = {
+        instrumentId: chosen.id,
+        currency: chosen.currency,
+        baseCurrency: 'INR',
+        quantity: '0',
+        localCost: '0',
+        baseCost: '0',
+        averageCost: null,
+        realizedLocal: '0',
+        realizedBase: '0',
+        dividendLocal: '0',
+        dividendBase: '0',
+      };
+      return response({
+        input,
+        instrument: chosen,
+        portfolioId: p.id,
+        portfolioRevision: p.revision,
+        baseCurrency: 'INR',
+        fxMode: input.historicalFxOverride
+          ? 'override'
+          : chosen.currency === 'INR'
+            ? 'identity'
+            : 'automatic',
+        fx: input.historicalFxOverride ?? {
+          rate: chosen.currency === 'INR' ? '1' : '83',
+          rateDate: '2026-01-05',
+          source: chosen.currency === 'INR' ? 'identity' : 'local-fixture',
+          reference: 'Explicit unit-test preview response',
+        },
+        issuedAt: new Date().toISOString(),
+        expiresAt: new Date(Date.now() + 180000).toISOString(),
+        receipt: 'explicit-unit-test-receipt',
+        effects: {
+          grossNative: '1000',
+          feesNative: '10',
+          nativeCashFlow: '-1010',
+          grossBase: '1000',
+          feesBase: '10',
+          baseCashFlow: '-1010',
+          before: position,
+          after: {
+            ...position,
+            quantity: '10',
+            localCost: '1010',
+            baseCost: '1010',
+            averageCost: '101',
+          },
+          quantityChange: '10',
+          localCostChange: '1010',
+          baseCostChange: '1010',
+          realizedLocalChange: '0',
+          realizedBaseChange: '0',
+          dividendLocalChange: '0',
+          dividendBaseChange: '0',
+        },
+      });
+    }
     if (options?.method === 'POST' && path.endsWith('/void'))
       return response({
         event: {
@@ -331,7 +394,7 @@ it('requires explicit historical FX provenance and supports split/dividend entry
     target: { value: 'Historical contract statement' },
   });
   fireEvent.click(screen.getByRole('button', { name: 'Review transaction' }));
-  expect(screen.getByText(/83 · 2026-01-05/)).toBeTruthy();
+  expect(await screen.findByText('83 INR per USD · 2026-01-05')).toBeTruthy();
   fireEvent.click(screen.getByRole('button', { name: 'Back to entry' }));
   fireEvent.change(screen.getByLabelText('Transaction type'), { target: { value: 'SPLIT' } });
   fireEvent.change(screen.getByLabelText('Split numerator · new units'), {
@@ -341,7 +404,82 @@ it('requires explicit historical FX provenance and supports split/dividend entry
     target: { value: '1' },
   });
   fireEvent.click(screen.getByRole('button', { name: 'Review transaction' }));
-  expect(screen.getByText('2:1 · preserves total lot cost')).toBeTruthy();
+  expect(await screen.findByText('2:1 · preserves total lot cost')).toBeTruthy();
+});
+async function prepareNativeReview() {
+  show(<RecordTransaction />, '/transactions/new');
+  await screen.findByRole('option', { name: /TCS/ });
+  for (const [label, value] of [
+    ['Canonical instrument', 'TCS:NSE'],
+    ['Effective date and time · UTC', '2026-01-05T15:00'],
+    ['Exchange trading date', '2026-01-05'],
+    ['Quantity', '10'],
+    ['Native price · INR', '100'],
+    ['Native fees / withholding', '10'],
+  ])
+    fireEvent.change(screen.getByLabelText(label!), { target: { value } });
+  fireEvent.click(screen.getByRole('button', { name: 'Review transaction' }));
+}
+it('blocks changed confirmation, revalidates without booking and preserves the original idempotency key', async () => {
+  const original = fetcher.getMockImplementation()!;
+  let previews = 0,
+    confirmations = 0;
+  const keys: string[] = [];
+  fetcher.mockImplementation(async (url, options) => {
+    if (String(url).endsWith('/ledger/preview')) previews++;
+    if (String(url).endsWith('/ledger') && options?.method === 'POST') {
+      keys.push((options.headers as Record<string, string>)['Idempotency-Key']!);
+      expect((options.headers as Record<string, string>)['Transaction-Preview']).toBe(
+        'explicit-unit-test-receipt',
+      );
+      if (++confirmations === 1)
+        return new Response(
+          JSON.stringify({
+            error: {
+              code: 'PREVIEW_CHANGED',
+              message: 'Inputs changed; revalidate before confirming.',
+              requestId: '00000000-0000-4000-8000-000000000001',
+            },
+          }),
+          { status: 409 },
+        );
+    }
+    return original(url, options);
+  });
+  await prepareNativeReview();
+  await screen.findByLabelText('Server-resolved transaction review');
+  expect(previews).toBe(1);
+  expect(confirmations).toBe(0);
+  fireEvent.click(screen.getByRole('button', { name: 'Confirm record' }));
+  const retry = await screen.findByRole('button', { name: 'Revalidate transaction' });
+  expect(screen.getByRole('button', { name: 'Confirm record' }).hasAttribute('disabled')).toBe(
+    true,
+  );
+  fireEvent.click(retry);
+  await waitFor(() =>
+    expect(screen.getByRole('button', { name: 'Confirm record' }).hasAttribute('disabled')).toBe(
+      false,
+    ),
+  );
+  expect(previews).toBe(2);
+  expect(confirmations).toBe(1);
+  fireEvent.click(screen.getByRole('button', { name: 'Confirm record' }));
+  await waitFor(() => expect(confirmations).toBe(2));
+  expect(keys[0]).toBe(keys[1]);
+});
+it('rejects malformed financial preview responses without exposing schema errors or enabling confirmation', async () => {
+  const original = fetcher.getMockImplementation()!;
+  fetcher.mockImplementation(async (url, options) =>
+    String(url).endsWith('/ledger/preview')
+      ? response({ fx: { rate: 1 } })
+      : original(url, options),
+  );
+  await prepareNativeReview();
+  expect(
+    await screen.findByText('The server review could not be validated. Retry before recording.'),
+  ).toBeTruthy();
+  expect(screen.queryByRole('button', { name: 'Confirm record' })).toBeNull();
+  expect(screen.getByRole('alert').textContent).not.toMatch(/Zod|invalid_type|schema/);
 });
 it('makes void explicit with a reason and exposes original immutable record metadata', async () => {
   show(<PortfolioScreen view="transactions" />, '/transactions');
