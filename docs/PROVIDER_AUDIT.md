@@ -1,5 +1,13 @@
 # Provider and dependency audit
 
+## Priority5 refresh/retention boundary — 2026-10-06
+
+No live provider/key/entitlement is activated. The 13-identity catalogue, original six-record live market scope and five synthetic quote fixtures are unchanged. Durable quote/close retention is separate from display; new default-OFF flags require an actual verified rights reference. A flag is not evidence of permission. Unknown BSE/year close sessions remain unavailable. Capture selects the latest completed permitted observed split-adjusted point, without `adjclose`, backfill or guessed official close.
+
+Forced refresh reuses exact adapters, bounded5-second transport/body, encrypted cache/single-flight/breaker and shared CoinGecko60/minute/9000/month caps. Current-price cancellation and generation/deadline guards prevent late Mongo publication. Recorded test responses exercise malformed/partial/unavailable/cancellation; isolated fixtures stay synthetic. Frankfurter/ECB historical policy and preview provenance remain unchanged. No commercial rights, live keyed smoke or production-provider acceptance is claimed.
+
+Pinned BullMQ6.3.11: registry Node>=14.17; existing ioredis6 satisfies optional>=5 peer. Node24.19/pnpm11.19/TS6.0.3 graph verifies498 packages/83 peer edges/no failures; advisory audit548 dependency records/no vulnerabilities. Exact-version OSV query returned no vulnerability entries. Optional msgpackr-extract3.0.4 native build is explicitly denied; JavaScript fallback is used. Strict engine/peer/script policies remain. Runtime/coverage/browser measurements are recorded in Priority5 evidence. No hosting research/spending.
+
 ## Priority 4 — no provider scope change — 2026-10-06
 
 Owned Asset Detail reuses the existing quote/FX gateway and separately permitted history adapter. One gateway batch per active owned instrument set avoids per-lot/activity provider requests; underlying permitted provider/cache calls remain bounded by existing capabilities, not one universal upstream request. Economic reads are consistent Mongo snapshots; external observations are not transaction-lockable. No provider/key/entitlement activation, paid assumption, new identity, new price/history fixture or dependency. The reviewed local captures use explicitly labelled isolated synthetic quotes/history/FX; they do not establish live-provider acceptance or commercial entitlement. Existing Yahoo/CoinGecko gates and Frankfurter historical policy remain unchanged. No hosting research or deployment work.

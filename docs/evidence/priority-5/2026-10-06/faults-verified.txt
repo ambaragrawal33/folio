@@ -1,0 +1,8 @@
+
+ RUN  v5.0.3 C:/Users/ambar/OneDrive/Documents/ChatGPT/Folio
+
+
+ Test Files  1 passed (1)
+      Tests  28 passed (28)
+   Start at  18:45:35
+   Duration  38.57s (tests 94%, import 4%, transform 1%)

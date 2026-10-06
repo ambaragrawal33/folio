@@ -31,6 +31,7 @@ import type { InstrumentSearchQuery } from '@folio/shared';
 import { transactionEffects } from './transaction-preview.ts';
 import { previewHash, signPreview, readPreview } from './preview-receipt.ts';
 import type { PreviewScope } from './preview-receipt.ts';
+import { jobModels, publicRun } from '../jobs/models.ts';
 
 const notFound = () => new HttpError(404, 'RESOURCE_NOT_FOUND', 'This resource is unavailable.');
 const readonly = () => new HttpError(403, 'DEMO_READ_ONLY', 'This public demo is read-only.');
@@ -140,6 +141,7 @@ export class DomainService {
     });
   }
   async initialize(master: readonly Instrument[]) {
+    await Promise.all(Object.values(jobModels(this.auth.connection)).map((m) => m.init()));
     await Promise.all(Object.values(this.models).map((m) => m.init()));
     for (const candidate of verifiedRegistry(master)) {
       const { id, ...entry } = Instrument.parse(candidate);
@@ -197,6 +199,50 @@ export class DomainService {
     const doc = await (session ? query.session(session) : query);
     if (!doc) throw notFound();
     return doc;
+  }
+  async assertOwnedForRefresh(identity: Identity, id: string) {
+    await this.owned(identity, id);
+  }
+  async refreshInstruments(userId: Types.ObjectId, portfolioId: Types.ObjectId) {
+    return this.auth.connection.transaction(
+      async (session) => {
+        const user = await this.auth.models.User.exists({
+          _id: userId,
+          emailVerifiedAt: { $ne: null },
+          demoReadonly: false,
+        }).session(session);
+        const portfolio = await this.models.Portfolio.exists({ _id: portfolioId, userId }).session(
+          session,
+        );
+        if (!user || !portfolio) throw notFound();
+        const records = await this.models.Economic.find({ userId, portfolioId })
+          .sort({ effectiveAt: 1, sequence: 1 })
+          .limit(10001)
+          .session(session)
+          .lean();
+        if (records.length > 10000)
+          throw new HttpError(422, 'LEDGER_LIMIT', 'The supported ledger limit was reached.');
+        const voids = await this.models.Void.find({ userId, portfolioId }).session(session).lean();
+        const projection = replayLedger(records.map(economicRecord), voids.map(voidEvent));
+        const ids = projection.positions
+          .filter((p) => !decimal(p.quantity).isZero())
+          .map((p) => p.instrumentId)
+          .sort();
+        if (ids.length > 25)
+          throw new HttpError(
+            422,
+            'REFRESH_LIMIT',
+            'Refresh supports up to 25 instruments per batch.',
+          );
+        return (
+          await this.models.Instrument.find({ _id: { $in: ids } })
+            .sort({ _id: 1 })
+            .session(session)
+            .lean()
+        ).map(({ _id, ...r }) => Instrument.parse({ id: _id, ...r }));
+      },
+      { readConcern: { level: 'snapshot' } },
+    );
   }
   async instruments(query: string) {
     return catalogueSearch(await this.catalogue(), query, 30).instruments;
@@ -905,6 +951,13 @@ export class DomainService {
             .lean()
         ).map(voidEvent);
         return DomainExport.parse({
+          jobs: (
+            await jobModels(this.auth.connection)
+              .Run.find({ userId })
+              .sort({ createdAt: 1, _id: 1 })
+              .session(session)
+              .lean()
+          ).map(publicRun),
           portfolios: portfolios.map(portfolioView),
           ledger: records.map((record) => ({
             record,
@@ -918,6 +971,7 @@ export class DomainService {
     );
   }
   private async deleteOwned(userId: Types.ObjectId, session: ClientSession) {
+    await jobModels(this.auth.connection).Run.deleteMany({ userId }).session(session);
     // Privacy erasure is the sole append-only deletion exception, inside the account transaction.
     await this.models.Economic.collection.deleteMany({ userId }, { session });
     await this.models.Void.collection.deleteMany({ userId }, { session });

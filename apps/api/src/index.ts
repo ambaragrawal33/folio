@@ -12,6 +12,8 @@ import { RedisMarketCache } from './services/market-cache.ts';
 import { DemoMarketGateway, seedDemo } from './services/demo.ts';
 import { instrumentMaster, marketInstrumentMaster } from './models/instrument-master.ts';
 import { LocalFixtureMarketGateway } from './providers/local-fixture.ts';
+import { ObservedMarketGateway } from './jobs/observations.ts';
+import { BullMQJobRunner, StatelessJobRunner, JobService } from './jobs/runner.ts';
 let logger: ReturnType<typeof createLogger> | undefined;
 try {
   const env = parseEnv(process.env);
@@ -26,7 +28,7 @@ try {
     developmentEmail(env),
   );
   await service.initialize();
-  const market = env.DEMO_MODE
+  const upstream = env.DEMO_MODE
     ? new DemoMarketGateway(env)
     : env.LOCAL_FIXTURE_MODE
       ? new LocalFixtureMarketGateway(env)
@@ -35,13 +37,30 @@ try {
           new RedisMarketCache(dependencies.redis, env.REFRESH_TOKEN_SECRET),
           marketInstrumentMaster,
         );
+  const market =
+    env.LOCAL_JOBS_ENABLED && !env.DEMO_MODE
+      ? new ObservedMarketGateway(dependencies.mongo, upstream, env.LOCAL_FIXTURE_MODE)
+      : upstream;
   const domain = new DomainService(service, market);
   await domain.initialize(instrumentMaster);
   if (env.DEMO_MODE) await seedDemo(env, service, domain);
+  const jobs =
+    market instanceof ObservedMarketGateway
+      ? new JobService(env, domain, market, dependencies.redis, {
+          report: (value) => logger?.info(value, 'Local job attempt'),
+        })
+      : undefined;
+  const runner = jobs
+    ? env.JOB_RUNNER_MODE === 'stateless'
+      ? new StatelessJobRunner(jobs)
+      : new BullMQJobRunner(jobs)
+    : undefined;
+  if (jobs) await jobs.initialize();
   const server = createApp(env, dependencies, logger, undefined, {
     service,
     cache: new RedisCache(dependencies.redis),
     domain,
+    ...(jobs ? { jobs } : {}),
   }).listen(
     env.PORT,
     env.LOCAL_FIXTURE_MODE && new URL(env.MONGODB_URI).hostname !== 'mongo'
@@ -55,7 +74,8 @@ try {
     stopping = true;
     server.close(() => {
       void (async () => {
-        if (market instanceof LiveMarketGateway) await market.drain();
+        await runner?.close();
+        if (upstream instanceof LiveMarketGateway) await upstream.drain();
         await dependencies.close();
         process.exit(0);
       })();

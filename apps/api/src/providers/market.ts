@@ -9,6 +9,13 @@ export interface PriceHistory {
   fixture: boolean;
 }
 export interface MarketGateway {
+  capability?(instrument: Instrument): {
+    quotes: boolean;
+    closes: boolean;
+    display?: boolean;
+    reason: string | null;
+  };
+  refreshQuotes?(instruments: readonly Instrument[], signal?: AbortSignal): Promise<Quote[]>;
   quotes(instruments: readonly Instrument[]): Promise<Quote[]>;
   rates(currencies: readonly string[], baseCurrency: string): Promise<Record<string, CurrentFx>>;
   historicalFx(

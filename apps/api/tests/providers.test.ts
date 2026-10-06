@@ -86,6 +86,62 @@ const entitled = {
   YAHOO_ENTITLEMENT_REFERENCE: 'Explicit synthetic test entitlement; not production authorization',
 };
 describe('bounded exact provider transports', () => {
+  it('separates display from durable refresh/close rights and never enables unverified coverage', async () => {
+    const fetcher = vi.fn<typeof fetch>().mockResolvedValue(new Response(chart()));
+    expect(gateway(fetcher).capability(equity)).toMatchObject({
+      display: false,
+      quotes: false,
+      closes: false,
+    });
+    expect(gateway(fetcher, entitled).capability(equity)).toMatchObject({
+      display: true,
+      quotes: false,
+      closes: false,
+    });
+    const rights = {
+      ...entitled,
+      YAHOO_OBSERVATION_ENTITLED: 'true',
+      YAHOO_CLOSE_CAPTURE_ENTITLED: 'true',
+      OBSERVATION_RIGHTS_REFERENCE: 'Synthetic adapter test only; no production entitlement',
+    };
+    expect(gateway(fetcher, rights).capability(equity)).toMatchObject({
+      display: true,
+      quotes: true,
+      closes: true,
+    });
+    expect(gateway(fetcher, rights).capability({ ...equity, id: 'unknown' }).quotes).toBe(false);
+    expect(
+      gateway(fetcher, { COINGECKO_DEMO_KEY: 'synthetic-test-key' }).capability(crypto),
+    ).toMatchObject({ display: true, quotes: false, closes: false });
+    expect(() => gateway(fetcher, { YAHOO_OBSERVATION_ENTITLED: 'true' })).toThrow(
+      'retention rights',
+    );
+    expect(() => gateway(fetcher, { ...rights, LOCAL_JOBS_ENABLED: 'true' })).toThrow(
+      'stable local cache',
+    );
+  });
+  it('forces bounded refresh rather than returning fresh cache and propagates cancellation', async () => {
+    const fetcher = vi.fn<typeof fetch>().mockImplementation(async () => new Response(chart()));
+    const provider = gateway(fetcher, entitled);
+    await provider.quotes([equity]);
+    await provider.quotes([equity]);
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    await provider.refreshQuotes([equity]);
+    expect(fetcher).toHaveBeenCalledTimes(2);
+    const abort = new AbortController();
+    abort.abort();
+    await expect(provider.refreshQuotes([equity], abort.signal)).rejects.toMatchObject({
+      code: 'CANCELLED',
+    });
+    expect(fetcher).toHaveBeenCalledTimes(2);
+    const transport = new ProviderTransport(async (_url, options) => {
+      expect(options?.signal?.aborted).toBe(true);
+      throw new DOMException('Cancelled', 'AbortError');
+    });
+    await expect(
+      transport.text('https://api.frankfurter.dev/v2/rates', {}, abort.signal),
+    ).rejects.toMatchObject({ name: 'AbortError' });
+  });
   it('does not expand price or history eligibility when discovery identities are added', async () => {
     const fetcher = vi.fn<typeof fetch>().mockRejectedValue(new Error('Must never fetch'));
     const provider = gateway(

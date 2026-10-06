@@ -1,0 +1,294 @@
+ Image folio-worker Building
+ Image folio-fixture-worker Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 3.78kB done
+#1 DONE 0.0s
+
+#2 [fixture-worker internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 463B 0.0s done
+#2 DONE 0.5s
+
+#3 [fixture-worker internal] load metadata for docker.io/library/node:24.19.0-bookworm-slim
+#3 DONE 5.1s
+
+#4 [fixture-worker 1/8] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#4 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.0s done
+#4 DONE 0.1s
+
+#5 [fixture-worker 2/8] WORKDIR /workspace
+#5 CACHED
+
+#6 [fixture-worker 3/8] RUN npm install --global pnpm@11.19.0
+#6 CACHED
+
+#7 [worker internal] load .dockerignore
+#7 transferring context: 185B done
+#7 DONE 0.1s
+
+#8 [fixture-worker internal] load build context
+#8 transferring context: 1.23MB 0.5s done
+#8 DONE 0.7s
+
+#9 [worker 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#9 DONE 0.1s
+
+#10 [worker 5/8] COPY packages ./packages
+#10 DONE 0.1s
+
+#9 [fixture-worker 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#9 DONE 0.2s
+
+#10 [fixture-worker 5/8] COPY packages ./packages
+#10 DONE 0.2s
+
+#11 [worker 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#11 CACHED
+
+#12 [worker 5/8] COPY packages ./packages
+#12 CACHED
+
+#13 [worker 6/8] COPY apps ./apps
+#13 DONE 3.2s
+
+#14 [worker 7/8] COPY scripts ./scripts
+#14 DONE 0.3s
+
+#15 [fixture-worker 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#15 1.440 Scope: all 5 workspace projects
+#15 1.835 ? Verifying lockfile against supply-chain policies (548 entries)...
+#15 1.851 Lockfile is up to date, resolution step is skipped
+#15 2.122 Progress: resolved 1, reused 0, downloaded 0, added 0
+#15 2.499 Packages: +497
+#15 2.499 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#15 3.137 Progress: resolved 497, reused 0, downloaded 0, added 0
+#15 5.357 [WARN] Tarball download average speed 22 KiB/s (size 25 KiB) is below 50 KiB/s: https://registry.npmjs.org/react/-/react-19.3.0.tgz (GET)
+#15 5.695 [WARN] Tarball download average speed 38 KiB/s (size 77 KiB) is below 50 KiB/s: https://registry.npmjs.org/lossless-json/-/lossless-json-4.3.1.tgz (GET)
+#15 5.738 [WARN] Tarball download average speed 8 KiB/s (size 18 KiB) is below 50 KiB/s: https://registry.npmjs.org/pino-http/-/pino-http-11.0.0.tgz (GET)
+#15 5.741 [WARN] Tarball download average speed 24 KiB/s (size 49 KiB) is below 50 KiB/s: https://registry.npmjs.org/@testing-library/react/-/react-16.3.3.tgz (GET)
+#15 6.109 Progress: resolved 497, reused 0, downloaded 1, added 0
+#15 6.560 Packages are hard linked from the content-addressable store to the virtual store.
+#15 6.560   Content-addressable store is at: /workspace/.pnpm-store/v11
+#15 6.560   Virtual store is at:             node_modules/.pnpm
+#15 7.109 Progress: resolved 497, reused 0, downloaded 50, added 46
+#15 7.728
+#15 7.728    ╭─────────────────────────────────────────╮
+#15 7.728    │                                         │
+#15 7.728    │   Update available! 11.19.0 → 12.9.1.   │
+#15 7.728    │   Changelog: https://pnpm.io/v/12.9.1   │
+#15 7.728    │    To update, run: pnpm add -g pnpm     │
+#15 7.728    │                                         │
+#15 7.728    ╰─────────────────────────────────────────╯
+#15 7.728
+#15 7.797 [WARN] Tarball download average speed 2 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/react-dom/-/react-dom-19.3.0.tgz (GET)
+#15 8.110 Progress: resolved 497, reused 0, downloaded 64, added 64
+#15 9.051 [WARN] Tarball download average speed 17 KiB/s (size 28 KiB) is below 50 KiB/s: https://registry.npmjs.org/semver/-/semver-7.8.5.tgz (GET)
+#15 9.130 Progress: resolved 497, reused 0, downloaded 88, added 88
+#15 11.36 Progress: resolved 497, reused 0, downloaded 90, added 88
+#15 12.21 [WARN] Tarball download average speed 44 KiB/s (size 142 KiB) is below 50 KiB/s: https://registry.npmjs.org/@exodus/bytes/-/bytes-1.16.0.tgz (GET)
+#15 12.31 [WARN] Tarball download average speed 39 KiB/s (size 162 KiB) is below 50 KiB/s: https://registry.npmjs.org/esquery/-/esquery-1.7.0.tgz (GET)
+#15 12.59 Progress: resolved 497, reused 0, downloaded 93, added 90
+#15 13.14 [WARN] Tarball download average speed 6 KiB/s (size 54 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz (GET)
+#15 13.19 [WARN] Tarball download average speed 6 KiB/s (size 57 KiB) is below 50 KiB/s: https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.16.tgz (GET)
+#15 13.19 [WARN] Tarball download average speed 1 KiB/s (size 8 KiB) is below 50 KiB/s: https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-5.0.1.tgz (GET)
+#15 13.19 [WARN] Tarball download average speed 1 KiB/s (size 10 KiB) is below 50 KiB/s: https://registry.npmjs.org/obug/-/obug-2.2.1.tgz (GET)
+#15 13.79 Progress: resolved 497, reused 0, downloaded 113, added 102
+#15 14.76 [WARN] Tarball download average speed 3 KiB/s (size 22 KiB) is below 50 KiB/s: https://registry.npmjs.org/helmet/-/helmet-8.3.0.tgz (GET)
+#15 14.82 Progress: resolved 497, reused 0, downloaded 154, added 152
+#15 15.77 [WARN] Tarball download average speed 2 KiB/s (size 5 KiB) is below 50 KiB/s: https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.8.4.tgz (GET)
+#15 15.90 Progress: resolved 497, reused 0, downloaded 183, added 181
+#15 16.32 [WARN] Request took 14344ms: https://registry.npmjs.org/@playwright%2Ftest
+#15 16.88 [WARN] Request took 11004ms: https://registry.npmjs.org/@tailwindcss%2Foxide-win32-x64-msvc
+#15 16.91 Progress: resolved 497, reused 0, downloaded 212, added 212
+#15 16.99 [WARN] Request took 11123ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-x64-gnu
+#15 17.02 [WARN] Request took 11180ms: https://registry.npmjs.org/@tailwindcss%2Foxide-darwin-x64
+#15 17.29 [WARN] Request took 10351ms: https://registry.npmjs.org/@types%2Fnode
+#15 17.92 [WARN] Request took 10518ms: https://registry.npmjs.org/@typescript-eslint%2Ftype-utils
+#15 18.04 Progress: resolved 497, reused 0, downloaded 243, added 241
+#15 18.21 [WARN] Request took 10786ms: https://registry.npmjs.org/@typescript-eslint%2Ftypes
+#15 18.39 [WARN] Request took 11077ms: https://registry.npmjs.org/@typescript-eslint%2Fparser
+#15 18.97 [WARN] Tarball download average speed 39 KiB/s (size 80 KiB) is below 50 KiB/s: https://registry.npmjs.org/victory-vendor/-/victory-vendor-37.3.6.tgz (GET)
+#15 19.04 Progress: resolved 497, reused 0, downloaded 267, added 267
+#15 19.98 Progress: resolved 497, reused 0, downloaded 299, added 296
+#15 20.85 [WARN] Request took 11853ms: https://registry.npmjs.org/axe-core
+#15 20.98 Progress: resolved 497, reused 0, downloaded 313, added 313
+#15 21.69 [WARN] Tarball download average speed 14 KiB/s (size 109 KiB) is below 50 KiB/s: https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz (GET)
+#15 21.77 [WARN] Tarball download average speed 34 KiB/s (size 174 KiB) is below 50 KiB/s: https://registry.npmjs.org/superagent/-/superagent-10.4.1.tgz (GET)
+#15 21.98 Progress: resolved 497, reused 0, downloaded 335, added 334
+#15 22.50 [WARN] Request took 15052ms: https://registry.npmjs.org/@typescript-eslint%2Futils
+#15 22.99 Progress: resolved 497, reused 0, downloaded 366, added 366
+#15 23.09 [WARN] Request took 17587ms: https://registry.npmjs.org/@rolldown%2Fbinding-linux-arm64-gnu
+#15 23.64 [WARN] Request took 16199ms: https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree
+#15 24.03 Progress: resolved 497, reused 0, downloaded 382, added 381
+#15 24.08 [WARN] Tarball download average speed 14 KiB/s (size 30 KiB) is below 50 KiB/s: https://registry.npmjs.org/yauzl/-/yauzl-3.4.0.tgz (GET)
+#15 24.08 [WARN] Tarball download average speed 4 KiB/s (size 5 KiB) is below 50 KiB/s: https://registry.npmjs.org/nanoid/-/nanoid-3.3.19.tgz (GET)
+#15 24.29 [WARN] Tarball download average speed 47 KiB/s (size 49 KiB) is below 50 KiB/s: https://registry.npmjs.org/cacheable/-/cacheable-2.5.0.tgz (GET)
+#15 25.44 [WARN] Request took 18130ms: https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin
+#15 25.67 Progress: resolved 497, reused 0, downloaded 428, added 427
+#15 26.67 Progress: resolved 497, reused 0, downloaded 462, added 461
+#15 27.13 [WARN] Request took 19650ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
+#15 27.67 Progress: resolved 497, reused 0, downloaded 484, added 484
+#15 28.68 Progress: resolved 497, reused 0, downloaded 487, added 487
+#15 28.75 [WARN] Tarball download average speed 7 KiB/s (size 20 KiB) is below 50 KiB/s: https://registry.npmjs.org/qified/-/qified-0.10.1.tgz (GET)
+#15 29.68 Progress: resolved 497, reused 0, downloaded 488, added 488
+#15 33.66 [WARN] Request took 10858ms: https://registry.npmjs.org/playwright-core
+#15 33.80 Progress: resolved 497, reused 0, downloaded 489, added 488
+#15 33.98 [WARN] Request took 11126ms: https://registry.npmjs.org/playwright
+#15 34.87 [WARN] Request took 27525ms: https://registry.npmjs.org/@typescript-eslint%2Fscope-manager
+#15 34.92 Progress: resolved 497, reused 0, downloaded 490, added 490
+#15 35.84 [WARN] Request took 11332ms: https://registry.npmjs.org/react
+#15 35.91 Progress: resolved 497, reused 0, downloaded 493, added 493
+#15 36.50 [WARN] Request took 13125ms: https://registry.npmjs.org/react-dom
+#15 36.55 [WARN] Request took 12242ms: https://registry.npmjs.org/react-router-dom
+#15 38.28 Progress: resolved 497, reused 0, downloaded 494, added 493
+#15 39.28 Progress: resolved 497, reused 0, downloaded 495, added 495
+#15 40.89 Progress: resolved 497, reused 0, downloaded 496, added 495
+#15 41.89 Progress: resolved 497, reused 0, downloaded 496, added 496
+#15 43.57 [WARN] Request took 16706ms: https://registry.npmjs.org/typescript-eslint
+#15 43.63 ✓ Lockfile passes supply-chain policies (548 entries in 41.7s)
+#15 45.23 Progress: resolved 497, reused 0, downloaded 497, added 496
+#15 45.27 Progress: resolved 497, reused 0, downloaded 497, added 497, done
+#15 45.82 .../argon2@0.45.1/node_modules/argon2 install$ cross-env ZERO_AR_DATE=1 node-gyp-build
+#15 46.45 .../argon2@0.45.1/node_modules/argon2 install: Done
+#15 46.83
+#15 46.83 devDependencies:
+#15 46.83 + @axe-core/playwright 4.13.0
+#15 46.83 + @playwright/test 1.63.0
+#15 46.83 + @testing-library/dom 10.4.2
+#15 46.83 + @testing-library/react 16.3.3
+#15 46.83 + @types/node 24.19.1
+#15 46.83 + @vitest/coverage-v8 5.0.3
+#15 46.83 + eslint 10.12.0
+#15 46.83 + husky 9.1.7
+#15 46.83 + jsdom 30.1.1
+#15 46.83 + lint-staged 17.6.0
+#15 46.83 + prettier 3.9.9
+#15 46.83 + semver 7.8.5
+#15 46.83 + typescript 6.0.3
+#15 46.83 + typescript-eslint 8.71.0
+#15 46.83 + vitest 5.0.3
+#15 46.83
+#15 46.89 . prepare$ husky
+#15 47.04 . prepare: HUSKY=0 skip install
+#15 47.04 . prepare: Done
+#15 47.19 Done in 46.6s using pnpm v11.19.0
+#15 48.50 $ tsc -p tsconfig.json
+#15 56.66 $ node packages/design-tokens/scripts/sync.mjs --check
+#15 56.75 Figma token check: 40 canonical variables, 8 text styles, 119 states, both themes
+#15 DONE 59.5s
+
+#16 [worker] exporting to image
+#16 exporting layers
+#16 ...
+
+#17 [fixture-worker] exporting to image
+#17 ...
+
+#16 [worker] exporting to image
+#16 exporting layers 55.5s done
+#16 exporting manifest sha256:3a95b00961a5c9349dc808f057d99c9de93b4b192ec62b6c8e3ee4a44335169a 0.1s done
+#16 exporting config sha256:5b78c88d16992ae868653e1a09fced2708946b012cbc1731157f4707c5de2b9c
+#16 exporting config sha256:5b78c88d16992ae868653e1a09fced2708946b012cbc1731157f4707c5de2b9c 0.1s done
+#16 exporting attestation manifest sha256:9c2170af0d79fcb3c439aaa06d98061eeb2ecbcf2ec0bb1ab9b8f2c0124cd527
+#16 exporting attestation manifest sha256:9c2170af0d79fcb3c439aaa06d98061eeb2ecbcf2ec0bb1ab9b8f2c0124cd527 0.1s done
+#16 exporting manifest list sha256:614e1250aedd9283be821daaa2e92f843f9e3e67e7660113132566c92f43fed3 0.0s done
+#16 naming to docker.io/library/folio-worker:latest done
+#16 unpacking to docker.io/library/folio-worker:latest
+#16 ...
+
+#17 [fixture-worker] exporting to image
+#17 exporting layers 55.5s done
+#17 exporting manifest sha256:c4a14fd33f0a40ce2fb2d88e312e0c204143ca2745e06c429d5107f3d1f84138 0.0s done
+#17 exporting config sha256:424f7a24be4e328fac0d99b4dc431609a7b497d24127bb495508e13cd4be5eb4 0.1s done
+#17 exporting attestation manifest sha256:3ea7a24edb85b4016c018f2c78c6696d6382a865680dc9e60994edad9fabf7e7 0.1s done
+#17 exporting manifest list sha256:7aa2d9d021fe152140d0bc8a035751fab5afab0f4f6fc1c400f20f4a2841e748 0.0s done
+#17 naming to docker.io/library/folio-fixture-worker:latest done
+#17 unpacking to docker.io/library/folio-fixture-worker:latest
+#17 unpacking to docker.io/library/folio-fixture-worker:latest 45.0s done
+#17 DONE 101.0s
+
+#16 [worker] exporting to image
+#16 unpacking to docker.io/library/folio-worker:latest 45.0s done
+#16 DONE 101.1s
+
+#18 [fixture-worker] resolving provenance for metadata file
+#18 ...
+
+#19 [worker] resolving provenance for metadata file
+#19 DONE 0.1s
+
+#18 [fixture-worker] resolving provenance for metadata file
+#18 DONE 0.1s
+ Image folio-worker Built
+ Image folio-fixture-worker Built
+ Container folio-fixture-web-1 Running
+ Container folio-mailhog-1 Running
+ Container folio-web-1 Running
+ Container folio-demo-api-1 Running
+ Container folio-demo-web-1 Running
+ Container folio-mongo-1 Running
+ Container folio-redis-1 Running
+ Container folio-worker-1 Creating
+ Container folio-fixture-api-1 Recreate
+ Container folio-api-1 Recreate
+ Container folio-fixture-worker-1 Creating
+ Container folio-worker-1 Created
+ Container folio-fixture-worker-1 Created
+ Container folio-fixture-api-1 Recreated
+ Container folio-api-1 Recreated
+ Container folio-mongo-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-mongo-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-mongo-1 Waiting
+ Container folio-mongo-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-mongo-1 Waiting
+ Container folio-redis-1 Healthy
+ Container folio-mongo-1 Healthy
+ Container folio-fixture-worker-1 Starting
+ Container folio-mongo-1 Healthy
+ Container folio-mongo-1 Healthy
+ Container folio-redis-1 Healthy
+ Container folio-demo-api-1 Waiting
+ Container folio-mongo-1 Healthy
+ Container folio-redis-1 Healthy
+ Container folio-fixture-api-1 Starting
+ Container folio-redis-1 Healthy
+ Container folio-mongo-1 Healthy
+ Container folio-worker-1 Starting
+ Container folio-redis-1 Healthy
+ Container folio-api-1 Starting
+ Container folio-demo-api-1 Healthy
+ Container folio-fixture-worker-1 Started
+ Container folio-fixture-api-1 Started
+ Container folio-fixture-api-1 Waiting
+ Container folio-worker-1 Started
+ Container folio-api-1 Started
+ Container folio-api-1 Waiting
+ Container folio-api-1 Healthy
+ Container folio-fixture-api-1 Healthy
+ Container folio-demo-api-1 Waiting
+ Container folio-worker-1 Waiting
+ Container folio-api-1 Waiting
+ Container folio-demo-web-1 Waiting
+ Container folio-mailhog-1 Waiting
+ Container folio-web-1 Waiting
+ Container folio-mongo-1 Waiting
+ Container folio-fixture-worker-1 Waiting
+ Container folio-fixture-web-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-fixture-api-1 Waiting
+ Container folio-fixture-web-1 Healthy
+ Container folio-mongo-1 Healthy
+ Container folio-api-1 Healthy
+ Container folio-web-1 Healthy
+ Container folio-redis-1 Healthy
+ Container folio-mailhog-1 Healthy
+ Container folio-worker-1 Healthy
+ Container folio-demo-api-1 Healthy
+ Container folio-fixture-worker-1 Healthy
+ Container folio-fixture-api-1 Healthy
+ Container folio-demo-web-1 Healthy

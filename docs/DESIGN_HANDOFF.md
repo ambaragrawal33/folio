@@ -1,5 +1,17 @@
 # Folio design handoff
 
+## Priority5 refresh/recovery composition — 2026-10-06
+
+Focused measured review: **22 states / 44 captures**, Dark/derived Light desktop,390×844 mobile and768×1024 tablet, zero axe violations/overflow/independent scrolling. [Actual captures and per-state derivation notes](PRIORITY_5_VISUAL_REVIEW.md). Existing219 accepted screenshots and foundation are unchanged. Refresh controls use existing DS roles; status/error/count/as-of composition has no dedicated Figma frame and remains DERIVED. User visual approval is pending; passing browser checks do not approve it. Figma was not modified.
+
+Connected read-only Figma source: Primary2:4800, Tertiary set2:4895 (default/focus/disabled/compact), DataStatus2:4889 (current/stale/unavailable). Existing typography, roles, surfaces/borders, shell, money formatters and DS remain. New controls reuse portfolio notice/toolbar and Tertiary button; status is explicit text. Pending disables action/sets aria-busy; keyboard/focus/live status are preserved.
+
+Progress/counts/safe retry/bounded-check notices have no dedicated product reference and are DERIVED. Light/mobile/tablet remain DERIVED, never Figma-approved. Source/date labels stay authoritative. No palette/widget redesign or Figma write. Prior phase/Priority1–4 captures remain protected; new review paths are separate. Automated checks do not constitute user visual approval; Priority5 review remains pending.
+
+## Priority4 visual gate CLOSED / APPROVED — 2026-10-06
+
+The user approves all22 Asset Detail states/44 captures, corrected provenance density, accessible pagination, keyboard/focus and derived responsive layouts. No visual change follows that approval. Light/mobile/tablet remain DERIVED, never Figma-approved. Only Priority5 may add focused refresh/retry/status composition from existing DS; read-only MCP refreshed Primary2:4800 (36px,6px radius, Inter13/18 medium, existing variable-bound colors/spacing). Existing Disabled/DataStatus primitives and approved source mappings remain authoritative. Priority5 new workflow states require separate product review; no Figma/foundation/baseline change.
+
 ## Priority3 CLOSED; Priority4 Asset Detail derivation — 2026-10-06
 
 Priority3 engineering and all17 visual/product states are explicitly APPROVED / CLOSED. Only Priority4 adds workflow UI. Connected read-only Figma MCP refreshed full Asset Detail **32:143** code and screenshot; actual Recent Activity **34:165** uses15px section heading,32px header,44px sample rows,13px financial IBM Plex Mono and12px padding with existing semantic surfaces/borders. Position context **34:128**, metadata **34:196** and existing approved primitives/type/tokens/shell/chart remain references. No Figma/static asset/palette/foundation changes. Prototype numbers, trade/custody fields and unsupported analytics remain excluded under approved domain decisions.

@@ -87,6 +87,7 @@ export class CachedProvider {
     ttlSeconds: number,
     maxAgeSeconds: number,
     provider: string,
+    force = false,
   ): Promise<{ value: T; stale: boolean } | null> {
     const namespace = this.prefix + ':market:' + key;
     let old: { value: T; fetchedAt: number } | null = null;
@@ -104,7 +105,7 @@ export class CachedProvider {
           old = { value: validate(parsed.value), fetchedAt: parsed.fetchedAt };
         }
       }
-      if (old && this.now() - old.fetchedAt < ttlSeconds * 1000)
+      if (!force && old && this.now() - old.fetchedAt < ttlSeconds * 1000)
         return { value: old.value, stale: false };
       const fallback = () =>
         old && this.now() - old.fetchedAt < maxAgeSeconds * 1000
@@ -133,7 +134,7 @@ export class CachedProvider {
         }
       };
       const stale = fallback();
-      if (stale) {
+      if (stale && !force) {
         const work = refresh().catch(() => null);
         this.pending.add(work);
         void work.finally(() => this.pending.delete(work));

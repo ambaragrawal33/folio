@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 const summary = JSON.parse(await readFile('coverage/coverage-summary.json', 'utf8'));
 const core = Object.entries(summary).filter(([file]) =>
-  /[/\\]services[/\\]financial[/\\]|[/\\]services[/\\]transaction-preview\.ts$|[/\\]financial-format\.ts$|[/\\]providers[/\\](exact|adapters|local-fixture|discovery)\.ts$|[/\\](ledger|valuation|xirr|twr|simulator|csv|grounding)([/\\.]|$)/i.test(
+  /[/\\]services[/\\]financial[/\\]|[/\\]services[/\\]transaction-preview\.ts$|[/\\]financial-format\.ts$|[/\\]providers[/\\](exact|adapters|local-fixture|discovery|calendars)\.ts$|[/\\]jobs[/\\]observations\.ts$|[/\\](ledger|valuation|xirr|twr|simulator|csv|grounding)([/\\.]|$)/i.test(
     file,
   ),
 );

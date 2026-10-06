@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { DecimalString, ErrorEnvelope, HealthResponse, ReadyResponse } from './index.ts';
 import { authContracts } from './auth.ts';
 import { domainContracts } from './domain.ts';
+import { JobName, JobRun, OperatorJobRequest } from './jobs.ts';
 type OasSchema = NonNullable<
   NonNullable<ReturnType<OpenApiGeneratorV3['generateDocument']>['components']>['schemas']
 >[string];
@@ -164,6 +165,9 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
       path: contract.path,
       summary: contract.path.split('/').at(-1) ?? 'Portfolio',
       description:
+        (contract.path.includes('/refresh')
+          ? 'Bounded owned local market refresh only: no ledger/economic/projection mutation. POST requires a UUID Idempotency-Key and returns the same durable run on retry (202). Strict empty body; server selects canonical owned active instruments. GET exposes safe owned state, attempts, counts/timing and sanitized error codes. Market observations preserve source/as-of; unavailable/malformed/partial input never substitutes zero or erases valid data. '
+          : '') +
         (contract.path.endsWith('/detail')
           ? 'Owned Asset Detail: server FIFO summaries, bounded lots joined to original BUY provenance, instrument-only immutable activity including void metadata, and current valuation coverage. Independent numbered lot/activity pages default 20, maximum 100. Known canonical instrument with no owned position is explicit empty; unknown or unowned resource is uniformly 404. No per-lot requests or frontend financial recomputation. '
           : '') +
@@ -172,6 +176,16 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
       parameters: [
         ...pathParameters,
         ...queryParameters,
+        ...(contract.method === 'post' && contract.path.endsWith('/refresh')
+          ? [
+              {
+                name: 'Idempotency-Key',
+                in: 'header' as const,
+                required: true,
+                schema: { type: 'string' as const, format: 'uuid' },
+              },
+            ]
+          : []),
         ...(contract.method === 'post' && contract.path.endsWith('/ledger')
           ? [
               {
@@ -202,7 +216,7 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
           }
         : {}),
       responses: {
-        200: {
+        [contract.method === 'post' && contract.path.endsWith('/refresh') ? 202 : 200]: {
           description: 'Verified domain response',
           content: { 'application/json': { schema: schemaFor(contract.response) } },
         },
@@ -218,6 +232,49 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
       },
     });
   }
+  registry.registerComponent('securitySchemes', 'jobSignature', {
+    type: 'apiKey',
+    in: 'header',
+    name: 'X-Folio-Job-Signature',
+    description:
+      'Local-only opt-in HMAC-SHA256; time/nonce/path/strict body bound, constant-time compare and Redis replay prevention. Never a user credential or production scheduler configuration.',
+  });
+  registry.registerPath({
+    method: 'post',
+    path: '/internal/jobs/{name}',
+    summary: 'Explicitly enabled local operator job',
+    security: [{ jobSignature: [] }],
+    parameters: [
+      { name: 'name', in: 'path', required: true, schema: schemaFor(JobName) },
+      {
+        name: 'X-Folio-Job-Time',
+        in: 'header',
+        required: true,
+        schema: { type: 'string', pattern: '^[0-9]{13}$' },
+      },
+      {
+        name: 'X-Folio-Job-Nonce',
+        in: 'header',
+        required: true,
+        schema: { type: 'string', format: 'uuid' },
+      },
+    ],
+    request: {
+      body: {
+        required: true,
+        content: { 'application/json': { schema: schemaFor(OperatorJobRequest) } },
+      },
+    },
+    responses: {
+      202: {
+        description: 'Accepted local durable job run',
+        content: { 'application/json': { schema: schemaFor(JobRun) } },
+      },
+      403: { description: 'HMAC/timestamp/nonce/body rejected' },
+      429: { description: 'Signed local operator submission limit reached' },
+      503: { description: 'Local operator jobs disabled or storage unavailable' },
+    },
+  });
   const error = {
     description: 'Redacted error',
     content: { 'application/json': { schema: ErrorEnvelope } },

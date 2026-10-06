@@ -9,6 +9,7 @@ export function createLogger(level: string, destination?: DestinationStream) {
           'req.headers.authorization',
           'req.headers.cookie',
           'req.headers["transaction-preview"]',
+          'req.headers["x-folio-job-signature"]',
           'res.headers["set-cookie"]',
           'password',
           'token',

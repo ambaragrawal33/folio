@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page, APIRequestContext } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { refreshFixtureData } from './helpers/refresh-fixtures';
 test.use({ baseURL: 'http://127.0.0.1:5190' });
 test.skip(process.env['FOLIO_E2E_FIXTURE'] !== '1', 'Explicit local fixture stack required');
 const evidence = process.env['FOLIO_ASSET_EVIDENCE_DIR'] ?? '.local/priority-4/visual';
@@ -129,6 +130,10 @@ async function asset(page: Page, id: string) {
   await expect(rows).toHaveCount(value.lots.items.length);
   if (value.lots.items.length)
     await expect(rows.first().locator('td').nth(1)).toHaveText(value.lots.items[0].quantity);
+  // The 22-state review deliberately generates rapid navigation traffic.
+  // Keep the real read cap intact and let its window reset before exhausting it.
+  if (Number(response.headers()['ratelimit-remaining'] ?? '60') <= 20)
+    await page.waitForTimeout(61000);
   return value;
 }
 async function theme(page: Page, value: 'dark' | 'light', id = 'TCS:NSE') {
@@ -158,6 +163,7 @@ test('fresh real owned asset: FIFO acquisitions/consumption/splits/dividend/void
     'Native fees / withholding': fees,
   });
   const first = await book(page, 'TCS:NSE', 'BUY', quantities('10', '100', '10'));
+  await refreshFixtureData(page);
   requests.length = 0;
   let value = await asset(page, 'TCS:NSE');
   observations.push(value);

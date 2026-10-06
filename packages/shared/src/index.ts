@@ -1,6 +1,7 @@
 import { z } from 'zod';
 export * from './auth.ts';
 export * from './domain.ts';
+export * from './jobs.ts';
 export * from './pagination.ts';
 export * from './financial-format.ts';
 // Exact financial values cross the boundary as strings; Decimal arithmetic lives in domain services.

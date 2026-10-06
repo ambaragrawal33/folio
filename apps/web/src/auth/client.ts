@@ -34,8 +34,9 @@ export async function api<T>(
   method = input === undefined ? 'GET' : 'POST',
   retry = true,
   headers: Record<string, string> = {},
+  signal?: AbortSignal,
 ): Promise<T> {
-  return schema.parse(await (await request(path, input, method, retry, headers)).json());
+  return schema.parse(await (await request(path, input, method, retry, headers, signal)).json());
 }
 export async function request(
   path: string,
@@ -43,12 +44,14 @@ export async function request(
   method = input === undefined ? 'GET' : 'POST',
   retry = true,
   headers: Record<string, string> = {},
+  signal?: AbortSignal,
 ): Promise<Response> {
   let response: Response;
   try {
     const send = () => {
       const token = useAccess.getState().token;
       return fetch('/api/v1' + path, {
+        ...(signal ? { signal } : {}),
         method,
         credentials: 'same-origin',
         headers: {
@@ -71,6 +74,7 @@ export async function request(
       (path === '/me' && method === 'DELETE');
     response = await (cookieMutation ? sessionOperation(send) : send());
   } catch {
+    if (signal?.aborted) throw new DOMException('Cancelled', 'AbortError');
     throw new ApiError(
       503,
       'SERVER_UNAVAILABLE',
@@ -78,7 +82,7 @@ export async function request(
     );
   }
   if (response.status === 401 && retry && !path.startsWith('/auth/')) {
-    if (await refreshSession()) return request(path, input, method, false, headers);
+    if (await refreshSession()) return request(path, input, method, false, headers, signal);
     useAccess.setState({ token: null, status: 'expired' });
   }
   if (!response.ok) {

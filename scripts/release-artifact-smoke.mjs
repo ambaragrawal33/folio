@@ -2,6 +2,8 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 const image = process.env.FOLIO_RELEASE_IMAGE ?? 'folio-api-release:phase3';
+const port = process.env.FOLIO_RELEASE_SMOKE_PORT ?? '3030';
+assert(/^[1-9]\d{3,4}$/.test(port) && Number(port) <= 65535, 'Invalid local smoke port');
 const name = 'folio-phase3-release-smoke';
 function docker(args) {
   const result = spawnSync('docker', args, { encoding: 'utf8' });
@@ -42,7 +44,7 @@ const start = docker([
   '--network',
   'folio_default',
   '-p',
-  '127.0.0.1:3020:3000',
+  `127.0.0.1:${port}:3000`,
   '-e',
   'NODE_ENV=test',
   ...config,
@@ -50,7 +52,7 @@ const start = docker([
 ]);
 assert.equal(start.status, 0, start.stderr);
 try {
-  const base = 'http://127.0.0.1:3020';
+  const base = `http://127.0.0.1:${port}`;
   let ready = false;
   for (let attempt = 0; attempt < 60; attempt++) {
     ready = await fetch(base + '/api/ready')

@@ -1,4 +1,6 @@
-# Priority 4 visual review — awaiting user approval
+# Priority 4 visual review — APPROVED / CLOSED
+
+User final review on2026-10-06 explicitly APPROVES/CLOSES all22 states/44 captures and engineering evidence at3df46ec1231ab2d50d1afb7caa41b44049ee632a. Light/mobile/tablet remain derived. The following submission notes are historical; captures are preserved unchanged.
 
 2026-10-06. [Actual rendered gallery](evidence/priority-4/2026-10-06/review.html). **22 states /44 viewport and full-page captures**. [Browser checks](evidence/priority-4/2026-10-06/visual/browser-checks.json), [actual financial results](evidence/priority-4/2026-10-06/visual/financial-results.json), [read-only Figma evidence](evidence/priority-4/2026-10-06/figma-source-check.json).
 

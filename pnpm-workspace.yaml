@@ -11,6 +11,8 @@ allowBuilds:
   '@scarf/scarf': false
   esbuild: true
   rolldown: true
+  # Optional BullMQ/msgpackr native accelerator; use its audited JS fallback.
+  msgpackr-extract: false
 minimumReleaseAgeExclude:
   - nodemailer@10.0.14
   - eslint@10.12.0

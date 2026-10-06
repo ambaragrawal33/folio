@@ -98,6 +98,8 @@ GET /health and /ready have /api aliases. Readiness verifies writable Mongo repl
 
 ## Git and phase workflow
 
+Local P0 refresh/recovery uses the separate `docker-compose.jobs.yml` override and explicitly isolated normal/fixture workers. Scheduling remains opt-in/OFF; demo has no writable worker. See [local jobs](docs/LOCAL_JOBS.md) for bounded refresh/retry, CLI/HMAC operation, rights gates, persistence/recovery and exact commands. Existing API/security/financial boundaries remain unchanged. Live providers and production operations are not activated.
+
 Use codex/phase-N-name branches and conventional commits. Husky runs lint-staged. Commit .env.example only; verify dependencies and scan secrets at each phase boundary. Push/merge/deploy/next-phase actions require their authorization.
 
 CI uses pinned official Actions, frozen install, peer/engine verification, isolated Mongo tests, all quality gates, security audit, real Compose/MailHog browser flows and gitleaks. Dependabot covers npm, Docker and Actions. Canonical remote: https://github.com/ambaragrawal33/folio.git. Main remains Phase 1 until branch review/merge; no deployment workflow is configured. Phase 2 push/hosted results are recorded in its evidence.

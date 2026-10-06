@@ -1,5 +1,19 @@
 # Folio progress
 
+## Current — Priority 5 implemented and verified; awaiting user review — 2026-10-06
+
+Priorities 1–4 are explicitly CLOSED / APPROVED. Only Priority 5 local refresh, recovery and jobs was implemented: BullMQ and stateless execution, durable job runs/outbox, bounded admission and retries, expiring distributed leases, generation-fenced observation publication, permitted close capture, housekeeping, truthful freshness and bounded UI retry. [Measured evidence](PRIORITY_5_EVIDENCE.md), [focused visual review](PRIORITY_5_VISUAL_REVIEW.md), [local operation guide](LOCAL_JOBS.md). The Priority 5 engineering/product/visual review is awaiting the user; automated checks do not close it.
+
+Final `pnpm check` PASS: **190 passed / 20 suites**, with two opt-in Docker outage tests separately exercised in the **28/28 job/outage run**. Overall line coverage **93.07% (2619/2814)**; every financial-core file exceeds 90% (minimum 95.65%). Full real-service E2E **17/17 PASS (6.8 minutes)**; twelve refresh UI tests pass. **22 visual states / 44 captures**, each with zero axe violations, horizontal overflow or independent scroll containers. Docker, Mongo replica-set transactions/Decimal128, Redis, MailHog, 33 v1 OpenAPI operations, dependency graph/audit and reviewable-source secret scans pass. No live-provider entitlement is inferred.
+
+All **219 accepted PNGs**, foundation tokens/shell/responsive behavior/auth screens, engine/preview/receipt, canonical master, fixture constants and original Compose files remain unchanged. Light/mobile/tablet and new recovery composition are DERIVED. The JS warning is **577.65 kB**, unresolved and unsuppressed; performance optimization and the 500-transaction benchmark remain deferred.
+
+STOP for Priority 5 review. Priority 6/L02 remains approved policy but unimplemented and unauthorized in this pass. News/AI, hosting/spending/deployment, production scheduling/backups, Figma writes and main merge remain outside scope. Earlier dated entries below are historical.
+
+## Priority 4 approval and Priority 5 authorization — 2026-10-06
+
+The user explicitly APPROVES/CLOSES Priority4 engineering and all22 visual states at3df46ec1231ab2d50d1afb7caa41b44049ee632a:150 tests/96.02% lines/15 E2E, read-only owned API, server FIFO provenance/immutable void activity, bounded paging, zero axe/overflow/independent scrolling. Light/mobile/tablet remain approved DERIVED. All175 earlier PNGs and44 Priority4 captures become protected accepted evidence. Only Priority5 local refresh/recovery/jobs is authorized; [inspected plan](PRIORITY_5_PLAN.md). No Priority6/L02, News/AI, hosting/spending/deployment, Figma write, early performance optimization or main merge. Warning572.73kB remains unsuppressed. Earlier dated entries below are historical.
+
 ## Current execution — Priority3 CLOSED; Priority4 implemented / verified — 2026-10-06
 
 Priority1/L01, Priority2 and Priority3 engineering/visual gates are explicitly CLOSED / APPROVED. Priority3 accepted at573438f6bac3cf77f84c6a155de1a74e00a78b5a. Only **Priority4 Asset Detail** implemented/verified: strict scoped combined GET, server FIFO acquisition provenance and current remaining costs, immutable instrument activity/void metadata, independent bounded pagination and safe empty/error/coverage states. [Plan](PRIORITY_4_PLAN.md), [measured evidence](PRIORITY_4_EVIDENCE.md), [focused visual review pending](PRIORITY_4_VISUAL_REVIEW.md). Engine, formatter, providers and approved foundation unchanged.

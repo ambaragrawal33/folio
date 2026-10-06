@@ -13,7 +13,8 @@ export async function connectInfrastructure(env: Env): Promise<Dependencies> {
     lazyConnect: true,
     maxRetriesPerRequest: 1,
     connectTimeout: 5000,
-    retryStrategy: (attempt) => (attempt <= 10 ? Math.min(attempt * 250, 2000) : null),
+    retryStrategy: (attempt) => Math.min(attempt * 250, 5000),
+    commandTimeout: 3000,
     enableOfflineQueue: false,
   });
   // Intentionally avoid logging URI-bearing driver errors.

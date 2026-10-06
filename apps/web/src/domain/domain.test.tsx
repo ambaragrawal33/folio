@@ -134,6 +134,11 @@ let replies: Record<string, unknown>;
 beforeEach(() => {
   useAccess.setState({ status: 'authenticated', token: 'unit-test-token' });
   replies = {
+    ['/portfolios/' + p.id + '/refresh']: {
+      enabled: false,
+      reason: 'Local refresh workers are not enabled.',
+      latest: null,
+    },
     '/portfolios': { portfolios: [p] },
     '/instruments': {
       instruments: [

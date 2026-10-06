@@ -18,6 +18,16 @@ export const EnvSchema = z.strictObject({
     .url()
     .refine((s) => s.startsWith('redis://') || s.startsWith('rediss://')),
   WEB_ORIGIN: z.string().url(),
+  LOCAL_JOBS_ENABLED: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((v) => v === 'true'),
+  LOCAL_JOB_SCHEDULES: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((v) => v === 'true'),
+  JOB_HTTP_SECRET: z.string().min(32).max(200).optional(),
+  JOB_RUNNER_MODE: z.enum(['bullmq', 'stateless']).default('bullmq'),
   DEMO_MODE: z
     .enum(['true', 'false'])
     .default('false')
@@ -35,6 +45,19 @@ export const EnvSchema = z.strictObject({
     .default('false')
     .transform((v) => v === 'true'),
   YAHOO_ENTITLEMENT_REFERENCE: z.string().min(10).max(500).optional(),
+  YAHOO_OBSERVATION_ENTITLED: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((v) => v === 'true'),
+  YAHOO_CLOSE_CAPTURE_ENTITLED: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((v) => v === 'true'),
+  COINGECKO_OBSERVATION_ENTITLED: z
+    .enum(['true', 'false'])
+    .default('false')
+    .transform((v) => v === 'true'),
+  OBSERVATION_RIGHTS_REFERENCE: z.string().min(10).max(500).optional(),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']).default('info'),
   EMAIL_TRANSPORT: z.enum(['console', 'mailhog']).default('mailhog'),
   SMTP_HOST: localOnlyHost.default('127.0.0.1'),
@@ -70,7 +93,10 @@ export function assertLocalFixtureEnv(env: Env) {
     !['localhost', '127.0.0.1'].includes(web.hostname) ||
     !['http:', 'https:'].includes(web.protocol) ||
     env.COINGECKO_DEMO_KEY ||
-    env.YAHOO_DISPLAY_ENTITLED
+    env.YAHOO_DISPLAY_ENTITLED ||
+    env.YAHOO_OBSERVATION_ENTITLED ||
+    env.YAHOO_CLOSE_CAPTURE_ENTITLED ||
+    env.COINGECKO_OBSERVATION_ENTITLED
   )
     throw new Error(
       'Local fixtures require explicit local/test mode, isolated storage and no live providers',
@@ -113,5 +139,20 @@ export function parseEnv(input: Record<string, string | undefined>): Env {
     throw new Error('Normal mode must not use demo storage');
   if (result.data.YAHOO_DISPLAY_ENTITLED && !result.data.YAHOO_ENTITLEMENT_REFERENCE)
     throw new Error('Yahoo display requires a verified entitlement reference');
+  if (
+    (result.data.YAHOO_OBSERVATION_ENTITLED ||
+      result.data.YAHOO_CLOSE_CAPTURE_ENTITLED ||
+      result.data.COINGECKO_OBSERVATION_ENTITLED) &&
+    !result.data.OBSERVATION_RIGHTS_REFERENCE
+  )
+    throw new Error('Durable market observations require verified retention rights');
+  if (
+    result.data.LOCAL_JOBS_ENABLED &&
+    (result.data.YAHOO_OBSERVATION_ENTITLED || result.data.COINGECKO_OBSERVATION_ENTITLED) &&
+    !input['REFRESH_TOKEN_SECRET']
+  )
+    throw new Error(
+      'Shared normal provider workers require a stable local cache encryption secret',
+    );
   return result.data;
 }

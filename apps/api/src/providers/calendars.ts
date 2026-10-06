@@ -114,3 +114,22 @@ export function quoteFreshness(instrument: Instrument, asOf: Date, now: Date): '
   }
   return 'stale';
 }
+export function completedSessionDate(exchange: Instrument['exchange'], now: Date): string | null {
+  if (exchange === 'CRYPTO') return null;
+  const today = exchangeDate(now, exchange);
+  const clock = new Intl.DateTimeFormat('en-GB', {
+    timeZone: exchangeZones[exchange],
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23',
+  }).format(now);
+  let candidate = new Date(now);
+  for (let n = 0; n < 8; n++) {
+    const date = exchangeDate(candidate, exchange),
+      type = dayType(exchange, date);
+    if (type === 'unknown') return null;
+    if (type === 'session' && (date < today || clock >= closeTime(exchange, date))) return date;
+    candidate = new Date(candidate.getTime() - 86400000);
+  }
+  return null;
+}

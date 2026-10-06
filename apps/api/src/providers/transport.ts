@@ -20,7 +20,7 @@ export class ProviderTransport {
     this.timeoutMs = timeoutMs;
     this.maxBytes = maxBytes;
   }
-  async text(address: string, headers: HeadersInit = {}) {
+  async text(address: string, headers: HeadersInit = {}, signal?: AbortSignal) {
     const url = new URL(address);
     const path = allowed.get(url.hostname);
     if (
@@ -34,7 +34,9 @@ export class ProviderTransport {
     const response = await this.fetcher(url, {
       headers,
       redirect: 'error',
-      signal: AbortSignal.timeout(this.timeoutMs),
+      signal: signal
+        ? AbortSignal.any([signal, AbortSignal.timeout(this.timeoutMs)])
+        : AbortSignal.timeout(this.timeoutMs),
     });
     if (!response.ok)
       throw new ProviderUnavailable(response.status === 429 ? 'RATE_LIMITED' : 'UPSTREAM_ERROR');

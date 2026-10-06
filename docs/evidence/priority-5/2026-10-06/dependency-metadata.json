@@ -1,0 +1,36 @@
+{
+  "name": "bullmq",
+  "version": "6.3.11",
+  "engines": {
+    "node": ">=14.17.0"
+  },
+  "peerDependencies": {
+    "pg": ">=8.0.0",
+    "redis": ">=5.0.0",
+    "ioredis": ">=5.0.0",
+    "bullmq-otel": ">=2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "pg": {
+      "optional": true
+    },
+    "redis": {
+      "optional": true
+    },
+    "ioredis": {
+      "optional": true
+    },
+    "bullmq-otel": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "tslib": "2.8.1",
+    "semver": "7.8.5",
+    "msgpackr": "2.1.0",
+    "cron-parser": "5.10.1",
+    "node-abort-controller": "3.1.1"
+  },
+  "integrity": "sha512-ylSY3FYil6E9IjqVtT+WHcZvS1rgTZ0L3Aev62u45NXQFe+H37a1AuC3WDATR7ScNDet1Ah8MnP3lf8XaUbPUw==",
+  "checkedAt": "2026-10-06T12:45:34.1918497Z"
+}

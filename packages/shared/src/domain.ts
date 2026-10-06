@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { JobRun, RefreshStatus } from './jobs.ts';
 import { NumberedPagination } from './pagination.ts';
 
 export const Currency = z.string().regex(/^[A-Z]{3}$/);
@@ -204,6 +205,7 @@ export const LedgerPage = z.strictObject({
   total: z.number().int(),
 });
 export const DomainExport = z.strictObject({
+  jobs: z.array(JobRun).optional(),
   portfolios: z.array(Portfolio),
   ledger: z.array(LedgerRow),
   projectionVersion: z.literal(1),
@@ -329,6 +331,24 @@ export const SearchResponse = z.strictObject({
 });
 const empty = z.strictObject({});
 export const domainContracts = [
+  {
+    method: 'post',
+    path: '/api/v1/portfolios/{portfolioId}/refresh',
+    request: z.strictObject({}),
+    response: JobRun,
+  },
+  {
+    method: 'get',
+    path: '/api/v1/portfolios/{portfolioId}/refresh',
+    request: z.strictObject({}),
+    response: RefreshStatus,
+  },
+  {
+    method: 'get',
+    path: '/api/v1/portfolios/{portfolioId}/refresh/{runId}',
+    request: z.strictObject({}),
+    response: JobRun,
+  },
   {
     method: 'get',
     path: '/api/v1/portfolios',

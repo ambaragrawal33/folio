@@ -15,6 +15,17 @@ const prices: Record<string, { currency: string; price: string; previous: string
 };
 const source = 'Local writable fixture v1 · synthetic; not live provider data';
 export class LocalFixtureMarketGateway implements MarketGateway {
+  capability(instrument: Instrument) {
+    const supported = Boolean(prices[instrument.id]?.currency === instrument.currency);
+    return {
+      quotes: supported,
+      closes: supported && instrument.exchange !== 'CRYPTO',
+      reason: supported ? null : 'No isolated synthetic fixture is defined.',
+    };
+  }
+  async refreshQuotes(instruments: readonly Instrument[]) {
+    return this.quotes(instruments);
+  }
   private readonly now: () => Date;
   constructor(env: Env, now: () => Date = () => new Date()) {
     assertLocalFixtureEnv(env);

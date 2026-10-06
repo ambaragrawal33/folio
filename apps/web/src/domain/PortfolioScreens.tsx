@@ -28,6 +28,7 @@ import { useSession } from '../auth/session';
 import { useFinancialDisplay, usePortfolios, useValuation } from './client';
 import './domain.css';
 import { InstrumentPicker } from './InstrumentPicker';
+import { RefreshControl } from './RefreshControl';
 const instrumentResponse = z.strictObject({ instruments: z.array(Instrument) });
 function Metric({
   label,
@@ -371,6 +372,7 @@ function PortfolioContent({
         </div>
         <RecordAction />
       </div>
+      {view !== 'transactions' && <RefreshControl key={p.id} portfolioId={p.id} />}
       {valuation.isPending ? (
         <ContentState loading />
       ) : valuation.error ? (
@@ -1189,6 +1191,7 @@ function AssetContent({ p }: { p: z.infer<typeof Portfolio> }) {
           </Button>
         </div>
       </div>
+      <RefreshControl key={p.id} portfolioId={p.id} />
       <div className="portfolio-summary" data-figma="34:68">
         <Metric label="Quantity" value={f.quantity(position?.quantity ?? '0')} />
         <Metric label="Base value · INR" value={f.money(h?.baseValue ?? null)} />

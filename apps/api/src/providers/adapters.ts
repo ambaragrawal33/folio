@@ -53,6 +53,39 @@ const unavailableHistory = (reason: string): z.infer<typeof PriceHistory> => ({
   fixture: false,
 });
 export class LiveMarketGateway implements MarketGateway {
+  capability(instrument: Instrument) {
+    const known = this.master.some(
+      (i) =>
+        i.id === instrument.id &&
+        i.provider === instrument.provider &&
+        i.currency === instrument.currency &&
+        i.providerId === instrument.providerId,
+    );
+    const permitted =
+      known &&
+      (instrument.provider === 'yahoo'
+        ? this.env.YAHOO_DISPLAY_ENTITLED
+        : Boolean(this.env.COINGECKO_DEMO_KEY));
+    return {
+      display: permitted,
+      quotes:
+        permitted &&
+        Boolean(this.env.OBSERVATION_RIGHTS_REFERENCE) &&
+        (instrument.provider === 'yahoo'
+          ? this.env.YAHOO_OBSERVATION_ENTITLED
+          : this.env.COINGECKO_OBSERVATION_ENTITLED),
+      closes:
+        permitted &&
+        this.env.YAHOO_CLOSE_CAPTURE_ENTITLED &&
+        Boolean(this.env.OBSERVATION_RIGHTS_REFERENCE) &&
+        instrument.provider === 'yahoo' &&
+        instrument.exchange !== 'BSE',
+      reason: permitted ? null : 'Provider entitlement, key or canonical coverage is unavailable.',
+    };
+  }
+  async refreshQuotes(instruments: readonly Instrument[], signal?: AbortSignal) {
+    return this.resolvedQuotes(instruments, true, signal);
+  }
   async drain() {
     await this.cached.drain();
   }
@@ -155,12 +188,12 @@ export class LiveMarketGateway implements MarketGateway {
     }
     return result;
   }
-  private async chart(instrument: Instrument, days: number) {
+  private async chart(instrument: Instrument, days: number, signal?: AbortSignal) {
     let captured: string | undefined;
     const transport = this.transport;
     const rawFetch: typeof fetch = async (input) => {
       const url = input instanceof Request ? input.url : String(input);
-      captured = await transport.text(url);
+      captured = await transport.text(url, {}, signal);
       return new Response(captured, {
         status: 200,
         headers: { 'content-type': 'application/json' },
@@ -189,12 +222,12 @@ export class LiveMarketGateway implements MarketGateway {
       throw new ProviderUnavailable('IDENTITY_MISMATCH');
     return chart;
   }
-  private async yahooQuote(instrument: Instrument) {
+  private async yahooQuote(instrument: Instrument, force = false, signal?: AbortSignal) {
     if (!this.env.YAHOO_DISPLAY_ENTITLED) return null;
     const value = await this.cached.get(
       'yahoo:quote:' + instrument.id,
       async () => {
-        const chart = await this.chart(instrument, 14);
+        const chart = await this.chart(instrument, 14, signal);
         const asOf = timestamp(chart.meta.regularMarketTime);
         const quoteDate = exchangeDate(asOf, instrument.exchange);
         const previous = (chart.timestamp ?? [])
@@ -222,6 +255,7 @@ export class LiveMarketGateway implements MarketGateway {
       60,
       7 * 86400,
       'yahoo',
+      force,
     );
     if (!value) return null;
     return {
@@ -240,7 +274,7 @@ export class LiveMarketGateway implements MarketGateway {
     if ((await this.cache.increment(prefix + 'month:' + month, 32 * 86400)) > 9000)
       throw new ProviderUnavailable('MONTH_BUDGET');
   }
-  private async cryptoQuotes() {
+  private async cryptoQuotes(force = false, signal?: AbortSignal) {
     if (!this.env.COINGECKO_DEMO_KEY) return [];
     const ids = this.master
       .filter((i) => i.provider === 'coingecko' && i.currency === 'USD')
@@ -262,9 +296,13 @@ export class LiveMarketGateway implements MarketGateway {
         }).toString();
         const rows = coinsSchema.parse(
           parseExact(
-            await this.transport.text(url.toString(), {
-              'x-cg-demo-api-key': this.env.COINGECKO_DEMO_KEY!,
-            }),
+            await this.transport.text(
+              url.toString(),
+              {
+                'x-cg-demo-api-key': this.env.COINGECKO_DEMO_KEY!,
+              },
+              signal,
+            ),
           ),
         );
         return rows.flatMap((row) => {
@@ -297,6 +335,7 @@ export class LiveMarketGateway implements MarketGateway {
       300,
       86400,
       'coingecko',
+      force,
     );
     return (
       value?.value.map((q) => ({
@@ -312,6 +351,13 @@ export class LiveMarketGateway implements MarketGateway {
     );
   }
   async quotes(instruments: readonly Instrument[]) {
+    return this.resolvedQuotes(instruments, false);
+  }
+  private async resolvedQuotes(
+    instruments: readonly Instrument[],
+    force: boolean,
+    signal?: AbortSignal,
+  ) {
     const result: z.infer<typeof Quote>[] = [];
     const eligible = instruments.filter((instrument) =>
       this.master.some(
@@ -323,13 +369,14 @@ export class LiveMarketGateway implements MarketGateway {
       ),
     );
     const crypto = eligible.some((i) => i.provider === 'coingecko')
-      ? await this.cryptoQuotes()
+      ? await this.cryptoQuotes(force, signal)
       : [];
     for (const instrument of eligible) {
+      if (signal?.aborted) throw new ProviderUnavailable('CANCELLED');
       const quote =
         instrument.provider === 'coingecko'
           ? crypto.find((q) => q.instrumentId === instrument.id)
-          : await this.yahooQuote(instrument);
+          : await this.yahooQuote(instrument, force, signal);
       if (quote) result.push(quote);
     }
     return result;

@@ -1,5 +1,13 @@
 # Folio architecture and milestone plan
 
+## Priority5 local refresh boundary — 2026-10-06
+
+Job status has its own cache boundary: terminal status reused30seconds; pending status rechecked on mount with action disabled while fetching. Financial writes invalidate financial queries without redundant job-status reads. The existing read/write limiter caps are unchanged. Actual execution claims and broker lock retries are distinct; exhaustion before claim records zero executions.
+
+Priorities1–4 CLOSED / APPROVED. Priority5 adds the [bounded local JobRunner](LOCAL_JOBS.md): durable Mongo outbox/attempt generations, BullMQ opaque-ID queue, compare-token Redis leases, stateless CLI/protected local HTTP, separate normal/fixture Compose workers and opt-in local scheduling. Quote/close publication is fenced and Decimal128; existing replay/preview/ledger remain unchanged. Owned refresh submission/status/get contracts are strict/no-store and reuse Origin/CSRF/auth/throttling. Broker admission and per-owner pending caps complement provider quotas/max25 targets. Housekeeping only touches expired auth resources/old terminal runs.
+
+ObservedMarketGateway adds one bounded market-observation batch read to existing quote retrieval. Asset Detail's four domain reads remain fixed, with no per-lot/acquisition/row request. Missing/invalid inputs retain valid previous observations; freshness uses fixture observation age or existing calendars. Display and retention capabilities are separate default-off gates. Preview receipts/external-provider comparison are unchanged; Redis is not financial transactionality and upstreams are not locked. UI uses bounded explicit checks/retry/cancellation, not continuous polling. No Priority6, provider activation or production scheduling/deployment.
+
 ## Priority4 Asset Detail boundary — 2026-10-06
 
 Priority1–3 CLOSED / APPROVED; only Priority4 implemented. New scoped GET `/portfolios/:portfolioId/instruments/:instrumentId/detail` joins current server FIFO lots to original owned BUY provenance and returns immutable instrument-only activity/void metadata. Four fixed domain reads from the consistent economic state plus batch canonical metadata; one replay and existing active-instrument quote/FX batches. No per-row request/query or financial-engine rewrite. Independent bounded numbered pages default20/max100. Position/holding summaries omit unbounded lot arrays; no unrelated holdings/accounts are exposed. Known canonical/no-owned-position is explicit empty; unknown/unowned404. [Exact contract](ASSET_DETAIL_API.md).

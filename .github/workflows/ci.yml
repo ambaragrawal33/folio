@@ -27,19 +27,25 @@ jobs:
       - run: pnpm exec playwright install --with-deps chromium
       - name: Start real local services and verify APIs
         run: |
-          docker compose -f docker-compose.yml -f docker-compose.demo.yml -f docker-compose.fixture.yml --profile demo --profile fixture up --build -d --wait --wait-timeout 300
+          docker compose -f docker-compose.yml -f docker-compose.demo.yml -f docker-compose.fixture.yml -f docker-compose.jobs.yml --profile demo --profile fixture up --build -d --wait --wait-timeout 300
           node scripts/infrastructure-smoke.mjs
           node scripts/auth-infrastructure-smoke.mjs
           FOLIO_E2E_DEMO=1 node scripts/domain-infrastructure-smoke.mjs
           node scripts/local-fixture-smoke.mjs
-      - run: pnpm exec playwright test auth.spec.ts domain.spec.ts local-fixture.spec.ts
+      - run: pnpm exec playwright test
         env:
           {
             FOLIO_E2E_STACK: '1',
             FOLIO_E2E_DEMO: '1',
             FOLIO_E2E_FIXTURE: '1',
+            FOLIO_E2E_JOBS: '1',
             FOLIO_E2E_EVIDENCE_DIR: '.local/phase-2-regression',
             FOLIO_DOMAIN_EVIDENCE_DIR: '.local/phase-3-regression',
+            FOLIO_FIXTURE_EVIDENCE_DIR: '.local/priority-5-regression/fixture',
+            FOLIO_DISCOVERY_EVIDENCE_DIR: '.local/priority-5-regression/discovery',
+            FOLIO_PREVIEW_EVIDENCE_DIR: '.local/priority-5-regression/preview',
+            FOLIO_ASSET_EVIDENCE_DIR: '.local/priority-5-regression/asset',
+            FOLIO_JOBS_EVIDENCE_DIR: '.local/priority-5-regression/jobs',
           }
       - name: Build release API artifact without publishing or deploying
         run: docker build -f Dockerfile.release --target api-runtime -t folio-api-release:ci .
@@ -52,7 +58,7 @@ jobs:
       - name: Stop local stack
         if: always()
         run: |
-          docker compose -f docker-compose.yml -f docker-compose.demo.yml -f docker-compose.fixture.yml --profile demo --profile fixture down
+          docker compose -f docker-compose.yml -f docker-compose.demo.yml -f docker-compose.fixture.yml -f docker-compose.jobs.yml --profile demo --profile fixture down
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
@@ -64,6 +70,7 @@ jobs:
             docs/evidence/phase-3/visual/
             .local/priority-1/visual/
             .local/phase-3-regression/
+            .local/priority-5-regression/
   foundation-visual:
     # Approved Phase 1 baselines were captured on Windows. Keep their 0.5% gate
     # and compare on Windows rather than accepting Linux font-rendering drift.

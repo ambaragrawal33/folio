@@ -1,0 +1,24 @@
+
+Running 17 tests using 1 worker
+
+(node:19044) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › apps\web\e2e\asset-detail.spec.ts:148:1 › fresh real owned asset: FIFO acquisitions/consumption/splits/dividend/void, scoped activity, coverage, keyboard and derived responsive views (1.7m)
+  ok  2 [chromium] › apps\web\e2e\auth.spec.ts:53:1 › real MailHog registration, verification, persistence, preferences, export and confirmed deletion (10.0s)
+  ok  3 [chromium] › apps\web\e2e\auth.spec.ts:169:1 › reset and password change revoke sessions; logout restores the protected-route boundary (8.6s)
+  ok  4 [chromium] › apps\web\e2e\auth.spec.ts:200:1 › Figma auth geometry, theme/mobile derivations and real error states are accessible (5.7s)
+  ok  5 [chromium] › apps\web\e2e\discovery.spec.ts:85:1 › fresh account discovers verified collisions/aliases, records canonical identity, preserves missing data and keyboard/mobile recovery (21.5s)
+  ok  6 [chromium] › apps\web\e2e\domain.spec.ts:97:1 › real ledger entry/review/FIFO/split/dividend/void, truthful degraded valuation, desktop/mobile accessibility (46.2s)
+  ok  7 [chromium] › apps\web\e2e\domain.spec.ts:309:1 › isolated real read-only demo with labelled fixtures and no live providers (8.8s)
+  ok  8 [chromium] › apps\web\e2e\foundation.spec.ts:5:3 › dark shell, 119 states, geometry, fonts, contrast and screenshot (5.0s)
+  ok  9 [chromium] › apps\web\e2e\foundation.spec.ts:5:3 › light shell, 119 states, geometry, fonts, contrast and screenshot (4.9s)
+  ok 10 [chromium] › apps\web\e2e\foundation.spec.ts:89:1 › keyboard, forms, navigation and derived mobile layout (3.4s)
+  ok 11 [chromium] › apps\web\e2e\local-fixture.spec.ts:136:1 › fresh real account: all ledger types, FIFO/FX/P&L aggregates, source-labelled states and responsive navigation (1.5m)
+  ok 12 [chromium] › apps\web\e2e\local-fixture.spec.ts:337:1 › missing-only portfolio stays unavailable, never a zero total (5.8s)
+  ok 13 [chromium] › apps\web\e2e\local-fixture.spec.ts:356:1 › normal and public-demo accounts/cookies cannot access or be overwritten by local fixtures (5.4s)
+  ok 14 [chromium] › apps\web\e2e\preview.spec.ts:125:1 › real server preview: exact FX/effects, no booking, override, missing/error, expiry and concurrent-ledger revalidation across themes/mobile (30.6s)
+  ok 15 [chromium] › apps\web\e2e\preview.spec.ts:307:1 › uncertain booking response retries the original idempotency key and never books twice (5.1s)
+  ok 16 [chromium] › apps\web\e2e\refresh.spec.ts:132:1 › real owned refresh: durable worker queue, bounded UI, recovery, freshness/coverage and derived visual states (42.7s)
+  ok 17 [chromium] › apps\web\e2e\refresh.spec.ts:284:1 › normal account refresh remains unavailable without permitted providers and never receives fixture observations (9.4s)
+
+  17 passed (6.8m)

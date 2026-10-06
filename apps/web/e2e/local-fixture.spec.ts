@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page, APIRequestContext } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { refreshFixtureData } from './helpers/refresh-fixtures';
 test.use({ baseURL: 'http://127.0.0.1:5190' });
 test.skip(process.env['FOLIO_E2E_FIXTURE'] !== '1', 'Explicit local fixture stack required');
 const evidence = process.env['FOLIO_FIXTURE_EVIDENCE_DIR'] ?? '.local/priority-1/visual';
@@ -102,6 +103,10 @@ async function value(page: Page, session: { token: string; portfolioId: string }
     { headers: { Authorization: 'Bearer ' + session.token } },
   );
   expect(response.status()).toBe(200);
+  // This evidence journey revisits many screens faster than ordinary use.
+  // Respect the existing server read budget; do not disable/increase its limit.
+  if (Number(response.headers()['ratelimit-remaining'] ?? '60') <= 20)
+    await page.waitForTimeout(61000);
   return response.json();
 }
 async function capture(page: Page, name: string) {
@@ -179,6 +184,7 @@ test('fresh real account: all ledger types, FIFO/FX/P&L aggregates, source-label
     'Unit price': '100',
     'Fees / withholding': '0',
   });
+  await refreshFixtureData(page);
   const complete = await value(page, session);
   expect(complete).toMatchObject({
     status: 'fresh',

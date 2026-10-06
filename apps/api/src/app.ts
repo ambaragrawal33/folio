@@ -16,12 +16,19 @@ import type { AuthService } from './services/auth.ts';
 import type { CacheStore } from './services/cache.ts';
 import type { DomainService } from './services/domain.ts';
 import { domainRouter } from './routes/domain.ts';
+import type { JobService } from './jobs/runner.ts';
+import { internalJobsRouter } from './jobs/http.ts';
 export function createApp(
   env: Env,
   dependencies: Dependencies,
   logger: Logger,
   reportError?: ErrorReporter,
-  authentication?: { service: AuthService; cache: CacheStore; domain?: DomainService },
+  authentication?: {
+    service: AuthService;
+    cache: CacheStore;
+    domain?: DomainService;
+    jobs?: JobService;
+  },
 ) {
   const app = express();
   app.disable('x-powered-by');
@@ -44,7 +51,11 @@ export function createApp(
   app.use(cors({ origin: env.WEB_ORIGIN, credentials: true }));
   app.use(express.json({ limit: '64kb' }));
   if (authentication?.domain)
-    app.use('/api/v1', domainRouter(env, authentication.domain, authentication.cache));
+    app.use(
+      '/api/v1',
+      domainRouter(env, authentication.domain, authentication.cache, authentication.jobs),
+    );
+  if (authentication?.jobs) app.use('/internal/jobs', internalJobsRouter(env, authentication.jobs));
   if (authentication)
     app.use('/api/v1', authRouter(env, authentication.service, authentication.cache));
   app.get(['/health', '/api/health'], (_req, res) =>

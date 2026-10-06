@@ -1,0 +1,7 @@
+{
+  "scope": "Tracked plus nonignored untracked reviewable source, without generated ignored runtime secrets/build/cache",
+  "files": 764,
+  "ignoredEnvNotTracked": true,
+  "rootDirectoryMatches": "Two generated local auth keys in ignored .env; redacted diagnostic only, never exported to source/evidence",
+  "gitleaksRulesChanged": false
+}

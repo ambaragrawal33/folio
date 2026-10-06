@@ -19,12 +19,20 @@ import {
   PriceHistory,
   AssetDetailQuery,
   AssetDetailResponse,
+  JobRun,
+  RefreshStatus,
 } from '@folio/shared';
 import type { Env } from '../config/env.ts';
 import type { DomainService } from '../services/domain.ts';
 import type { CacheStore } from '../services/cache.ts';
 import { HttpError } from '../utils/http-error.ts';
-export function domainRouter(env: Env, service: DomainService, cache: CacheStore) {
+import type { JobService } from '../jobs/runner.ts';
+export function domainRouter(
+  env: Env,
+  service: DomainService,
+  cache: CacheStore,
+  jobs?: JobService,
+) {
   const router = Router();
   const origins = new Set([new URL(env.WEB_ORIGIN).origin]);
   if (env.NODE_ENV !== 'production') {
@@ -210,6 +218,45 @@ export function domainRouter(env: Env, service: DomainService, cache: CacheStore
         ),
       ),
     );
+  });
+  router.get('/portfolios/:portfolioId/refresh', async (req, res) => {
+    parsed(EmptyRequest, req.query);
+    const user = await identity(req),
+      id = parameter(req, 'portfolioId');
+    await service.assertOwnedForRefresh(user, id);
+    res.json(
+      RefreshStatus.parse(
+        jobs
+          ? await jobs.status(user, id)
+          : {
+              enabled: false,
+              reason: env.DEMO_MODE
+                ? 'This public demo is read-only.'
+                : 'Local refresh workers are not enabled.',
+              latest: null,
+            },
+      ),
+    );
+  });
+  router.post('/portfolios/:portfolioId/refresh', async (req, res) => {
+    parsed(EmptyRequest, req.query);
+    parsed(EmptyRequest, req.body);
+    const user = await identity(req),
+      id = parameter(req, 'portfolioId');
+    await service.assertOwnedForRefresh(user, id);
+    if (!jobs)
+      throw new HttpError(503, 'REFRESH_UNAVAILABLE', 'Local refresh workers are not enabled.');
+    res
+      .status(202)
+      .json(JobRun.parse(await jobs.submit(user, id, req.get('Idempotency-Key') ?? '')));
+  });
+  router.get('/portfolios/:portfolioId/refresh/:runId', async (req, res) => {
+    parsed(EmptyRequest, req.query);
+    const user = await identity(req),
+      id = parameter(req, 'portfolioId');
+    await service.assertOwnedForRefresh(user, id);
+    if (!jobs) throw new HttpError(404, 'RESOURCE_NOT_FOUND', 'This resource is unavailable.');
+    res.json(JobRun.parse(await jobs.get(user, id, parameter(req, 'runId'))));
   });
   router.get('/portfolios/:portfolioId/instruments/:instrumentId/detail', async (req, res) => {
     res.json(

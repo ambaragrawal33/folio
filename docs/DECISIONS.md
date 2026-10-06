@@ -1,5 +1,19 @@
 # Folio decisions — updated 2026-10-06
 
+## Priority5 implementation bounds — 2026-10-06
+
+Implementation is verified; **user engineering/visual approval remains pending**. Final measurements:190 standard tests passed (two opt-in outage cases separately enabled in28/28 job tests),93.07% overall lines/all financial-core files >=90%,17/17 real-service E2E,22 new visual states/44 captures with zero axe/overflow/independent scrolling. All219 accepted screenshots and the financial engine remain unchanged. Local-only release smoke uses3030 rather than collide with fixture3020; no application/Compose topology or operational approval changes. [Actual evidence](PRIORITY_5_EVIDENCE.md). Warning577.65kB remains unsuppressed. No Priority6 implementation, main merge or push is inferred.
+
+Verification refinement: keep existing API rate caps; independent job-status cache avoids financial-invalidation amplification, and rapid evidence journeys obey the server read budget. Pending status rechecks on mount. Execution-attempt reporting remains actual, including zero when broker retries only contend for a lock. No accounting or entitlement decision changes.
+
+Within explicit Priority5 authorization: BullMQ6.3.11;15-second execution/20-second compare-token lease; three attempts/bounded exponential backoff; max25 instruments/recent portfolios;1000 broker admissions/20 pending owned runs; seven UI checks/35-second browser deadline; explicit retry retaining idempotency. Local scheduling opt-in/OFF. Default-OFF quote/close retention gates preserve entitlement boundaries and grant no rights. Optional msgpack native build denied in existing allowlist. These are implementation bounds, not new accounting/provider/deployment approvals. [Operation/security](LOCAL_JOBS.md).
+
+Priority5 user visual/product approval remains pending. Priority6/L02 remains approved policy but unauthorized implementation; News/AI/operational gates remain separate. No main merge, Figma write or warning suppression.
+
+## Priority4 CLOSED; Priority5 authorized — 2026-10-06
+
+Priority4 engineering and22-state/44-capture visual/product review are explicitly APPROVED / CLOSED. Accepted API read-only/ownership/paging/FIFO/activity/valuation/no-N+1 behavior remains binding; no second FIFO. Light/mobile/tablet remain derived; Figma/175 earlier captures unchanged. Warning572.73kB unsuppressed,500-transaction benchmark deferred. Only Priority5 JobRunner/refresh/recovery/housekeeping is authorized. [Plan and concrete local bounds](PRIORITY_5_PLAN.md). No new provider entitlement or production scheduler/hosting choice; L02 approved but implementation remains Priority6.
+
 ## Priority3 CLOSED; Priority4 authorized — 2026-10-06
 
 The user explicitly APPROVES/CLOSES Priority3 engineering and all17 visual/product states at573438f6bac3cf77f84c6a155de1a74e00a78b5a. Signed3-minute preview/atomic confirmation/idempotent recovery, non-mutation, dated FX and external-provider locking limitation are accepted. No upstream lock/live-provider/commercial entitlement claim. Light/mobile/tablet remain approved DERIVED. Warning564.34kB remains unresolved/unsuppressed; performance stays later in order.
