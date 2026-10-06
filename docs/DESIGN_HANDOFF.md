@@ -1,5 +1,17 @@
 # Folio design handoff
 
+## Priority 6 measured visual evidence — user review pending
+
+[Actual review pack](PRIORITY_6_VISUAL_REVIEW.md):25 states/50 exact-viewport and full-page captures, Dark/derived Light1440×1024, mobile390×844, tablet768×1024. All states have zero axe violations, horizontal overflow and independent scrolling containers. Real owned rename, validation/retry, explicit empty-delete confirmation, committed-response loss/retry, replacement preservation, immutable-history block and stale first-flow recovery are covered. Keyboard input/heading/cancel/notice focus and existing mobile Escape/aria-expanded behavior pass. All263 approved workflow PNGs plus one previous gallery preview remain unchanged. Automated verification does not constitute user approval. New workflow composition and Light/mobile/tablet remain DERIVED, never Figma-approved. No visual foundation or Figma change.
+
+## Priority 5 CLOSED; Priority 6 derived management — 2026-10-06
+
+The user explicitly accepts Priority5 engineering and all22 rendered states/44 captures, mobile56px inline navigation, keyboard/focus and accessibility. Light/mobile/tablet remain approved DERIVED. Only Priority6/L02 is now implemented; its visual review awaits the user.
+
+Connected read-only Figma context and returned screenshots were inspected for Settings54:50 (portfolio defaults54:547–558/name input54:550), DS Text Input2:4823 and Destructive2:4815. Existing inspected Primary/Tertiary roles are reused. There are no dedicated rename/delete/receipt/recovery frames. Name/edit/confirmation/error/first-portfolio continuation, Light/mobile/tablet are DERIVED, not Figma-approved. No new assets, colors, tokens, fonts, CSS geometry or shell changes.
+
+Intentional composition: preserve the prior two-column currency/FIFO context and approved Settings form geometry; add the name/action workflow beneath it, rather than redesign approved forms into the prototype's three static illustrative inputs. New operational prose extends normal document height; no803px clip or independent scroller. Persistent readable labels, existing stronger semantic text roles, native disabled/pending controls, aria-invalid/described errors, visible focus and explicit confirmation are retained. Confirmation heading receives focus; cancel restores its trigger; deletion focuses the factual first-flow notice. Static blocked-history prose describes the disabled button instead of announcing a second live status; real success/error messages remain status/alert. Safe contract failures show product copy with explicit retry, never schema text or fake success. Source palette and approved typography remain unchanged.
+
 ## Priority5 refresh/recovery composition — 2026-10-06
 
 Focused measured review: **22 states / 44 captures**, Dark/derived Light desktop,390×844 mobile and768×1024 tablet, zero axe violations/overflow/independent scrolling. [Actual captures and per-state derivation notes](PRIORITY_5_VISUAL_REVIEW.md). Existing219 accepted screenshots and foundation are unchanged. Refresh controls use existing DS roles; status/error/count/as-of composition has no dedicated Figma frame and remains DERIVED. User visual approval is pending; passing browser checks do not approve it. Figma was not modified.

@@ -46,6 +46,7 @@ jobs:
             FOLIO_PREVIEW_EVIDENCE_DIR: '.local/priority-5-regression/preview',
             FOLIO_ASSET_EVIDENCE_DIR: '.local/priority-5-regression/asset',
             FOLIO_JOBS_EVIDENCE_DIR: '.local/priority-5-regression/jobs',
+            FOLIO_MANAGEMENT_EVIDENCE_DIR: '.local/priority-6/visual',
           }
       - name: Build release API artifact without publishing or deploying
         run: docker build -f Dockerfile.release --target api-runtime -t folio-api-release:ci .
@@ -71,6 +72,7 @@ jobs:
             .local/priority-1/visual/
             .local/phase-3-regression/
             .local/priority-5-regression/
+            .local/priority-6/
   foundation-visual:
     # Approved Phase 1 baselines were captured on Windows. Keep their 0.5% gate
     # and compare on Windows rather than accepting Linux font-rendering drift.

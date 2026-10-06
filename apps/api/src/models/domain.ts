@@ -10,6 +10,7 @@ const portfolioSchema = new Schema(
     costBasis: { type: String, required: true, enum: ['FIFO'], default: 'FIFO' },
     currencyLockedAt: { type: Date, default: null },
     revision: { type: Number, required: true, default: 0 },
+    managementVersion: { type: Number, required: true, default: 0 },
     nextSequence: { type: Number, required: true, default: 0 },
     projectionVersion: { type: Number, required: true, default: 1 },
     dirtyFrom: { type: Date, default: null },
@@ -89,6 +90,7 @@ const voidSchema = new Schema(
   },
   { strict: 'throw', versionKey: false },
 );
+voidSchema.index({ portfolioId: 1 });
 function immutable(schema: Schema) {
   schema.pre(
     [
@@ -127,6 +129,18 @@ projectionSchema.index({ portfolioId: 1, instrumentId: 1 }, { unique: true });
 export type EconomicDocument = InferSchemaType<typeof economicSchema>;
 export type VoidDocument = InferSchemaType<typeof voidSchema>;
 export type PortfolioDocument = InferSchemaType<typeof portfolioSchema>;
+const deletionSchema = new Schema(
+  {
+    userId: { type: Schema.Types.ObjectId, required: true, immutable: true },
+    portfolioId: { type: Schema.Types.ObjectId, required: true, immutable: true, unique: true },
+    idempotencyKey: { type: String, required: true, immutable: true },
+    requestHash: { type: String, required: true, immutable: true },
+    deletedAt: { type: Date, required: true, immutable: true },
+  },
+  { strict: 'throw', versionKey: false },
+);
+deletionSchema.index({ userId: 1, idempotencyKey: 1 }, { unique: true });
+immutable(deletionSchema);
 export function domainModels(connection: Connection) {
   return {
     Portfolio: connection.model('Portfolio', portfolioSchema, 'portfolios'),
@@ -134,5 +148,6 @@ export function domainModels(connection: Connection) {
     Economic: connection.model('EconomicRecord', economicSchema, 'economic_records'),
     Void: connection.model('VoidEvent', voidSchema, 'void_events'),
     Projection: connection.model('PositionProjection', projectionSchema, 'position_projections'),
+    Deletion: connection.model('PortfolioDeletion', deletionSchema, 'portfolio_deletions'),
   };
 }

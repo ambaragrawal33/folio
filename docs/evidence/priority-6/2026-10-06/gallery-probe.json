@@ -1,0 +1,259 @@
+{
+  "url": "http://127.0.0.1:5406/review.html",
+  "status": 200,
+  "title": "Folio Priority 6 management review",
+  "sections": 25,
+  "images": [
+    {
+      "path": "/visual/default-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/default-dark-1440.png",
+      "width": 1440,
+      "height": 1732
+    },
+    {
+      "path": "/visual/rename-edit-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/rename-edit-dark-1440.png",
+      "width": 1440,
+      "height": 1732
+    },
+    {
+      "path": "/visual/rename-validation-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/rename-validation-dark-1440.png",
+      "width": 1440,
+      "height": 1754
+    },
+    {
+      "path": "/visual/rename-success-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/rename-success-dark-1440.png",
+      "width": 1440,
+      "height": 1762
+    },
+    {
+      "path": "/visual/rename-unavailable-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/rename-unavailable-dark-1440.png",
+      "width": 1440,
+      "height": 1762
+    },
+    {
+      "path": "/visual/rename-recovered-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/rename-recovered-dark-1440.png",
+      "width": 1440,
+      "height": 1762
+    },
+    {
+      "path": "/visual/delete-confirm-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/delete-confirm-dark-1440.png",
+      "width": 1440,
+      "height": 1866
+    },
+    {
+      "path": "/visual/delete-validation-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/delete-validation-dark-1440.png",
+      "width": 1440,
+      "height": 1888
+    },
+    {
+      "path": "/visual/default-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/default-light-1440.png",
+      "width": 1440,
+      "height": 1792
+    },
+    {
+      "path": "/visual/delete-confirm-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/delete-confirm-light-1440.png",
+      "width": 1440,
+      "height": 1896
+    },
+    {
+      "path": "/visual/default-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/default-light-mobile-390.png",
+      "width": 390,
+      "height": 2708
+    },
+    {
+      "path": "/visual/rename-edit-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/rename-edit-light-mobile-390.png",
+      "width": 390,
+      "height": 2678
+    },
+    {
+      "path": "/visual/rename-validation-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/rename-validation-light-mobile-390.png",
+      "width": 390,
+      "height": 2700
+    },
+    {
+      "path": "/visual/rename-success-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/rename-success-light-mobile-390.png",
+      "width": 390,
+      "height": 2708
+    },
+    {
+      "path": "/visual/navigation-open-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/navigation-open-light-mobile-390.png",
+      "width": 390,
+      "height": 3165
+    },
+    {
+      "path": "/visual/delete-confirm-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/delete-confirm-light-mobile-390.png",
+      "width": 390,
+      "height": 2842
+    },
+    {
+      "path": "/visual/deleted-first-flow-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/deleted-first-flow-light-mobile-390.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/populated-block-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/populated-block-light-mobile-390.png",
+      "width": 390,
+      "height": 2718
+    },
+    {
+      "path": "/visual/populated-block-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/populated-block-light-1440.png",
+      "width": 1440,
+      "height": 1774
+    },
+    {
+      "path": "/visual/populated-block-light-tablet-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/populated-block-light-tablet-768.png",
+      "width": 768,
+      "height": 2175
+    },
+    {
+      "path": "/visual/populated-block-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/populated-block-dark-1440.png",
+      "width": 1440,
+      "height": 1804
+    },
+    {
+      "path": "/visual/delete-uncertain-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/delete-uncertain-dark-1440.png",
+      "width": 1440,
+      "height": 1866
+    },
+    {
+      "path": "/visual/replacement-safe-after-retry-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/replacement-safe-after-retry-dark-1440.png",
+      "width": 1440,
+      "height": 1732
+    },
+    {
+      "path": "/visual/stale-deleted-resource-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/stale-deleted-resource-dark-1440.png",
+      "width": 1440,
+      "height": 1807
+    },
+    {
+      "path": "/visual/stale-first-flow-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/stale-first-flow-dark-1440.png",
+      "width": 1440,
+      "height": 1024
+    }
+  ],
+  "overflow": 0
+}

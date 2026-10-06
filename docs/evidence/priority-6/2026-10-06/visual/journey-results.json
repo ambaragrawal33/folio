@@ -1,0 +1,9 @@
+{
+  "apiRestartPersistence": true,
+  "logoutLoginPersistence": true,
+  "emptyDeletion": true,
+  "replacementDistinct": true,
+  "populatedDeletionStatus": 409,
+  "ledgerUnchanged": true,
+  "deletedResourceStatus": 404
+}

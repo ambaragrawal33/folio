@@ -1,5 +1,11 @@
 # Folio architecture and milestone plan
 
+## Priority 6 single-default management — 2026-10-06
+
+[Exact contracts, concurrency and privacy boundary](PORTFOLIO_MANAGEMENT.md). Owned read-only management GET plus strict PATCH/DELETE; independent metadata managementVersion preserves financial revision/preview rules. The existing transactional user guard serializes management with append/void/default creation, refresh admission and privacy erasure. Any original economic/void/projection state or financial sequence/revision/lock/dirty timestamp blocks deletion, including sold/voided history. Ordinary removal deletes only the empty portfolio row and writes a durable owned deletion receipt/audit; no economic cascade or automatic replacement. Stable SHA256 payload comparison and UUID scope allow matching retries after restart or replacement, with changed payload409 and unknown/unowned404.
+
+Privacy export includes safe receipt IDs/times in JSON/CSV; account erasure separately removes owned receipts/history under the existing transaction. Shared canonical/market history and prior owned operational job history remain. Management eligibility has at most four fixed indexed domain lookups in a consistent snapshot, no per-record request/provider call/FIFO reimplementation. UI reuses Settings controls, removes only deleted-ID cache, and uses the existing explicit first-portfolio creation path. Unexpected or mis-scoped responses never claim success. No multi-portfolio, News/AI, provider activation or production operations.
+
 ## Priority5 local refresh boundary — 2026-10-06
 
 Job status has its own cache boundary: terminal status reused30seconds; pending status rechecked on mount with action disabled while fetching. Financial writes invalidate financial queries without redundant job-status reads. The existing read/write limiter caps are unchanged. Actual execution claims and broker lock retries are distinct; exhaustion before claim records zero executions.

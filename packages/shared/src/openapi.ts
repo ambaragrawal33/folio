@@ -40,6 +40,9 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
       path: contract.path,
       summary: contract.path.split('/').at(-1) ?? 'Account',
       description:
+        (contract.path.endsWith('/management') || ['patch', 'delete'].includes(contract.method)
+          ? 'Single owned default portfolio management. GET reports server-authoritative empty-only deletion eligibility. PATCH strictly accepts name and expectedVersion; same-name retry is repeat-safe and metadata managementVersion is separate from financial revision. DELETE strictly accepts confirmation DELETE and expectedVersion, requires UUID Idempotency-Key, and atomically rejects any economic record (including voided/sold history), void/projection or financial sequence/revision/lock state. Matching deletion retry returns the original receipt; changed key payload is409, unknown/unowned/deleted reads uniformly404. No ledger/void cascade; account privacy erasure remains separate. '
+          : '') +
         'Strict request schema. Mutations require Origin matching WEB_ORIGIN, X-Folio-CSRF: 1, and application/json. Access tokens are memory-only; refresh cookies are httpOnly and SameSite=Strict. All responses are no-store. Account identity comes from the authenticated token, never request fields.',
       security: contract.authenticated
         ? [{ bearerAuth: [] }]
@@ -176,6 +179,16 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
       parameters: [
         ...pathParameters,
         ...queryParameters,
+        ...(contract.method === 'delete'
+          ? [
+              {
+                name: 'Idempotency-Key',
+                in: 'header' as const,
+                required: true,
+                schema: { type: 'string' as const, format: 'uuid' },
+              },
+            ]
+          : []),
         ...(contract.method === 'post' && contract.path.endsWith('/refresh')
           ? [
               {
@@ -205,7 +218,7 @@ export function openApiDocument(): ReturnType<OpenApiGeneratorV3['generateDocume
             ]
           : []),
       ],
-      ...(contract.method === 'post'
+      ...(['post', 'patch', 'delete'].includes(contract.method)
         ? {
             request: {
               body: {

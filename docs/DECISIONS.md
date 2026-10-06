@@ -1,5 +1,17 @@
 # Folio decisions — updated 2026-10-06
 
+## Priority 6 implementation verified; review pending — 2026-10-06
+
+L02 is implemented within its approved scope; user review is still pending. Independent management versioning, stable request hashing, original-key deletion receipts, explicit confirmation and the existing Mongo user write guard preserve rename/append/delete concurrency without changing accounting rules. Empty means no original economics, void/projection or financial metadata state; sold/voided records still block deletion. New default creation remains explicit. Privacy erasure stays separate and removes owned deletion receipts. No multi-portfolio or new financial semantics.
+
+Measured gates:218 standard tests/22 suites,93.44% overall lines, minimum95.65% financial-core lines,28/28 dedicated jobs/outage regression,20/20 real-service E2E,25 focused states/50 captures with zero axe/overflow/independent scrolling. [Evidence](PRIORITY_6_EVIDENCE.md), [review](PRIORITY_6_VISUAL_REVIEW.md). Warning584.92kB remains unsuppressed; final performance acceptance remains later. Priorities1–5 remain CLOSED. No provider, production operation, News/AI or main-merge approval is inferred.
+
+## Priority 5 CLOSED; Priority 6/L02 authorized — 2026-10-06
+
+The user explicitly closes Priority 5 engineering and all 22 rendered review states / 44 captures. Its existing financial, entitlement, coordination, security and derived-design boundaries remain binding. The accepted local synthetic timings are not production performance. Warning577.65kB remains unresolved/unsuppressed; performance is deferred.
+
+Only Priority 6 is authorized: rename the single default; deletion only without any economics/void/projection/financial sequence/revision/lock state, including original voided or sold history; account privacy erasure stays separate. Independent metadata managementVersion prevents conflicting name edits without changing financial revision/preview rules. Explicit deletion confirmation and owned durable UUID receipt make uncertain retries safe, including after replacement creation; receipts join privacy export/erasure. These are implementation protections within L02, not new accounting/multi-portfolio/deployment scope. [Plan](PRIORITY_6_PLAN.md). Priority 6 user review remains pending; no News/AI/main merge or warning suppression.
+
 ## Priority5 implementation bounds — 2026-10-06
 
 Implementation is verified; **user engineering/visual approval remains pending**. Final measurements:190 standard tests passed (two opt-in outage cases separately enabled in28/28 job tests),93.07% overall lines/all financial-core files >=90%,17/17 real-service E2E,22 new visual states/44 captures with zero axe/overflow/independent scrolling. All219 accepted screenshots and the financial engine remain unchanged. Local-only release smoke uses3030 rather than collide with fixture3020; no application/Compose topology or operational approval changes. [Actual evidence](PRIORITY_5_EVIDENCE.md). Warning577.65kB remains unsuppressed. No Priority6 implementation, main merge or push is inferred.

@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { Types } from 'mongoose';
 import type { ClientSession, HydratedDocument } from 'mongoose';
-import type { z } from 'zod';
+import { z } from 'zod';
 import {
   Instrument,
   TransactionInput,
@@ -12,6 +12,10 @@ import {
   TransactionPreview,
   FxProvenance,
   AssetDetailResponse,
+  RenamePortfolioInput,
+  DeletePortfolioInput,
+  PortfolioManagement,
+  DeletePortfolioResponse,
 } from '@folio/shared';
 import type { HoldingsQuery } from '@folio/shared';
 import type { AssetDetailQuery } from '@folio/shared';
@@ -117,6 +121,7 @@ export const portfolioView = (doc: HydratedDocument<PortfolioDocument>) =>
     costBasis: doc.costBasis,
     currencyLockedAt: doc.currencyLockedAt?.toISOString() ?? null,
     revision: doc.revision,
+    managementVersion: doc.managementVersion ?? 0,
   });
 export class DomainService {
   readonly models;
@@ -199,6 +204,138 @@ export class DomainService {
     const doc = await (session ? query.session(session) : query);
     if (!doc) throw notFound();
     return doc;
+  }
+  private async deletionReason(
+    portfolio: HydratedDocument<PortfolioDocument>,
+    session?: ClientSession,
+  ) {
+    const query = { portfolioId: portfolio._id };
+    const economic = this.models.Economic.exists(query);
+    const voids = this.models.Void.exists(query);
+    const projection = this.models.Projection.exists(query);
+    if (
+      portfolio.currencyLockedAt ||
+      portfolio.dirtyFrom ||
+      portfolio.nextSequence > 0 ||
+      portfolio.revision > 0 ||
+      (await (session ? economic.session(session) : economic)) ||
+      (await (session ? voids.session(session) : voids)) ||
+      (await (session ? projection.session(session) : projection))
+    )
+      return 'This portfolio has transaction history or economic state and cannot be deleted. Voiding or selling does not erase that history. Keep it and rename it instead; account privacy erasure is separate in Data & Export.';
+    return null;
+  }
+  async management(identity: Identity, id: string) {
+    return this.auth.connection.transaction(
+      async (session) => {
+        const portfolio = await this.owned(identity, id, session);
+        const reason = identity.user.demoReadonly
+          ? 'This public demo is read-only.'
+          : await this.deletionReason(portfolio, session);
+        return PortfolioManagement.parse({
+          portfolio: portfolioView(portfolio),
+          canDelete: reason === null,
+          deletionReason: reason,
+        });
+      },
+      { readConcern: { level: 'snapshot' } },
+    );
+  }
+  async renamePortfolio(identity: Identity, id: string, raw: unknown) {
+    const parsed = RenamePortfolioInput.safeParse(raw);
+    if (!parsed.success)
+      throw new HttpError(
+        400,
+        'VALIDATION_ERROR',
+        'Enter a name of 1–100 characters using letters, numbers, spaces or . , apostrophe & ( ) _ + - /.',
+      );
+    return this.auth.connection.transaction(async (session) => {
+      await this.touchUser(identity, session);
+      const portfolio = await this.owned(identity, id, session);
+      if (portfolio.name === parsed.data.name) return portfolioView(portfolio);
+      if ((portfolio.managementVersion ?? 0) !== parsed.data.expectedVersion)
+        throw new HttpError(
+          409,
+          'PORTFOLIO_CHANGED',
+          'The portfolio name changed. Reload its details and review your edit again.',
+        );
+      portfolio.name = parsed.data.name;
+      portfolio.managementVersion = (portfolio.managementVersion ?? 0) + 1;
+      await portfolio.save({ session });
+      await this.auth.audit(
+        'portfolio.renamed',
+        identity.user._id,
+        { ip: 'domain', userAgent: 'domain' },
+        undefined,
+        this.auth.digest(id, 'portfolio-audit'),
+        session,
+      );
+      return portfolioView(portfolio);
+    });
+  }
+  async deleteEmptyPortfolio(identity: Identity, id: string, raw: unknown, key: string) {
+    const parsed = DeletePortfolioInput.safeParse(raw);
+    if (!parsed.success || !z.uuid().safeParse(key).success)
+      throw new HttpError(
+        400,
+        'VALIDATION_ERROR',
+        'Type DELETE and review the current portfolio details before deleting. A valid request identifier is required.',
+      );
+    const portfolioId = objectId(id),
+      userId = identity.user._id;
+    const requestHash = createHash('sha256')
+      .update(canonical({ id: portfolioId.toHexString(), input: parsed.data }))
+      .digest('hex');
+    return this.auth.connection.transaction(async (session) => {
+      await this.touchUser(identity, session);
+      const prior = await this.models.Deletion.findOne({ userId, idempotencyKey: key }).session(
+        session,
+      );
+      if (prior) {
+        if (prior.requestHash !== requestHash)
+          throw new HttpError(
+            409,
+            'IDEMPOTENCY_CONFLICT',
+            'This request identifier was already used for a different deletion.',
+          );
+        return DeletePortfolioResponse.parse({
+          portfolioId: prior.portfolioId.toHexString(),
+          deletedAt: prior.deletedAt.toISOString(),
+          duplicate: true,
+        });
+      }
+      const portfolio = await this.owned(identity, id, session);
+      const reason = await this.deletionReason(portfolio, session);
+      if (reason) throw new HttpError(409, 'PORTFOLIO_NOT_EMPTY', reason);
+      if ((portfolio.managementVersion ?? 0) !== parsed.data.expectedVersion)
+        throw new HttpError(
+          409,
+          'PORTFOLIO_CHANGED',
+          'The portfolio name changed. Reload its details before confirming deletion.',
+        );
+      const deletedAt = this.clock();
+      const result = await this.models.Portfolio.deleteOne({ _id: portfolioId, userId }).session(
+        session,
+      );
+      if (result.deletedCount !== 1) throw notFound();
+      await this.models.Deletion.create(
+        [{ userId, portfolioId, idempotencyKey: key, requestHash, deletedAt }],
+        { session },
+      );
+      await this.auth.audit(
+        'portfolio.deleted_empty',
+        userId,
+        { ip: 'domain', userAgent: 'domain' },
+        undefined,
+        this.auth.digest(id, 'portfolio-audit'),
+        session,
+      );
+      return DeletePortfolioResponse.parse({
+        portfolioId: portfolioId.toHexString(),
+        deletedAt: deletedAt.toISOString(),
+        duplicate: false,
+      });
+    });
   }
   async assertOwnedForRefresh(identity: Identity, id: string) {
     await this.owned(identity, id);
@@ -951,6 +1088,14 @@ export class DomainService {
             .lean()
         ).map(voidEvent);
         return DomainExport.parse({
+          portfolioDeletions: (
+            await this.models.Deletion.find({ userId })
+              .sort({ deletedAt: 1, _id: 1 })
+              .session(session)
+          ).map((row) => ({
+            portfolioId: row.portfolioId.toHexString(),
+            deletedAt: row.deletedAt.toISOString(),
+          })),
           jobs: (
             await jobModels(this.auth.connection)
               .Run.find({ userId })
@@ -971,6 +1116,7 @@ export class DomainService {
     );
   }
   private async deleteOwned(userId: Types.ObjectId, session: ClientSession) {
+    await this.models.Deletion.collection.deleteMany({ userId }, { session });
     await jobModels(this.auth.connection).Run.deleteMany({ userId }).session(session);
     // Privacy erasure is the sole append-only deletion exception, inside the account transaction.
     await this.models.Economic.collection.deleteMany({ userId }, { session });

@@ -1,0 +1,299 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.release
+#1 transferring dockerfile: 2.09kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#2 DONE 1.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 185B 0.0s done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [build 1/9] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#5 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.1s done
+#5 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 54.57kB 0.1s done
+#4 DONE 0.2s
+
+#6 [build 2/9] WORKDIR /workspace
+#6 CACHED
+
+#7 [build 3/9] RUN npm install --global pnpm@11.19.0
+#7 CACHED
+
+#8 [build 4/9] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#8 CACHED
+
+#9 [build 5/9] COPY packages ./packages
+#9 DONE 0.1s
+
+#10 [build 6/9] COPY apps ./apps
+#10 DONE 0.3s
+
+#11 [build 7/9] COPY scripts ./scripts
+#11 DONE 0.1s
+
+#12 [build 8/9] RUN pnpm install --frozen-lockfile
+#12 2.625 Scope: all 5 workspace projects
+#12 2.806 ? Verifying lockfile against supply-chain policies (548 entries)...
+#12 2.825 Lockfile is up to date, resolution step is skipped
+#12 3.287 Progress: resolved 1, reused 0, downloaded 0, added 0
+#12 3.765 Packages: +497
+#12 3.765 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#12 4.405 Progress: resolved 497, reused 0, downloaded 0, added 0
+#12 5.407 Progress: resolved 497, reused 0, downloaded 11, added 0
+#12 5.967 [WARN] Tarball download average speed 8 KiB/s (size 8 KiB) is below 50 KiB/s: https://registry.npmjs.org/@vitest/coverage-v8/-/coverage-v8-5.0.3.tgz (GET)
+#12 6.416 Packages are hard linked from the content-addressable store to the virtual store.
+#12 6.416   Content-addressable store is at: /workspace/.pnpm-store/v11
+#12 6.416   Virtual store is at:             node_modules/.pnpm
+#12 6.466 Progress: resolved 497, reused 0, downloaded 31, added 4
+#12 6.960 [WARN] Tarball download average speed 44 KiB/s (size 75 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/react/-/react-19.3.0.tgz (GET)
+#12 7.028 [WARN] Tarball download average speed 15 KiB/s (size 15 KiB) is below 50 KiB/s: https://registry.npmjs.org/ast-v8-to-istanbul/-/ast-v8-to-istanbul-1.0.7.tgz (GET)
+#12 7.371 [WARN] Tarball download average speed 2 KiB/s (size 3 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/aria-query/-/aria-query-5.0.4.tgz (GET)
+#12 7.494 Progress: resolved 497, reused 0, downloaded 48, added 46
+#12 8.365
+#12 8.365    ╭─────────────────────────────────────────╮
+#12 8.365    │                                         │
+#12 8.365    │   Update available! 11.19.0 → 12.9.1.   │
+#12 8.365    │   Changelog: https://pnpm.io/v/12.9.1   │
+#12 8.365    │    To update, run: pnpm add -g pnpm     │
+#12 8.365    │                                         │
+#12 8.365    ╰─────────────────────────────────────────╯
+#12 8.365
+#12 8.433 [WARN] Tarball download average speed 6 KiB/s (size 22 KiB) is below 50 KiB/s: https://registry.npmjs.org/express/-/express-5.2.1.tgz (GET)
+#12 8.505 Progress: resolved 497, reused 0, downloaded 60, added 60
+#12 8.660 [WARN] Tarball download average speed 42 KiB/s (size 161 KiB) is below 50 KiB/s: https://registry.npmjs.org/ioredis/-/ioredis-6.0.0.tgz (GET)
+#12 8.929 [WARN] Tarball download average speed 41 KiB/s (size 71 KiB) is below 50 KiB/s: https://registry.npmjs.org/@eslint-community/regexpp/-/regexpp-4.12.2.tgz (GET)
+#12 8.932 [WARN] Tarball download average speed 6 KiB/s (size 9 KiB) is below 50 KiB/s: https://registry.npmjs.org/@humanfs/node/-/node-0.16.8.tgz (GET)
+#12 9.531 Progress: resolved 497, reused 0, downloaded 69, added 68
+#12 9.692 [WARN] Tarball download average speed 14 KiB/s (size 57 KiB) is below 50 KiB/s: https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.16.tgz (GET)
+#12 10.17 [WARN] Tarball download average speed 13 KiB/s (size 47 KiB) is below 50 KiB/s: https://registry.npmjs.org/jose/-/jose-6.2.12.tgz (GET)
+#12 10.53 Progress: resolved 497, reused 0, downloaded 82, added 81
+#12 11.00 [WARN] Tarball download average speed 6 KiB/s (size 23 KiB) is below 50 KiB/s: https://registry.npmjs.org/@eslint/plugin-kit/-/plugin-kit-0.7.3.tgz (GET)
+#12 11.49 [WARN] Tarball download average speed 3 KiB/s (size 4 KiB) is below 50 KiB/s: https://registry.npmjs.org/imurmurhash/-/imurmurhash-0.1.4.tgz (GET)
+#12 11.54 Progress: resolved 497, reused 0, downloaded 97, added 95
+#12 11.72 [WARN] Tarball download average speed 10 KiB/s (size 36 KiB) is below 50 KiB/s: https://registry.npmjs.org/eslint-scope/-/eslint-scope-9.1.2.tgz (GET)
+#12 12.54 Progress: resolved 497, reused 0, downloaded 116, added 116
+#12 13.07 [WARN] Request took 10110ms: https://registry.npmjs.org/@fontsource%2Fibm-plex-mono
+#12 13.30 [WARN] Tarball download average speed 6 KiB/s (size 10 KiB) is below 50 KiB/s: https://registry.npmjs.org/whatwg-mimetype/-/whatwg-mimetype-5.0.0.tgz (GET)
+#12 13.50 [WARN] Tarball download average speed 7 KiB/s (size 27 KiB) is below 50 KiB/s: https://registry.npmjs.org/undici-types/-/undici-types-7.24.6.tgz (GET)
+#12 13.54 Progress: resolved 497, reused 0, downloaded 131, added 130
+#12 13.80 [WARN] Tarball download average speed 14 KiB/s (size 24 KiB) is below 50 KiB/s: https://registry.npmjs.org/whatwg-url/-/whatwg-url-17.1.2.tgz (GET)
+#12 13.84 [WARN] Tarball download average speed 2 KiB/s (size 18 KiB) is below 50 KiB/s: https://registry.npmjs.org/pino-http/-/pino-http-11.0.0.tgz (GET)
+#12 14.55 Progress: resolved 497, reused 0, downloaded 162, added 156
+#12 14.62 [WARN] Tarball download average speed 46 KiB/s (size 109 KiB) is below 50 KiB/s: https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz (GET)
+#12 15.59 Progress: resolved 497, reused 0, downloaded 189, added 182
+#12 15.68 [WARN] Tarball download average speed 19 KiB/s (size 76 KiB) is below 50 KiB/s: https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-8.71.0.tgz (GET)
+#12 16.59 Progress: resolved 497, reused 0, downloaded 205, added 203
+#12 17.86 Progress: resolved 497, reused 0, downloaded 207, added 206
+#12 17.88 [WARN] Tarball download average speed 40 KiB/s (size 527 KiB) is below 50 KiB/s: https://registry.npmjs.org/bullmq/-/bullmq-6.3.11.tgz (GET)
+#12 17.91 [WARN] Tarball download average speed 38 KiB/s (size 55 KiB) is below 50 KiB/s: https://registry.npmjs.org/decimal.js-light/-/decimal.js-light-2.5.1.tgz (GET)
+#12 18.70 [WARN] Request took 10072ms: https://registry.npmjs.org/@types%2Fnode
+#12 19.76 [WARN] Request took 16729ms: https://registry.npmjs.org/@playwright%2Ftest
+#12 19.82 [WARN] Tarball download average speed 35 KiB/s (size 50 KiB) is below 50 KiB/s: https://registry.npmjs.org/postcss/-/postcss-8.5.28.tgz (GET)
+#12 19.82 Progress: resolved 497, reused 0, downloaded 224, added 221
+#12 20.44 [WARN] Tarball download average speed 39 KiB/s (size 80 KiB) is below 50 KiB/s: https://registry.npmjs.org/victory-vendor/-/victory-vendor-37.3.6.tgz (GET)
+#12 20.44 [WARN] Tarball download average speed 6 KiB/s (size 13 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz (GET)
+#12 20.59 [WARN] Tarball download average speed 43 KiB/s (size 85 KiB) is below 50 KiB/s: https://registry.npmjs.org/lightningcss/-/lightningcss-1.33.0.tgz (GET)
+#12 20.60 [WARN] Tarball download average speed 19 KiB/s (size 40 KiB) is below 50 KiB/s: https://registry.npmjs.org/@tailwindcss/node/-/node-4.3.3.tgz (GET)
+#12 20.67 [WARN] Tarball download average speed 12 KiB/s (size 196 KiB) is below 50 KiB/s: https://registry.npmjs.org/@tanstack/react-query/-/react-query-5.104.1.tgz (GET)
+#12 20.83 Progress: resolved 497, reused 0, downloaded 241, added 239
+#12 21.94 Progress: resolved 497, reused 0, downloaded 261, added 260
+#12 22.44 [WARN] Request took 11178ms: https://registry.npmjs.org/ansi-styles
+#12 22.95 Progress: resolved 497, reused 0, downloaded 285, added 284
+#12 23.32 [WARN] Request took 16952ms: https://registry.npmjs.org/@rolldown%2Fbinding-freebsd-x64
+#12 24.00 Progress: resolved 497, reused 0, downloaded 305, added 304
+#12 24.77 [WARN] Tarball download average speed 41 KiB/s (size 128 KiB) is below 50 KiB/s: https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz (GET)
+#12 25.08 Progress: resolved 497, reused 0, downloaded 331, added 324
+#12 25.65 [WARN] Tarball download average speed 30 KiB/s (size 130 KiB) is below 50 KiB/s: https://registry.npmjs.org/acorn/-/acorn-8.18.0.tgz (GET)
+#12 25.92 [WARN] Tarball download average speed 20 KiB/s (size 430 KiB) is below 50 KiB/s: https://registry.npmjs.org/@testing-library/dom/-/dom-10.4.2.tgz (GET)
+#12 26.15 Progress: resolved 497, reused 0, downloaded 377, added 363
+#12 27.04 [WARN] Tarball download average speed 45 KiB/s (size 294 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/types/-/types-7.29.8.tgz (GET)
+#12 27.20 Progress: resolved 497, reused 0, downloaded 432, added 427
+#12 28.34 Progress: resolved 497, reused 0, downloaded 459, added 455
+#12 28.65 [WARN] Tarball download average speed 45 KiB/s (size 62 KiB) is below 50 KiB/s: https://registry.npmjs.org/tr46/-/tr46-5.1.1.tgz (GET)
+#12 29.01 [WARN] Request took 14176ms: https://registry.npmjs.org/es-toolkit
+#12 29.37 Progress: resolved 497, reused 0, downloaded 477, added 475
+#12 29.82 [WARN] Request took 19079ms: https://registry.npmjs.org/@typescript-eslint%2Futils
+#12 30.63 [WARN] Request took 19878ms: https://registry.npmjs.org/@typescript-eslint%2Ftypes
+#12 30.74 Progress: resolved 497, reused 0, downloaded 487, added 487
+#12 30.84 [WARN] Request took 14721ms: https://registry.npmjs.org/fast-json-stable-stringify
+#12 31.20 [WARN] Request took 20556ms: https://registry.npmjs.org/@typescript-eslint%2Ftype-utils
+#12 31.71 [WARN] Request took 20962ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
+#12 33.92 [WARN] Request took 23433ms: https://registry.npmjs.org/@typescript-eslint%2Fscope-manager
+#12 34.07 Progress: resolved 497, reused 0, downloaded 488, added 487
+#12 35.08 Progress: resolved 497, reused 0, downloaded 489, added 489
+#12 36.25 Progress: resolved 497, reused 0, downloaded 490, added 489
+#12 36.58 [WARN] Tarball download average speed 0 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-1.0.2.tgz (GET)
+#12 37.14 [WARN] Request took 10383ms: https://registry.npmjs.org/react-is
+#12 37.35 Progress: resolved 497, reused 0, downloaded 491, added 491
+#12 38.22 [WARN] Request took 11440ms: https://registry.npmjs.org/react
+#12 38.36 Progress: resolved 497, reused 0, downloaded 492, added 492
+#12 38.58 [WARN] Request took 27835ms: https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree
+#12 39.12 [WARN] Request took 28965ms: https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin
+#12 39.85 Progress: resolved 497, reused 0, downloaded 494, added 494
+#12 40.07 [WARN] Request took 12867ms: https://registry.npmjs.org/scheduler
+#12 40.44 [WARN] Request took 11387ms: https://registry.npmjs.org/tailwindcss
+#12 40.74 [WARN] Request took 14361ms: https://registry.npmjs.org/playwright-core
+#12 40.91 [WARN] Request took 30619ms: https://registry.npmjs.org/@typescript-eslint%2Fparser
+#12 41.09 Progress: resolved 497, reused 0, downloaded 495, added 495
+#12 41.37 [WARN] Request took 14967ms: https://registry.npmjs.org/playwright
+#12 41.58 [WARN] Request took 11917ms: https://registry.npmjs.org/typescript
+#12 42.09 Progress: resolved 497, reused 0, downloaded 496, added 496
+#12 42.98 ✓ Lockfile passes supply-chain policies (548 entries in 40.1s)
+#12 43.29 Progress: resolved 497, reused 0, downloaded 497, added 496
+#12 43.33 Progress: resolved 497, reused 0, downloaded 497, added 497, done
+#12 43.87 .../argon2@0.45.1/node_modules/argon2 install$ cross-env ZERO_AR_DATE=1 node-gyp-build
+#12 44.15 .../argon2@0.45.1/node_modules/argon2 install: Done
+#12 44.31
+#12 44.31 devDependencies:
+#12 44.31 + @axe-core/playwright 4.13.0
+#12 44.31 + @playwright/test 1.63.0
+#12 44.31 + @testing-library/dom 10.4.2
+#12 44.31 + @testing-library/react 16.3.3
+#12 44.31 + @types/node 24.19.1
+#12 44.31 + @vitest/coverage-v8 5.0.3
+#12 44.31 + eslint 10.12.0
+#12 44.31 + husky 9.1.7
+#12 44.31 + jsdom 30.1.1
+#12 44.31 + lint-staged 17.6.0
+#12 44.31 + prettier 3.9.9
+#12 44.31 + semver 7.8.5
+#12 44.31 + typescript 6.0.3
+#12 44.31 + typescript-eslint 8.71.0
+#12 44.31 + vitest 5.0.3
+#12 44.31
+#12 44.34 . prepare$ husky
+#12 44.42 . prepare: HUSKY=0 skip install
+#12 44.42 . prepare: Done
+#12 44.51 Done in 43.2s using pnpm v11.19.0
+#12 DONE 45.0s
+
+#13 [build 9/9] RUN pnpm tokens:check && pnpm --filter @folio/shared build && pnpm --filter @folio/api build && pnpm --filter @folio/web build
+#13 1.626 $ node packages/design-tokens/scripts/sync.mjs --check
+#13 1.712 Figma token check: 40 canonical variables, 8 text styles, 119 states, both themes
+#13 2.601 $ tsc -p tsconfig.json
+#13 9.772 $ tsc -p tsconfig.json
+#13 37.93 $ tsc --noEmit && vite build
+#13 64.61 vite v8.3.2 building client environment for production...
+#13 64.65 transforming...
+#13 66.22 ✓ 203 modules transformed.
+#13 67.20 rendering chunks...
+#13 67.49 computing gzip size...
+#13 67.52 dist/index.html                                                     0.44 kB │ gzip:   0.28 kB
+#13 67.52 dist/assets/inter-vietnamese-400-normal-DMkecbls.woff2              4.97 kB
+#13 67.52 dist/assets/inter-vietnamese-600-normal-Cc8MFFhd.woff2              5.10 kB
+#13 67.52 dist/assets/inter-vietnamese-500-normal-DOriooB6.woff2              5.11 kB
+#13 67.52 dist/assets/inter-greek-ext-400-normal-DGGRlc-M.woff2               5.26 kB
+#13 67.52 dist/assets/inter-greek-ext-500-normal-C4iEst2y.woff2               5.42 kB
+#13 67.52 dist/assets/inter-greek-ext-600-normal-DRtmH8MT.woff2               5.43 kB
+#13 67.52 dist/assets/ibm-plex-mono-vietnamese-500-normal-C8zxqsMH.woff       5.61 kB
+#13 67.52 dist/assets/ibm-plex-mono-vietnamese-400-normal-DDuiU_S-.woff       5.62 kB
+#13 67.52 dist/assets/ibm-plex-mono-cyrillic-ext-500-normal-BIfNGwUT.woff     5.77 kB
+#13 67.52 dist/assets/ibm-plex-mono-cyrillic-ext-400-normal-DMdlQ8Kv.woff     5.82 kB
+#13 67.52 dist/assets/ibm-plex-mono-vietnamese-400-normal-BulugwFq.woff2      5.86 kB
+#13 67.52 dist/assets/ibm-plex-mono-vietnamese-500-normal-DZ4AoWbu.woff2      6.04 kB
+#13 67.52 dist/assets/inter-vietnamese-400-normal-Bbgyi5SW.woff               6.50 kB
+#13 67.52 dist/assets/inter-vietnamese-500-normal-mJboJaSs.woff               6.59 kB
+#13 67.52 dist/assets/inter-vietnamese-600-normal-BuLX-rYi.woff               6.64 kB
+#13 67.52 dist/assets/ibm-plex-mono-cyrillic-ext-400-normal-xuaO2J-f.woff2    6.91 kB
+#13 67.52 dist/assets/ibm-plex-mono-cyrillic-ext-500-normal-BqneJy0T.woff2    6.97 kB
+#13 67.52 dist/assets/inter-greek-ext-400-normal-KugGGMne.woff                7.06 kB
+#13 67.52 dist/assets/inter-greek-ext-500-normal-2j5mBUwD.woff                7.19 kB
+#13 67.52 dist/assets/ibm-plex-mono-cyrillic-400-normal-CEL4l2ZJ.woff         7.20 kB
+#13 67.52 dist/assets/ibm-plex-mono-cyrillic-500-normal-Ael50iVv.woff         7.20 kB
+#13 67.52 dist/assets/inter-greek-ext-600-normal-B8X0CLgF.woff                7.21 kB
+#13 67.52 dist/assets/inter-cyrillic-400-normal-obahsSVq.woff2                7.71 kB
+#13 67.52 dist/assets/inter-greek-400-normal-B4URO6DV.woff2                   7.77 kB
+#13 67.52 dist/assets/inter-cyrillic-500-normal-BasfLYem.woff2                7.90 kB
+#13 67.52 dist/assets/inter-greek-500-normal-BIZE56-Y.woff2                   7.92 kB
+#13 67.52 dist/assets/inter-greek-600-normal-plRanbMR.woff2                   7.94 kB
+#13 67.52 dist/assets/inter-cyrillic-600-normal-CWCymEST.woff2                7.97 kB
+#13 67.52 dist/assets/ibm-plex-mono-cyrillic-400-normal-BSMlKf0J.woff2        8.35 kB
+#13 67.52 dist/assets/ibm-plex-mono-cyrillic-500-normal-Bq9vWWag.woff2        8.46 kB
+#13 67.52 dist/assets/inter-cyrillic-400-normal-HOLc17fK.woff                 9.78 kB
+#13 67.52 dist/assets/inter-greek-400-normal-q2sYcFCs.woff                    9.92 kB
+#13 67.52 dist/assets/inter-cyrillic-600-normal-4D_pXhcN.woff                 9.93 kB
+#13 67.52 dist/assets/inter-cyrillic-500-normal-CxZf_p3X.woff                 9.94 kB
+#13 67.52 dist/assets/inter-greek-500-normal-Xzm54t5V.woff                    9.98 kB
+#13 67.52 dist/assets/inter-greek-600-normal-BZpKdvQh.woff                   10.03 kB
+#13 67.52 dist/assets/inter-cyrillic-ext-400-normal-BQZuk6qB.woff2           10.23 kB
+#13 67.52 dist/assets/inter-cyrillic-ext-500-normal-B0yAr1jD.woff2           10.43 kB
+#13 67.52 dist/assets/inter-cyrillic-ext-600-normal-Dfes3d0z.woff2           10.48 kB
+#13 67.52 dist/assets/ibm-plex-mono-latin-ext-400-normal-D3D2R8hC.woff       11.76 kB
+#13 67.52 dist/assets/ibm-plex-mono-latin-ext-500-normal-CZ70TYgx.woff       11.76 kB
+#13 67.52 dist/assets/ibm-plex-mono-latin-400-normal-CvHOgSBP.woff           13.14 kB
+#13 67.52 dist/assets/ibm-plex-mono-latin-500-normal-CB9ihrfo.woff           13.15 kB
+#13 67.52 dist/assets/inter-cyrillic-ext-400-normal-DQukG94-.woff            13.33 kB
+#13 67.52 dist/assets/ibm-plex-mono-latin-ext-400-normal-BmRBH3aV.woff2      13.34 kB
+#13 67.52 dist/assets/ibm-plex-mono-latin-ext-500-normal-CAhNIIs5.woff2      13.43 kB
+#13 67.52 dist/assets/inter-cyrillic-ext-500-normal-BmqWE9Dz.woff            13.45 kB
+#13 67.52 dist/assets/inter-cyrillic-ext-600-normal-Bcila6Z-.woff            13.46 kB
+#13 67.52 dist/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2          14.70 kB
+#13 67.52 dist/assets/ibm-plex-mono-latin-500-normal-DSY6xOcd.woff2          14.88 kB
+#13 67.52 dist/assets/inter-latin-400-normal-C38fXH4l.woff2                  23.66 kB
+#13 67.52 dist/assets/inter-latin-500-normal-Cerq10X2.woff2                  24.27 kB
+#13 67.52 dist/assets/inter-latin-600-normal-LgqL8muc.woff2                  24.45 kB
+#13 67.52 dist/assets/inter-latin-400-normal-CyCys3Eg.woff                   30.69 kB
+#13 67.52 dist/assets/inter-latin-600-normal-CiBQ2DWP.woff                   31.26 kB
+#13 67.52 dist/assets/inter-latin-500-normal-BL9OpVg8.woff                   31.28 kB
+#13 67.52 dist/assets/inter-latin-ext-400-normal-C1nco2VV.woff2              35.00 kB
+#13 67.52 dist/assets/inter-latin-ext-500-normal-CV4jyFjo.woff2              36.02 kB
+#13 67.52 dist/assets/inter-latin-ext-600-normal-D2bJ5OIk.woff2              36.26 kB
+#13 67.52 dist/assets/inter-latin-ext-400-normal-77YHD8bZ.woff               47.56 kB
+#13 67.52 dist/assets/inter-latin-ext-500-normal-BxGbmqWO.woff               48.49 kB
+#13 67.52 dist/assets/inter-latin-ext-600-normal-CIVaiw4L.woff               48.66 kB
+#13 67.52 dist/assets/index-DbF2Wqxi.css                                     98.97 kB │ gzip:  11.98 kB
+#13 67.52 dist/assets/index-DLpBwc3_.js                                     584.92 kB │ gzip: 175.15 kB
+#13 67.52
+#13 67.52 [plugin builtin:vite-reporter]
+#13 67.52 (!) Some chunks are larger than 500 kB after minification. Consider:
+#13 67.52 - Using dynamic import() to code-split the application
+#13 67.52 - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+#13 67.52 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+#13 67.54 ✓ built in 2.93s
+#13 DONE 67.8s
+
+#14 [api-runtime 2/5] WORKDIR /workspace/apps/api
+#14 CACHED
+
+#15 [production-dependencies 4/7] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+#15 CACHED
+
+#16 [production-dependencies 5/7] COPY apps/api/package.json ./apps/api/package.json
+#16 CACHED
+
+#17 [production-dependencies 6/7] COPY packages/shared/package.json ./packages/shared/package.json
+#17 CACHED
+
+#18 [production-dependencies 7/7] RUN pnpm install --prod --frozen-lockfile --ignore-scripts
+#18 CACHED
+
+#19 [api-runtime 3/5] COPY --from=production-dependencies --chown=node:node /workspace /workspace
+#19 CACHED
+
+#20 [api-runtime 4/5] COPY --from=build --chown=node:node /workspace/apps/api/dist ./dist
+#20 DONE 0.1s
+
+#21 [api-runtime 5/5] COPY --from=build --chown=node:node /workspace/packages/shared/dist /workspace/packages/shared/dist
+#21 DONE 0.1s
+
+#22 exporting to image
+#22 exporting layers
+#22 exporting layers 0.2s done
+#22 exporting manifest sha256:c5c7e4589ff2a9e7bf953350bbf6d31a436df6e67cce03c946692739c8abee59 0.0s done
+#22 exporting config sha256:573df6a78ca476ef0ffe82e80b8f6d04a9d17032dc9abd6aae38877ce7fabc94 0.0s done
+#22 exporting attestation manifest sha256:7dd18ab1294ffdecae134357ed0e9916a35b6a70952a79fdd4a32683f067b888
+#22 exporting attestation manifest sha256:7dd18ab1294ffdecae134357ed0e9916a35b6a70952a79fdd4a32683f067b888 0.0s done
+#22 exporting manifest list sha256:b64b0399925c4f278114b05f318c38e714e9f284c285631502b1ac2027c23f00 0.0s done
+#22 naming to docker.io/library/folio-api-release:priority6 done
+#22 unpacking to docker.io/library/folio-api-release:priority6
+#22 unpacking to docker.io/library/folio-api-release:priority6 0.2s done
+#22 DONE 0.7s

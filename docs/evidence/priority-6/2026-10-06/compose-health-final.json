@@ -1,0 +1,350 @@
+[
+  {
+    "Command": "\"docker-entrypoint.s…\"",
+    "CreatedAt": "2026-10-06 22:08:02 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "healthy",
+    "ID": "59ce992b0114",
+    "Image": "folio-api",
+    "Labels": "desktop.docker.io/ports.scheme=v2,desktop.docker.io/binds/0/Target=/workspace/apps/api/src,com.docker.compose.project=folio,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio,com.docker.compose.oneoff=False,desktop.docker.io/binds/0/SourceKind=hostFile,desktop.docker.io/binds/0/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\apps\\api\\src,com.docker.compose.config-hash=382601099db3fdc6ef9b44840818676b21848a1e52567c38a7cbf10f8a9cb26e,com.docker.compose.container-number=1,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.demo.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.fixture.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.jobs.yml,com.docker.compose.replace=api-1,com.docker.compose.service=api,com.docker.compose.version=5.5.1,desktop.docker.io/ports/3000/tcp=127.0.0.1:3000,com.docker.compose.depends_on=mailhog:service_started:false,mongo:service_healthy:false,redis:service_healthy:false,com.docker.compose.image=sha256:5fbbb617d164f254125f071b532587a0409c25840573a1d349cf1dcd84813ab4",
+    "LocalVolumes": "0",
+    "Mounts": "/run/desktop/m…",
+    "Name": "folio-api-1",
+    "Names": "folio-api-1",
+    "Networks": "folio_default",
+    "Ports": "127.0.0.1:3000->3000/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "127.0.0.1",
+        "TargetPort": 3000,
+        "PublishedPort": 3000,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "36 minutes ago",
+    "Service": "api",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 35 minutes (healthy)"
+  },
+  {
+    "Command": "\"docker-entrypoint.s…\"",
+    "CreatedAt": "2026-10-06 22:08:02 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "healthy",
+    "ID": "ceee92ea94c4",
+    "Image": "folio-demo-api",
+    "Labels": "com.docker.compose.config-hash=261f5c5bbb7ae713dd6b90a6d3f9d84da4e1410cec87b5910f2f9c44f8284918,com.docker.compose.container-number=1,com.docker.compose.depends_on=redis:service_healthy:false,mailhog:service_started:false,mongo:service_healthy:false,com.docker.compose.project=folio,com.docker.compose.service=demo-api,com.docker.compose.version=5.5.1,desktop.docker.io/ports.scheme=v2,com.docker.compose.image=sha256:7b2cbe3e1b68759e409fd972a6a4f72eadb30f1d5eccca4bdb35721476d8a5b2,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.demo.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.fixture.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.jobs.yml,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio,com.docker.compose.replace=demo-api-1,desktop.docker.io/ports/3000/tcp=127.0.0.1:3010",
+    "LocalVolumes": "0",
+    "Mounts": "",
+    "Name": "folio-demo-api-1",
+    "Names": "folio-demo-api-1",
+    "Networks": "folio_default",
+    "Ports": "127.0.0.1:3010->3000/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "127.0.0.1",
+        "TargetPort": 3000,
+        "PublishedPort": 3010,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "36 minutes ago",
+    "Service": "demo-api",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 35 minutes (healthy)"
+  },
+  {
+    "Command": "\"docker-entrypoint.s…\"",
+    "CreatedAt": "2026-10-06 22:08:49 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "healthy",
+    "ID": "e0ef9d7d6c2d",
+    "Image": "folio-demo-web",
+    "Labels": "com.docker.compose.container-number=1,com.docker.compose.oneoff=False,com.docker.compose.project=folio,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.demo.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.fixture.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.jobs.yml,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio,com.docker.compose.service=demo-web,com.docker.compose.config-hash=6a077ab83e6d722b6f72c2820f1c487bda5d82856e3630cc46e9edfdf6c54aa4,com.docker.compose.depends_on=demo-api:service_healthy:false,com.docker.compose.image=sha256:d62ca8bb9d8cfa36765e70979c8b1bb7cd05e87fd25b0af704694ffca077ffee,com.docker.compose.replace=demo-web-1,com.docker.compose.version=5.5.1,desktop.docker.io/ports.scheme=v2,desktop.docker.io/ports/5180/tcp=127.0.0.1:5180",
+    "LocalVolumes": "0",
+    "Mounts": "",
+    "Name": "folio-demo-web-1",
+    "Names": "folio-demo-web-1",
+    "Networks": "folio_default",
+    "Ports": "127.0.0.1:5180->5180/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "127.0.0.1",
+        "TargetPort": 5180,
+        "PublishedPort": 5180,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "35 minutes ago",
+    "Service": "demo-web",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 34 minutes (healthy)"
+  },
+  {
+    "Command": "\"docker-entrypoint.s…\"",
+    "CreatedAt": "2026-10-06 22:08:02 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "healthy",
+    "ID": "3adb8c4e27f4",
+    "Image": "folio-fixture-api",
+    "Labels": "com.docker.compose.project=folio,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio,com.docker.compose.version=5.5.1,com.docker.compose.depends_on=mongo:service_healthy:false,redis:service_healthy:false,mailhog:service_started:false,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.demo.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.fixture.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.jobs.yml,desktop.docker.io/binds/0/Target=/workspace/apps/api/src,desktop.docker.io/ports/3000/tcp=127.0.0.1:3020,com.docker.compose.config-hash=62938fa369d5f7ac17f87be2a66311bceaab16e16edd1177ad2362443bb41a89,com.docker.compose.image=sha256:9a0832e6bddeb93a2f37da40867754616852ff30e428cc5d88c830b1927dd611,com.docker.compose.oneoff=False,desktop.docker.io/binds/0/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\apps\\api\\src,desktop.docker.io/binds/0/SourceKind=hostFile,com.docker.compose.container-number=1,com.docker.compose.replace=fixture-api-1,com.docker.compose.service=fixture-api,desktop.docker.io/ports.scheme=v2",
+    "LocalVolumes": "0",
+    "Mounts": "/run/desktop/m…",
+    "Name": "folio-fixture-api-1",
+    "Names": "folio-fixture-api-1",
+    "Networks": "folio_default",
+    "Ports": "127.0.0.1:3020->3000/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "127.0.0.1",
+        "TargetPort": 3000,
+        "PublishedPort": 3020,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "36 minutes ago",
+    "Service": "fixture-api",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 8 minutes (healthy)"
+  },
+  {
+    "Command": "\"docker-entrypoint.s…\"",
+    "CreatedAt": "2026-10-06 22:08:50 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "healthy",
+    "ID": "9ecf84063268",
+    "Image": "folio-fixture-web",
+    "Labels": "desktop.docker.io/binds/3/Target=/workspace/packages/design-tokens,desktop.docker.io/ports.scheme=v2,com.docker.compose.oneoff=False,com.docker.compose.replace=fixture-web-1,desktop.docker.io/binds/0/Target=/workspace/apps/web/src,desktop.docker.io/binds/2/Target=/workspace/apps/web/vite.config.ts,com.docker.compose.config-hash=fff032a24848f86297a7a13ac4cd1604f03c534429531b340c81f84468a2edb3,com.docker.compose.depends_on=fixture-api:service_healthy:false,com.docker.compose.service=fixture-web,desktop.docker.io/binds/1/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\apps\\web\\public,desktop.docker.io/binds/1/SourceKind=hostFile,desktop.docker.io/binds/2/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\apps\\web\\vite.config.ts,com.docker.compose.image=sha256:ab137efa8a8fa93a7e4b04c93a40385dda1518bff8245c7adf4efbb75cc5c13e,com.docker.compose.version=5.5.1,desktop.docker.io/binds/0/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\apps\\web\\src,desktop.docker.io/binds/0/SourceKind=hostFile,desktop.docker.io/binds/1/Target=/workspace/apps/web/public,desktop.docker.io/binds/3/SourceKind=hostFile,desktop.docker.io/ports/5190/tcp=127.0.0.1:5190,com.docker.compose.container-number=1,com.docker.compose.project=folio,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.demo.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.fixture.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.jobs.yml,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio,desktop.docker.io/binds/2/SourceKind=hostFile,desktop.docker.io/binds/3/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\packages\\design-tokens",
+    "LocalVolumes": "0",
+    "Mounts": "/run/desktop/m…,/run/desktop/m…,/run/desktop/m…,/run/desktop/m…",
+    "Name": "folio-fixture-web-1",
+    "Names": "folio-fixture-web-1",
+    "Networks": "folio_default",
+    "Ports": "127.0.0.1:5190->5190/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "127.0.0.1",
+        "TargetPort": 5190,
+        "PublishedPort": 5190,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "35 minutes ago",
+    "Service": "fixture-web",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 34 minutes (healthy)"
+  },
+  {
+    "Command": "\"docker-entrypoint.s…\"",
+    "CreatedAt": "2026-10-06 22:08:02 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "healthy",
+    "ID": "1f6832ace9c9",
+    "Image": "folio-fixture-worker",
+    "Labels": "com.docker.compose.replace=fixture-worker-1,com.docker.compose.version=5.5.1,desktop.docker.io/ports.scheme=v2,desktop.docker.io/binds/0/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\apps\\api\\src,com.docker.compose.config-hash=53dd67f7b1413bffc65f07118f19ff93a8d5178d108a6f402986dd49aaac7764,com.docker.compose.oneoff=False,desktop.docker.io/binds/0/SourceKind=hostFile,com.docker.compose.container-number=1,com.docker.compose.depends_on=mongo:service_healthy:false,redis:service_healthy:false,com.docker.compose.project=folio,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.demo.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.fixture.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.jobs.yml,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio,com.docker.compose.service=fixture-worker,desktop.docker.io/binds/0/Target=/workspace/apps/api/src,com.docker.compose.image=sha256:5cf4a95fe01ca9b71dfdfd085f1268885c5946768eaa0adddcd5f9e4c4d761be",
+    "LocalVolumes": "0",
+    "Mounts": "/run/desktop/m…",
+    "Name": "folio-fixture-worker-1",
+    "Names": "folio-fixture-worker-1",
+    "Networks": "folio_default",
+    "Ports": "3000/tcp, 5173/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "",
+        "TargetPort": 3000,
+        "PublishedPort": 0,
+        "Protocol": "tcp"
+      },
+      {
+        "URL": "",
+        "TargetPort": 5173,
+        "PublishedPort": 0,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "36 minutes ago",
+    "Service": "fixture-worker",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 5 minutes (healthy)"
+  },
+  {
+    "Command": "\"MailHog\"",
+    "CreatedAt": "2026-10-04 02:04:50 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "",
+    "ID": "72d57f5d1ce7",
+    "Image": "mailhog/mailhog:v1.0.1@sha256:8d76a3d4ffa32a3661311944007a415332c4bb855657f4f6c57996405c009bea",
+    "Labels": "com.docker.compose.container-number=1,com.docker.compose.image=sha256:8d76a3d4ffa32a3661311944007a415332c4bb855657f4f6c57996405c009bea,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio,com.docker.compose.service=mailhog,com.docker.compose.version=5.5.1,desktop.docker.io/ports.scheme=v2,desktop.docker.io/ports/1025/tcp=127.0.0.1:1025,desktop.docker.io/ports/8025/tcp=127.0.0.1:8025,com.docker.compose.config-hash=c2e4871fd5329e1e8e543e07c762efa03847327f5cf3f8567efdb25b60624380,com.docker.compose.depends_on=,com.docker.compose.oneoff=False,com.docker.compose.project=folio,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml",
+    "LocalVolumes": "0",
+    "Mounts": "",
+    "Name": "folio-mailhog-1",
+    "Names": "folio-mailhog-1",
+    "Networks": "folio_default",
+    "Ports": "127.0.0.1:1025->1025/tcp, 127.0.0.1:8025->8025/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "127.0.0.1",
+        "TargetPort": 1025,
+        "PublishedPort": 1025,
+        "Protocol": "tcp"
+      },
+      {
+        "URL": "127.0.0.1",
+        "TargetPort": 8025,
+        "PublishedPort": 8025,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "2 days ago",
+    "Service": "mailhog",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 2 days"
+  },
+  {
+    "Command": "\"docker-entrypoint.s…\"",
+    "CreatedAt": "2026-10-04 02:04:50 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "healthy",
+    "ID": "9370ac8eda06",
+    "Image": "mongo:8.2@sha256:e0ce8c35124d4a9f9785532d1f268f39e9728ffa1cb38f46fa482436424c4bd3",
+    "Labels": "com.docker.compose.version=5.5.1,com.docker.compose.config-hash=7b2bbd1c7ef30092c269796ca2d92ba26b3d9502a20cc97bab1547b7d5fca944,com.docker.compose.image=sha256:41afd6e1183f57e4e4d03ab733070671fca8553da2b36f15d6e3fc9760494d17,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio,desktop.docker.io/ports.scheme=v2,desktop.docker.io/ports/27017/tcp=127.0.0.1:27017,org.opencontainers.image.version=24.04,com.docker.compose.container-number=1,com.docker.compose.depends_on=,com.docker.compose.oneoff=False,com.docker.compose.project=folio,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml,com.docker.compose.service=mongo",
+    "LocalVolumes": "2",
+    "Mounts": "978a772c0e3a56…,folio_mongo-da…",
+    "Name": "folio-mongo-1",
+    "Names": "folio-mongo-1",
+    "Networks": "folio_default",
+    "Ports": "127.0.0.1:27017->27017/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "127.0.0.1",
+        "TargetPort": 27017,
+        "PublishedPort": 27017,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "2 days ago",
+    "Service": "mongo",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 46 minutes (healthy)"
+  },
+  {
+    "Command": "\"docker-entrypoint.s…\"",
+    "CreatedAt": "2026-10-04 02:04:50 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "healthy",
+    "ID": "c4182240d892",
+    "Image": "redis:8.2-alpine@sha256:b51665e66f00759be7c3152ad5ac3c66fb2f619c13ef62dea7cc1f9914524635",
+    "Labels": "desktop.docker.io/ports.scheme=v2,com.docker.compose.depends_on=,com.docker.compose.image=sha256:c4206b4e79e4bcc8b30679eeece996d98b27ffb1f0a15fd567338ed4d0880258,com.docker.compose.oneoff=False,com.docker.compose.project=folio,com.docker.compose.service=redis,com.docker.compose.version=5.5.1,desktop.docker.io/ports/6379/tcp=127.0.0.1:6379,com.docker.compose.config-hash=1833d4ac48ad48e68ee7c85cf79cc85c08d06b7335a6a247da071077b850243b,com.docker.compose.container-number=1,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio",
+    "LocalVolumes": "1",
+    "Mounts": "folio_redis-da…",
+    "Name": "folio-redis-1",
+    "Names": "folio-redis-1",
+    "Networks": "folio_default",
+    "Ports": "127.0.0.1:6379->6379/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "127.0.0.1",
+        "TargetPort": 6379,
+        "PublishedPort": 6379,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "2 days ago",
+    "Service": "redis",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 47 minutes (healthy)"
+  },
+  {
+    "Command": "\"docker-entrypoint.s…\"",
+    "CreatedAt": "2026-10-06 22:08:50 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "healthy",
+    "ID": "1b5ad8369a45",
+    "Image": "folio-web",
+    "Labels": "com.docker.compose.oneoff=False,com.docker.compose.project=folio,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.demo.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.fixture.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.jobs.yml,com.docker.compose.replace=web-1,desktop.docker.io/binds/1/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\apps\\web\\src,desktop.docker.io/binds/2/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\apps\\web\\public,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio,desktop.docker.io/binds/0/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\packages\\design-tokens,desktop.docker.io/binds/0/Target=/workspace/packages/design-tokens,desktop.docker.io/binds/1/SourceKind=hostFile,desktop.docker.io/binds/3/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\apps\\web\\vite.config.ts,desktop.docker.io/binds/3/SourceKind=hostFile,desktop.docker.io/binds/3/Target=/workspace/apps/web/vite.config.ts,com.docker.compose.container-number=1,com.docker.compose.image=sha256:165edd82239fc652f4683ada135bda1669c1f9777828ad6561ef32e036857ddb,com.docker.compose.version=5.5.1,desktop.docker.io/binds/0/SourceKind=hostFile,desktop.docker.io/binds/1/Target=/workspace/apps/web/src,desktop.docker.io/binds/2/Target=/workspace/apps/web/public,desktop.docker.io/ports.scheme=v2,desktop.docker.io/ports/5173/tcp=127.0.0.1:5173,com.docker.compose.config-hash=119e9981a0cfad11934fd7e1c4463c544810f7b230c25cc3e714896afa515468,com.docker.compose.depends_on=api:service_healthy:false,com.docker.compose.service=web,desktop.docker.io/binds/2/SourceKind=hostFile",
+    "LocalVolumes": "0",
+    "Mounts": "/run/desktop/m…,/run/desktop/m…,/run/desktop/m…,/run/desktop/m…",
+    "Name": "folio-web-1",
+    "Names": "folio-web-1",
+    "Networks": "folio_default",
+    "Ports": "127.0.0.1:5173->5173/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "127.0.0.1",
+        "TargetPort": 5173,
+        "PublishedPort": 5173,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "35 minutes ago",
+    "Service": "web",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 34 minutes (healthy)"
+  },
+  {
+    "Command": "\"docker-entrypoint.s…\"",
+    "CreatedAt": "2026-10-06 22:08:02 +0530 IST",
+    "Engine": "",
+    "ExitCode": 0,
+    "Health": "healthy",
+    "ID": "1b2385e133b6",
+    "Image": "folio-worker",
+    "Labels": "com.docker.compose.oneoff=False,com.docker.compose.project.working_dir=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio,desktop.docker.io/binds/0/Source=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\apps\\api\\src,desktop.docker.io/binds/0/Target=/workspace/apps/api/src,com.docker.compose.container-number=1,com.docker.compose.image=sha256:90158ac7c81b44d5e342fb18352560f1fec27d4cf0280ebc4d65df9993b0239b,com.docker.compose.project.config_files=C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.demo.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.fixture.yml,C:\\Users\\ambar\\OneDrive\\Documents\\ChatGPT\\Folio\\docker-compose.jobs.yml,desktop.docker.io/binds/0/SourceKind=hostFile,desktop.docker.io/ports.scheme=v2,com.docker.compose.depends_on=redis:service_healthy:false,mongo:service_healthy:false,com.docker.compose.project=folio,com.docker.compose.config-hash=3e40cc4f643b38efb4f368ff494ee1791ef4df1ddb119af2e6257f4add245e26,com.docker.compose.replace=worker-1,com.docker.compose.service=worker,com.docker.compose.version=5.5.1",
+    "LocalVolumes": "0",
+    "Mounts": "/run/desktop/m…",
+    "Name": "folio-worker-1",
+    "Names": "folio-worker-1",
+    "Networks": "folio_default",
+    "Ports": "3000/tcp, 5173/tcp",
+    "Project": "folio",
+    "Publishers": [
+      {
+        "URL": "",
+        "TargetPort": 3000,
+        "PublishedPort": 0,
+        "Protocol": "tcp"
+      },
+      {
+        "URL": "",
+        "TargetPort": 5173,
+        "PublishedPort": 0,
+        "Protocol": "tcp"
+      }
+    ],
+    "RunningFor": "36 minutes ago",
+    "Service": "worker",
+    "Size": "0B",
+    "State": "running",
+    "Status": "Up 34 minutes (healthy)"
+  }
+]

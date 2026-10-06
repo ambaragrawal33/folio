@@ -80,8 +80,36 @@ export const Portfolio = z.strictObject({
   costBasis: z.literal('FIFO'),
   currencyLockedAt: z.iso.datetime().nullable(),
   revision: z.number().int().nonnegative(),
+  managementVersion: z.number().int().nonnegative().default(0),
 });
 export type Portfolio = z.infer<typeof Portfolio>;
+export const PortfolioName = z
+  .string()
+  .trim()
+  .min(1, 'Enter a portfolio name.')
+  .max(100, 'Use 100 characters or fewer.')
+  .regex(
+    /^[\p{L}\p{M}\p{N} .,'’&()_+\-/]+$/u,
+    'Use letters, numbers, spaces or . , apostrophe & ( ) _ + - /.',
+  );
+export const RenamePortfolioInput = z.strictObject({
+  name: PortfolioName,
+  expectedVersion: z.number().int().nonnegative(),
+});
+export const DeletePortfolioInput = z.strictObject({
+  confirmation: z.literal('DELETE'),
+  expectedVersion: z.number().int().nonnegative(),
+});
+export const PortfolioManagement = z.strictObject({
+  portfolio: Portfolio,
+  canDelete: z.boolean(),
+  deletionReason: z.string().nullable(),
+});
+export const PortfolioDeletion = z.strictObject({
+  portfolioId: z.string(),
+  deletedAt: z.iso.datetime(),
+});
+export const DeletePortfolioResponse = PortfolioDeletion.extend({ duplicate: z.boolean() });
 export const Lot = z.strictObject({
   transactionId: z.string(),
   quantity: OutputDecimal,
@@ -205,6 +233,7 @@ export const LedgerPage = z.strictObject({
   total: z.number().int(),
 });
 export const DomainExport = z.strictObject({
+  portfolioDeletions: z.array(PortfolioDeletion).optional(),
   jobs: z.array(JobRun).optional(),
   portfolios: z.array(Portfolio),
   ledger: z.array(LedgerRow),
@@ -331,6 +360,24 @@ export const SearchResponse = z.strictObject({
 });
 const empty = z.strictObject({});
 export const domainContracts = [
+  {
+    method: 'get',
+    path: '/api/v1/portfolios/{portfolioId}/management',
+    request: z.strictObject({}),
+    response: PortfolioManagement,
+  },
+  {
+    method: 'patch',
+    path: '/api/v1/portfolios/{portfolioId}',
+    request: RenamePortfolioInput,
+    response: Portfolio,
+  },
+  {
+    method: 'delete',
+    path: '/api/v1/portfolios/{portfolioId}',
+    request: DeletePortfolioInput,
+    response: DeletePortfolioResponse,
+  },
   {
     method: 'post',
     path: '/api/v1/portfolios/{portfolioId}/refresh',

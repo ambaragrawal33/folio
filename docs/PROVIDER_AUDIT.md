@@ -1,5 +1,9 @@
 # Provider and dependency audit
 
+## Priority 6 — no provider or dependency scope change — 2026-10-06
+
+Portfolio management makes no provider request and adds no dependency. Canonical13-record identity universe, original live coverage/entitlement gates, synthetic fixture prices/history/FX and existing job adapters remain unchanged. Node24.19/pnpm11.19/TypeScript6.0.3 graph:498 packages/83 peer edges/no failures; fresh advisory audit548 records/no vulnerabilities. No live-provider acceptance, commercial rights, production credential or deployment claim is added. Deletion receipt hashes are stable request comparisons within authenticated owned scope, not market observations or substitutes for financial preview signatures.
+
 ## Priority5 refresh/retention boundary — 2026-10-06
 
 No live provider/key/entitlement is activated. The 13-identity catalogue, original six-record live market scope and five synthetic quote fixtures are unchanged. Durable quote/close retention is separate from display; new default-OFF flags require an actual verified rights reference. A flag is not evidence of permission. Unknown BSE/year close sessions remain unavailable. Capture selects the latest completed permitted observed split-adjusted point, without `adjclose`, backfill or guessed official close.

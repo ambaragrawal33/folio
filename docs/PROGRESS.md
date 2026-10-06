@@ -1,5 +1,13 @@
 # Folio progress
 
+## Current — Priorities 1–5 CLOSED; Priority 6 implemented / verified — 2026-10-06
+
+Priority 6/L02 now implements authenticated owned rename and atomic empty-only deletion, safe original-key retries, explicit first-portfolio continuation and separate privacy erasure. [Contracts and concurrency](PORTFOLIO_MANAGEMENT.md), [actual evidence](PRIORITY_6_EVIDENCE.md), [focused visual review](PRIORITY_6_VISUAL_REVIEW.md). **User Priority 6 engineering/product/visual review is pending; this is not closure.**
+
+Full `pnpm check`: **218 passed / 22 suites**, **93.44% overall line coverage**, every financial-core file >=90% (minimum95.65%). The two opt-in outage cases skipped in the standard run passed in the separate **28/28 jobs/outage regression**. Full real-service E2E **20/20 passed (10.3 minutes)**. New visual evidence: **25 states / 50 captures**, zero axe violations, horizontal overflow or independent scrolling. **263 approved captures plus one earlier gallery preview unchanged**, along with protected foundation, engine, providers, jobs and Compose files. Dark and derived Light/mobile/tablet use existing design roles. The JS **584.92kB** warning remains unresolved and unsuppressed. No final performance gate, News/AI, hosting/spending/deployment, Figma write or main merge. STOP for Priority 6 review. Earlier entries below are historical.
+
+The user explicitly APPROVES/CLOSES Priority 5 engineering and the rendered 22-state/44-capture product/visual review at `7a4a548571ddc618adb40420a7d619e586b70f11`. Accepted measured results and limitations remain in [Priority 5 evidence](PRIORITY_5_EVIDENCE.md). Only Priority 6/L02 single-default rename and atomic empty-only deletion is authorized; [inspected plan](PRIORITY_6_PLAN.md). No News/AI, hosting/spending/deployment, main merge, provider activation or early performance optimization. The 577.65 kB warning remains unsuppressed. Earlier pending-review text below is historical.
+
 ## Current — Priority 5 implemented and verified; awaiting user review — 2026-10-06
 
 Priorities 1–4 are explicitly CLOSED / APPROVED. Only Priority 5 local refresh, recovery and jobs was implemented: BullMQ and stateless execution, durable job runs/outbox, bounded admission and retries, expiring distributed leases, generation-fenced observation publication, permitted close capture, housekeeping, truthful freshness and bounded UI retry. [Measured evidence](PRIORITY_5_EVIDENCE.md), [focused visual review](PRIORITY_5_VISUAL_REVIEW.md), [local operation guide](LOCAL_JOBS.md). The Priority 5 engineering/product/visual review is awaiting the user; automated checks do not close it.

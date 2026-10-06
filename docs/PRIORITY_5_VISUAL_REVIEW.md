@@ -1,4 +1,6 @@
-# Priority5 visual review — awaiting user approval
+# Priority 5 visual review — APPROVED / CLOSED
+
+2026-10-06: explicit user review accepts all 22 states / 44 rendered captures, keyboard/focus/mobile navigation, accessibility substitutions and measured zero axe/overflow/independent scrolling. Light/mobile/tablet remain approved DERIVED implementations. No Figma write or prior baseline change. Earlier pending-review wording below records the pre-approval evidence boundary.
 
 [Rendered actual gallery](evidence/priority-5/2026-10-06/review.html).22 states/44 viewport and full-page captures; all219 previously approved images unchanged. [Checks](evidence/priority-5/2026-10-06/visual/browser-checks.json), [job results](evidence/priority-5/2026-10-06/visual/job-results.json), [read-only Figma evidence](evidence/priority-5/2026-10-06/figma-source-check.json).
 

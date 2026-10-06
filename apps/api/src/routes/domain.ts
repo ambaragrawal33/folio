@@ -21,6 +21,9 @@ import {
   AssetDetailResponse,
   JobRun,
   RefreshStatus,
+  PortfolioManagement,
+  Portfolio,
+  DeletePortfolioResponse,
 } from '@folio/shared';
 import type { Env } from '../config/env.ts';
 import type { DomainService } from '../services/domain.ts';
@@ -128,6 +131,33 @@ export function domainRouter(
   router.post('/portfolios/default', async (req, res) => {
     parsed(EmptyRequest, req.body ?? {});
     res.json(await service.createDefault(await identity(req)));
+  });
+  router.get('/portfolios/:portfolioId/management', async (req, res) => {
+    parsed(EmptyRequest, req.query);
+    res.json(
+      PortfolioManagement.parse(
+        await service.management(await identity(req), parameter(req, 'portfolioId')),
+      ),
+    );
+  });
+  router.patch('/portfolios/:portfolioId', async (req, res) => {
+    res.json(
+      Portfolio.parse(
+        await service.renamePortfolio(await identity(req), parameter(req, 'portfolioId'), req.body),
+      ),
+    );
+  });
+  router.delete('/portfolios/:portfolioId', async (req, res) => {
+    res.json(
+      DeletePortfolioResponse.parse(
+        await service.deleteEmptyPortfolio(
+          await identity(req),
+          parameter(req, 'portfolioId'),
+          req.body,
+          req.get('Idempotency-Key') ?? '',
+        ),
+      ),
+    );
   });
   router.get('/instruments', async (req, res) =>
     res.json({ instruments: await service.instruments(parsed(InstrumentQuery, req.query).q) }),

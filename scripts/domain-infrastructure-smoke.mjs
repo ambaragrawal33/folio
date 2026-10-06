@@ -43,7 +43,7 @@ const doc = await fetch(normal + '/api/openapi.json').then((r) => r.json());
 const operations = Object.entries(doc.paths)
   .flatMap(([path, verbs]) => Object.keys(verbs).map((method) => method.toUpperCase() + ' ' + path))
   .filter((p) => p.includes('/api/v1/'));
-assert.equal(operations.length, 33);
+assert.equal(operations.length, 36);
 assert(
   operations.includes('GET /api/v1/portfolios/{portfolioId}/instruments/{instrumentId}/detail'),
 );
@@ -56,7 +56,7 @@ for (const resource of ['/api/v1/portfolios', '/api/v1/instruments', '/api/v1/se
 assert.equal((await fetch(normal + '/api/v1/auth/demo')).status, 200);
 assert.equal((await fetch(normal + '/api/v1/auth/demo').then((r) => r.json())).enabled, false);
 console.log(
-  'OpenAPI 33 auth/demo/fixture/domain/refresh operations; financial APIs authenticated, no-store; normal demo disabled PASS',
+  'OpenAPI 36 auth/demo/fixture/domain/refresh/management operations; financial APIs authenticated, no-store; normal demo disabled PASS',
 );
 if (process.env.FOLIO_E2E_DEMO === '1') {
   const base = 'http://127.0.0.1:5180';

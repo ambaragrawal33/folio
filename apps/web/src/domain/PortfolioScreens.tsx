@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { z } from 'zod';
-import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import {
   Instrument,
@@ -98,6 +98,19 @@ function PortfolioBoundary({
   children: (p: z.infer<typeof Portfolio>) => ReactNode;
 }) {
   const list = usePortfolios();
+  const location = useLocation();
+  const deletedNotice = useRef<HTMLParagraphElement>(null),
+    deletionFocused = useRef(false);
+  useEffect(() => {
+    if (
+      location.state?.portfolioDeleted &&
+      list.data?.portfolios.length === 0 &&
+      !deletionFocused.current
+    ) {
+      deletedNotice.current?.focus();
+      deletionFocused.current = true;
+    }
+  }, [location.state, list.data]);
   const client = useQueryClient();
   const creation = useMutation({
     mutationFn: () => api('/portfolios/default', Portfolio, {}),
@@ -110,6 +123,11 @@ function PortfolioBoundary({
     return (
       <div className="portfolio-screen onboarding" data-figma="57:301">
         <Panel title="Create your first portfolio" source="57:316">
+          {location.state?.portfolioDeleted && (
+            <p ref={deletedNotice} tabIndex={-1} role="status" className="type-compact">
+              Empty portfolio deleted. Your account is retained. Create a portfolio to continue.
+            </p>
+          )}
           <p className="type-body text-secondary">
             All figures come from your append-only transaction ledger.
           </p>

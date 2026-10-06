@@ -254,6 +254,10 @@ export function authRouter(env: Env, service: AuthService, cache: CacheStore) {
         ...data.audit.map((a) => ['audit.' + a.action, JSON.stringify(a)]),
         ...(data.domain?.portfolios.map((p) => ['portfolio.' + p.id, JSON.stringify(p)]) ?? []),
         ...(data.domain?.jobs?.map((j) => ['job_run.' + j.id, JSON.stringify(j)]) ?? []),
+        ...(data.domain?.portfolioDeletions?.map((p) => [
+          'portfolio_deletion.' + p.portfolioId,
+          JSON.stringify(p),
+        ]) ?? []),
         ...(data.domain?.ledger.map((row) => ['ledger.' + row.record.id, JSON.stringify(row)]) ??
           []),
       ];

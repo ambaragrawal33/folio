@@ -17,6 +17,7 @@ import { api, request, useAccess } from './client';
 import { useSession } from './session';
 import { useTheme } from '../state/theme';
 import { usePortfolios } from '../domain/client';
+import { PortfolioManagement } from '../domain/PortfolioManagement';
 export function Account() {
   const session = useSession();
   if (session.isPending) return <ContentState loading />;
@@ -359,6 +360,7 @@ function PortfolioDefaults({ portfolio }: { portfolio: Portfolio | undefined }) 
         FIFO is the supported cost-basis method. Additional portfolios and methods remain
         unavailable.
       </p>
+      <PortfolioManagement key={portfolio.id} portfolio={portfolio} />
     </section>
   );
 }
