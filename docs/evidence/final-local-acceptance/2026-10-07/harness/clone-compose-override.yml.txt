@@ -1,0 +1,17 @@
+# Verification-only isolation; not an application/deployment change.
+services:
+  mongo:
+    ports: !override ['127.0.0.1:27018:27017']
+  redis:
+    ports: !override ['127.0.0.1:6380:6379']
+  mailhog:
+    ports: !override ['127.0.0.1:1026:1025', '127.0.0.1:8026:8025']
+  api:
+    ports: !override ['127.0.0.1:3033:3000']
+    environment:
+      WEB_ORIGIN: http://localhost:5193
+  web:
+    command: ['pnpm', '--filter', '@folio/web', 'dev', '--port', '5193']
+    ports: !override ['127.0.0.1:5193:5193']
+    healthcheck:
+      test: ['CMD', 'node', '-e', "fetch('http://127.0.0.1:5193').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]

@@ -1,0 +1,729 @@
+{
+  "url": "http://127.0.0.1:5407/review.html",
+  "status": 200,
+  "title": "Folio final local acceptance",
+  "sections": 72,
+  "images": [
+    {
+      "path": "/visual/fresh-registration-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/fresh-registration-dark-1440.png",
+      "width": 1440,
+      "height": 1089
+    },
+    {
+      "path": "/visual/portfolio-management-empty-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/portfolio-management-empty-dark-1440.png",
+      "width": 1440,
+      "height": 1732
+    },
+    {
+      "path": "/visual/discovery-selected-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/discovery-selected-dark-1440.png",
+      "width": 1440,
+      "height": 1054
+    },
+    {
+      "path": "/visual/entry-buy-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/entry-buy-dark-1440.png",
+      "width": 1440,
+      "height": 1090
+    },
+    {
+      "path": "/visual/preview-buy-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/preview-buy-dark-1440.png",
+      "width": 1440,
+      "height": 1198
+    },
+    {
+      "path": "/visual/confirmation-buy-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/confirmation-buy-dark-1440.png",
+      "width": 1440,
+      "height": 1194
+    },
+    {
+      "path": "/visual/asset-split-fifo-provenance-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/asset-split-fifo-provenance-dark-1440.png",
+      "width": 1440,
+      "height": 2415
+    },
+    {
+      "path": "/visual/dashboard-complete-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/dashboard-complete-dark-1440.png",
+      "width": 1440,
+      "height": 1145
+    },
+    {
+      "path": "/visual/holdings-complete-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/holdings-complete-dark-1440.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/entry-buy-aapl-us-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/entry-buy-aapl-us-dark-1440.png",
+      "width": 1440,
+      "height": 1238
+    },
+    {
+      "path": "/visual/preview-buy-aapl-us-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/preview-buy-aapl-us-dark-1440.png",
+      "width": 1440,
+      "height": 1178
+    },
+    {
+      "path": "/visual/confirmation-buy-aapl-us-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/confirmation-buy-aapl-us-dark-1440.png",
+      "width": 1440,
+      "height": 1285
+    },
+    {
+      "path": "/visual/stale-dashboard-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/stale-dashboard-dark-1440.png",
+      "width": 1440,
+      "height": 1272
+    },
+    {
+      "path": "/visual/stale-asset-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/stale-asset-dark-1440.png",
+      "width": 1440,
+      "height": 1729
+    },
+    {
+      "path": "/visual/missing-asset-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/missing-asset-dark-1440.png",
+      "width": 1440,
+      "height": 1714
+    },
+    {
+      "path": "/visual/partial-dashboard-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/partial-dashboard-dark-1440.png",
+      "width": 1440,
+      "height": 1281
+    },
+    {
+      "path": "/visual/refresh-worker-pending-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/refresh-worker-pending-dark-1440.png",
+      "width": 1440,
+      "height": 1281
+    },
+    {
+      "path": "/visual/refresh-partial-success-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/refresh-partial-success-dark-1440.png",
+      "width": 1440,
+      "height": 1281
+    },
+    {
+      "path": "/visual/refresh-network-failure-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/refresh-network-failure-dark-1440.png",
+      "width": 1440,
+      "height": 1281
+    },
+    {
+      "path": "/visual/dashboard-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/dashboard-dark-1440.png",
+      "width": 1440,
+      "height": 1281
+    },
+    {
+      "path": "/visual/holdings-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/holdings-dark-1440.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/asset-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/asset-dark-1440.png",
+      "width": 1440,
+      "height": 2387
+    },
+    {
+      "path": "/visual/settings-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/settings-dark-1440.png",
+      "width": 1440,
+      "height": 1774
+    },
+    {
+      "path": "/visual/dashboard-dark-1280-viewport.png",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "path": "/visual/dashboard-dark-1280.png",
+      "width": 1280,
+      "height": 1295
+    },
+    {
+      "path": "/visual/holdings-dark-1280-viewport.png",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "path": "/visual/holdings-dark-1280.png",
+      "width": 1280,
+      "height": 1043
+    },
+    {
+      "path": "/visual/asset-dark-1280-viewport.png",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "path": "/visual/asset-dark-1280.png",
+      "width": 1280,
+      "height": 2400
+    },
+    {
+      "path": "/visual/settings-dark-1280-viewport.png",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "path": "/visual/settings-dark-1280.png",
+      "width": 1280,
+      "height": 1788
+    },
+    {
+      "path": "/visual/dashboard-dark-1024-viewport.png",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "path": "/visual/dashboard-dark-1024.png",
+      "width": 1024,
+      "height": 1519
+    },
+    {
+      "path": "/visual/holdings-dark-1024-viewport.png",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "path": "/visual/holdings-dark-1024.png",
+      "width": 1024,
+      "height": 1153
+    },
+    {
+      "path": "/visual/asset-dark-1024-viewport.png",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "path": "/visual/asset-dark-1024.png",
+      "width": 1024,
+      "height": 4439
+    },
+    {
+      "path": "/visual/settings-dark-1024-viewport.png",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "path": "/visual/settings-dark-1024.png",
+      "width": 1024,
+      "height": 1851
+    },
+    {
+      "path": "/visual/dashboard-dark-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/dashboard-dark-768.png",
+      "width": 768,
+      "height": 1853
+    },
+    {
+      "path": "/visual/holdings-dark-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/holdings-dark-768.png",
+      "width": 768,
+      "height": 1567
+    },
+    {
+      "path": "/visual/asset-dark-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/asset-dark-768.png",
+      "width": 768,
+      "height": 4707
+    },
+    {
+      "path": "/visual/settings-dark-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/settings-dark-768.png",
+      "width": 768,
+      "height": 2189
+    },
+    {
+      "path": "/visual/dashboard-dark-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/dashboard-dark-390.png",
+      "width": 390,
+      "height": 2944
+    },
+    {
+      "path": "/visual/holdings-dark-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/holdings-dark-390.png",
+      "width": 390,
+      "height": 2668
+    },
+    {
+      "path": "/visual/asset-dark-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/asset-dark-390.png",
+      "width": 390,
+      "height": 5104
+    },
+    {
+      "path": "/visual/settings-dark-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/settings-dark-390.png",
+      "width": 390,
+      "height": 2718
+    },
+    {
+      "path": "/visual/dashboard-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/dashboard-light-1440.png",
+      "width": 1440,
+      "height": 1281
+    },
+    {
+      "path": "/visual/holdings-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/holdings-light-1440.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/asset-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/asset-light-1440.png",
+      "width": 1440,
+      "height": 2387
+    },
+    {
+      "path": "/visual/settings-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/settings-light-1440.png",
+      "width": 1440,
+      "height": 1774
+    },
+    {
+      "path": "/visual/dashboard-light-1280-viewport.png",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "path": "/visual/dashboard-light-1280.png",
+      "width": 1280,
+      "height": 1295
+    },
+    {
+      "path": "/visual/holdings-light-1280-viewport.png",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "path": "/visual/holdings-light-1280.png",
+      "width": 1280,
+      "height": 1043
+    },
+    {
+      "path": "/visual/asset-light-1280-viewport.png",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "path": "/visual/asset-light-1280.png",
+      "width": 1280,
+      "height": 2400
+    },
+    {
+      "path": "/visual/settings-light-1280-viewport.png",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "path": "/visual/settings-light-1280.png",
+      "width": 1280,
+      "height": 1788
+    },
+    {
+      "path": "/visual/dashboard-light-1024-viewport.png",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "path": "/visual/dashboard-light-1024.png",
+      "width": 1024,
+      "height": 1519
+    },
+    {
+      "path": "/visual/holdings-light-1024-viewport.png",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "path": "/visual/holdings-light-1024.png",
+      "width": 1024,
+      "height": 1153
+    },
+    {
+      "path": "/visual/asset-light-1024-viewport.png",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "path": "/visual/asset-light-1024.png",
+      "width": 1024,
+      "height": 4439
+    },
+    {
+      "path": "/visual/settings-light-1024-viewport.png",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "path": "/visual/settings-light-1024.png",
+      "width": 1024,
+      "height": 1851
+    },
+    {
+      "path": "/visual/dashboard-light-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/dashboard-light-768.png",
+      "width": 768,
+      "height": 1853
+    },
+    {
+      "path": "/visual/holdings-light-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/holdings-light-768.png",
+      "width": 768,
+      "height": 1567
+    },
+    {
+      "path": "/visual/asset-light-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/asset-light-768.png",
+      "width": 768,
+      "height": 4707
+    },
+    {
+      "path": "/visual/settings-light-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/settings-light-768.png",
+      "width": 768,
+      "height": 2189
+    },
+    {
+      "path": "/visual/dashboard-light-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/dashboard-light-390.png",
+      "width": 390,
+      "height": 2944
+    },
+    {
+      "path": "/visual/holdings-light-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/holdings-light-390.png",
+      "width": 390,
+      "height": 2668
+    },
+    {
+      "path": "/visual/asset-light-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/asset-light-390.png",
+      "width": 390,
+      "height": 5104
+    },
+    {
+      "path": "/visual/settings-light-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/settings-light-390.png",
+      "width": 390,
+      "height": 2718
+    },
+    {
+      "path": "/visual/transactions-light-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/transactions-light-390.png",
+      "width": 390,
+      "height": 993
+    },
+    {
+      "path": "/visual/navigation-open-light-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/navigation-open-light-390.png",
+      "width": 390,
+      "height": 1450
+    },
+    {
+      "path": "/visual/entry-light-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/entry-light-390.png",
+      "width": 390,
+      "height": 1670
+    },
+    {
+      "path": "/visual/preview-light-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/preview-light-390.png",
+      "width": 390,
+      "height": 1946
+    },
+    {
+      "path": "/visual/preview-light-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/preview-light-768.png",
+      "width": 768,
+      "height": 1502
+    },
+    {
+      "path": "/visual/preview-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/preview-light-1440.png",
+      "width": 1440,
+      "height": 1178
+    },
+    {
+      "path": "/visual/settings-final-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/settings-final-light-1440.png",
+      "width": 1440,
+      "height": 1774
+    },
+    {
+      "path": "/visual/privacy-confirm-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/privacy-confirm-light-1440.png",
+      "width": 1440,
+      "height": 2094
+    },
+    {
+      "path": "/visual/compiled-dashboard-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/compiled-dashboard-dark-1440.png",
+      "width": 1440,
+      "height": 1088
+    },
+    {
+      "path": "/visual/compiled-holdings-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/compiled-holdings-dark-1440.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/compiled-asset-detail-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/compiled-asset-detail-dark-1440.png",
+      "width": 1440,
+      "height": 5947
+    },
+    {
+      "path": "/visual/compiled-transactions-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/compiled-transactions-dark-1440.png",
+      "width": 1440,
+      "height": 2468
+    },
+    {
+      "path": "/visual/demo-readonly-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/demo-readonly-dark-1440.png",
+      "width": 1440,
+      "height": 1416
+    }
+  ],
+  "overflow": 0
+}

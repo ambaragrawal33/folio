@@ -1,0 +1,35 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import {randomUUID} from 'node:crypto';
+import {AuthService} from '../../apps/api/src/services/auth.ts';
+import {DomainService} from '../../apps/api/src/services/domain.ts';
+import {PasswordAuthProvider} from '../../apps/api/src/providers/password-auth.ts';
+import {LocalFixtureMarketGateway} from '../../apps/api/src/providers/local-fixture.ts';
+import {parseEnv} from '../../apps/api/src/config/env.ts';
+import {instrumentMaster} from '../../apps/api/src/models/instrument-master.ts';
+const require=createRequire(new URL('../../apps/api/package.json',import.meta.url));
+const mongoose=require('mongoose');
+const webRequire=createRequire(new URL('../../package.json',import.meta.url));
+const {chromium,expect:baseExpect}=webRequire('@playwright/test');
+const expect=baseExpect.configure({timeout:15000});
+const root='.local/final-acceptance',base='http://127.0.0.1:5190';
+const browser=await chromium.launch(),ctx=await browser.newContext({viewport:{width:1440,height:1024}}),page=await ctx.newPage();
+const email='acceptance-500-'+Date.now()+'@example.test',password='Local 500 record benchmark passphrase!';
+const result=JSON.parse(await readFile(root+'/benchmark-results.json','utf8')); result.harnessCorrection='Ledger API default is25; benchmark explicitly requests UI pageSize20. No product change.'; delete result.error;
+let connection,pid,token;
+const save=()=>writeFile(root+'/benchmark-results.json',JSON.stringify(result,null,2));
+try{
+ connection=await mongoose.createConnection('mongodb://127.0.0.1:27017/folio_local_fixture?replicaSet=rs0&directConnection=true').asPromise();
+ const account=await connection.collection('users').findOne({name:'Local Benchmark Reviewer',email:{$regex:'^acceptance-500-'}},{sort:{createdAt:-1}}); assert(account,'Existing500 benchmark account unavailable');
+ await page.goto(base+'/auth/login');await page.getByLabel('Email address').fill(account.email);await page.getByLabel('Password',{exact:true}).fill(password);const waiting=page.waitForResponse(r=>r.url().endsWith('/auth/login')&&r.request().method()==='POST');await page.getByRole('button',{name:'Sign in',exact:true}).click();token=(await(await waiting).json()).accessToken;
+ const headers={Authorization:'Bearer '+token,Origin:base,'X-Folio-CSRF':'1'};pid=(await(await page.request.get(base+'/api/v1/portfolios',{headers})).json()).portfolios[0].id;
+ await writeFile(root+'/benchmark-runtime.json',JSON.stringify({email:account.email,password,pid,token}));
+ await page.reload();await expect(page.getByRole('heading',{name:'Dashboard',exact:true})).toBeVisible();const control=page.getByRole('complementary',{name:'Market refresh'});await control.getByRole('button').click();await expect(control).toContainText('Refresh completed.',{timeout:20000});
+ async function measure(path,label){const t=performance.now();const response=await page.request.get(base+'/api/v1/portfolios/'+pid+path,{headers});const body=await response.json();assert.equal(response.status(),200);result.samples.push({label,path,ms:performance.now()-t,status:response.status(),bytes:Buffer.byteLength(JSON.stringify(body))});return body;}
+ const value=await measure('/valuation','valuation-500');assert.equal(value.holdings[0].quantity,'500');assert.equal(value.totalBaseCost,'50500');assert.equal(value.totalValue,'35000');assert.equal(value.unrealizedBase,'-15500');const detail=await measure('/instruments/TCS%3ANSE/detail','asset-500');assert.equal(detail.lots.total,500);assert.equal(detail.lots.items.length,20);assert.equal(detail.activity.total,500);assert.equal(detail.activity.items.length,20);const ledger=await measure('/ledger?pageSize=20','ledger-500');assert.equal(ledger.total,500);assert.equal(ledger.items.length,20);assert.equal((await measure('/ledger?page=25&pageSize=20','last-ledger-page-500')).items.length,20);assert.equal((await measure('/instruments/TCS%3ANSE/detail?lotPage=25','last-lot-page-500')).lots.items.length,20);result.handExpected={quantity:'500',remainingCost:'50500',value:'35000',unrealized:'-15500',lots:500,activity:500,pageSize:20};
+ for(let n=0;n<5;n++){await measure('/valuation','valuation-500');await measure('/holdings','holdings-500');await measure('/instruments/TCS%3ANSE/detail','asset-500');await measure('/refresh','refresh-status-500');}
+ for(const[path,heading]of [['/dashboard','Dashboard'],['/holdings','Holdings'],['/holdings/TCS%3ANSE',null],['/transactions','Transactions']]){const t=performance.now();await page.evaluate(p=>{history.pushState({},'',p);dispatchEvent(new PopStateEvent('popstate'));},path);if(heading)await expect(page.getByRole('heading',{name:heading,exact:true})).toBeVisible();else await expect(page.getByRole('table',{name:'Remaining FIFO lots',exact:true})).toBeVisible();result.samples.push({label:'browser-500'+path,ms:performance.now()-t});}
+ const input={type:'BUY',instrumentId:'TCS:NSE',effectiveAt:'2026-01-05T16:00:00.000Z',tradingDate:'2026-01-05',quantity:'1',price:'100',fees:'1'};let t=performance.now();const pre=await page.request.post(base+'/api/v1/portfolios/'+pid+'/ledger/preview',{headers,data:input});const pv=await pre.json();assert.equal(pre.status(),200);result.samples.push({label:'preview-500',ms:performance.now()-t});const key=randomUUID();t=performance.now();const append=await page.request.post(base+'/api/v1/portfolios/'+pid+'/ledger',{headers:{...headers,'Idempotency-Key':key,'Transaction-Preview':pv.receipt},data:input});assert.equal(append.status(),200);result.samples.push({label:'confirm-500',ms:performance.now()-t});const duplicate=await(await page.request.post(base+'/api/v1/portfolios/'+pid+'/ledger',{headers:{...headers,'Idempotency-Key':key,'Transaction-Preview':pv.receipt},data:input})).json();assert.equal(duplicate.duplicate,true);result.confirmIdempotency=true;
+ await writeFile(root+'/benchmark-runtime.json',JSON.stringify({email:(await connection.collection('users').findOne({name:'Local Benchmark Reviewer',email:{$regex:'^acceptance-500-'}},{sort:{createdAt:-1}})).email,password,pid,token}));result.status='PASS';await save();console.log('500-record correctness/bounds/latency and501st confirmation/idempotency PASS');
+}catch(error){result.status='FAIL';result.error=String(error.message).replaceAll(password,'[redacted]');await save();console.error('Benchmark STOP '+result.error);process.exitCode=1;}finally{await connection?.close();await browser.close();}

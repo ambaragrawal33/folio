@@ -1,0 +1,6 @@
+PASS integrated-security
+PASS voided-zero-history
+PASS environment-isolation
+CAPTURE privacy-confirm-light-1440 axe0/overflow0/scroll0
+PASS privacy
+Integrated acceptance journey PASS; benchmark/clean-checkout/full regressions remain

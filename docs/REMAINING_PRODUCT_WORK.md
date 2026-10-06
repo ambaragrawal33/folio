@@ -1,5 +1,7 @@
 # Remaining Product Work — local P0
 
+**CURRENT 2026-10-07:** Priorities1–6 are explicitly CLOSED/APPROVED. The approved chain is pushed at59100275cfc61abf44083b13eb29e478c1e1362c. Final integrated local acceptance of currently authorized domain scope passes; [actual evidence](FINAL_LOCAL_ACCEPTANCE.md), [visual evidence for final user review](FINAL_LOCAL_VISUAL_ACCEPTANCE.md). No application change or optimization. User final acceptance review is pending. News/AI remain separately unauthorized phases; production/provider operational gates remain deferred.584.92kB warning remains unsuppressed and non-blocking in measured local tests. STOP; older dated statements below are historical.
+
 **CURRENT 2026-10-06:** Priorities1–5 engineering/visual gates are **CLOSED / APPROVED**. Priority6/L02 rename/atomic empty-only deletion is implemented and verified; [evidence](PRIORITY_6_EVIDENCE.md), [focused visual review pending](PRIORITY_6_VISUAL_REVIEW.md). STOP for Priority6 review. No News/AI work follows automatically; these require separate Phase4/5 authorization. Full local acceptance, the500-transaction benchmark and investigation of the unsuppressed584.92kB warning remain later gates. Hosting/spending/deployment remains deferred. Earlier entries/table below are historical.
 
 | Next gate              | Remaining product work                                                                                                                          | Authorization                                            |

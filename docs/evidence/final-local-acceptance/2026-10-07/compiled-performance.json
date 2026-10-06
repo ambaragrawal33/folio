@@ -1,0 +1,881 @@
+{
+  "scope": "Compiled unchanged web assets with gzip on local same-origin test proxy; real existing fixture API.500 seeded+1 confirmed immutable records;501 units; no production latency/HTTPS claim",
+  "samples": [
+    {
+      "label": "initial-compiled-load",
+      "ms": 308.27289999999994,
+      "navigation": {
+        "name": "http://127.0.0.1:5190/auth/login",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 168.80000001192093,
+        "navigationId": 1908,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.40000003576278687,
+        "domainLookupStart": 3.100000023841858,
+        "domainLookupEnd": 6.200000047683716,
+        "connectStart": 6.200000047683716,
+        "secureConnectionStart": 0,
+        "connectEnd": 7.900000035762787,
+        "requestStart": 8.200000047683716,
+        "responseStart": 12.300000011920929,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 12.300000011920929,
+        "responseEnd": 14.400000035762787,
+        "transferSize": 579,
+        "encodedBodySize": 279,
+        "decodedBodySize": 444,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 31.900000035762787,
+        "domContentLoadedEventStart": 168.70000004768372,
+        "domContentLoadedEventEnd": 168.80000001192093,
+        "domComplete": 168.80000001192093,
+        "loadEventStart": 168.80000001192093,
+        "loadEventEnd": 168.80000001192093,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      }
+    },
+    {
+      "label": "dashboard-compiled-first",
+      "ms": 422.14099999999985,
+      "navigation": {
+        "name": "http://127.0.0.1:5190/dashboard",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 82.19999998807907,
+        "navigationId": 1104,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.30000001192092896,
+        "domainLookupStart": 0.30000001192092896,
+        "domainLookupEnd": 0.30000001192092896,
+        "connectStart": 0.30000001192092896,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.30000001192092896,
+        "requestStart": 1.199999988079071,
+        "responseStart": 4.900000035762787,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 4.900000035762787,
+        "responseEnd": 5.400000035762787,
+        "transferSize": 579,
+        "encodedBodySize": 279,
+        "decodedBodySize": 444,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 13.800000011920929,
+        "unloadEventEnd": 13.800000011920929,
+        "domInteractive": 20.69999998807907,
+        "domContentLoadedEventStart": 82.10000002384186,
+        "domContentLoadedEventEnd": 82.19999998807907,
+        "domComplete": 82.19999998807907,
+        "loadEventStart": 82.19999998807907,
+        "loadEventEnd": 82.19999998807907,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      }
+    },
+    {
+      "label": "dashboard-compiled-repeat",
+      "ms": 360.12069999999994,
+      "navigation": {
+        "name": "http://127.0.0.1:5190/dashboard",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 79.40000003576279,
+        "navigationId": 1203,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999998807907104,
+        "domainLookupStart": 0.19999998807907104,
+        "domainLookupEnd": 0.19999998807907104,
+        "connectStart": 0.19999998807907104,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.19999998807907104,
+        "requestStart": 0.9000000357627869,
+        "responseStart": 4.600000023841858,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 4.600000023841858,
+        "responseEnd": 5.300000011920929,
+        "transferSize": 579,
+        "encodedBodySize": 279,
+        "decodedBodySize": 444,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 9.400000035762787,
+        "unloadEventEnd": 9.400000035762787,
+        "domInteractive": 18.30000001192093,
+        "domContentLoadedEventStart": 79.30000001192093,
+        "domContentLoadedEventEnd": 79.40000003576279,
+        "domComplete": 79.40000003576279,
+        "loadEventStart": 79.40000003576279,
+        "loadEventEnd": 79.40000003576279,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      }
+    },
+    {
+      "label": "holdings-compiled-first",
+      "ms": 424.20679999999993,
+      "navigation": {
+        "name": "http://127.0.0.1:5190/holdings",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 59.80000001192093,
+        "navigationId": 7506,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.20000004768371582,
+        "domainLookupStart": 0.20000004768371582,
+        "domainLookupEnd": 0.20000004768371582,
+        "connectStart": 0.20000004768371582,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.20000004768371582,
+        "requestStart": 1,
+        "responseStart": 3.800000011920929,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 3.800000011920929,
+        "responseEnd": 4.300000011920929,
+        "transferSize": 579,
+        "encodedBodySize": 279,
+        "decodedBodySize": 444,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 6.600000023841858,
+        "unloadEventEnd": 6.600000023841858,
+        "domInteractive": 13.600000023841858,
+        "domContentLoadedEventStart": 59.700000047683716,
+        "domContentLoadedEventEnd": 59.80000001192093,
+        "domComplete": 59.80000001192093,
+        "loadEventStart": 59.80000001192093,
+        "loadEventEnd": 59.80000001192093,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      }
+    },
+    {
+      "label": "holdings-compiled-repeat",
+      "ms": 313.16560000000027,
+      "navigation": {
+        "name": "http://127.0.0.1:5190/holdings",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 68.79999995231628,
+        "navigationId": 1788,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999998807907104,
+        "domainLookupStart": 0.19999998807907104,
+        "domainLookupEnd": 0.19999998807907104,
+        "connectStart": 0.19999998807907104,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.19999998807907104,
+        "requestStart": 0.8999999761581421,
+        "responseStart": 3.399999976158142,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 3.399999976158142,
+        "responseEnd": 3.699999988079071,
+        "transferSize": 579,
+        "encodedBodySize": 279,
+        "decodedBodySize": 444,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 10.099999964237213,
+        "unloadEventEnd": 10.099999964237213,
+        "domInteractive": 15.799999952316284,
+        "domContentLoadedEventStart": 68.69999998807907,
+        "domContentLoadedEventEnd": 68.79999995231628,
+        "domComplete": 68.79999995231628,
+        "loadEventStart": 68.79999995231628,
+        "loadEventEnd": 68.79999995231628,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      }
+    },
+    {
+      "label": "asset-detail-compiled-first",
+      "ms": 326.5751,
+      "navigation": {
+        "name": "http://127.0.0.1:5190/holdings/TCS%3ANSE",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 62.30000001192093,
+        "navigationId": 1094,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999998807907104,
+        "domainLookupStart": 0.19999998807907104,
+        "domainLookupEnd": 0.19999998807907104,
+        "connectStart": 0.19999998807907104,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.19999998807907104,
+        "requestStart": 0.8999999761581421,
+        "responseStart": 3,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 3,
+        "responseEnd": 3.300000011920929,
+        "transferSize": 579,
+        "encodedBodySize": 279,
+        "decodedBodySize": 444,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 8.800000011920929,
+        "unloadEventEnd": 8.800000011920929,
+        "domInteractive": 13.800000011920929,
+        "domContentLoadedEventStart": 62.30000001192093,
+        "domContentLoadedEventEnd": 62.30000001192093,
+        "domComplete": 62.30000001192093,
+        "loadEventStart": 62.30000001192093,
+        "loadEventEnd": 62.30000001192093,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      }
+    },
+    {
+      "label": "asset-detail-compiled-repeat",
+      "ms": 341.3195999999998,
+      "navigation": {
+        "name": "http://127.0.0.1:5190/holdings/TCS%3ANSE",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 76.5,
+        "navigationId": 4283,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.30000001192092896,
+        "domainLookupStart": 0.30000001192092896,
+        "domainLookupEnd": 0.30000001192092896,
+        "connectStart": 0.30000001192092896,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.30000001192092896,
+        "requestStart": 1.4000000357627869,
+        "responseStart": 4.700000047683716,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 4.700000047683716,
+        "responseEnd": 5.100000023841858,
+        "transferSize": 579,
+        "encodedBodySize": 279,
+        "decodedBodySize": 444,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 8.5,
+        "unloadEventEnd": 8.5,
+        "domInteractive": 17.700000047683716,
+        "domContentLoadedEventStart": 76.40000003576279,
+        "domContentLoadedEventEnd": 76.5,
+        "domComplete": 76.5,
+        "loadEventStart": 76.5,
+        "loadEventEnd": 76.5,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      }
+    },
+    {
+      "label": "transactions-compiled-first",
+      "ms": 437.6257000000005,
+      "navigation": {
+        "name": "http://127.0.0.1:5190/transactions",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 154.80000001192093,
+        "navigationId": 5339,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.30000001192092896,
+        "domainLookupStart": 0.30000001192092896,
+        "domainLookupEnd": 0.30000001192092896,
+        "connectStart": 0.30000001192092896,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.30000001192092896,
+        "requestStart": 1.399999976158142,
+        "responseStart": 7.699999988079071,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 7.699999988079071,
+        "responseEnd": 8.300000011920929,
+        "transferSize": 579,
+        "encodedBodySize": 279,
+        "decodedBodySize": 444,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 13.300000011920929,
+        "unloadEventEnd": 13.300000011920929,
+        "domInteractive": 35.69999998807907,
+        "domContentLoadedEventStart": 154.69999998807907,
+        "domContentLoadedEventEnd": 154.80000001192093,
+        "domComplete": 154.80000001192093,
+        "loadEventStart": 154.80000001192093,
+        "loadEventEnd": 154.80000001192093,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      }
+    },
+    {
+      "label": "transactions-compiled-repeat",
+      "ms": 364.8199999999997,
+      "navigation": {
+        "name": "http://127.0.0.1:5190/transactions",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 121,
+        "navigationId": 6602,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "gzip",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999998807907104,
+        "domainLookupStart": 0.19999998807907104,
+        "domainLookupEnd": 0.19999998807907104,
+        "connectStart": 0.19999998807907104,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.19999998807907104,
+        "requestStart": 1.5999999642372131,
+        "responseStart": 4.799999952316284,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 4.799999952316284,
+        "responseEnd": 5.5,
+        "transferSize": 579,
+        "encodedBodySize": 279,
+        "decodedBodySize": 444,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 11.299999952316284,
+        "unloadEventEnd": 11.299999952316284,
+        "domInteractive": 24,
+        "domContentLoadedEventStart": 120.89999997615814,
+        "domContentLoadedEventEnd": 120.89999997615814,
+        "domComplete": 120.89999997615814,
+        "loadEventStart": 121,
+        "loadEventEnd": 121,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      }
+    },
+    {
+      "label": "dashboard-api-quiet",
+      "ms": 120.80839999999989
+    },
+    {
+      "label": "holdings-api-quiet",
+      "ms": 72.52390000000014
+    },
+    {
+      "label": "asset-api-quiet",
+      "ms": 65.2426000000014
+    },
+    {
+      "label": "refresh-status-api-quiet",
+      "ms": 17.11330000000089
+    },
+    {
+      "label": "dashboard-api-quiet",
+      "ms": 77.50199999999859
+    },
+    {
+      "label": "holdings-api-quiet",
+      "ms": 41.45859999999993
+    },
+    {
+      "label": "asset-api-quiet",
+      "ms": 72.10669999999845
+    },
+    {
+      "label": "refresh-status-api-quiet",
+      "ms": 16.060599999998885
+    },
+    {
+      "label": "dashboard-api-quiet",
+      "ms": 51.58209999999963
+    },
+    {
+      "label": "holdings-api-quiet",
+      "ms": 87.72860000000037
+    },
+    {
+      "label": "asset-api-quiet",
+      "ms": 81.76870000000054
+    },
+    {
+      "label": "refresh-status-api-quiet",
+      "ms": 21.734699999999066
+    },
+    {
+      "label": "dashboard-api-quiet",
+      "ms": 91.17450000000099
+    },
+    {
+      "label": "holdings-api-quiet",
+      "ms": 91.79999999999927
+    },
+    {
+      "label": "asset-api-quiet",
+      "ms": 103.12760000000162
+    },
+    {
+      "label": "refresh-status-api-quiet",
+      "ms": 32.01749999999993
+    },
+    {
+      "label": "dashboard-api-quiet",
+      "ms": 156.79609999999957
+    },
+    {
+      "label": "holdings-api-quiet",
+      "ms": 93.34099999999853
+    },
+    {
+      "label": "asset-api-quiet",
+      "ms": 73.80659999999989
+    },
+    {
+      "label": "refresh-status-api-quiet",
+      "ms": 22.947000000000116
+    }
+  ],
+  "screens": [
+    {
+      "path": "/dashboard",
+      "axe": 0,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "independentScroll": 0
+      },
+      "buttons": [
+        {
+          "label": "My Portfolio",
+          "disabled": true
+        },
+        {
+          "label": "INR ₹",
+          "disabled": true
+        },
+        {
+          "label": "Notifications unavailable",
+          "disabled": true
+        },
+        {
+          "label": "Local Benchmark Reviewer",
+          "disabled": false
+        },
+        {
+          "label": "Record transaction",
+          "disabled": false
+        },
+        {
+          "label": "Refresh prices",
+          "disabled": false
+        },
+        {
+          "label": "Asset class",
+          "disabled": false
+        },
+        {
+          "label": "Currency",
+          "disabled": false
+        }
+      ],
+      "disabledControlsAreGated": true
+    },
+    {
+      "path": "/holdings",
+      "axe": 0,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "independentScroll": 0
+      },
+      "buttons": [
+        {
+          "label": "My Portfolio",
+          "disabled": true
+        },
+        {
+          "label": "INR ₹",
+          "disabled": true
+        },
+        {
+          "label": "Notifications unavailable",
+          "disabled": true
+        },
+        {
+          "label": "Local Benchmark Reviewer",
+          "disabled": false
+        },
+        {
+          "label": "Record transaction",
+          "disabled": false
+        },
+        {
+          "label": "Refresh prices",
+          "disabled": false
+        },
+        {
+          "label": "All Assets",
+          "disabled": false
+        },
+        {
+          "label": "Equities",
+          "disabled": false
+        },
+        {
+          "label": "ETFs",
+          "disabled": false
+        },
+        {
+          "label": "Crypto",
+          "disabled": false
+        },
+        {
+          "label": "Previous",
+          "disabled": true
+        },
+        {
+          "label": "Next",
+          "disabled": true
+        }
+      ],
+      "disabledControlsAreGated": true
+    },
+    {
+      "path": "/holdings/TCS%3ANSE",
+      "axe": 0,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "independentScroll": 0
+      },
+      "buttons": [
+        {
+          "label": "My Portfolio",
+          "disabled": true
+        },
+        {
+          "label": "INR ₹",
+          "disabled": true
+        },
+        {
+          "label": "Notifications unavailable",
+          "disabled": true
+        },
+        {
+          "label": "Local Benchmark Reviewer",
+          "disabled": false
+        },
+        {
+          "label": "Watchlist · P1",
+          "disabled": true
+        },
+        {
+          "label": "Record transaction",
+          "disabled": false
+        },
+        {
+          "label": "Refresh prices",
+          "disabled": false
+        },
+        {
+          "label": "Previous",
+          "disabled": true
+        },
+        {
+          "label": "Next",
+          "disabled": false
+        },
+        {
+          "label": "Previous",
+          "disabled": true
+        },
+        {
+          "label": "Next",
+          "disabled": false
+        }
+      ],
+      "disabledControlsAreGated": true
+    },
+    {
+      "path": "/transactions",
+      "axe": 0,
+      "geometry": {
+        "viewport": 1440,
+        "document": 1440,
+        "independentScroll": 0
+      },
+      "buttons": [
+        {
+          "label": "My Portfolio",
+          "disabled": true
+        },
+        {
+          "label": "INR ₹",
+          "disabled": true
+        },
+        {
+          "label": "Notifications unavailable",
+          "disabled": true
+        },
+        {
+          "label": "Local Benchmark Reviewer",
+          "disabled": false
+        },
+        {
+          "label": "Record transaction",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Details · Recorded",
+          "disabled": false
+        },
+        {
+          "label": "Previous",
+          "disabled": true
+        },
+        {
+          "label": "Next",
+          "disabled": false
+        }
+      ],
+      "disabledControlsAreGated": true
+    }
+  ],
+  "status": "PASS"
+}

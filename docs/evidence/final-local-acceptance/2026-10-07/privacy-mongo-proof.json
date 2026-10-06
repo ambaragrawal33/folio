@@ -1,0 +1,17 @@
+{
+  "scope": "Only freshly registered acceptance owner; actual post-erasure Mongo reads",
+  "counts": {
+    "user": 0,
+    "domain.Portfolio": 0,
+    "domain.Economic": 0,
+    "domain.Void": 0,
+    "domain.Projection": 0,
+    "domain.Deletion": 0,
+    "jobs.Run": 0,
+    "auth.Family": 0,
+    "auth.Refresh": 0,
+    "auth.ActionToken": 0,
+    "auth.Audit": 0
+  },
+  "allOwnedStateErased": true
+}

@@ -1,5 +1,11 @@
 # Folio design handoff
 
+## Priority6 CLOSED; final integrated visual evidence — 2026-10-07
+
+The user explicitly approves/closes Priority6 engineering and25-state/50-capture visual/product review. Final acceptance makes no UI/Figma/foundation change. Connected read-only contexts/screenshots refreshed10:485,27:390,32:143,47:2,54:50. [72-state/144-capture final pack](FINAL_LOCAL_VISUAL_ACCEPTANCE.md) covers actual fresh-user finance/recovery/privacy and both themes at five widths; all states0 axe/overflow/independent scrolling.315 previously approved PNGs and protected visual/application files remain hash-identical. New evidence is not re-baselining or automatic final user approval.
+
+Directly reused roles/components, already-approved accessibility substitutions and intentional functional deviations stay unchanged. Light/mobile/tablet and workflow extensions remain DERIVED, never Figma-approved. Mobile56px inline navigation/Escape/aria-expanded/route collapse preserved. Final user acceptance review remains pending; no News/AI or new design exception.
+
 ## Priority 6 measured visual evidence — user review pending
 
 [Actual review pack](PRIORITY_6_VISUAL_REVIEW.md):25 states/50 exact-viewport and full-page captures, Dark/derived Light1440×1024, mobile390×844, tablet768×1024. All states have zero axe violations, horizontal overflow and independent scrolling containers. Real owned rename, validation/retry, explicit empty-delete confirmation, committed-response loss/retry, replacement preservation, immutable-history block and stale first-flow recovery are covered. Keyboard input/heading/cancel/notice focus and existing mobile Escape/aria-expanded behavior pass. All263 approved workflow PNGs plus one previous gallery preview remain unchanged. Automated verification does not constitute user approval. New workflow composition and Light/mobile/tablet remain DERIVED, never Figma-approved. No visual foundation or Figma change.

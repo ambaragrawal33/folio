@@ -1,5 +1,13 @@
 # Folio decisions — updated 2026-10-06
 
+## Priority6 CLOSED; final acceptance boundaries — 2026-10-07
+
+The user approves/closes Priority6 at59100275cfc61abf44083b13eb29e478c1e1362c; its single-default, metadata-only rename, strict empty-only deletion, durable retry, immutable history and separate privacy semantics stay binding. The approved Priority1–6 chain is synchronized normally to GitHub without main changes.
+
+Final acceptance makes no new accounting/product/provider/design/architecture decision. The500-record fixture builder invokes existing server preview/receipt/append per record in explicit isolated local mode, not raw inserts or changed HTTP limits; it is not500 browser submissions or live-provider evidence. Subsequent compiled measurements use501 records after one real confirmation. Local measurements demonstrate no blocking bundle problem;584.92kB warning stays visible, chunk limits unchanged, no optimization authorized. [Exact evidence](FINAL_LOCAL_ACCEPTANCE.md).
+
+Only currently implemented domain/auth/product scope is accepted by automated verification. User final acceptance review remains pending; News/AI require separate authorization. O02/O04/O06 and provider entitlement/keyed smoke remain deferred, not waived. No production readiness, paid service or deployment approval follows.
+
 ## Priority 6 implementation verified; review pending — 2026-10-06
 
 L02 is implemented within its approved scope; user review is still pending. Independent management versioning, stable request hashing, original-key deletion receipts, explicit confirmation and the existing Mongo user write guard preserve rename/append/delete concurrency without changing accounting rules. Empty means no original economics, void/projection or financial metadata state; sold/voided records still block deletion. New default creation remains explicit. Privacy erasure stays separate and removes owned deletion receipts. No multi-portfolio or new financial semantics.

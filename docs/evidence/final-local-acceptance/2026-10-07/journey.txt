@@ -1,0 +1,20 @@
+CAPTURE fresh-registration-dark-1440 axe0/overflow0/scroll0
+CAPTURE portfolio-management-empty-dark-1440 axe0/overflow0/scroll0
+PASS fresh-account
+CAPTURE discovery-selected-dark-1440 axe0/overflow0/scroll0
+PASS instrument-discovery
+CAPTURE entry-buy-dark-1440 axe0/overflow0/scroll0
+CAPTURE preview-buy-dark-1440 axe0/overflow0/scroll0
+CAPTURE confirmation-buy-dark-1440 axe0/overflow0/scroll0
+Respecting unchanged local HTTP rate window
+CAPTURE entry-buy-dark-1440 axe0/overflow0/scroll0
+CAPTURE preview-buy-dark-1440 axe0/overflow0/scroll0
+CAPTURE confirmation-buy-dark-1440 axe0/overflow0/scroll0
+PASS financial-reconciliation
+PASS transaction-preview-confirmation
+CAPTURE asset-split-fifo-provenance-dark-1440 axe0/overflow0/scroll0
+PASS fifo
+CAPTURE dashboard-complete-dark-1440 axe0/overflow0/scroll0
+CAPTURE holdings-complete-dark-1440 axe0/overflow0/scroll0
+PASS primary-checkpoint
+Integrated primary checkpoint PASS; ready for remaining acceptance

@@ -1,0 +1,789 @@
+[
+  {
+    "name": "fresh-registration-dark-1440",
+    "url": "/auth/register",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "portfolio-management-empty-dark-1440",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "discovery-selected-dark-1440",
+    "url": "/transactions/new",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "entry-buy-dark-1440",
+    "url": "/transactions/new",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "preview-buy-dark-1440",
+    "url": "/transactions/new",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "confirmation-buy-dark-1440",
+    "url": "/transactions",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-split-fifo-provenance-dark-1440",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-complete-dark-1440",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-complete-dark-1440",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "entry-buy-aapl-us-dark-1440",
+    "url": "/transactions/new",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "preview-buy-aapl-us-dark-1440",
+    "url": "/transactions/new",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "confirmation-buy-aapl-us-dark-1440",
+    "url": "/transactions",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "stale-dashboard-dark-1440",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "stale-asset-dark-1440",
+    "url": "/holdings/ETH%3ACRYPTO",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "missing-asset-dark-1440",
+    "url": "/holdings/RELIANCE%3ABSE",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "partial-dashboard-dark-1440",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "refresh-worker-pending-dark-1440",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "refresh-partial-success-dark-1440",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "refresh-network-failure-dark-1440",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-dark-1440",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-dark-1440",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-dark-1440",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-dark-1440",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-dark-1280",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1280,
+      "height": 800,
+      "document": 1280,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-dark-1280",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 1280,
+      "height": 800,
+      "document": 1280,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-dark-1280",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 1280,
+      "height": 800,
+      "document": 1280,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-dark-1280",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 1280,
+      "height": 800,
+      "document": 1280,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-dark-1024",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1024,
+      "height": 768,
+      "document": 1024,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-dark-1024",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 1024,
+      "height": 768,
+      "document": 1024,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-dark-1024",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 1024,
+      "height": 768,
+      "document": 1024,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-dark-1024",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 1024,
+      "height": 768,
+      "document": 1024,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-dark-768",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-dark-768",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-dark-768",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-dark-768",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-dark-390",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-dark-390",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-dark-390",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-dark-390",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-light-1440",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-light-1440",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-light-1440",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-light-1440",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-light-1280",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1280,
+      "height": 800,
+      "document": 1280,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-light-1280",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 1280,
+      "height": 800,
+      "document": 1280,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-light-1280",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 1280,
+      "height": 800,
+      "document": 1280,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-light-1280",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 1280,
+      "height": 800,
+      "document": 1280,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-light-1024",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 1024,
+      "height": 768,
+      "document": 1024,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-light-1024",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 1024,
+      "height": 768,
+      "document": 1024,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-light-1024",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 1024,
+      "height": 768,
+      "document": 1024,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-light-1024",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 1024,
+      "height": 768,
+      "document": 1024,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-light-768",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-light-768",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-light-768",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-light-768",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-light-390",
+    "url": "/dashboard",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-light-390",
+    "url": "/holdings",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "asset-light-390",
+    "url": "/holdings/TCS%3ANSE",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-light-390",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "transactions-light-390",
+    "url": "/transactions",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "navigation-open-light-390",
+    "url": "/transactions",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "entry-light-390",
+    "url": "/transactions/new",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "preview-light-390",
+    "url": "/transactions/new",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "preview-light-768",
+    "url": "/transactions/new",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "preview-light-1440",
+    "url": "/transactions/new",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "settings-final-light-1440",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "privacy-confirm-light-1440",
+    "url": "/settings",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "compiled-dashboard-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "document": 1440,
+      "independentScroll": [],
+      "height": 1024
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "compiled-holdings-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "document": 1440,
+      "independentScroll": [],
+      "height": 1024
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "compiled-asset-detail-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "document": 1440,
+      "independentScroll": [],
+      "height": 1024
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "compiled-transactions-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "document": 1440,
+      "independentScroll": [],
+      "height": 1024
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "demo-readonly-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  }
+]

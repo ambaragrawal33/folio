@@ -1,5 +1,13 @@
 # Folio progress
 
+## Current — Priorities1–6 CLOSED; final local acceptance verified — 2026-10-07
+
+The user explicitly APPROVES/CLOSES Priority6 engineering/product/visual gates at59100275cfc61abf44083b13eb29e478c1e1362c. The complete approved chain was normally pushed to `origin/codex/phase-3-domain`; main18223b68caf90235b59fabbfb3924140580d79b6 remains unchanged. Final integrated acceptance now verifies the **currently authorized P0 domain scope**, not the still-unimplemented News/AI/public deployment portions of master-plan P0. No new product functionality, application/Figma change, spending, deployment or optimization.
+
+[Final measured acceptance](FINAL_LOCAL_ACCEPTANCE.md), [72-state/144-capture integrated evidence](FINAL_LOCAL_VISUAL_ACCEPTANCE.md). Fresh real account/MailHog verification/default rename/recreation → discovery → all economic types via server preview/confirmation → independent FIFO/FX/P&L reconciliation → lots/activity/voids → valuation/refresh/outage recovery → responsive use → privacy export/erasure passes.315 approved PNGs and476 protected files unchanged. Both current workspace and clean-checkout `pnpm check` pass:218 tests/22 suites,93.44% overall lines/minimum95.65% financial core. Dedicated jobs/outages28/28, full E2E20/20. Actual500-record measurements and unchanged compiled-page loading show no blocking local performance defect; warning584.92kB/175.15kB gzip remains unsuppressed.
+
+Final user acceptance review is pending. **STOP.** No automatic News/AI/further feature, deployment/operational gate, spending, optimization or main merge. Earlier pending-review entries below are historical and superseded only by explicit approvals.
+
 ## Current — Priorities 1–5 CLOSED; Priority 6 implemented / verified — 2026-10-06
 
 Priority 6/L02 now implements authenticated owned rename and atomic empty-only deletion, safe original-key retries, explicit first-portfolio continuation and separate privacy erasure. [Contracts and concurrency](PORTFOLIO_MANAGEMENT.md), [actual evidence](PRIORITY_6_EVIDENCE.md), [focused visual review](PRIORITY_6_VISUAL_REVIEW.md). **User Priority 6 engineering/product/visual review is pending; this is not closure.**
