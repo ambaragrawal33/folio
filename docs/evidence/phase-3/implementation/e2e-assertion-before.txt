@@ -1,0 +1,57 @@
+$ playwright test
+
+Running 8 tests using 1 worker
+
+(node:25588) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › apps\web\e2e\auth.spec.ts:53:1 › real MailHog registration, verification, persistence, preferences, export and confirmed deletion (14.0s)
+  ok 2 [chromium] › apps\web\e2e\auth.spec.ts:169:1 › reset and password change revoke sessions; logout restores the protected-route boundary (11.0s)
+  ok 3 [chromium] › apps\web\e2e\auth.spec.ts:200:1 › Figma auth geometry, theme/mobile derivations and real error states are accessible (10.4s)
+  x  4 [chromium] › apps\web\e2e\domain.spec.ts:95:1 › real ledger entry/review/FIFO/split/dividend/void, truthful degraded valuation, desktop/mobile accessibility (1.3m)
+(node:18060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 [chromium] › apps\web\e2e\domain.spec.ts:302:1 › isolated real read-only demo with labelled fixtures and no live providers (18.2s)
+  ok 6 [chromium] › apps\web\e2e\foundation.spec.ts:5:3 › dark shell, 119 states, geometry, fonts, contrast and screenshot (7.3s)
+  ok 7 [chromium] › apps\web\e2e\foundation.spec.ts:5:3 › light shell, 119 states, geometry, fonts, contrast and screenshot (6.7s)
+  ok 8 [chromium] › apps\web\e2e\foundation.spec.ts:89:1 › keyboard, forms, navigation and derived mobile layout (3.7s)
+
+
+  1) [chromium] › apps\web\e2e\domain.spec.ts:95:1 › real ledger entry/review/FIFO/split/dividend/void, truthful degraded valuation, desktop/mobile accessibility
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "available units"
+    Received string:    "This transaction would sell more units than held at its effective date."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+        11 × locator resolved to <p role="alert" class="text-negative">This transaction would sell more units than held …</p>
+           - unexpected value "This transaction would sell more units than held at its effective date."
+
+
+      258 |   await page.getByRole('button', { name: 'Review transaction' }).click();
+      259 |   await page.getByRole('button', { name: 'Confirm record', exact: true }).click();
+    > 260 |   await expect(page.getByRole('alert')).toContainText('sell more units than held');
+          |                                         ^
+      261 |   await capture(page, 'oversell-error-light-390', true);
+      262 |   await nav.click();
+      263 |   await expect(nav).toHaveAttribute('aria-expanded', 'true');
+        at C:\Users\ambar\OneDrive\Documents\ChatGPT\Folio\apps\web\e2e\domain.spec.ts:260:41
+
+    Error Context: test-results\domain-real-ledger-entry-r-78e35-esktop-mobile-accessibility-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\domain-real-ledger-entry-r-78e35-esktop-mobile-accessibility-chromium\trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results\domain-real-ledger-entry-r-78e35-esktop-mobile-accessibility-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › apps\web\e2e\domain.spec.ts:95:1 › real ledger entry/review/FIFO/split/dividend/void, truthful degraded valuation, desktop/mobile accessibility
+  7 passed (2.8m)
+[ELIFECYCLE] Command failed with exit code 1.

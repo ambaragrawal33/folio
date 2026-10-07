@@ -1,0 +1,46 @@
+<frame id="57:301" name="Folio / Onboarding · Desktop" x="100" y="100" width="1440" height="1024">
+  <frame id="57:302" name="Onboarding rail" x="170" y="130" width="280" height="760">
+    <text id="57:303" name="Brand" x="28" y="28" width="200" height="24" />
+    <frame id="57:304" name="Step" x="20" y="92" width="240" height="48">
+      <text id="57:305" name="Step number" x="14" y="14" width="28" height="18" />
+      <text id="57:306" name="Step" x="52" y="14" width="160" height="18" />
+    </frame>
+    <frame id="57:307" name="Step" x="20" y="166" width="240" height="48">
+      <text id="57:308" name="Step number" x="14" y="14" width="28" height="18" />
+      <text id="57:309" name="Step" x="52" y="14" width="160" height="18" />
+    </frame>
+    <frame id="57:310" name="Step" x="20" y="240" width="240" height="48">
+      <text id="57:311" name="Step number" x="14" y="14" width="28" height="18" />
+      <text id="57:312" name="Step" x="52" y="14" width="160" height="18" />
+    </frame>
+    <frame id="57:313" name="Step" x="20" y="314" width="240" height="48">
+      <text id="57:314" name="Step number" x="14" y="14" width="28" height="18" />
+      <text id="57:315" name="Step" x="52" y="14" width="160" height="18" />
+    </frame>
+  </frame>
+  <frame id="57:316" name="Onboarding form" x="490" y="130" width="780" height="760">
+    <text id="57:317" name="Title" x="32" y="28" width="600" height="30" />
+    <text id="57:318" name="Desc" x="32" y="64" width="680" height="18" />
+    <text id="57:319" name="Portfolio name" x="32" y="112" width="300" height="16" />
+    <frame id="57:320" name="Portfolio input" x="32" y="132" width="340" height="38">
+      <text id="57:321" name="Value" x="12" y="10" width="310" height="18" />
+    </frame>
+    <text id="57:322" name="Currency" x="400" y="112" width="300" height="16" />
+    <frame id="57:323" name="Currency input" x="400" y="132" width="340" height="38">
+      <text id="57:324" name="Value" x="12" y="10" width="310" height="18" />
+    </frame>
+    <text id="57:325" name="Cost basis" x="32" y="196" width="300" height="16" />
+    <frame id="57:326" name="Cost input" x="32" y="216" width="340" height="38">
+      <text id="57:327" name="Value" x="12" y="10" width="310" height="18" />
+    </frame>
+    <text id="57:328" name="Data import" x="32" y="280" width="300" height="18" />
+    <text id="57:329" name="Import hint" x="32" y="306" width="680" height="36" />
+    <frame id="57:330" name="Button" x="32" y="360" width="130" height="34">
+      <text id="57:331" name="Label" x="12" y="8" width="106" height="18" />
+    </frame>
+    <text id="57:332" name="Live data" x="32" y="430" width="680" height="36" />
+    <frame id="57:333" name="Button" x="32" y="520" width="140" height="34">
+      <text id="57:334" name="Label" x="12" y="8" width="116" height="18" />
+    </frame>
+  </frame>
+</frame>

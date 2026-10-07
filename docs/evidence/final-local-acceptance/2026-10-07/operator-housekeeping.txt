@@ -1,0 +1,4 @@
+$ node --env-file-if-exists=.env apps/api/src/jobs/cli.ts housekeeping acceptance-housekeeping-1791311801
+.env not found. Continuing without it.
+{"level":30,"time":1791311807849,"pid":692,"hostname":"1f6832ace9c9","name":"housekeeping","id":"95dc35d24bc5be10dde691a11e204785d675c7699c09b13399d03f33841cc961","attempt":1,"stats":{"requested":0,"accepted":0,"missing":0,"stale":0,"reused":0,"durationMs":72.49621300000035,"providerMs":0,"lockWaitMs":1.9823200000000725,"cleaned":0},"error":null,"msg":"Local job attempt"}
+{"id":"95dc35d24bc5be10dde691a11e204785d675c7699c09b13399d03f33841cc961","name":"housekeeping","state":"completed","attempts":1,"createdAt":"2026-10-06T18:36:47.750Z","startedAt":"2026-10-06T18:36:47.770Z","finishedAt":"2026-10-06T18:36:47.840Z","error":null,"stats":{"requested":0,"accepted":0,"missing":0,"stale":0,"reused":0,"durationMs":72.49621300000035,"providerMs":0,"lockWaitMs":1.9823200000000725,"cleaned":0}}

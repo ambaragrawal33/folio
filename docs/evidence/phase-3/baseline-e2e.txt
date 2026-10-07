@@ -1,0 +1,14 @@
+$ playwright test
+
+Running 6 tests using 1 worker
+
+(node:29448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › apps\web\e2e\auth.spec.ts:53:1 › real MailHog registration, verification, persistence, preferences, export and confirmed deletion (14.5s)
+  ok 2 [chromium] › apps\web\e2e\auth.spec.ts:169:1 › reset and password change revoke sessions; logout restores the protected-route boundary (8.2s)
+  ok 3 [chromium] › apps\web\e2e\auth.spec.ts:200:1 › Figma auth geometry, theme/mobile derivations and real error states are accessible (6.6s)
+  ok 4 [chromium] › apps\web\e2e\foundation.spec.ts:5:3 › dark shell, 119 states, geometry, fonts, contrast and screenshot (8.7s)
+  ok 5 [chromium] › apps\web\e2e\foundation.spec.ts:5:3 › light shell, 119 states, geometry, fonts, contrast and screenshot (6.4s)
+  ok 6 [chromium] › apps\web\e2e\foundation.spec.ts:89:1 › keyboard, forms, navigation and derived mobile layout (3.3s)
+
+  6 passed (51.4s)

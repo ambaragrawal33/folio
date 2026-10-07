@@ -67,22 +67,22 @@ for (const theme of ['dark', 'light']) {
     const audit = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
       .analyze();
-    await mkdir('docs/evidence/phase-1', { recursive: true });
+    await mkdir('.local/phase-2-browser', { recursive: true });
     await writeFile(
-      'docs/evidence/phase-1/axe-' + theme + '.json',
+      '.local/phase-2-browser/axe-' + theme + '.json',
       JSON.stringify({ theme, violations: audit.violations }, null, 2),
     );
     expect(
       audit.violations.map((v) => ({ id: v.id, details: v.nodes.map((n) => n.failureSummary) })),
     ).toEqual([]);
-    await page.screenshot({ path: 'docs/evidence/phase-1/gallery-' + theme + '-1440.png' });
+    await expect(page).toHaveScreenshot('gallery-' + theme + '-1440.png');
     await page.screenshot({
-      path: 'docs/evidence/phase-1/gallery-' + theme + '-full.png',
+      path: '.local/phase-2-browser/gallery-' + theme + '-full.png',
       fullPage: true,
     });
-    await page.goto('/dashboard?theme=' + theme);
+    await page.goto('/dev/shell?preview=dashboard&theme=' + theme);
     await expect(page.getByRole('status')).toContainText('not available');
-    await page.screenshot({ path: 'docs/evidence/phase-1/shell-' + theme + '-1440.png' });
+    await expect(page).toHaveScreenshot('shell-' + theme + '-1440.png');
     expect(failures).toEqual([]);
   });
 }
@@ -107,7 +107,7 @@ test('keyboard, forms, navigation and derived mobile layout', async ({ page }) =
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark'); // URL wins over local preference.
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/dashboard?theme=light');
+  await page.goto('/dev/shell?preview=dashboard&theme=light');
   await page.getByRole('button', { name: 'Navigation' }).click();
   await page
     .getByRole('navigation', { name: 'Mobile primary' })
@@ -117,5 +117,5 @@ test('keyboard, forms, navigation and derived mobile layout', async ({ page }) =
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
     true,
   );
-  await page.screenshot({ path: 'docs/evidence/phase-1/mobile-light.png' });
+  await expect(page).toHaveScreenshot('mobile-light.png');
 });

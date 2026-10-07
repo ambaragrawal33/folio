@@ -1,0 +1,8 @@
+Actual local Redis DB 1 fixture state is absent from DB 0 PASS
+Normal/demo/fixture health, authoritative mode flags, proxy and unauthenticated ownership boundary PASS
+Actual API process rejected missing explicit opt-in before infrastructure initialization PASS
+Actual API process rejected production before infrastructure initialization PASS
+Actual API process rejected normal database before infrastructure initialization PASS
+Actual API process rejected demo database before infrastructure initialization PASS
+Actual API process rejected normal cache before infrastructure initialization PASS
+Actual API process rejected remote web origin before infrastructure initialization PASS

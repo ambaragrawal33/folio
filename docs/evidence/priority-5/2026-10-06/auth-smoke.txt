@@ -1,0 +1,11 @@
+Redis shared atomic limiter: 20 concurrent increments from 2 independent clients; TTL set PASS
+OpenAPI: required Phase 2 auth/account operations preserved; 33 total operations PASS
+Actual API rejects mutation without Origin/custom CSRF header: 403 PASS
+Actual API protects /me and disables caching: 401 PASS
+Phase 2 auth infrastructure smoke PASS
+users indexes: [{"key":{"_id":1}},{"key":{"email":1},"unique":true}]
+refresh_families indexes: [{"key":{"_id":1}},{"key":{"userId":1}},{"key":{"expiresAt":1},"expireAfterSeconds":0}]
+refresh_tokens indexes: [{"key":{"_id":1}},{"key":{"userId":1}},{"key":{"familyId":1}},{"key":{"tokenHash":1},"unique":true},{"key":{"expiresAt":1},"expireAfterSeconds":0},{"key":{"userId":1,"familyId":1,"revokedAt":1}}]
+auth_tokens indexes: [{"key":{"_id":1}},{"key":{"userId":1}},{"key":{"tokenHash":1},"unique":true},{"key":{"expiresAt":1},"expireAfterSeconds":0},{"key":{"userId":1,"purpose":1,"usedAt":1}}]
+audit_logs indexes: [{"key":{"_id":1}},{"key":{"userId":1}},{"key":{"userId":1,"at":1}},{"key":{"action":1,"at":1}},{"key":{"expiresAt":1},"expireAfterSeconds":0}]
+Normalized email lookup: indexed, 0 documents scanned for missing email PASS

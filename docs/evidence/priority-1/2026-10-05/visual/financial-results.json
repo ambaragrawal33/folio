@@ -1,0 +1,489 @@
+{
+  "complete": {
+    "baseCurrency": "INR",
+    "complete": true,
+    "status": "fresh",
+    "asOf": "2026-10-05T15:14:18.990Z",
+    "coverage": {
+      "valued": 2,
+      "total": 2
+    },
+    "holdings": [
+      {
+        "instrumentId": "AAPL:US",
+        "currency": "USD",
+        "baseCurrency": "INR",
+        "quantity": "10",
+        "localCost": "1000",
+        "baseCost": "83000",
+        "averageCost": "100",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "lots": [
+          {
+            "transactionId": "6ac3becac4946e8279877d20",
+            "quantity": "10",
+            "localCost": "1000",
+            "baseCost": "83000"
+          }
+        ],
+        "instrument": {
+          "id": "AAPL:US",
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "exchange": "US",
+          "currency": "USD",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "AAPL",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+        },
+        "quote": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "price": "110",
+          "referencePrice": "108",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-05T15:14:18.990Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "88",
+          "rateDate": "2026-10-05",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-05T15:14:18.990Z",
+          "status": "fresh"
+        },
+        "localValue": "1100",
+        "baseValue": "96800",
+        "unrealizedBase": "13800",
+        "localReturn": "0.1",
+        "baseReturn": "0.166265060240963855421686746987951807228915662650602409638554216867469879518072289156626506024096386",
+        "fxReturnEffect": "0.066265060240963855421686746987951807228915662650602409638554216867469879518072289156626506024096386",
+        "priceContribution": "8300",
+        "fxContribution": "5500",
+        "movementBase": "1760",
+        "movementReferenceBase": "95040",
+        "weight": "0.9956799012548858259617362682575601728039498045669615305492696975930878420078173215387780292120962765",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "6",
+        "localCost": "363",
+        "baseCost": "363",
+        "averageCost": "60.5",
+        "realizedLocal": "536",
+        "realizedBase": "536",
+        "dividendLocal": "28",
+        "dividendBase": "28",
+        "lots": [
+          {
+            "transactionId": "6ac3bec5c4946e8279877d10",
+            "quantity": "6",
+            "localCost": "363",
+            "baseCost": "363"
+          }
+        ],
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "quote": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "price": "70",
+          "referencePrice": "68",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-05T15:14:18.990Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-05",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-05T15:14:18.990Z",
+          "status": "fresh"
+        },
+        "localValue": "420",
+        "baseValue": "420",
+        "unrealizedBase": "57",
+        "localReturn": "0.157024793388429752066115702479338842975206611570247933884297520661157024793388429752066115702479339",
+        "baseReturn": "0.157024793388429752066115702479338842975206611570247933884297520661157024793388429752066115702479339",
+        "fxReturnEffect": "0",
+        "priceContribution": "57",
+        "fxContribution": "0",
+        "movementBase": "12",
+        "movementReferenceBase": "408",
+        "weight": "0.004320098745114174038263731742439827196050195433038469450730302406912157992182678461221970787903723514",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      }
+    ],
+    "knownValuedSubtotal": "97220",
+    "totalValue": "97220",
+    "totalBaseCost": "83363",
+    "unrealizedBase": "13857",
+    "costBasedReturn": "0.166224823962669289732855103583124407710854935642911123639984165637033216175041685160083010448280412",
+    "realizedBase": "536",
+    "dividendBase": "28",
+    "movementBase": "1772",
+    "movementReturn": "0.01856508255804207526611348587712681250523845444640013410443382784343307350599279188668175341547229905",
+    "movementLabel": "Current holdings/current reference FX: equities versus previous close; crypto rolling 24h. Mixed periods; excludes trading flows and daily FX movement.",
+    "allocation": [
+      {
+        "dimension": "instrument",
+        "label": "AAPL:US",
+        "baseValue": "96800",
+        "weight": "0.9956799012548858259617362682575601728039498045669615305492696975930878420078173215387780292120962765"
+      },
+      {
+        "dimension": "instrument",
+        "label": "TCS:NSE",
+        "baseValue": "420",
+        "weight": "0.004320098745114174038263731742439827196050195433038469450730302406912157992182678461221970787903723514"
+      },
+      {
+        "dimension": "assetClass",
+        "label": "equity",
+        "baseValue": "97220",
+        "weight": "1"
+      },
+      {
+        "dimension": "sector",
+        "label": "Unknown",
+        "baseValue": "97220",
+        "weight": "1"
+      },
+      {
+        "dimension": "currency",
+        "label": "INR",
+        "baseValue": "420",
+        "weight": "0.004320098745114174038263731742439827196050195433038469450730302406912157992182678461221970787903723514"
+      },
+      {
+        "dimension": "currency",
+        "label": "USD",
+        "baseValue": "96800",
+        "weight": "0.9956799012548858259617362682575601728039498045669615305492696975930878420078173215387780292120962765"
+      }
+    ],
+    "concentration": [
+      {
+        "dimension": "instrument",
+        "label": "AAPL:US",
+        "weight": "0.9956799012548858259617362682575601728039498045669615305492696975930878420078173215387780292120962765"
+      }
+    ],
+    "sectorCoverage": {
+      "classified": 0,
+      "total": 2
+    },
+    "sectorConcentrationUnavailableReason": "Sector concentration is unavailable because sector metadata is incomplete."
+  },
+  "partial": {
+    "baseCurrency": "INR",
+    "complete": false,
+    "status": "partial",
+    "asOf": "2026-01-06T15:00:00.000Z",
+    "coverage": {
+      "valued": 3,
+      "total": 4
+    },
+    "holdings": [
+      {
+        "instrumentId": "AAPL:US",
+        "currency": "USD",
+        "baseCurrency": "INR",
+        "quantity": "10",
+        "localCost": "1000",
+        "baseCost": "83000",
+        "averageCost": "100",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "lots": [
+          {
+            "transactionId": "6ac3becac4946e8279877d20",
+            "quantity": "10",
+            "localCost": "1000",
+            "baseCost": "83000"
+          }
+        ],
+        "instrument": {
+          "id": "AAPL:US",
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "exchange": "US",
+          "currency": "USD",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "AAPL",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+        },
+        "quote": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "price": "110",
+          "referencePrice": "108",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-05T15:14:30.244Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "88",
+          "rateDate": "2026-10-05",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-05T15:14:30.245Z",
+          "status": "fresh"
+        },
+        "localValue": "1100",
+        "baseValue": "96800",
+        "unrealizedBase": "13800",
+        "localReturn": "0.1",
+        "baseReturn": "0.166265060240963855421686746987951807228915662650602409638554216867469879518072289156626506024096386",
+        "fxReturnEffect": "0.066265060240963855421686746987951807228915662650602409638554216867469879518072289156626506024096386",
+        "priceContribution": "8300",
+        "fxContribution": "5500",
+        "movementBase": "1760",
+        "movementReferenceBase": "95040",
+        "weight": null,
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      {
+        "instrumentId": "ETH:CRYPTO",
+        "currency": "USD",
+        "baseCurrency": "INR",
+        "quantity": "0.125",
+        "localCost": "301",
+        "baseCost": "24983",
+        "averageCost": "2408",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "lots": [
+          {
+            "transactionId": "6ac3bed2c4946e8279877d31",
+            "quantity": "0.125",
+            "localCost": "301",
+            "baseCost": "24983"
+          }
+        ],
+        "instrument": {
+          "id": "ETH:CRYPTO",
+          "symbol": "ETH",
+          "name": "Ethereum",
+          "exchange": "CRYPTO",
+          "currency": "USD",
+          "assetClass": "crypto",
+          "sector": "Unknown",
+          "provider": "coingecko",
+          "providerId": "ethereum",
+          "metadataSource": "CoinGecko coins/list identity audit 2026-10-04"
+        },
+        "quote": {
+          "instrumentId": "ETH:CRYPTO",
+          "currency": "USD",
+          "price": "2600",
+          "referencePrice": "2550",
+          "referencePeriod": "rolling-24h",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-01-06T15:00:00.000Z",
+          "status": "stale",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "88",
+          "rateDate": "2026-10-05",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-05T15:14:30.245Z",
+          "status": "fresh"
+        },
+        "localValue": "325",
+        "baseValue": "28600",
+        "unrealizedBase": "3617",
+        "localReturn": "0.079734219269102990033222591362126245847176079734219269102990033222591362126245847176079734219269103",
+        "baseReturn": "0.144778449345554977384621542649001320898210783332666213024856902693831805627826922307168874834887724",
+        "fxReturnEffect": "0.065044230076451987351398951286875075051034703598446943921866869471240443501581075131089140615618621",
+        "priceContribution": "1992",
+        "fxContribution": "1625",
+        "movementBase": "550",
+        "movementReferenceBase": "28050",
+        "weight": null,
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      {
+        "instrumentId": "RELIANCE:BSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "1",
+        "localCost": "100",
+        "baseCost": "100",
+        "averageCost": "100",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "lots": [
+          {
+            "transactionId": "6ac3bed5c4946e8279877d3d",
+            "quantity": "1",
+            "localCost": "100",
+            "baseCost": "100"
+          }
+        ],
+        "instrument": {
+          "id": "RELIANCE:BSE",
+          "symbol": "RELIANCE",
+          "name": "Reliance Industries Limited",
+          "exchange": "BSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "RELIANCE.BO",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; RELIANCE.BO/INR/BSE"
+        },
+        "quote": null,
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-05",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-05T15:14:30.245Z",
+          "status": "fresh"
+        },
+        "localValue": null,
+        "baseValue": null,
+        "unrealizedBase": null,
+        "localReturn": null,
+        "baseReturn": null,
+        "fxReturnEffect": null,
+        "priceContribution": null,
+        "fxContribution": null,
+        "movementBase": null,
+        "movementReferenceBase": null,
+        "weight": null,
+        "unavailableReason": "Market price is unavailable.",
+        "returnUnavailableReason": "Market price is unavailable."
+      },
+      {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "6",
+        "localCost": "363",
+        "baseCost": "363",
+        "averageCost": "60.5",
+        "realizedLocal": "536",
+        "realizedBase": "536",
+        "dividendLocal": "28",
+        "dividendBase": "28",
+        "lots": [
+          {
+            "transactionId": "6ac3bec5c4946e8279877d10",
+            "quantity": "6",
+            "localCost": "363",
+            "baseCost": "363"
+          }
+        ],
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "quote": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "price": "70",
+          "referencePrice": "68",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-05T15:14:30.244Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-05",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-05T15:14:30.245Z",
+          "status": "fresh"
+        },
+        "localValue": "420",
+        "baseValue": "420",
+        "unrealizedBase": "57",
+        "localReturn": "0.157024793388429752066115702479338842975206611570247933884297520661157024793388429752066115702479339",
+        "baseReturn": "0.157024793388429752066115702479338842975206611570247933884297520661157024793388429752066115702479339",
+        "fxReturnEffect": "0",
+        "priceContribution": "57",
+        "fxContribution": "0",
+        "movementBase": "12",
+        "movementReferenceBase": "408",
+        "weight": null,
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      }
+    ],
+    "knownValuedSubtotal": "125820",
+    "totalValue": null,
+    "totalBaseCost": "108446",
+    "unrealizedBase": null,
+    "costBasedReturn": null,
+    "realizedBase": "536",
+    "dividendBase": "28",
+    "movementBase": null,
+    "movementReturn": null,
+    "movementLabel": "Current holdings/current reference FX: equities versus previous close; crypto rolling 24h. Mixed periods; excludes trading flows and daily FX movement.",
+    "allocation": null,
+    "concentration": null,
+    "sectorCoverage": {
+      "classified": 0,
+      "total": 4
+    },
+    "sectorConcentrationUnavailableReason": "Sector concentration is unavailable because sector metadata is incomplete."
+  },
+  "historicalFx": {
+    "rate": "83",
+    "rateDate": "2026-01-05",
+    "source": "local-fixture",
+    "reference": "Local writable fixture v1 · synthetic; not live provider data · historical USD/INR test input"
+  }
+}

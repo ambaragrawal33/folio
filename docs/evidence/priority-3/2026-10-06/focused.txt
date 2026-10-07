@@ -1,0 +1,11 @@
+
+ RUN  v5.0.3 C:/Users/ambar/OneDrive/Documents/ChatGPT/Folio
+
+
+ Test Files  4 passed (4)
+      Tests  38 passed (38)
+   Start at  10:25:31
+   Duration  21.49s (tests 43%, import 35%, environment 15%, transform 7%)
+
+    Isolate  4 workers spawned · ~1.89s startup each (spawn + environment, per file)
+             at least ~1.89s faster with isolate: false — reuses workers across files instead of one per file

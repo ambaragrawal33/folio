@@ -1,0 +1,525 @@
+{
+  "previews": [
+    {
+      "input": {
+        "instrumentId": "TCS:NSE",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "BUY",
+        "quantity": "10",
+        "price": "100",
+        "fees": "10"
+      },
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac4827d84cc5bd7c4b51699",
+      "portfolioRevision": 0,
+      "baseCurrency": "INR",
+      "fxMode": "identity",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      },
+      "effects": {
+        "grossNative": "1000",
+        "feesNative": "10",
+        "nativeCashFlow": "-1010",
+        "grossBase": "1000",
+        "feesBase": "10",
+        "baseCashFlow": "-1010",
+        "before": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "0",
+          "localCost": "0",
+          "baseCost": "0",
+          "averageCost": null,
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "10",
+          "localCost": "1010",
+          "baseCost": "1010",
+          "averageCost": "101",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "10",
+        "localCostChange": "1010",
+        "baseCostChange": "1010",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T05:09:18.516Z",
+      "expiresAt": "2026-10-06T05:12:18.516Z"
+    },
+    {
+      "input": {
+        "instrumentId": "AAPL:US",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "BUY",
+        "quantity": "10",
+        "price": "100",
+        "fees": "0"
+      },
+      "instrument": {
+        "id": "AAPL:US",
+        "symbol": "AAPL",
+        "name": "Apple Inc.",
+        "exchange": "US",
+        "currency": "USD",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "AAPL",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+      },
+      "portfolioId": "6ac4827d84cc5bd7c4b51699",
+      "portfolioRevision": 0,
+      "baseCurrency": "INR",
+      "fxMode": "automatic",
+      "fx": {
+        "rate": "83",
+        "rateDate": "2026-01-05",
+        "source": "local-fixture",
+        "reference": "Local writable fixture v1 · synthetic; not live provider data · historical USD/INR test input"
+      },
+      "effects": {
+        "grossNative": "1000",
+        "feesNative": "0",
+        "nativeCashFlow": "-1000",
+        "grossBase": "83000",
+        "feesBase": "0",
+        "baseCashFlow": "-83000",
+        "before": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "0",
+          "localCost": "0",
+          "baseCost": "0",
+          "averageCost": null,
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "10",
+          "localCost": "1000",
+          "baseCost": "83000",
+          "averageCost": "100",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "10",
+        "localCostChange": "1000",
+        "baseCostChange": "83000",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T05:09:20.478Z",
+      "expiresAt": "2026-10-06T05:12:20.478Z"
+    },
+    {
+      "input": {
+        "instrumentId": "AAPL:US",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "historicalFxOverride": {
+          "rate": "84.1234567890123456789",
+          "rateDate": "2026-01-02",
+          "source": "manual",
+          "reference": "Explicit local test statement · manual historical override"
+        },
+        "type": "BUY",
+        "quantity": "10",
+        "price": "100",
+        "fees": "0"
+      },
+      "instrument": {
+        "id": "AAPL:US",
+        "symbol": "AAPL",
+        "name": "Apple Inc.",
+        "exchange": "US",
+        "currency": "USD",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "AAPL",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+      },
+      "portfolioId": "6ac4827d84cc5bd7c4b51699",
+      "portfolioRevision": 0,
+      "baseCurrency": "INR",
+      "fxMode": "override",
+      "fx": {
+        "rate": "84.1234567890123456789",
+        "rateDate": "2026-01-02",
+        "source": "manual",
+        "reference": "Explicit local test statement · manual historical override"
+      },
+      "effects": {
+        "grossNative": "1000",
+        "feesNative": "0",
+        "nativeCashFlow": "-1000",
+        "grossBase": "84123.4567890123456789",
+        "feesBase": "0",
+        "baseCashFlow": "-84123.4567890123456789",
+        "before": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "0",
+          "localCost": "0",
+          "baseCost": "0",
+          "averageCost": null,
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "10",
+          "localCost": "1000",
+          "baseCost": "84123.4567890123456789",
+          "averageCost": "100",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "10",
+        "localCostChange": "1000",
+        "baseCostChange": "84123.4567890123456789",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T05:09:21.877Z",
+      "expiresAt": "2026-10-06T05:12:21.877Z"
+    },
+    {
+      "input": {
+        "instrumentId": "AAPL:US",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "historicalFxOverride": {
+          "rate": "84.1234567890123456789",
+          "rateDate": "2026-01-02",
+          "source": "manual",
+          "reference": "Explicit local test statement · manual historical override"
+        },
+        "type": "BUY",
+        "quantity": "10",
+        "price": "100",
+        "fees": "0"
+      },
+      "instrument": {
+        "id": "AAPL:US",
+        "symbol": "AAPL",
+        "name": "Apple Inc.",
+        "exchange": "US",
+        "currency": "USD",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "AAPL",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+      },
+      "portfolioId": "6ac4827d84cc5bd7c4b51699",
+      "portfolioRevision": 0,
+      "baseCurrency": "INR",
+      "fxMode": "override",
+      "fx": {
+        "rate": "84.1234567890123456789",
+        "rateDate": "2026-01-02",
+        "source": "manual",
+        "reference": "Explicit local test statement · manual historical override"
+      },
+      "effects": {
+        "grossNative": "1000",
+        "feesNative": "0",
+        "nativeCashFlow": "-1000",
+        "grossBase": "84123.4567890123456789",
+        "feesBase": "0",
+        "baseCashFlow": "-84123.4567890123456789",
+        "before": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "0",
+          "localCost": "0",
+          "baseCost": "0",
+          "averageCost": null,
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "10",
+          "localCost": "1000",
+          "baseCost": "84123.4567890123456789",
+          "averageCost": "100",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "10",
+        "localCostChange": "1000",
+        "baseCostChange": "84123.4567890123456789",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T05:09:23.992Z",
+      "expiresAt": "2026-10-06T05:12:23.992Z"
+    }
+  ],
+  "finalLedgerCount": 2,
+  "finalValuation": {
+    "baseCurrency": "INR",
+    "complete": true,
+    "status": "fresh",
+    "asOf": "2026-10-06T05:09:38.693Z",
+    "coverage": {
+      "valued": 2,
+      "total": 2
+    },
+    "holdings": [
+      {
+        "instrumentId": "AAPL:US",
+        "currency": "USD",
+        "baseCurrency": "INR",
+        "quantity": "10",
+        "localCost": "1000",
+        "baseCost": "83000",
+        "averageCost": "100",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "lots": [
+          {
+            "transactionId": "6ac4829284cc5bd7c4b516a0",
+            "quantity": "10",
+            "localCost": "1000",
+            "baseCost": "83000"
+          }
+        ],
+        "instrument": {
+          "id": "AAPL:US",
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "exchange": "US",
+          "currency": "USD",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "AAPL",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+        },
+        "quote": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "price": "110",
+          "referencePrice": "108",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-06T05:09:38.693Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "88",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T05:09:38.694Z",
+          "status": "fresh"
+        },
+        "localValue": "1100",
+        "baseValue": "96800",
+        "unrealizedBase": "13800",
+        "localReturn": "0.1",
+        "baseReturn": "0.166265060240963855421686746987951807228915662650602409638554216867469879518072289156626506024096386",
+        "fxReturnEffect": "0.066265060240963855421686746987951807228915662650602409638554216867469879518072289156626506024096386",
+        "priceContribution": "8300",
+        "fxContribution": "5500",
+        "movementBase": "1760",
+        "movementReferenceBase": "95040",
+        "weight": "0.9992773820584288221327552389800763910395375245173944461649633529472488902653040156911324455455765459",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      },
+      {
+        "instrumentId": "TCS:NSE",
+        "currency": "INR",
+        "baseCurrency": "INR",
+        "quantity": "1",
+        "localCost": "100",
+        "baseCost": "100",
+        "averageCost": "100",
+        "realizedLocal": "0",
+        "realizedBase": "0",
+        "dividendLocal": "0",
+        "dividendBase": "0",
+        "lots": [
+          {
+            "transactionId": "6ac4828f84cc5bd7c4b5169c",
+            "quantity": "1",
+            "localCost": "100",
+            "baseCost": "100"
+          }
+        ],
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "quote": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "price": "70",
+          "referencePrice": "68",
+          "referencePeriod": "previous-close",
+          "source": "Local writable fixture v1 · synthetic; not live provider data",
+          "asOf": "2026-10-06T05:09:38.694Z",
+          "status": "fresh",
+          "fixture": true
+        },
+        "fx": {
+          "rate": "1",
+          "rateDate": "2026-10-06",
+          "source": "local-fixture",
+          "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+          "asOf": "2026-10-06T05:09:38.694Z",
+          "status": "fresh"
+        },
+        "localValue": "70",
+        "baseValue": "70",
+        "unrealizedBase": "-30",
+        "localReturn": "-0.3",
+        "baseReturn": "-0.3",
+        "fxReturnEffect": "0",
+        "priceContribution": "-30",
+        "fxContribution": "0",
+        "movementBase": "2",
+        "movementReferenceBase": "68",
+        "weight": "0.0007226179415711778672447610199236089604624754826055538350366470527511097346959843088675544544234541138",
+        "unavailableReason": null,
+        "returnUnavailableReason": null
+      }
+    ],
+    "knownValuedSubtotal": "96870",
+    "totalValue": "96870",
+    "totalBaseCost": "83100",
+    "unrealizedBase": "13770",
+    "costBasedReturn": "0.165703971119133574007220216606498194945848375451263537906137184115523465703971119133574007220216606",
+    "realizedBase": "0",
+    "dividendBase": "0",
+    "movementBase": "1762",
+    "movementReturn": "0.01852630693527358371535517516928123817134205324473230432771165411952727425663456281280228792530596795",
+    "movementLabel": "Current holdings/current reference FX: equities versus previous close; crypto rolling 24h. Mixed periods; excludes trading flows and daily FX movement.",
+    "allocation": [
+      {
+        "dimension": "instrument",
+        "label": "AAPL:US",
+        "baseValue": "96800",
+        "weight": "0.9992773820584288221327552389800763910395375245173944461649633529472488902653040156911324455455765459"
+      },
+      {
+        "dimension": "instrument",
+        "label": "TCS:NSE",
+        "baseValue": "70",
+        "weight": "0.0007226179415711778672447610199236089604624754826055538350366470527511097346959843088675544544234541138"
+      },
+      {
+        "dimension": "assetClass",
+        "label": "equity",
+        "baseValue": "96870",
+        "weight": "1"
+      },
+      {
+        "dimension": "sector",
+        "label": "Unknown",
+        "baseValue": "96870",
+        "weight": "1"
+      },
+      {
+        "dimension": "currency",
+        "label": "INR",
+        "baseValue": "70",
+        "weight": "0.0007226179415711778672447610199236089604624754826055538350366470527511097346959843088675544544234541138"
+      },
+      {
+        "dimension": "currency",
+        "label": "USD",
+        "baseValue": "96800",
+        "weight": "0.9992773820584288221327552389800763910395375245173944461649633529472488902653040156911324455455765459"
+      }
+    ],
+    "concentration": [
+      {
+        "dimension": "instrument",
+        "label": "AAPL:US",
+        "weight": "0.9992773820584288221327552389800763910395375245173944461649633529472488902653040156911324455455765459"
+      }
+    ],
+    "sectorCoverage": {
+      "classified": 0,
+      "total": 2
+    },
+    "sectorConcentrationUnavailableReason": "Sector concentration is unavailable because sector metadata is incomplete."
+  },
+  "previewNeverBooked": true,
+  "rejectedConfirmationNeverBooked": true
+}

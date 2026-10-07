@@ -1,0 +1,222 @@
+[
+  {
+    "name": "one-lot-complete-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "buy-provenance-keyboard-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "multiple-lots-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "partial-fifo-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "split-adjusted-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dividend-mixed-activity-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "mixed-activity-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "split-dividend-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "navigation-open-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "split-dividend-light-768",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "no-owned-position-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "no-owned-position-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "foreign-cost-provenance-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "stale-valuation-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "stale-valuation-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "missing-valuation-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "missing-valuation-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "partial-coverage-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "partial-coverage-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "void-effect-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "void-effect-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "unknown-instrument-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  }
+]

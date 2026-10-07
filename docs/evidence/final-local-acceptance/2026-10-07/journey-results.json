@@ -1,0 +1,4084 @@
+{
+  "startedAt": "2026-10-06T18:22:20.196Z",
+  "testedHead": "59100275cfc61abf44083b13eb29e478c1e1362c",
+  "gates": {
+    "fresh-account": {
+      "newUnseeded": true,
+      "mailVerified": true,
+      "owner": "6ac53c6098e82e16aa72a694",
+      "renamePersists": true,
+      "emptyDeletion": {
+        "portfolioId": "6ac53c6398e82e16aa72a69c",
+        "deletedAt": "2026-10-06T18:22:32.159Z",
+        "duplicate": false
+      },
+      "oldPortfolioId": "6ac53c6398e82e16aa72a69c",
+      "newPortfolioId": "6ac53c6898e82e16aa72a6a7"
+    },
+    "instrument-discovery": [
+      {
+        "query": "TCS",
+        "ids": [
+          "TCS:BSE",
+          "TCS:NSE"
+        ]
+      },
+      {
+        "query": "Infosys",
+        "ids": [
+          "INFY:BSE",
+          "INFY:NSE"
+        ]
+      },
+      {
+        "query": "infos",
+        "ids": [
+          "INFY:BSE",
+          "INFY:NSE"
+        ]
+      },
+      {
+        "query": "AAPL:US",
+        "ids": [
+          "AAPL:US"
+        ]
+      },
+      {
+        "query": "aapl",
+        "ids": [
+          "AAPL:US"
+        ]
+      },
+      {
+        "query": "TCS.NS",
+        "ids": [
+          "TCS:NSE"
+        ]
+      },
+      {
+        "query": "not-a-canonical-instrument",
+        "ids": []
+      }
+    ],
+    "financial-reconciliation": {
+      "expected": {
+        "value": "29740",
+        "cost": "24476",
+        "unrealized": "5264",
+        "realized": "600",
+        "dividend": "44",
+        "movement": "548",
+        "baseCashFlow": "-23832"
+      },
+      "actual": {
+        "baseCurrency": "INR",
+        "complete": true,
+        "status": "fresh",
+        "asOf": "2026-10-06T18:23:51.871Z",
+        "coverage": {
+          "valued": 2,
+          "total": 2
+        },
+        "holdings": [
+          {
+            "instrumentId": "AAPL:US",
+            "currency": "USD",
+            "baseCurrency": "INR",
+            "quantity": "3",
+            "localCost": "287",
+            "baseCost": "23821",
+            "averageCost": "95.66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+            "realizedLocal": "0",
+            "realizedBase": "0",
+            "dividendLocal": "0",
+            "dividendBase": "0",
+            "lots": [
+              {
+                "transactionId": "6ac53cb598e82e16aa72a6bd",
+                "quantity": "3",
+                "localCost": "287",
+                "baseCost": "23821"
+              }
+            ],
+            "instrument": {
+              "id": "AAPL:US",
+              "symbol": "AAPL",
+              "name": "Apple Inc.",
+              "exchange": "US",
+              "currency": "USD",
+              "assetClass": "equity",
+              "sector": "Unknown",
+              "provider": "yahoo",
+              "providerId": "AAPL",
+              "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+            },
+            "quote": {
+              "instrumentId": "AAPL:US",
+              "currency": "USD",
+              "price": "110",
+              "referencePrice": "108",
+              "referencePeriod": "previous-close",
+              "source": "Local writable fixture v1 · synthetic; not live provider data",
+              "asOf": "2026-10-06T18:23:51.871Z",
+              "status": "fresh",
+              "fixture": true
+            },
+            "fx": {
+              "rate": "88",
+              "rateDate": "2026-10-06",
+              "source": "local-fixture",
+              "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+              "asOf": "2026-10-06T18:23:53.182Z",
+              "status": "fresh"
+            },
+            "localValue": "330",
+            "baseValue": "29040",
+            "unrealizedBase": "5219",
+            "localReturn": "0.149825783972125435540069686411149825783972125435540069686411149825783972125435540069686411149825784",
+            "baseReturn": "0.219092397464422148524411233785315477939633096847319591956676881742999874060702741278703664833550229",
+            "fxReturnEffect": "0.069266613492296712984341547374165652155660971411779522270265731917215901935267201209017253683724445",
+            "priceContribution": "3569",
+            "fxContribution": "1650",
+            "movementBase": "528",
+            "movementReferenceBase": "28512",
+            "weight": "0.9764626765299260255548083389374579690652320107599193006052454606590450571620712844653665097511768662",
+            "unavailableReason": null,
+            "returnUnavailableReason": null
+          },
+          {
+            "instrumentId": "TCS:NSE",
+            "currency": "INR",
+            "baseCurrency": "INR",
+            "quantity": "10",
+            "localCost": "655",
+            "baseCost": "655",
+            "averageCost": "65.5",
+            "realizedLocal": "600",
+            "realizedBase": "600",
+            "dividendLocal": "44",
+            "dividendBase": "44",
+            "lots": [
+              {
+                "transactionId": "6ac53c7098e82e16aa72a6ad",
+                "quantity": "10",
+                "localCost": "655",
+                "baseCost": "655"
+              }
+            ],
+            "instrument": {
+              "id": "TCS:NSE",
+              "symbol": "TCS",
+              "name": "Tata Consultancy Services Limited",
+              "exchange": "NSE",
+              "currency": "INR",
+              "assetClass": "equity",
+              "sector": "Unknown",
+              "provider": "yahoo",
+              "providerId": "TCS.NS",
+              "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+            },
+            "quote": {
+              "instrumentId": "TCS:NSE",
+              "currency": "INR",
+              "price": "70",
+              "referencePrice": "68",
+              "referencePeriod": "previous-close",
+              "source": "Local writable fixture v1 · synthetic; not live provider data",
+              "asOf": "2026-10-06T18:23:51.871Z",
+              "status": "fresh",
+              "fixture": true
+            },
+            "fx": {
+              "rate": "1",
+              "rateDate": "2026-10-06",
+              "source": "local-fixture",
+              "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+              "asOf": "2026-10-06T18:23:53.182Z",
+              "status": "fresh"
+            },
+            "localValue": "700",
+            "baseValue": "700",
+            "unrealizedBase": "45",
+            "localReturn": "0.068702290076335877862595419847328244274809160305343511450381679389312977099236641221374045801526718",
+            "baseReturn": "0.068702290076335877862595419847328244274809160305343511450381679389312977099236641221374045801526718",
+            "fxReturnEffect": "0",
+            "priceContribution": "45",
+            "fxContribution": "0",
+            "movementBase": "20",
+            "movementReferenceBase": "680",
+            "weight": "0.02353732347007397444519166106254203093476798924008069939475453934095494283792871553463349024882313383",
+            "unavailableReason": null,
+            "returnUnavailableReason": null
+          }
+        ],
+        "knownValuedSubtotal": "29740",
+        "totalValue": "29740",
+        "totalBaseCost": "24476",
+        "unrealizedBase": "5264",
+        "costBasedReturn": "0.215067821539467233208040529498284033338780846543552868115705180585062918777578035626736394835757477",
+        "realizedBase": "600",
+        "dividendBase": "44",
+        "movementBase": "548",
+        "movementReturn": "0.01877226637434913674979446423677719923266648396821046862154014798574952041655248013154288846259249109",
+        "movementLabel": "Current holdings/current reference FX: equities versus previous close; crypto rolling 24h. Mixed periods; excludes trading flows and daily FX movement.",
+        "allocation": [
+          {
+            "dimension": "instrument",
+            "label": "AAPL:US",
+            "baseValue": "29040",
+            "weight": "0.9764626765299260255548083389374579690652320107599193006052454606590450571620712844653665097511768662"
+          },
+          {
+            "dimension": "instrument",
+            "label": "TCS:NSE",
+            "baseValue": "700",
+            "weight": "0.02353732347007397444519166106254203093476798924008069939475453934095494283792871553463349024882313383"
+          },
+          {
+            "dimension": "assetClass",
+            "label": "equity",
+            "baseValue": "29740",
+            "weight": "1"
+          },
+          {
+            "dimension": "sector",
+            "label": "Unknown",
+            "baseValue": "29740",
+            "weight": "1"
+          },
+          {
+            "dimension": "currency",
+            "label": "INR",
+            "baseValue": "700",
+            "weight": "0.02353732347007397444519166106254203093476798924008069939475453934095494283792871553463349024882313383"
+          },
+          {
+            "dimension": "currency",
+            "label": "USD",
+            "baseValue": "29040",
+            "weight": "0.9764626765299260255548083389374579690652320107599193006052454606590450571620712844653665097511768662"
+          }
+        ],
+        "concentration": [
+          {
+            "dimension": "instrument",
+            "label": "AAPL:US",
+            "weight": "0.9764626765299260255548083389374579690652320107599193006052454606590450571620712844653665097511768662"
+          }
+        ],
+        "sectorCoverage": {
+          "classified": 0,
+          "total": 2
+        },
+        "sectorConcentrationUnavailableReason": "Sector concentration is unavailable because sector metadata is incomplete."
+      }
+    },
+    "transaction-preview-confirmation": {
+      "allTypes": true,
+      "automaticFx": true,
+      "previewNeverBooks": true
+    },
+    "fifo": {
+      "multipleLots": true,
+      "partialConsumption": true,
+      "splitAdjusted": true,
+      "originalAcquisitions": true,
+      "actual": {
+        "instrument": {
+          "id": "TCS:NSE",
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services Limited",
+          "exchange": "NSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "TCS.NS",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+        },
+        "portfolioId": "6ac53c6898e82e16aa72a6a7",
+        "revision": 6,
+        "baseCurrency": "INR",
+        "position": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "10",
+          "localCost": "655",
+          "baseCost": "655",
+          "averageCost": "65.5",
+          "realizedLocal": "600",
+          "realizedBase": "600",
+          "dividendLocal": "44",
+          "dividendBase": "44"
+        },
+        "holding": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "10",
+          "localCost": "655",
+          "baseCost": "655",
+          "averageCost": "65.5",
+          "realizedLocal": "600",
+          "realizedBase": "600",
+          "dividendLocal": "44",
+          "dividendBase": "44",
+          "instrument": {
+            "id": "TCS:NSE",
+            "symbol": "TCS",
+            "name": "Tata Consultancy Services Limited",
+            "exchange": "NSE",
+            "currency": "INR",
+            "assetClass": "equity",
+            "sector": "Unknown",
+            "provider": "yahoo",
+            "providerId": "TCS.NS",
+            "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+          },
+          "quote": {
+            "instrumentId": "TCS:NSE",
+            "currency": "INR",
+            "price": "70",
+            "referencePrice": "68",
+            "referencePeriod": "previous-close",
+            "source": "Local writable fixture v1 · synthetic; not live provider data",
+            "asOf": "2026-10-06T18:23:51.871Z",
+            "status": "fresh",
+            "fixture": true
+          },
+          "fx": {
+            "rate": "1",
+            "rateDate": "2026-10-06",
+            "source": "local-fixture",
+            "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+            "asOf": "2026-10-06T18:23:56.991Z",
+            "status": "fresh"
+          },
+          "localValue": "700",
+          "baseValue": "700",
+          "unrealizedBase": "45",
+          "localReturn": "0.068702290076335877862595419847328244274809160305343511450381679389312977099236641221374045801526718",
+          "baseReturn": "0.068702290076335877862595419847328244274809160305343511450381679389312977099236641221374045801526718",
+          "fxReturnEffect": "0",
+          "priceContribution": "45",
+          "fxContribution": "0",
+          "movementBase": "20",
+          "movementReferenceBase": "680",
+          "weight": "0.02353732347007397444519166106254203093476798924008069939475453934095494283792871553463349024882313383",
+          "unavailableReason": null,
+          "returnUnavailableReason": null
+        },
+        "valuation": {
+          "complete": true,
+          "status": "fresh",
+          "asOf": "2026-10-06T18:23:51.871Z",
+          "coverage": {
+            "valued": 2,
+            "total": 2
+          }
+        },
+        "lots": {
+          "items": [
+            {
+              "transactionId": "6ac53c7098e82e16aa72a6ad",
+              "quantity": "10",
+              "localCost": "655",
+              "baseCost": "655",
+              "acquisition": {
+                "instrumentId": "TCS:NSE",
+                "effectiveAt": "2026-01-05T15:00:00.000Z",
+                "tradingDate": "2026-01-05",
+                "type": "BUY",
+                "quantity": "7",
+                "price": "130",
+                "fees": "7",
+                "id": "6ac53c7098e82e16aa72a6ad",
+                "sequence": 2,
+                "currency": "INR",
+                "baseCurrency": "INR",
+                "fx": {
+                  "rate": "1",
+                  "rateDate": "2026-01-05",
+                  "source": "identity",
+                  "reference": "INR/INR"
+                }
+              }
+            }
+          ],
+          "page": 1,
+          "pageSize": 20,
+          "total": 1
+        },
+        "activity": {
+          "items": [
+            {
+              "record": {
+                "instrumentId": "TCS:NSE",
+                "effectiveAt": "2026-01-05T15:00:00.000Z",
+                "tradingDate": "2026-01-05",
+                "type": "SPLIT",
+                "numerator": "2",
+                "denominator": "1",
+                "id": "6ac53cb198e82e16aa72a6b9",
+                "sequence": 5,
+                "currency": "INR",
+                "baseCurrency": "INR",
+                "fx": {
+                  "rate": "1",
+                  "rateDate": "2026-01-05",
+                  "source": "identity",
+                  "reference": "INR/INR"
+                }
+              },
+              "nativeCashFlow": "0",
+              "void": null
+            },
+            {
+              "record": {
+                "instrumentId": "TCS:NSE",
+                "effectiveAt": "2026-01-05T15:00:00.000Z",
+                "tradingDate": "2026-01-05",
+                "type": "DIVIDEND",
+                "grossAmount": "47",
+                "fees": "3",
+                "id": "6ac53cb098e82e16aa72a6b5",
+                "sequence": 4,
+                "currency": "INR",
+                "baseCurrency": "INR",
+                "fx": {
+                  "rate": "1",
+                  "rateDate": "2026-01-05",
+                  "source": "identity",
+                  "reference": "INR/INR"
+                }
+              },
+              "nativeCashFlow": "44",
+              "void": null
+            },
+            {
+              "record": {
+                "instrumentId": "TCS:NSE",
+                "effectiveAt": "2026-01-05T15:00:00.000Z",
+                "tradingDate": "2026-01-05",
+                "type": "SELL",
+                "quantity": "10",
+                "price": "160",
+                "fees": "10",
+                "id": "6ac53c7198e82e16aa72a6b1",
+                "sequence": 3,
+                "currency": "INR",
+                "baseCurrency": "INR",
+                "fx": {
+                  "rate": "1",
+                  "rateDate": "2026-01-05",
+                  "source": "identity",
+                  "reference": "INR/INR"
+                }
+              },
+              "nativeCashFlow": "1590",
+              "void": null
+            },
+            {
+              "record": {
+                "instrumentId": "TCS:NSE",
+                "effectiveAt": "2026-01-05T15:00:00.000Z",
+                "tradingDate": "2026-01-05",
+                "type": "BUY",
+                "quantity": "7",
+                "price": "130",
+                "fees": "7",
+                "id": "6ac53c7098e82e16aa72a6ad",
+                "sequence": 2,
+                "currency": "INR",
+                "baseCurrency": "INR",
+                "fx": {
+                  "rate": "1",
+                  "rateDate": "2026-01-05",
+                  "source": "identity",
+                  "reference": "INR/INR"
+                }
+              },
+              "nativeCashFlow": "-917",
+              "void": null
+            },
+            {
+              "record": {
+                "instrumentId": "TCS:NSE",
+                "effectiveAt": "2026-01-05T15:00:00.000Z",
+                "tradingDate": "2026-01-05",
+                "type": "BUY",
+                "quantity": "8",
+                "price": "90",
+                "fees": "8",
+                "id": "6ac53c6e98e82e16aa72a6a9",
+                "sequence": 1,
+                "currency": "INR",
+                "baseCurrency": "INR",
+                "fx": {
+                  "rate": "1",
+                  "rateDate": "2026-01-05",
+                  "source": "identity",
+                  "reference": "INR/INR"
+                }
+              },
+              "nativeCashFlow": "-728",
+              "void": null
+            }
+          ],
+          "page": 1,
+          "pageSize": 20,
+          "total": 5
+        }
+      }
+    },
+    "primary-checkpoint": {
+      "complete": true
+    },
+    "fx-override-void": {
+      "explicit": true,
+      "originalRetained": true,
+      "replayRestored": true
+    },
+    "fully-sold-and-void-history": {
+      "fullySoldPosition": "0",
+      "deletionRejected": true,
+      "voidOriginalRetained": true
+    },
+    "asset-detail-valuation-states": {
+      "complete": true,
+      "stale": {
+        "baseCurrency": "INR",
+        "complete": true,
+        "status": "stale",
+        "asOf": "2026-01-06T15:00:00.000Z",
+        "coverage": {
+          "valued": 3,
+          "total": 3
+        },
+        "holdings": [
+          {
+            "instrumentId": "AAPL:US",
+            "currency": "USD",
+            "baseCurrency": "INR",
+            "quantity": "3",
+            "localCost": "287",
+            "baseCost": "23821",
+            "averageCost": "95.66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+            "realizedLocal": "0",
+            "realizedBase": "0",
+            "dividendLocal": "0",
+            "dividendBase": "0",
+            "lots": [
+              {
+                "transactionId": "6ac53cb598e82e16aa72a6bd",
+                "quantity": "3",
+                "localCost": "287",
+                "baseCost": "23821"
+              }
+            ],
+            "instrument": {
+              "id": "AAPL:US",
+              "symbol": "AAPL",
+              "name": "Apple Inc.",
+              "exchange": "US",
+              "currency": "USD",
+              "assetClass": "equity",
+              "sector": "Unknown",
+              "provider": "yahoo",
+              "providerId": "AAPL",
+              "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+            },
+            "quote": {
+              "instrumentId": "AAPL:US",
+              "currency": "USD",
+              "price": "110",
+              "referencePrice": "108",
+              "referencePeriod": "previous-close",
+              "source": "Local writable fixture v1 · synthetic; not live provider data",
+              "asOf": "2026-10-06T18:23:51.871Z",
+              "status": "fresh",
+              "fixture": true
+            },
+            "fx": {
+              "rate": "88",
+              "rateDate": "2026-10-06",
+              "source": "local-fixture",
+              "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+              "asOf": "2026-10-06T18:26:46.843Z",
+              "status": "fresh"
+            },
+            "localValue": "330",
+            "baseValue": "29040",
+            "unrealizedBase": "5219",
+            "localReturn": "0.149825783972125435540069686411149825783972125435540069686411149825783972125435540069686411149825784",
+            "baseReturn": "0.219092397464422148524411233785315477939633096847319591956676881742999874060702741278703664833550229",
+            "fxReturnEffect": "0.069266613492296712984341547374165652155660971411779522270265731917215901935267201209017253683724445",
+            "priceContribution": "3569",
+            "fxContribution": "1650",
+            "movementBase": "528",
+            "movementReferenceBase": "28512",
+            "weight": "0.1123230447899744720352750058018101647714086795080064980273845439777210489672777906706892550475748434",
+            "unavailableReason": null,
+            "returnUnavailableReason": null
+          },
+          {
+            "instrumentId": "ETH:CRYPTO",
+            "currency": "USD",
+            "baseCurrency": "INR",
+            "quantity": "1",
+            "localCost": "2002",
+            "baseCost": "166166",
+            "averageCost": "2002",
+            "realizedLocal": "0",
+            "realizedBase": "0",
+            "dividendLocal": "0",
+            "dividendBase": "0",
+            "lots": [
+              {
+                "transactionId": "6ac53d6698e82e16aa72a6d9",
+                "quantity": "1",
+                "localCost": "2002",
+                "baseCost": "166166"
+              }
+            ],
+            "instrument": {
+              "id": "ETH:CRYPTO",
+              "symbol": "ETH",
+              "name": "Ethereum",
+              "exchange": "CRYPTO",
+              "currency": "USD",
+              "assetClass": "crypto",
+              "sector": "Unknown",
+              "provider": "coingecko",
+              "providerId": "ethereum",
+              "metadataSource": "CoinGecko coins/list identity audit 2026-10-04"
+            },
+            "quote": {
+              "instrumentId": "ETH:CRYPTO",
+              "currency": "USD",
+              "price": "2600",
+              "referencePrice": "2550",
+              "referencePeriod": "rolling-24h",
+              "source": "Local writable fixture v1 · synthetic; not live provider data",
+              "asOf": "2026-01-06T15:00:00.000Z",
+              "status": "stale",
+              "fixture": true
+            },
+            "fx": {
+              "rate": "88",
+              "rateDate": "2026-10-06",
+              "source": "local-fixture",
+              "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+              "asOf": "2026-10-06T18:26:46.843Z",
+              "status": "fresh"
+            },
+            "localValue": "2600",
+            "baseValue": "228800",
+            "unrealizedBase": "62634",
+            "localReturn": "0.298701298701298701298701298701298701298701298701298701298701298701298701298701298701298701298701299",
+            "baseReturn": "0.37693631669535283993115318416523235800344234079173838209982788296041308089500860585197934595524957",
+            "fxReturnEffect": "0.078235017994054138632451885463933656704741042090439680801126584259114379596307307150680644656548271",
+            "priceContribution": "49634",
+            "fxContribution": "13000",
+            "movementBase": "4400",
+            "movementReferenceBase": "224400",
+            "weight": "0.8849694437997988705809545911657770557747350506691421056703024677032567494391583507387638276475593719",
+            "unavailableReason": null,
+            "returnUnavailableReason": null
+          },
+          {
+            "instrumentId": "TCS:NSE",
+            "currency": "INR",
+            "baseCurrency": "INR",
+            "quantity": "10",
+            "localCost": "655",
+            "baseCost": "655",
+            "averageCost": "65.5",
+            "realizedLocal": "600",
+            "realizedBase": "600",
+            "dividendLocal": "44",
+            "dividendBase": "44",
+            "lots": [
+              {
+                "transactionId": "6ac53c7098e82e16aa72a6ad",
+                "quantity": "10",
+                "localCost": "655",
+                "baseCost": "655"
+              }
+            ],
+            "instrument": {
+              "id": "TCS:NSE",
+              "symbol": "TCS",
+              "name": "Tata Consultancy Services Limited",
+              "exchange": "NSE",
+              "currency": "INR",
+              "assetClass": "equity",
+              "sector": "Unknown",
+              "provider": "yahoo",
+              "providerId": "TCS.NS",
+              "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+            },
+            "quote": {
+              "instrumentId": "TCS:NSE",
+              "currency": "INR",
+              "price": "70",
+              "referencePrice": "68",
+              "referencePeriod": "previous-close",
+              "source": "Local writable fixture v1 · synthetic; not live provider data",
+              "asOf": "2026-10-06T18:23:51.871Z",
+              "status": "fresh",
+              "fixture": true
+            },
+            "fx": {
+              "rate": "1",
+              "rateDate": "2026-10-06",
+              "source": "local-fixture",
+              "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+              "asOf": "2026-10-06T18:26:46.843Z",
+              "status": "fresh"
+            },
+            "localValue": "700",
+            "baseValue": "700",
+            "unrealizedBase": "45",
+            "localReturn": "0.068702290076335877862595419847328244274809160305343511450381679389312977099236641221374045801526718",
+            "baseReturn": "0.068702290076335877862595419847328244274809160305343511450381679389312977099236641221374045801526718",
+            "fxReturnEffect": "0",
+            "priceContribution": "45",
+            "fxContribution": "0",
+            "movementBase": "20",
+            "movementReferenceBase": "680",
+            "weight": "0.002707511410226657383770403032412779453856269822851396302312988319022201593563858590546917304865784792",
+            "unavailableReason": null,
+            "returnUnavailableReason": null
+          }
+        ],
+        "knownValuedSubtotal": "258540",
+        "totalValue": "258540",
+        "totalBaseCost": "190642",
+        "unrealizedBase": "67898",
+        "costBasedReturn": "0.356154467536009903379108486062882260991806632326559729755248056566758636606833751219563370086339841",
+        "realizedBase": "600",
+        "dividendBase": "44",
+        "movementBase": "4948",
+        "movementReturn": "0.01951165651913309568125177450392756869301870721473863528817943783715574623805167355437080034070475409",
+        "movementLabel": "Current holdings/current reference FX: equities versus previous close; crypto rolling 24h. Mixed periods; excludes trading flows and daily FX movement.",
+        "allocation": [
+          {
+            "dimension": "instrument",
+            "label": "AAPL:US",
+            "baseValue": "29040",
+            "weight": "0.1123230447899744720352750058018101647714086795080064980273845439777210489672777906706892550475748434"
+          },
+          {
+            "dimension": "instrument",
+            "label": "ETH:CRYPTO",
+            "baseValue": "228800",
+            "weight": "0.8849694437997988705809545911657770557747350506691421056703024677032567494391583507387638276475593719"
+          },
+          {
+            "dimension": "instrument",
+            "label": "TCS:NSE",
+            "baseValue": "700",
+            "weight": "0.002707511410226657383770403032412779453856269822851396302312988319022201593563858590546917304865784792"
+          },
+          {
+            "dimension": "assetClass",
+            "label": "crypto",
+            "baseValue": "228800",
+            "weight": "0.8849694437997988705809545911657770557747350506691421056703024677032567494391583507387638276475593719"
+          },
+          {
+            "dimension": "assetClass",
+            "label": "equity",
+            "baseValue": "29740",
+            "weight": "0.1150305562002011294190454088342229442252649493308578943296975322967432505608416492612361723524406281"
+          },
+          {
+            "dimension": "sector",
+            "label": "Unknown",
+            "baseValue": "258540",
+            "weight": "1"
+          },
+          {
+            "dimension": "currency",
+            "label": "INR",
+            "baseValue": "700",
+            "weight": "0.002707511410226657383770403032412779453856269822851396302312988319022201593563858590546917304865784792"
+          },
+          {
+            "dimension": "currency",
+            "label": "USD",
+            "baseValue": "257840",
+            "weight": "0.9972924885897733426162295969675872205461437301771486036976870116809777984064361414094530826951342152"
+          }
+        ],
+        "concentration": [
+          {
+            "dimension": "instrument",
+            "label": "ETH:CRYPTO",
+            "weight": "0.8849694437997988705809545911657770557747350506691421056703024677032567494391583507387638276475593719"
+          }
+        ],
+        "sectorCoverage": {
+          "classified": 0,
+          "total": 3
+        },
+        "sectorConcentrationUnavailableReason": "Sector concentration is unavailable because sector metadata is incomplete."
+      },
+      "partial": {
+        "baseCurrency": "INR",
+        "complete": false,
+        "status": "partial",
+        "asOf": "2026-01-06T15:00:00.000Z",
+        "coverage": {
+          "valued": 3,
+          "total": 4
+        },
+        "holdings": [
+          {
+            "instrumentId": "AAPL:US",
+            "currency": "USD",
+            "baseCurrency": "INR",
+            "quantity": "3",
+            "localCost": "287",
+            "baseCost": "23821",
+            "averageCost": "95.66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+            "realizedLocal": "0",
+            "realizedBase": "0",
+            "dividendLocal": "0",
+            "dividendBase": "0",
+            "lots": [
+              {
+                "transactionId": "6ac53cb598e82e16aa72a6bd",
+                "quantity": "3",
+                "localCost": "287",
+                "baseCost": "23821"
+              }
+            ],
+            "instrument": {
+              "id": "AAPL:US",
+              "symbol": "AAPL",
+              "name": "Apple Inc.",
+              "exchange": "US",
+              "currency": "USD",
+              "assetClass": "equity",
+              "sector": "Unknown",
+              "provider": "yahoo",
+              "providerId": "AAPL",
+              "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+            },
+            "quote": {
+              "instrumentId": "AAPL:US",
+              "currency": "USD",
+              "price": "110",
+              "referencePrice": "108",
+              "referencePeriod": "previous-close",
+              "source": "Local writable fixture v1 · synthetic; not live provider data",
+              "asOf": "2026-10-06T18:23:51.871Z",
+              "status": "fresh",
+              "fixture": true
+            },
+            "fx": {
+              "rate": "88",
+              "rateDate": "2026-10-06",
+              "source": "local-fixture",
+              "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+              "asOf": "2026-10-06T18:26:51.738Z",
+              "status": "fresh"
+            },
+            "localValue": "330",
+            "baseValue": "29040",
+            "unrealizedBase": "5219",
+            "localReturn": "0.149825783972125435540069686411149825783972125435540069686411149825783972125435540069686411149825784",
+            "baseReturn": "0.219092397464422148524411233785315477939633096847319591956676881742999874060702741278703664833550229",
+            "fxReturnEffect": "0.069266613492296712984341547374165652155660971411779522270265731917215901935267201209017253683724445",
+            "priceContribution": "3569",
+            "fxContribution": "1650",
+            "movementBase": "528",
+            "movementReferenceBase": "28512",
+            "weight": null,
+            "unavailableReason": null,
+            "returnUnavailableReason": null
+          },
+          {
+            "instrumentId": "ETH:CRYPTO",
+            "currency": "USD",
+            "baseCurrency": "INR",
+            "quantity": "1",
+            "localCost": "2002",
+            "baseCost": "166166",
+            "averageCost": "2002",
+            "realizedLocal": "0",
+            "realizedBase": "0",
+            "dividendLocal": "0",
+            "dividendBase": "0",
+            "lots": [
+              {
+                "transactionId": "6ac53d6698e82e16aa72a6d9",
+                "quantity": "1",
+                "localCost": "2002",
+                "baseCost": "166166"
+              }
+            ],
+            "instrument": {
+              "id": "ETH:CRYPTO",
+              "symbol": "ETH",
+              "name": "Ethereum",
+              "exchange": "CRYPTO",
+              "currency": "USD",
+              "assetClass": "crypto",
+              "sector": "Unknown",
+              "provider": "coingecko",
+              "providerId": "ethereum",
+              "metadataSource": "CoinGecko coins/list identity audit 2026-10-04"
+            },
+            "quote": {
+              "instrumentId": "ETH:CRYPTO",
+              "currency": "USD",
+              "price": "2600",
+              "referencePrice": "2550",
+              "referencePeriod": "rolling-24h",
+              "source": "Local writable fixture v1 · synthetic; not live provider data",
+              "asOf": "2026-01-06T15:00:00.000Z",
+              "status": "stale",
+              "fixture": true
+            },
+            "fx": {
+              "rate": "88",
+              "rateDate": "2026-10-06",
+              "source": "local-fixture",
+              "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+              "asOf": "2026-10-06T18:26:51.738Z",
+              "status": "fresh"
+            },
+            "localValue": "2600",
+            "baseValue": "228800",
+            "unrealizedBase": "62634",
+            "localReturn": "0.298701298701298701298701298701298701298701298701298701298701298701298701298701298701298701298701299",
+            "baseReturn": "0.37693631669535283993115318416523235800344234079173838209982788296041308089500860585197934595524957",
+            "fxReturnEffect": "0.078235017994054138632451885463933656704741042090439680801126584259114379596307307150680644656548271",
+            "priceContribution": "49634",
+            "fxContribution": "13000",
+            "movementBase": "4400",
+            "movementReferenceBase": "224400",
+            "weight": null,
+            "unavailableReason": null,
+            "returnUnavailableReason": null
+          },
+          {
+            "instrumentId": "RELIANCE:BSE",
+            "currency": "INR",
+            "baseCurrency": "INR",
+            "quantity": "1",
+            "localCost": "101",
+            "baseCost": "101",
+            "averageCost": "101",
+            "realizedLocal": "0",
+            "realizedBase": "0",
+            "dividendLocal": "0",
+            "dividendBase": "0",
+            "lots": [
+              {
+                "transactionId": "6ac53d6b98e82e16aa72a6df",
+                "quantity": "1",
+                "localCost": "101",
+                "baseCost": "101"
+              }
+            ],
+            "instrument": {
+              "id": "RELIANCE:BSE",
+              "symbol": "RELIANCE",
+              "name": "Reliance Industries Limited",
+              "exchange": "BSE",
+              "currency": "INR",
+              "assetClass": "equity",
+              "sector": "Unknown",
+              "provider": "yahoo",
+              "providerId": "RELIANCE.BO",
+              "metadataSource": "Yahoo chart identity audit 2026-10-04; RELIANCE.BO/INR/BSE"
+            },
+            "quote": null,
+            "fx": {
+              "rate": "1",
+              "rateDate": "2026-10-06",
+              "source": "local-fixture",
+              "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+              "asOf": "2026-10-06T18:26:51.738Z",
+              "status": "fresh"
+            },
+            "localValue": null,
+            "baseValue": null,
+            "unrealizedBase": null,
+            "localReturn": null,
+            "baseReturn": null,
+            "fxReturnEffect": null,
+            "priceContribution": null,
+            "fxContribution": null,
+            "movementBase": null,
+            "movementReferenceBase": null,
+            "weight": null,
+            "unavailableReason": "Market price is unavailable.",
+            "returnUnavailableReason": "Market price is unavailable."
+          },
+          {
+            "instrumentId": "TCS:NSE",
+            "currency": "INR",
+            "baseCurrency": "INR",
+            "quantity": "10",
+            "localCost": "655",
+            "baseCost": "655",
+            "averageCost": "65.5",
+            "realizedLocal": "600",
+            "realizedBase": "600",
+            "dividendLocal": "44",
+            "dividendBase": "44",
+            "lots": [
+              {
+                "transactionId": "6ac53c7098e82e16aa72a6ad",
+                "quantity": "10",
+                "localCost": "655",
+                "baseCost": "655"
+              }
+            ],
+            "instrument": {
+              "id": "TCS:NSE",
+              "symbol": "TCS",
+              "name": "Tata Consultancy Services Limited",
+              "exchange": "NSE",
+              "currency": "INR",
+              "assetClass": "equity",
+              "sector": "Unknown",
+              "provider": "yahoo",
+              "providerId": "TCS.NS",
+              "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+            },
+            "quote": {
+              "instrumentId": "TCS:NSE",
+              "currency": "INR",
+              "price": "70",
+              "referencePrice": "68",
+              "referencePeriod": "previous-close",
+              "source": "Local writable fixture v1 · synthetic; not live provider data",
+              "asOf": "2026-10-06T18:23:51.871Z",
+              "status": "fresh",
+              "fixture": true
+            },
+            "fx": {
+              "rate": "1",
+              "rateDate": "2026-10-06",
+              "source": "local-fixture",
+              "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+              "asOf": "2026-10-06T18:26:51.738Z",
+              "status": "fresh"
+            },
+            "localValue": "700",
+            "baseValue": "700",
+            "unrealizedBase": "45",
+            "localReturn": "0.068702290076335877862595419847328244274809160305343511450381679389312977099236641221374045801526718",
+            "baseReturn": "0.068702290076335877862595419847328244274809160305343511450381679389312977099236641221374045801526718",
+            "fxReturnEffect": "0",
+            "priceContribution": "45",
+            "fxContribution": "0",
+            "movementBase": "20",
+            "movementReferenceBase": "680",
+            "weight": null,
+            "unavailableReason": null,
+            "returnUnavailableReason": null
+          }
+        ],
+        "knownValuedSubtotal": "258540",
+        "totalValue": null,
+        "totalBaseCost": "190743",
+        "unrealizedBase": null,
+        "costBasedReturn": null,
+        "realizedBase": "600",
+        "dividendBase": "44",
+        "movementBase": null,
+        "movementReturn": null,
+        "movementLabel": "Current holdings/current reference FX: equities versus previous close; crypto rolling 24h. Mixed periods; excludes trading flows and daily FX movement.",
+        "allocation": null,
+        "concentration": null,
+        "sectorCoverage": {
+          "classified": 0,
+          "total": 4
+        },
+        "sectorConcentrationUnavailableReason": "Sector concentration is unavailable because sector metadata is incomplete."
+      },
+      "missing": {
+        "instrument": {
+          "id": "RELIANCE:BSE",
+          "symbol": "RELIANCE",
+          "name": "Reliance Industries Limited",
+          "exchange": "BSE",
+          "currency": "INR",
+          "assetClass": "equity",
+          "sector": "Unknown",
+          "provider": "yahoo",
+          "providerId": "RELIANCE.BO",
+          "metadataSource": "Yahoo chart identity audit 2026-10-04; RELIANCE.BO/INR/BSE"
+        },
+        "portfolioId": "6ac53c6898e82e16aa72a6a7",
+        "revision": 12,
+        "baseCurrency": "INR",
+        "position": {
+          "instrumentId": "RELIANCE:BSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "1",
+          "localCost": "101",
+          "baseCost": "101",
+          "averageCost": "101",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "holding": {
+          "instrumentId": "RELIANCE:BSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "1",
+          "localCost": "101",
+          "baseCost": "101",
+          "averageCost": "101",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0",
+          "instrument": {
+            "id": "RELIANCE:BSE",
+            "symbol": "RELIANCE",
+            "name": "Reliance Industries Limited",
+            "exchange": "BSE",
+            "currency": "INR",
+            "assetClass": "equity",
+            "sector": "Unknown",
+            "provider": "yahoo",
+            "providerId": "RELIANCE.BO",
+            "metadataSource": "Yahoo chart identity audit 2026-10-04; RELIANCE.BO/INR/BSE"
+          },
+          "quote": null,
+          "fx": {
+            "rate": "1",
+            "rateDate": "2026-10-06",
+            "source": "local-fixture",
+            "reference": "Local writable fixture v1 · synthetic; not live provider data · generated current reference FX",
+            "asOf": "2026-10-06T18:26:51.843Z",
+            "status": "fresh"
+          },
+          "localValue": null,
+          "baseValue": null,
+          "unrealizedBase": null,
+          "localReturn": null,
+          "baseReturn": null,
+          "fxReturnEffect": null,
+          "priceContribution": null,
+          "fxContribution": null,
+          "movementBase": null,
+          "movementReferenceBase": null,
+          "weight": null,
+          "unavailableReason": "Market price is unavailable.",
+          "returnUnavailableReason": "Market price is unavailable."
+        },
+        "valuation": {
+          "complete": false,
+          "status": "partial",
+          "asOf": "2026-01-06T15:00:00.000Z",
+          "coverage": {
+            "valued": 3,
+            "total": 4
+          }
+        },
+        "lots": {
+          "items": [
+            {
+              "transactionId": "6ac53d6b98e82e16aa72a6df",
+              "quantity": "1",
+              "localCost": "101",
+              "baseCost": "101",
+              "acquisition": {
+                "instrumentId": "RELIANCE:BSE",
+                "effectiveAt": "2026-01-05T15:00:00.000Z",
+                "tradingDate": "2026-01-05",
+                "type": "BUY",
+                "quantity": "1",
+                "price": "100",
+                "fees": "1",
+                "id": "6ac53d6b98e82e16aa72a6df",
+                "sequence": 10,
+                "currency": "INR",
+                "baseCurrency": "INR",
+                "fx": {
+                  "rate": "1",
+                  "rateDate": "2026-01-05",
+                  "source": "identity",
+                  "reference": "INR/INR"
+                }
+              }
+            }
+          ],
+          "page": 1,
+          "pageSize": 20,
+          "total": 1
+        },
+        "activity": {
+          "items": [
+            {
+              "record": {
+                "instrumentId": "RELIANCE:BSE",
+                "effectiveAt": "2026-01-05T15:00:00.000Z",
+                "tradingDate": "2026-01-05",
+                "type": "BUY",
+                "quantity": "1",
+                "price": "100",
+                "fees": "1",
+                "id": "6ac53d6b98e82e16aa72a6df",
+                "sequence": 10,
+                "currency": "INR",
+                "baseCurrency": "INR",
+                "fx": {
+                  "rate": "1",
+                  "rateDate": "2026-01-05",
+                  "source": "identity",
+                  "reference": "INR/INR"
+                }
+              },
+              "nativeCashFlow": "-101",
+              "void": null
+            }
+          ],
+          "page": 1,
+          "pageSize": 20,
+          "total": 1
+        }
+      }
+    },
+    "integrated-outage-recovery": {
+      "actualRedisStopRestore": true,
+      "actualMongoStopRestore": true,
+      "actualWorkerStopStart": true,
+      "actualApiRestartReauth": true,
+      "browserOfflineRetry": true,
+      "ledgerUnchanged": true,
+      "noDuplicateTransactions": true
+    },
+    "responsive-accessibility": {
+      "viewports": 5,
+      "themes": 2,
+      "majorRoutes": 4,
+      "mobile56pxInline": true,
+      "escapeAndRouteCollapse": true,
+      "keyboard": true
+    },
+    "integrated-security": {
+      "authenticated": true,
+      "unauth401": true,
+      "crossOwner": [
+        {
+          "path": "/portfolios/{otherPortfolio}/ledger",
+          "status": 404,
+          "code": "RESOURCE_NOT_FOUND"
+        },
+        {
+          "path": "/portfolios/{otherPortfolio}/valuation",
+          "status": 404,
+          "code": "RESOURCE_NOT_FOUND"
+        },
+        {
+          "path": "/portfolios/{otherPortfolio}/holdings",
+          "status": 404,
+          "code": "RESOURCE_NOT_FOUND"
+        },
+        {
+          "path": "/portfolios/{otherPortfolio}/instruments/TCS%3ANSE/detail",
+          "status": 404,
+          "code": "RESOURCE_NOT_FOUND"
+        },
+        {
+          "path": "/portfolios/{otherPortfolio}/management",
+          "status": 404,
+          "code": "RESOURCE_NOT_FOUND"
+        },
+        {
+          "path": "/portfolios/{otherPortfolio}/refresh",
+          "status": 404,
+          "code": "RESOURCE_NOT_FOUND"
+        }
+      ],
+      "csrf403": true,
+      "strict400": true,
+      "staleVersion409": true,
+      "receiptTamper409": true,
+      "noBooking": true
+    },
+    "voided-zero-history": {
+      "allEconomicsVoided": true,
+      "originalRetained": true,
+      "deletionStillRejected": true
+    },
+    "environment-isolation": {
+      "normalMissingPrice": true,
+      "noFixtureFallback": true,
+      "normalFixtureTokenSeparation": true,
+      "demoReadOnly": true,
+      "demoFixtureTokenSeparation": true,
+      "demoAxe0": true
+    },
+    "privacy": {
+      "exports": {
+        "JSON": {
+          "ledgerCount": 10,
+          "voidCount": 2,
+          "deletionReceiptCount": 1
+        },
+        "CSV": {
+          "bytes": 13607,
+          "deletionReceiptPresent": true
+        }
+      },
+      "accountErased": true,
+      "authRevoked401": true,
+      "staleDeleteRetry401": true,
+      "portfolioDeleteSeparate": true
+    }
+  },
+  "records": [
+    {
+      "instrumentId": "TCS:NSE",
+      "effectiveAt": "2026-01-05T15:00:00.000Z",
+      "tradingDate": "2026-01-05",
+      "type": "BUY",
+      "quantity": "8",
+      "price": "90",
+      "fees": "8",
+      "id": "6ac53c6e98e82e16aa72a6a9",
+      "sequence": 1,
+      "currency": "INR",
+      "baseCurrency": "INR",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      }
+    },
+    {
+      "instrumentId": "TCS:NSE",
+      "effectiveAt": "2026-01-05T15:00:00.000Z",
+      "tradingDate": "2026-01-05",
+      "type": "BUY",
+      "quantity": "7",
+      "price": "130",
+      "fees": "7",
+      "id": "6ac53c7098e82e16aa72a6ad",
+      "sequence": 2,
+      "currency": "INR",
+      "baseCurrency": "INR",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      }
+    },
+    {
+      "instrumentId": "TCS:NSE",
+      "effectiveAt": "2026-01-05T15:00:00.000Z",
+      "tradingDate": "2026-01-05",
+      "type": "SELL",
+      "quantity": "10",
+      "price": "160",
+      "fees": "10",
+      "id": "6ac53c7198e82e16aa72a6b1",
+      "sequence": 3,
+      "currency": "INR",
+      "baseCurrency": "INR",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      }
+    },
+    {
+      "instrumentId": "TCS:NSE",
+      "effectiveAt": "2026-01-05T15:00:00.000Z",
+      "tradingDate": "2026-01-05",
+      "type": "DIVIDEND",
+      "grossAmount": "47",
+      "fees": "3",
+      "id": "6ac53cb098e82e16aa72a6b5",
+      "sequence": 4,
+      "currency": "INR",
+      "baseCurrency": "INR",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      }
+    },
+    {
+      "instrumentId": "TCS:NSE",
+      "effectiveAt": "2026-01-05T15:00:00.000Z",
+      "tradingDate": "2026-01-05",
+      "type": "SPLIT",
+      "numerator": "2",
+      "denominator": "1",
+      "id": "6ac53cb198e82e16aa72a6b9",
+      "sequence": 5,
+      "currency": "INR",
+      "baseCurrency": "INR",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      }
+    },
+    {
+      "instrumentId": "AAPL:US",
+      "effectiveAt": "2026-01-05T15:00:00.000Z",
+      "tradingDate": "2026-01-05",
+      "type": "BUY",
+      "quantity": "3",
+      "price": "95",
+      "fees": "2",
+      "id": "6ac53cb598e82e16aa72a6bd",
+      "sequence": 6,
+      "currency": "USD",
+      "baseCurrency": "INR",
+      "fx": {
+        "rate": "83",
+        "rateDate": "2026-01-05",
+        "source": "local-fixture",
+        "reference": "Local writable fixture v1 · synthetic; not live provider data · historical USD/INR test input"
+      }
+    },
+    {
+      "instrumentId": "AAPL:US",
+      "effectiveAt": "2026-01-05T15:00:00.000Z",
+      "tradingDate": "2026-01-05",
+      "historicalFxOverride": {
+        "rate": "82.5",
+        "rateDate": "2026-01-02",
+        "source": "manual",
+        "reference": "Explicit acceptance synthetic historical override"
+      },
+      "type": "BUY",
+      "quantity": "1",
+      "price": "90",
+      "fees": "0",
+      "id": "6ac53d6298e82e16aa72a6c5",
+      "sequence": 7,
+      "currency": "USD",
+      "baseCurrency": "INR",
+      "fx": {
+        "rate": "82.5",
+        "rateDate": "2026-01-02",
+        "source": "manual",
+        "reference": "Explicit acceptance synthetic historical override"
+      }
+    },
+    {
+      "instrumentId": "TCS:NSE",
+      "effectiveAt": "2026-01-05T15:00:00.000Z",
+      "tradingDate": "2026-01-05",
+      "type": "SELL",
+      "quantity": "10",
+      "price": "80",
+      "fees": "5",
+      "id": "6ac53d6498e82e16aa72a6cf",
+      "sequence": 8,
+      "currency": "INR",
+      "baseCurrency": "INR",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      }
+    },
+    {
+      "instrumentId": "ETH:CRYPTO",
+      "effectiveAt": "2026-01-05T15:00:00.000Z",
+      "tradingDate": "2026-01-05",
+      "type": "BUY",
+      "quantity": "1",
+      "price": "2000",
+      "fees": "2",
+      "id": "6ac53d6698e82e16aa72a6d9",
+      "sequence": 9,
+      "currency": "USD",
+      "baseCurrency": "INR",
+      "fx": {
+        "rate": "83",
+        "rateDate": "2026-01-05",
+        "source": "local-fixture",
+        "reference": "Local writable fixture v1 · synthetic; not live provider data · historical USD/INR test input"
+      }
+    },
+    {
+      "instrumentId": "RELIANCE:BSE",
+      "effectiveAt": "2026-01-05T15:00:00.000Z",
+      "tradingDate": "2026-01-05",
+      "type": "BUY",
+      "quantity": "1",
+      "price": "100",
+      "fees": "1",
+      "id": "6ac53d6b98e82e16aa72a6df",
+      "sequence": 10,
+      "currency": "INR",
+      "baseCurrency": "INR",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      }
+    }
+  ],
+  "previews": [
+    {
+      "input": {
+        "instrumentId": "TCS:NSE",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "BUY",
+        "quantity": "8",
+        "price": "90",
+        "fees": "8"
+      },
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac53c6898e82e16aa72a6a7",
+      "portfolioRevision": 0,
+      "baseCurrency": "INR",
+      "fxMode": "identity",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      },
+      "effects": {
+        "grossNative": "720",
+        "feesNative": "8",
+        "nativeCashFlow": "-728",
+        "grossBase": "720",
+        "feesBase": "8",
+        "baseCashFlow": "-728",
+        "before": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "0",
+          "localCost": "0",
+          "baseCost": "0",
+          "averageCost": null,
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "8",
+          "localCost": "728",
+          "baseCost": "728",
+          "averageCost": "91",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "8",
+        "localCostChange": "728",
+        "baseCostChange": "728",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T18:22:37.494Z",
+      "expiresAt": "2026-10-06T18:25:37.494Z"
+    },
+    {
+      "input": {
+        "instrumentId": "TCS:NSE",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "BUY",
+        "quantity": "7",
+        "price": "130",
+        "fees": "7"
+      },
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac53c6898e82e16aa72a6a7",
+      "portfolioRevision": 1,
+      "baseCurrency": "INR",
+      "fxMode": "identity",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      },
+      "effects": {
+        "grossNative": "910",
+        "feesNative": "7",
+        "nativeCashFlow": "-917",
+        "grossBase": "910",
+        "feesBase": "7",
+        "baseCashFlow": "-917",
+        "before": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "8",
+          "localCost": "728",
+          "baseCost": "728",
+          "averageCost": "91",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "15",
+          "localCost": "1645",
+          "baseCost": "1645",
+          "averageCost": "109.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "7",
+        "localCostChange": "917",
+        "baseCostChange": "917",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T18:22:40.768Z",
+      "expiresAt": "2026-10-06T18:25:40.768Z"
+    },
+    {
+      "input": {
+        "instrumentId": "TCS:NSE",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "SELL",
+        "quantity": "10",
+        "price": "160",
+        "fees": "10"
+      },
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac53c6898e82e16aa72a6a7",
+      "portfolioRevision": 2,
+      "baseCurrency": "INR",
+      "fxMode": "identity",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      },
+      "effects": {
+        "grossNative": "1600",
+        "feesNative": "10",
+        "nativeCashFlow": "1590",
+        "grossBase": "1600",
+        "feesBase": "10",
+        "baseCashFlow": "1590",
+        "before": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "15",
+          "localCost": "1645",
+          "baseCost": "1645",
+          "averageCost": "109.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "5",
+          "localCost": "655",
+          "baseCost": "655",
+          "averageCost": "131",
+          "realizedLocal": "600",
+          "realizedBase": "600",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "-10",
+        "localCostChange": "-990",
+        "baseCostChange": "-990",
+        "realizedLocalChange": "600",
+        "realizedBaseChange": "600",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T18:22:41.680Z",
+      "expiresAt": "2026-10-06T18:25:41.680Z"
+    },
+    {
+      "input": {
+        "instrumentId": "TCS:NSE",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "DIVIDEND",
+        "grossAmount": "47",
+        "fees": "3"
+      },
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac53c6898e82e16aa72a6a7",
+      "portfolioRevision": 3,
+      "baseCurrency": "INR",
+      "fxMode": "identity",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      },
+      "effects": {
+        "grossNative": "47",
+        "feesNative": "3",
+        "nativeCashFlow": "44",
+        "grossBase": "47",
+        "feesBase": "3",
+        "baseCashFlow": "44",
+        "before": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "5",
+          "localCost": "655",
+          "baseCost": "655",
+          "averageCost": "131",
+          "realizedLocal": "600",
+          "realizedBase": "600",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "5",
+          "localCost": "655",
+          "baseCost": "655",
+          "averageCost": "131",
+          "realizedLocal": "600",
+          "realizedBase": "600",
+          "dividendLocal": "44",
+          "dividendBase": "44"
+        },
+        "quantityChange": "0",
+        "localCostChange": "0",
+        "baseCostChange": "0",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "44",
+        "dividendBaseChange": "44"
+      },
+      "issuedAt": "2026-10-06T18:23:43.836Z",
+      "expiresAt": "2026-10-06T18:26:43.836Z"
+    },
+    {
+      "input": {
+        "instrumentId": "TCS:NSE",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "SPLIT",
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac53c6898e82e16aa72a6a7",
+      "portfolioRevision": 4,
+      "baseCurrency": "INR",
+      "fxMode": "identity",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      },
+      "effects": {
+        "grossNative": "0",
+        "feesNative": "0",
+        "nativeCashFlow": "0",
+        "grossBase": "0",
+        "feesBase": "0",
+        "baseCashFlow": "0",
+        "before": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "5",
+          "localCost": "655",
+          "baseCost": "655",
+          "averageCost": "131",
+          "realizedLocal": "600",
+          "realizedBase": "600",
+          "dividendLocal": "44",
+          "dividendBase": "44"
+        },
+        "after": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "10",
+          "localCost": "655",
+          "baseCost": "655",
+          "averageCost": "65.5",
+          "realizedLocal": "600",
+          "realizedBase": "600",
+          "dividendLocal": "44",
+          "dividendBase": "44"
+        },
+        "quantityChange": "5",
+        "localCostChange": "0",
+        "baseCostChange": "0",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T18:23:45.134Z",
+      "expiresAt": "2026-10-06T18:26:45.134Z"
+    },
+    {
+      "input": {
+        "instrumentId": "AAPL:US",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "BUY",
+        "quantity": "3",
+        "price": "95",
+        "fees": "2"
+      },
+      "instrument": {
+        "id": "AAPL:US",
+        "symbol": "AAPL",
+        "name": "Apple Inc.",
+        "exchange": "US",
+        "currency": "USD",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "AAPL",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+      },
+      "portfolioId": "6ac53c6898e82e16aa72a6a7",
+      "portfolioRevision": 5,
+      "baseCurrency": "INR",
+      "fxMode": "automatic",
+      "fx": {
+        "rate": "83",
+        "rateDate": "2026-01-05",
+        "source": "local-fixture",
+        "reference": "Local writable fixture v1 · synthetic; not live provider data · historical USD/INR test input"
+      },
+      "effects": {
+        "grossNative": "285",
+        "feesNative": "2",
+        "nativeCashFlow": "-287",
+        "grossBase": "23655",
+        "feesBase": "166",
+        "baseCashFlow": "-23821",
+        "before": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "0",
+          "localCost": "0",
+          "baseCost": "0",
+          "averageCost": null,
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "3",
+          "localCost": "287",
+          "baseCost": "23821",
+          "averageCost": "95.66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "3",
+        "localCostChange": "287",
+        "baseCostChange": "23821",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T18:23:47.324Z",
+      "expiresAt": "2026-10-06T18:26:47.324Z"
+    },
+    {
+      "input": {
+        "instrumentId": "AAPL:US",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "historicalFxOverride": {
+          "rate": "82.5",
+          "rateDate": "2026-01-02",
+          "source": "manual",
+          "reference": "Explicit acceptance synthetic historical override"
+        },
+        "type": "BUY",
+        "quantity": "1",
+        "price": "90",
+        "fees": "0"
+      },
+      "instrument": {
+        "id": "AAPL:US",
+        "symbol": "AAPL",
+        "name": "Apple Inc.",
+        "exchange": "US",
+        "currency": "USD",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "AAPL",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; AAPL/USD/NMS"
+      },
+      "portfolioId": "6ac53c6898e82e16aa72a6a7",
+      "portfolioRevision": 6,
+      "baseCurrency": "INR",
+      "fxMode": "override",
+      "fx": {
+        "rate": "82.5",
+        "rateDate": "2026-01-02",
+        "source": "manual",
+        "reference": "Explicit acceptance synthetic historical override"
+      },
+      "effects": {
+        "grossNative": "90",
+        "feesNative": "0",
+        "nativeCashFlow": "-90",
+        "grossBase": "7425",
+        "feesBase": "0",
+        "baseCashFlow": "-7425",
+        "before": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "3",
+          "localCost": "287",
+          "baseCost": "23821",
+          "averageCost": "95.66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "AAPL:US",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "4",
+          "localCost": "377",
+          "baseCost": "31246",
+          "averageCost": "94.25",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "1",
+        "localCostChange": "90",
+        "baseCostChange": "7425",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T18:26:40.159Z",
+      "expiresAt": "2026-10-06T18:29:40.159Z"
+    },
+    {
+      "input": {
+        "instrumentId": "TCS:NSE",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "SELL",
+        "quantity": "10",
+        "price": "80",
+        "fees": "5"
+      },
+      "instrument": {
+        "id": "TCS:NSE",
+        "symbol": "TCS",
+        "name": "Tata Consultancy Services Limited",
+        "exchange": "NSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "TCS.NS",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; TCS.NS/INR/NSE"
+      },
+      "portfolioId": "6ac53c6898e82e16aa72a6a7",
+      "portfolioRevision": 8,
+      "baseCurrency": "INR",
+      "fxMode": "identity",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      },
+      "effects": {
+        "grossNative": "800",
+        "feesNative": "5",
+        "nativeCashFlow": "795",
+        "grossBase": "800",
+        "feesBase": "5",
+        "baseCashFlow": "795",
+        "before": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "10",
+          "localCost": "655",
+          "baseCost": "655",
+          "averageCost": "65.5",
+          "realizedLocal": "600",
+          "realizedBase": "600",
+          "dividendLocal": "44",
+          "dividendBase": "44"
+        },
+        "after": {
+          "instrumentId": "TCS:NSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "0",
+          "localCost": "0",
+          "baseCost": "0",
+          "averageCost": null,
+          "realizedLocal": "740",
+          "realizedBase": "740",
+          "dividendLocal": "44",
+          "dividendBase": "44"
+        },
+        "quantityChange": "-10",
+        "localCostChange": "-655",
+        "baseCostChange": "-655",
+        "realizedLocalChange": "140",
+        "realizedBaseChange": "140",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T18:26:44.651Z",
+      "expiresAt": "2026-10-06T18:29:44.651Z"
+    },
+    {
+      "input": {
+        "instrumentId": "ETH:CRYPTO",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "BUY",
+        "quantity": "1",
+        "price": "2000",
+        "fees": "2"
+      },
+      "instrument": {
+        "id": "ETH:CRYPTO",
+        "symbol": "ETH",
+        "name": "Ethereum",
+        "exchange": "CRYPTO",
+        "currency": "USD",
+        "assetClass": "crypto",
+        "sector": "Unknown",
+        "provider": "coingecko",
+        "providerId": "ethereum",
+        "metadataSource": "CoinGecko coins/list identity audit 2026-10-04"
+      },
+      "portfolioId": "6ac53c6898e82e16aa72a6a7",
+      "portfolioRevision": 10,
+      "baseCurrency": "INR",
+      "fxMode": "automatic",
+      "fx": {
+        "rate": "83",
+        "rateDate": "2026-01-05",
+        "source": "local-fixture",
+        "reference": "Local writable fixture v1 · synthetic; not live provider data · historical USD/INR test input"
+      },
+      "effects": {
+        "grossNative": "2000",
+        "feesNative": "2",
+        "nativeCashFlow": "-2002",
+        "grossBase": "166000",
+        "feesBase": "166",
+        "baseCashFlow": "-166166",
+        "before": {
+          "instrumentId": "ETH:CRYPTO",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "0",
+          "localCost": "0",
+          "baseCost": "0",
+          "averageCost": null,
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "ETH:CRYPTO",
+          "currency": "USD",
+          "baseCurrency": "INR",
+          "quantity": "1",
+          "localCost": "2002",
+          "baseCost": "166166",
+          "averageCost": "2002",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "1",
+        "localCostChange": "2002",
+        "baseCostChange": "166166",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T18:26:46.159Z",
+      "expiresAt": "2026-10-06T18:29:46.159Z"
+    },
+    {
+      "input": {
+        "instrumentId": "RELIANCE:BSE",
+        "effectiveAt": "2026-01-05T15:00:00.000Z",
+        "tradingDate": "2026-01-05",
+        "type": "BUY",
+        "quantity": "1",
+        "price": "100",
+        "fees": "1"
+      },
+      "instrument": {
+        "id": "RELIANCE:BSE",
+        "symbol": "RELIANCE",
+        "name": "Reliance Industries Limited",
+        "exchange": "BSE",
+        "currency": "INR",
+        "assetClass": "equity",
+        "sector": "Unknown",
+        "provider": "yahoo",
+        "providerId": "RELIANCE.BO",
+        "metadataSource": "Yahoo chart identity audit 2026-10-04; RELIANCE.BO/INR/BSE"
+      },
+      "portfolioId": "6ac53c6898e82e16aa72a6a7",
+      "portfolioRevision": 11,
+      "baseCurrency": "INR",
+      "fxMode": "identity",
+      "fx": {
+        "rate": "1",
+        "rateDate": "2026-01-05",
+        "source": "identity",
+        "reference": "INR/INR"
+      },
+      "effects": {
+        "grossNative": "100",
+        "feesNative": "1",
+        "nativeCashFlow": "-101",
+        "grossBase": "100",
+        "feesBase": "1",
+        "baseCashFlow": "-101",
+        "before": {
+          "instrumentId": "RELIANCE:BSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "0",
+          "localCost": "0",
+          "baseCost": "0",
+          "averageCost": null,
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "after": {
+          "instrumentId": "RELIANCE:BSE",
+          "currency": "INR",
+          "baseCurrency": "INR",
+          "quantity": "1",
+          "localCost": "101",
+          "baseCost": "101",
+          "averageCost": "101",
+          "realizedLocal": "0",
+          "realizedBase": "0",
+          "dividendLocal": "0",
+          "dividendBase": "0"
+        },
+        "quantityChange": "1",
+        "localCostChange": "101",
+        "baseCostChange": "101",
+        "realizedLocalChange": "0",
+        "realizedBaseChange": "0",
+        "dividendLocalChange": "0",
+        "dividendBaseChange": "0"
+      },
+      "issuedAt": "2026-10-06T18:26:51.122Z",
+      "expiresAt": "2026-10-06T18:29:51.122Z"
+    }
+  ],
+  "captures": [
+    {
+      "name": "fresh-registration-dark-1440",
+      "url": "/auth/register",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "portfolio-management-empty-dark-1440",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "discovery-selected-dark-1440",
+      "url": "/transactions/new",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "entry-buy-dark-1440",
+      "url": "/transactions/new",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "preview-buy-dark-1440",
+      "url": "/transactions/new",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "confirmation-buy-dark-1440",
+      "url": "/transactions",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-split-fifo-provenance-dark-1440",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-complete-dark-1440",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-complete-dark-1440",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "entry-buy-aapl-us-dark-1440",
+      "url": "/transactions/new",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "preview-buy-aapl-us-dark-1440",
+      "url": "/transactions/new",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "confirmation-buy-aapl-us-dark-1440",
+      "url": "/transactions",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "stale-dashboard-dark-1440",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "stale-asset-dark-1440",
+      "url": "/holdings/ETH%3ACRYPTO",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "missing-asset-dark-1440",
+      "url": "/holdings/RELIANCE%3ABSE",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "partial-dashboard-dark-1440",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "refresh-worker-pending-dark-1440",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "refresh-partial-success-dark-1440",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "refresh-network-failure-dark-1440",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-dark-1440",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-dark-1440",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-dark-1440",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-dark-1440",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-dark-1280",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1280,
+        "height": 800,
+        "document": 1280,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-dark-1280",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 1280,
+        "height": 800,
+        "document": 1280,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-dark-1280",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 1280,
+        "height": 800,
+        "document": 1280,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-dark-1280",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 1280,
+        "height": 800,
+        "document": 1280,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-dark-1024",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1024,
+        "height": 768,
+        "document": 1024,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-dark-1024",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 1024,
+        "height": 768,
+        "document": 1024,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-dark-1024",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 1024,
+        "height": 768,
+        "document": 1024,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-dark-1024",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 1024,
+        "height": 768,
+        "document": 1024,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-dark-768",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 768,
+        "height": 1024,
+        "document": 768,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-dark-768",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 768,
+        "height": 1024,
+        "document": 768,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-dark-768",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 768,
+        "height": 1024,
+        "document": 768,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-dark-768",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 768,
+        "height": 1024,
+        "document": 768,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-dark-390",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-dark-390",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-dark-390",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-dark-390",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-light-1440",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-light-1440",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-light-1440",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-light-1440",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-light-1280",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1280,
+        "height": 800,
+        "document": 1280,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-light-1280",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 1280,
+        "height": 800,
+        "document": 1280,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-light-1280",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 1280,
+        "height": 800,
+        "document": 1280,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-light-1280",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 1280,
+        "height": 800,
+        "document": 1280,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-light-1024",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 1024,
+        "height": 768,
+        "document": 1024,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-light-1024",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 1024,
+        "height": 768,
+        "document": 1024,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-light-1024",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 1024,
+        "height": 768,
+        "document": 1024,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-light-1024",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 1024,
+        "height": 768,
+        "document": 1024,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-light-768",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 768,
+        "height": 1024,
+        "document": 768,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-light-768",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 768,
+        "height": 1024,
+        "document": 768,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-light-768",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 768,
+        "height": 1024,
+        "document": 768,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-light-768",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 768,
+        "height": 1024,
+        "document": 768,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "dashboard-light-390",
+      "url": "/dashboard",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "holdings-light-390",
+      "url": "/holdings",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "asset-light-390",
+      "url": "/holdings/TCS%3ANSE",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-light-390",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "transactions-light-390",
+      "url": "/transactions",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "navigation-open-light-390",
+      "url": "/transactions",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "entry-light-390",
+      "url": "/transactions/new",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "preview-light-390",
+      "url": "/transactions/new",
+      "geometry": {
+        "viewport": 390,
+        "height": 844,
+        "document": 390,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "preview-light-768",
+      "url": "/transactions/new",
+      "geometry": {
+        "viewport": 768,
+        "height": 1024,
+        "document": 768,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "preview-light-1440",
+      "url": "/transactions/new",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "settings-final-light-1440",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    },
+    {
+      "name": "privacy-confirm-light-1440",
+      "url": "/settings",
+      "geometry": {
+        "viewport": 1440,
+        "height": 1024,
+        "document": 1440,
+        "independentScroll": []
+      },
+      "axeViolations": []
+    }
+  ],
+  "performance": [
+    {
+      "kind": "initial-dev-load",
+      "ms": 2262.8177000000005,
+      "navigation": {
+        "name": "http://127.0.0.1:5190/auth/register?theme=dark",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 1899.5,
+        "navigationId": 6884,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "http/1.1",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.30000001192092896,
+        "domainLookupStart": 2.5,
+        "domainLookupEnd": 7.199999988079071,
+        "connectStart": 7.199999988079071,
+        "secureConnectionStart": 0,
+        "connectEnd": 8.599999964237213,
+        "requestStart": 8.899999976158142,
+        "responseStart": 99.89999997615814,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 99.89999997615814,
+        "responseEnd": 101,
+        "transferSize": 917,
+        "encodedBodySize": 617,
+        "decodedBodySize": 617,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 117.59999996423721,
+        "domContentLoadedEventStart": 1872.199999988079,
+        "domContentLoadedEventEnd": 1872.3999999761581,
+        "domComplete": 1899.5,
+        "loadEventStart": 1899.5,
+        "loadEventEnd": 1899.5,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      }
+    },
+    {
+      "kind": "API",
+      "path": "{portfolio}/portfolios",
+      "method": "GET",
+      "status": 200,
+      "ms": 348.490600000001
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/management",
+      "method": "GET",
+      "status": 200,
+      "ms": 38.07389999999941
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/management",
+      "method": "GET",
+      "status": 404,
+      "ms": 27.08400000000256
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios",
+      "method": "GET",
+      "status": 200,
+      "ms": 39.154899999997724
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger/preview",
+      "method": "POST",
+      "status": 404,
+      "ms": 31.94250000000102
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 37.511500000000524
+    },
+    {
+      "kind": "browser-preview",
+      "type": "BUY",
+      "ms": 113.18029999999999
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 33.03470000000016
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 65.3637000000017
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 35.04060000000027
+    },
+    {
+      "kind": "browser-preview",
+      "type": "BUY",
+      "ms": 104.01680000000124
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 46.521600000000035
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 74.80029999999897
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/instruments/TCS%3ANSE/detail",
+      "method": "GET",
+      "status": 200,
+      "ms": 50.397000000000844
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 51.14670000000115
+    },
+    {
+      "kind": "browser-preview",
+      "type": "SELL",
+      "ms": 130.7950000000019
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 50.565999999998894
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 72.42089999999735
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/instruments/TCS%3ANSE/detail",
+      "method": "GET",
+      "status": 200,
+      "ms": 43.303100000000995
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 79.96229999999923
+    },
+    {
+      "kind": "browser-preview",
+      "type": "DIVIDEND",
+      "ms": 239.97230000000854
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 45.353900000001886
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 113.53790000001027
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 90.53979999999865
+    },
+    {
+      "kind": "browser-preview",
+      "type": "SPLIT",
+      "ms": 146.43610000000626
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 36.34290000000328
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 63.98770000001241
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 46.03859999999986
+    },
+    {
+      "kind": "browser-preview",
+      "type": "BUY",
+      "ms": 145.78519999999844
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 41.710599999991246
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 71.6756000000023
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/valuation",
+      "method": "GET",
+      "status": 200,
+      "ms": 137.46379999999772
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/instruments/TCS%3ANSE/detail",
+      "method": "GET",
+      "status": 200,
+      "ms": 69.10359999998764
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 84.42870000000039
+    },
+    {
+      "kind": "browser-preview",
+      "type": "BUY",
+      "ms": 155.3736000000008
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 64.90670000000046
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 99.3714
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/valuation",
+      "method": "GET",
+      "status": 200,
+      "ms": 35.04700000000048
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/instruments/AAPL%3AUS/detail",
+      "method": "GET",
+      "status": 200,
+      "ms": 39.1961999999985
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 32.73400000000038
+    },
+    {
+      "kind": "browser-preview",
+      "type": "SELL",
+      "ms": 99.84579999999914
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 37.01550000000134
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 68.34389999999985
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/instruments/TCS%3ANSE/detail",
+      "method": "GET",
+      "status": 200,
+      "ms": 49.4974000000002
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/management",
+      "method": "GET",
+      "status": 200,
+      "ms": 33.10189999999966
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}",
+      "method": "DELETE",
+      "status": 409,
+      "ms": 45.41449999999895
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 40.78639999999905
+    },
+    {
+      "kind": "browser-preview",
+      "type": "BUY",
+      "ms": 134.95380000000114
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 45.26389999999992
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 67.33029999999962
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/valuation",
+      "method": "GET",
+      "status": 200,
+      "ms": 106.07330000000002
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 36.91200000000026
+    },
+    {
+      "kind": "browser-preview",
+      "type": "BUY",
+      "ms": 95.01609999999891
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 48.090399999999136
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 122.97749999999724
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/valuation",
+      "method": "GET",
+      "status": 200,
+      "ms": 127.23059999999896
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/instruments/RELIANCE%3ABSE/detail",
+      "method": "GET",
+      "status": 200,
+      "ms": 105.78359999999884
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 43.28220000000147
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/valuation",
+      "method": "GET",
+      "status": 200,
+      "ms": 697.6909000000014
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/valuation",
+      "method": "GET",
+      "status": 200,
+      "ms": 3926.769499999995
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/valuation",
+      "method": "GET",
+      "status": 200,
+      "ms": 128.27370000001974
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/valuation",
+      "method": "GET",
+      "status": 200,
+      "ms": 156.4441999999981
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 174.675900000002
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios",
+      "method": "GET",
+      "status": 200,
+      "ms": 43.49529999998049
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/valuation",
+      "method": "GET",
+      "status": 200,
+      "ms": 77.30059999998775
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 118.50430000000051
+    },
+    {
+      "kind": "browser-route",
+      "name": "dashboard",
+      "color": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1024
+      },
+      "ms": 86.47440000000643
+    },
+    {
+      "kind": "browser-route",
+      "name": "holdings",
+      "color": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1024
+      },
+      "ms": 23.231399999989662
+    },
+    {
+      "kind": "browser-route",
+      "name": "asset",
+      "color": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1024
+      },
+      "ms": 312.90320000000065
+    },
+    {
+      "kind": "browser-route",
+      "name": "settings",
+      "color": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1024
+      },
+      "ms": 285.2829999999958
+    },
+    {
+      "kind": "browser-route",
+      "name": "dashboard",
+      "color": "dark",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "ms": 104.23399999999674
+    },
+    {
+      "kind": "browser-route",
+      "name": "holdings",
+      "color": "dark",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "ms": 21.112699999997858
+    },
+    {
+      "kind": "browser-route",
+      "name": "asset",
+      "color": "dark",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "ms": 240.7483999999822
+    },
+    {
+      "kind": "browser-route",
+      "name": "settings",
+      "color": "dark",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "ms": 237.65359999999055
+    },
+    {
+      "kind": "browser-route",
+      "name": "dashboard",
+      "color": "dark",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "ms": 210.75700000001234
+    },
+    {
+      "kind": "browser-route",
+      "name": "holdings",
+      "color": "dark",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "ms": 12.33540000001085
+    },
+    {
+      "kind": "browser-route",
+      "name": "asset",
+      "color": "dark",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "ms": 166.84049999999115
+    },
+    {
+      "kind": "browser-route",
+      "name": "settings",
+      "color": "dark",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "ms": 181.58419999998296
+    },
+    {
+      "kind": "browser-route",
+      "name": "dashboard",
+      "color": "dark",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "ms": 198.22969999999623
+    },
+    {
+      "kind": "browser-route",
+      "name": "holdings",
+      "color": "dark",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "ms": 22.87369999999646
+    },
+    {
+      "kind": "browser-route",
+      "name": "asset",
+      "color": "dark",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "ms": 244.46840000001248
+    },
+    {
+      "kind": "browser-route",
+      "name": "settings",
+      "color": "dark",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "ms": 160.58500000002095
+    },
+    {
+      "kind": "browser-route",
+      "name": "dashboard",
+      "color": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "ms": 354.65520000000834
+    },
+    {
+      "kind": "browser-route",
+      "name": "holdings",
+      "color": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "ms": 20.814299999998184
+    },
+    {
+      "kind": "browser-route",
+      "name": "asset",
+      "color": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "ms": 191.2858000000124
+    },
+    {
+      "kind": "browser-route",
+      "name": "settings",
+      "color": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "ms": 134.52110000001267
+    },
+    {
+      "kind": "browser-route",
+      "name": "dashboard",
+      "color": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1024
+      },
+      "ms": 119.59199999997509
+    },
+    {
+      "kind": "browser-route",
+      "name": "holdings",
+      "color": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1024
+      },
+      "ms": 22.725099999981467
+    },
+    {
+      "kind": "browser-route",
+      "name": "asset",
+      "color": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1024
+      },
+      "ms": 220.652299999987
+    },
+    {
+      "kind": "browser-route",
+      "name": "settings",
+      "color": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1024
+      },
+      "ms": 207.13370000000577
+    },
+    {
+      "kind": "browser-route",
+      "name": "dashboard",
+      "color": "light",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "ms": 105.23559999998542
+    },
+    {
+      "kind": "browser-route",
+      "name": "holdings",
+      "color": "light",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "ms": 18.971600000018952
+    },
+    {
+      "kind": "browser-route",
+      "name": "asset",
+      "color": "light",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "ms": 240.3452999999863
+    },
+    {
+      "kind": "browser-route",
+      "name": "settings",
+      "color": "light",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "ms": 100.06479999999283
+    },
+    {
+      "kind": "browser-route",
+      "name": "dashboard",
+      "color": "light",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "ms": 98.24830000000657
+    },
+    {
+      "kind": "browser-route",
+      "name": "holdings",
+      "color": "light",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "ms": 25.380899999989197
+    },
+    {
+      "kind": "browser-route",
+      "name": "asset",
+      "color": "light",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "ms": 256.22509999998147
+    },
+    {
+      "kind": "browser-route",
+      "name": "settings",
+      "color": "light",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "ms": 156.69500000000698
+    },
+    {
+      "kind": "browser-route",
+      "name": "dashboard",
+      "color": "light",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "ms": 73.3753999999899
+    },
+    {
+      "kind": "browser-route",
+      "name": "holdings",
+      "color": "light",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "ms": 13.292300000000978
+    },
+    {
+      "kind": "browser-route",
+      "name": "asset",
+      "color": "light",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "ms": 200.2600000000093
+    },
+    {
+      "kind": "browser-route",
+      "name": "settings",
+      "color": "light",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "ms": 289.19939999998314
+    },
+    {
+      "kind": "browser-route",
+      "name": "dashboard",
+      "color": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "ms": 140.4371000000101
+    },
+    {
+      "kind": "browser-route",
+      "name": "holdings",
+      "color": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "ms": 16.253499999991618
+    },
+    {
+      "kind": "browser-route",
+      "name": "asset",
+      "color": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "ms": 235.78509999997914
+    },
+    {
+      "kind": "browser-route",
+      "name": "settings",
+      "color": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "ms": 149.3562999999849
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 254.85230000002775
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 64.74060000000009
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/management?unknown=1",
+      "method": "GET",
+      "status": 400,
+      "ms": 25.122200000000703
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}",
+      "method": "PATCH",
+      "status": 400,
+      "ms": 93.49259999999958
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}",
+      "method": "PATCH",
+      "status": 400,
+      "ms": 31.129399999999805
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}",
+      "method": "PATCH",
+      "status": 400,
+      "ms": 69.55249999999978
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 80.48480000000018
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/management?unknown=1",
+      "method": "GET",
+      "status": 400,
+      "ms": 21.793399999999565
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}",
+      "method": "PATCH",
+      "status": 400,
+      "ms": 35.42230000000018
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}",
+      "method": "PATCH",
+      "status": 400,
+      "ms": 58.58050000000003
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}",
+      "method": "PATCH",
+      "status": 409,
+      "ms": 46.28439999999955
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger/preview",
+      "method": "POST",
+      "status": 200,
+      "ms": 71.58209999999963
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "POST",
+      "status": 409,
+      "ms": 60.4337000000005
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 54.018599999999424
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger/preview",
+      "method": "POST",
+      "status": 400,
+      "ms": 49.95730000000003
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger/preview",
+      "method": "POST",
+      "status": 400,
+      "ms": 41.296299999999974
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger/preview",
+      "method": "POST",
+      "status": 400,
+      "ms": 56.05959999999959
+    },
+    {
+      "kind": "API",
+      "path": "/portfolios/{portfolio}/ledger",
+      "method": "GET",
+      "status": 200,
+      "ms": 55.2300000000032
+    }
+  ],
+  "screenAudit": [],
+  "status": "INTEGRATED_PASS",
+  "completedAt": "2026-10-06T18:34:47.463Z",
+  "harnessDiagnostics": [
+    "Verification override moved outside clean checkout after format check; no tracked change.",
+    "Invalid question mark correctly returned400; corrected stale-name fixture gets409.",
+    "API ledger default25; benchmark explicitly requests UI20.",
+    "Duplicate initial BUY evidence names consolidated; approved captures untouched.",
+    "Demo recaptured at exact1440x1024 using existing read-only entry action."
+  ]
+}

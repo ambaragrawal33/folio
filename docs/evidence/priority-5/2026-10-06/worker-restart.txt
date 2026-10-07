@@ -1,0 +1,4 @@
+ Container folio-worker-1 Restarting
+ Container folio-fixture-worker-1 Restarting
+ Container folio-fixture-worker-1 Started
+ Container folio-worker-1 Started

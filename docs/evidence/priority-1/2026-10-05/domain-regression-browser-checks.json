@@ -1,0 +1,497 @@
+[
+  {
+    "name": "onboarding-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-empty-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "manual-buy-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "record-pending-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "manual-buy-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "manual-sell-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "manual-split-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "manual-dividend-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "global-search-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "transactions-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-asset-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "entry-validation-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "fx-override-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "transaction-review-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "transactions-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-asset-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "entry-validation-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "fx-override-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "transaction-review-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "dashboard-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "transactions-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-asset-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "transactions-entry-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "entry-validation-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "manual-split-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "manual-dividend-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "fx-override-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "transaction-review-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "oversell-error-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "navigation-open-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "void-confirmation-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "void-confirmation-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "portfolio-settings-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "portfolio-settings-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "portfolio-settings-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "demo-entry-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "demo-entry-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "demo-dashboard-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "dark",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "demo-dashboard-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "theme": "light",
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "demo-holdings-light-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "theme": "light",
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  }
+]

@@ -123,7 +123,7 @@ describe('API foundation', () => {
     );
     const cors = await request(app).options('/api/health').set('Origin', env.WEB_ORIGIN);
     expect(cors.headers['access-control-allow-origin']).toBe(env.WEB_ORIGIN);
-    expect(cors.headers['access-control-allow-credentials']).toBeUndefined();
+    expect(cors.headers['access-control-allow-credentials']).toBe('true');
   });
   it('redacts structured credential fields', () => {
     let output = '';
@@ -137,8 +137,15 @@ describe('API foundation', () => {
       {
         password: 'PRIVATE_VALUE',
         token: 'PRIVATE_VALUE',
-        nested: { apiKey: 'PRIVATE_VALUE' },
-        req: { headers: { authorization: 'PRIVATE_VALUE', cookie: 'PRIVATE_VALUE' } },
+        receipt: 'PRIVATE_VALUE',
+        nested: { apiKey: 'PRIVATE_VALUE', receipt: 'PRIVATE_VALUE' },
+        req: {
+          headers: {
+            authorization: 'PRIVATE_VALUE',
+            cookie: 'PRIVATE_VALUE',
+            'transaction-preview': 'PRIVATE_VALUE',
+          },
+        },
       },
       'test',
     );

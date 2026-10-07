@@ -1,0 +1,10 @@
+{
+  "name": "demo-readonly-dark-1440",
+  "geometry": {
+    "viewport": 1440,
+    "height": 1024,
+    "document": 1440,
+    "independentScroll": []
+  },
+  "axeViolations": []
+}

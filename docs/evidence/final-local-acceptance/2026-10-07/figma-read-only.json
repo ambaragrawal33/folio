@@ -1,0 +1,54 @@
+{
+  "designFileIdentifier": "0QNLyxaAB3EJUo4llSttjk",
+  "checkedAt": "2026-10-06T19:12:07.075Z",
+  "writeCalls": 0,
+  "sourceRefs": [
+    {
+      "surface": "Settings",
+      "nodeId": "54:50",
+      "tool": "connected Figma get_design_context",
+      "readOnly": true,
+      "textBlocks": 6,
+      "screenshotReceived": true,
+      "isError": false
+    },
+    {
+      "surface": "Dashboard",
+      "nodeId": "10:485",
+      "tool": "connected Figma get_design_context",
+      "readOnly": true,
+      "textBlocks": 6,
+      "screenshotReceived": true,
+      "isError": false
+    },
+    {
+      "surface": "Holdings",
+      "nodeId": "27:390",
+      "tool": "connected Figma get_design_context",
+      "readOnly": true,
+      "textBlocks": 6,
+      "screenshotReceived": true,
+      "isError": false
+    },
+    {
+      "surface": "Asset Detail",
+      "nodeId": "32:143",
+      "tool": "connected Figma get_design_context",
+      "readOnly": true,
+      "textBlocks": 6,
+      "screenshotReceived": true,
+      "isError": false
+    },
+    {
+      "surface": "Transactions",
+      "nodeId": "47:2",
+      "tool": "connected Figma get_design_context",
+      "readOnly": true,
+      "textBlocks": 6,
+      "screenshotReceived": true,
+      "isError": false
+    }
+  ],
+  "authReference": "57:282/283 from existing inspected handoff; registration derived",
+  "noNewVisualImplementation": true
+}

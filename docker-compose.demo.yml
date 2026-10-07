@@ -1,0 +1,54 @@
+# Local verification of the isolated READ-ONLY demo. Not a public deployment.
+# Use with docker-compose.yml. No normal database/namespace or external providers.
+services:
+  demo-api:
+    build: .
+    profiles: [demo]
+    command: ['pnpm', '--filter', '@folio/api', 'dev']
+    ports: ['127.0.0.1:3010:3000']
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      MONGODB_URI: mongodb://mongo:27017/folio_demo?replicaSet=rs0&directConnection=true
+      REDIS_URL: redis://redis:6379
+      WEB_ORIGIN: http://localhost:5180
+      DEMO_MODE: 'true'
+      CACHE_NAMESPACE: folio:demo
+      EMAIL_TRANSPORT: mailhog
+      SMTP_HOST: mailhog
+      SMTP_PORT: 1025
+    depends_on:
+      mongo: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      mailhog: { condition: service_started }
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/api/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+  demo-web:
+    build: .
+    profiles: [demo]
+    command: ['pnpm', '--filter', '@folio/web', 'dev', '--port', '5180']
+    ports: ['127.0.0.1:5180:5180']
+    environment:
+      API_PROXY_TARGET: http://demo-api:3000
+    depends_on:
+      demo-api: { condition: service_healthy }
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:5180').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 15

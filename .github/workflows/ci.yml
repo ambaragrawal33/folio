@@ -1,4 +1,4 @@
-name: Foundation checks
+name: Folio quality checks
 on:
   push:
   pull_request:
@@ -7,7 +7,7 @@ permissions:
   contents: read
 jobs:
   quality:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with: { fetch-depth: 0 }
@@ -16,26 +16,81 @@ jobs:
       - run: npm install --global pnpm@11.19.0
       - run: pnpm install --frozen-lockfile
       - run: pnpm deps:verify
+      - run: pnpm test:database
+      - name: Start transactional Mongo and shared Redis before integration/coverage gates
+        run: docker compose up -d --wait --wait-timeout 180 mongo redis mailhog
       - run: pnpm check
+        env:
+          FOLIO_TEST_MONGODB_URI: mongodb://127.0.0.1:27017/?directConnection=true&replicaSet=rs0
+          FOLIO_TEST_REDIS_URL: redis://127.0.0.1:6379
       - run: pnpm audit --audit-level=moderate
       - run: pnpm exec playwright install --with-deps chromium
-      - run: pnpm test:e2e
+      - name: Start real local services and verify APIs
+        run: |
+          docker compose -f docker-compose.yml -f docker-compose.demo.yml -f docker-compose.fixture.yml -f docker-compose.jobs.yml --profile demo --profile fixture up --build -d --wait --wait-timeout 300
+          node scripts/infrastructure-smoke.mjs
+          node scripts/auth-infrastructure-smoke.mjs
+          FOLIO_E2E_DEMO=1 node scripts/domain-infrastructure-smoke.mjs
+          node scripts/local-fixture-smoke.mjs
+      - run: pnpm exec playwright test
+        env:
+          {
+            FOLIO_E2E_STACK: '1',
+            FOLIO_E2E_DEMO: '1',
+            FOLIO_E2E_FIXTURE: '1',
+            FOLIO_E2E_JOBS: '1',
+            FOLIO_E2E_EVIDENCE_DIR: '.local/phase-2-regression',
+            FOLIO_DOMAIN_EVIDENCE_DIR: '.local/phase-3-regression',
+            FOLIO_FIXTURE_EVIDENCE_DIR: '.local/priority-5-regression/fixture',
+            FOLIO_DISCOVERY_EVIDENCE_DIR: '.local/priority-5-regression/discovery',
+            FOLIO_PREVIEW_EVIDENCE_DIR: '.local/priority-5-regression/preview',
+            FOLIO_ASSET_EVIDENCE_DIR: '.local/priority-5-regression/asset',
+            FOLIO_JOBS_EVIDENCE_DIR: '.local/priority-5-regression/jobs',
+            FOLIO_MANAGEMENT_EVIDENCE_DIR: '.local/priority-6/visual',
+          }
+      - name: Build release API artifact without publishing or deploying
+        run: docker build -f Dockerfile.release --target api-runtime -t folio-api-release:ci .
+      - name: Verify compiled non-root API and fail-closed deployment boundary
+        run: FOLIO_RELEASE_IMAGE=folio-api-release:ci node scripts/release-artifact-smoke.mjs
       - name: Scan history and working tree for secrets
         run: |
           docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.1 git /repo --redact --config /repo/.gitleaks.toml
           docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.1 dir /repo --redact --config /repo/.gitleaks.toml
-      - name: Verify local stack
+      - name: Stop local stack
+        if: always()
         run: |
-          docker compose up --build -d --wait --wait-timeout 300
-          node scripts/infrastructure-smoke.mjs
-          docker compose down
+          docker compose -f docker-compose.yml -f docker-compose.demo.yml -f docker-compose.fixture.yml -f docker-compose.jobs.yml --profile demo --profile fixture down
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
-          name: foundation-evidence
+          name: phase-evidence
           path: |
             coverage/coverage-summary.json
             playwright-report/
+            docs/evidence/phase-2/
+            docs/evidence/phase-3/visual/
+            .local/priority-1/visual/
+            .local/phase-3-regression/
+            .local/priority-5-regression/
+            .local/priority-6/
+  foundation-visual:
+    # Approved Phase 1 baselines were captured on Windows. Keep their 0.5% gate
+    # and compare on Windows rather than accepting Linux font-rendering drift.
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with: { node-version: 24.19.0 }
+      - run: npm install --global pnpm@11.19.0
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @folio/shared build
+      - run: pnpm exec playwright install chromium
+      - run: pnpm exec playwright test foundation.spec.ts
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: foundation-visual-evidence
+          path: playwright-report/
 
-# Public deployment is deliberately absent. It requires a later authorized phase and approval.
+# Public deployment stays gated by O02/O04/O06. Release artifacts alone are not deployment evidence.
 

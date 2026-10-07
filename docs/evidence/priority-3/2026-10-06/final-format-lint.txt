@@ -1,0 +1,6 @@
+$ eslint . && pnpm tokens:check
+$ node packages/design-tokens/scripts/sync.mjs --check
+Figma token check: 40 canonical variables, 8 text styles, 119 states, both themes
+$ prettier --check .
+Checking formatting...
+All matched files use Prettier code style!

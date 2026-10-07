@@ -1,0 +1,64 @@
+# Explicit local-only workers. Existing volumes, demo and deployment files unchanged.
+services:
+  api:
+    environment:
+      LOCAL_JOBS_ENABLED: 'true'
+  fixture-api:
+    environment:
+      LOCAL_JOBS_ENABLED: 'true'
+  worker:
+    build: .
+    command: ['node', 'apps/api/src/jobs/worker.ts']
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NODE_ENV: development
+      MONGODB_URI: mongodb://mongo:27017/folio?replicaSet=rs0&directConnection=true
+      REDIS_URL: redis://redis:6379
+      WEB_ORIGIN: http://localhost:5173
+      LOCAL_JOBS_ENABLED: 'true'
+      LOCAL_JOB_SCHEDULES: 'false'
+    depends_on:
+      mongo: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    volumes:
+      - ./apps/api/src:/workspace/apps/api/src:ro
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "const fs=require('fs');process.exit(Date.now()-Number(fs.readFileSync('/tmp/folio-worker-ready','utf8'))<30000?0:1)",
+        ]
+      interval: 10s
+      retries: 15
+  fixture-worker:
+    build: .
+    profiles: [fixture]
+    command: ['node', 'apps/api/src/jobs/worker.ts']
+    environment:
+      NODE_ENV: development
+      MONGODB_URI: mongodb://mongo:27017/folio_local_fixture?replicaSet=rs0&directConnection=true
+      REDIS_URL: redis://redis:6379/1
+      WEB_ORIGIN: http://localhost:5190
+      LOCAL_FIXTURE_MODE: 'true'
+      CACHE_NAMESPACE: folio:local-fixture
+      LOCAL_JOBS_ENABLED: 'true'
+      LOCAL_JOB_SCHEDULES: 'false'
+    depends_on:
+      mongo: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    volumes:
+      - ./apps/api/src:/workspace/apps/api/src:ro
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "const fs=require('fs');process.exit(Date.now()-Number(fs.readFileSync('/tmp/folio-worker-ready','utf8'))<30000?0:1)",
+        ]
+      interval: 10s
+      retries: 15

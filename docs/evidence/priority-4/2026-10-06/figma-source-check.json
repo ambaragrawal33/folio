@@ -1,0 +1,18 @@
+{
+  "checkedOn": "2026-10-06",
+  "tool": "connected Figma MCP get_design_context",
+  "designFileId": "0QNLyxaAB3EJUo4llSttjk",
+  "nodeId": "32:143",
+  "readOnly": true,
+  "returnedCodeCharacters": 59473,
+  "returnedScreenshot": true,
+  "activitySourceExcerpt": "me=\"content-stretch flex flex-col gap-[var(--space\\/12,12px)] items-start relative shrink-0 w-full\" data-node-id=\"34:165\" data-name=\"recent-activity\">\n            <div className=\"content-stretch flex items-center justify-between relative shrink-0 w-full\" data-node-id=\"34:166\" data-name=\"Frame\">\n              <p className=\"[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[normal] not-italic relative shrink-0 text-[15px] text-[color:var(--text\\/primary,#f5f5f5)] whitespace-nowrap\" data-node-id=\"34:167\">\n                Recent Activity\n              </p>\n              <FolioButtonTertiary actionLabel=\"View all transactions\" className=\"bg-[var(--surface\\/canvas,#080808)] border border-[var(--surface\\/canvas,#080808)] border-solid content-stretch flex gap-[var(--space\\/8,8px)] h-[32px] items-center justify-center overflow-clip px-[var(--space\\/12,12px)] relative rounded-[var(--radius\\/control,6px)] shrink-0 w-[164px]\" />\n            </div>\n            <div className=\"[word-break:break-word] bg-[var(--surface\\/raised,#151515)] border border-[var(--border\\/default,#2b2b2b)] border-solid content-stretch flex flex-col items-start leading-[normal] not-italic overflow-clip relative rounded-[var(--radius\\/control,6px)] shrink-0 w-full\" data-node-id=\"34:170\" data-name=\"table\">\n              <div className=\"bg-[var(--surface\\/canvas,#080808)] border-[var(--border\\/default,#2b2b2b)] border-b border-solid content-stretch flex font-['Inter:Medium'] font-medium h-[32px] items-center px-[var(--space\\/12,12px)] relative shrink-0 text-[11px] text-[color:var(--text\\/secondary,#b5b5b5)] w-full\" data-node-id=\"34:171\" data-name=\"table-header\">\n                <p className=\"relative shrink-0 w-[150px]\" data-node-id=\"34:172\">\n                  Date\n                </p>\n                <p className=\"relative shrink-0 w-[80px]\" data-node-id=\"34:173\">\n                  Type\n                </p>\n                <p className=\"relative shrink-0 text-right w-[120px]\" data-node-id=\"34:174\">\n                  Quantity\n                </p>\n                <p className=\"relative shrink-0 text-right w-[150px]\" data-node-id=\"34:175\">\n                  Price (INR)\n                </p>\n                <p className=\"flex-[1_0_0] min-w-px relative text-right\" data-node-id=\"34:176\">\n                  Amount (INR)\n                </p>\n              </div>\n              <div className=\"border-[var(--border\\/default,#2b2b2b)] border-b border-solid content-stretch flex h-[44px] items-center px-[var(--space\\/12,12px)] relative shrink-0 text-[13px] text-[color:var(--text\\/primary,#f5f5f5)] w-full\" data-node-id=\"34:177\" data-name=\"row\">\n                <p className=\"font-['Inter:Re",
+  "sourceNodes": [
+    "34:165",
+    "34:128",
+    "34:196"
+  ],
+  "newComposition": "DERIVED FIFO/provenance/void/coverage; Light/mobile/tablet derived",
+  "staticAssetChanges": 0,
+  "figmaWrites": 0
+}

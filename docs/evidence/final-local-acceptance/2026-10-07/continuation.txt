@@ -1,0 +1,72 @@
+CAPTURE entry-buy-aapl-us-dark-1440 axe0/overflow0/scroll0
+CAPTURE preview-buy-aapl-us-dark-1440 axe0/overflow0/scroll0
+CAPTURE confirmation-buy-aapl-us-dark-1440 axe0/overflow0/scroll0
+PASS fx-override-void
+PASS fully-sold-and-void-history
+CAPTURE stale-dashboard-dark-1440 axe0/overflow0/scroll0
+CAPTURE stale-asset-dark-1440 axe0/overflow0/scroll0
+CAPTURE missing-asset-dark-1440 axe0/overflow0/scroll0
+CAPTURE partial-dashboard-dark-1440 axe0/overflow0/scroll0
+PASS asset-detail-valuation-states
+Actual local fixture-worker stop
+CAPTURE refresh-worker-pending-dark-1440 axe0/overflow0/scroll0
+Actual local fixture-worker start
+CAPTURE refresh-partial-success-dark-1440 axe0/overflow0/scroll0
+Actual local fixture-worker start
+Respecting unchanged local HTTP rate window
+CAPTURE refresh-network-failure-dark-1440 axe0/overflow0/scroll0
+Actual local redis stop
+Actual local redis start
+Actual local mongo stop
+Actual local mongo start
+Actual local fixture-api restart
+PASS integrated-outage-recovery
+CAPTURE dashboard-dark-1440 axe0/overflow0/scroll0
+CAPTURE holdings-dark-1440 axe0/overflow0/scroll0
+CAPTURE asset-dark-1440 axe0/overflow0/scroll0
+CAPTURE settings-dark-1440 axe0/overflow0/scroll0
+CAPTURE dashboard-dark-1280 axe0/overflow0/scroll0
+CAPTURE holdings-dark-1280 axe0/overflow0/scroll0
+CAPTURE asset-dark-1280 axe0/overflow0/scroll0
+CAPTURE settings-dark-1280 axe0/overflow0/scroll0
+CAPTURE dashboard-dark-1024 axe0/overflow0/scroll0
+CAPTURE holdings-dark-1024 axe0/overflow0/scroll0
+CAPTURE asset-dark-1024 axe0/overflow0/scroll0
+CAPTURE settings-dark-1024 axe0/overflow0/scroll0
+CAPTURE dashboard-dark-768 axe0/overflow0/scroll0
+CAPTURE holdings-dark-768 axe0/overflow0/scroll0
+CAPTURE asset-dark-768 axe0/overflow0/scroll0
+CAPTURE settings-dark-768 axe0/overflow0/scroll0
+CAPTURE dashboard-dark-390 axe0/overflow0/scroll0
+CAPTURE holdings-dark-390 axe0/overflow0/scroll0
+CAPTURE asset-dark-390 axe0/overflow0/scroll0
+CAPTURE settings-dark-390 axe0/overflow0/scroll0
+CAPTURE dashboard-light-1440 axe0/overflow0/scroll0
+CAPTURE holdings-light-1440 axe0/overflow0/scroll0
+CAPTURE asset-light-1440 axe0/overflow0/scroll0
+CAPTURE settings-light-1440 axe0/overflow0/scroll0
+CAPTURE dashboard-light-1280 axe0/overflow0/scroll0
+CAPTURE holdings-light-1280 axe0/overflow0/scroll0
+CAPTURE asset-light-1280 axe0/overflow0/scroll0
+CAPTURE settings-light-1280 axe0/overflow0/scroll0
+CAPTURE dashboard-light-1024 axe0/overflow0/scroll0
+CAPTURE holdings-light-1024 axe0/overflow0/scroll0
+CAPTURE asset-light-1024 axe0/overflow0/scroll0
+CAPTURE settings-light-1024 axe0/overflow0/scroll0
+CAPTURE dashboard-light-768 axe0/overflow0/scroll0
+CAPTURE holdings-light-768 axe0/overflow0/scroll0
+CAPTURE asset-light-768 axe0/overflow0/scroll0
+CAPTURE settings-light-768 axe0/overflow0/scroll0
+CAPTURE dashboard-light-390 axe0/overflow0/scroll0
+CAPTURE holdings-light-390 axe0/overflow0/scroll0
+CAPTURE asset-light-390 axe0/overflow0/scroll0
+CAPTURE settings-light-390 axe0/overflow0/scroll0
+CAPTURE transactions-light-390 axe0/overflow0/scroll0
+CAPTURE navigation-open-light-390 axe0/overflow0/scroll0
+PASS responsive-accessibility
+CAPTURE entry-light-390 axe0/overflow0/scroll0
+CAPTURE preview-light-390 axe0/overflow0/scroll0
+CAPTURE preview-light-768 axe0/overflow0/scroll0
+CAPTURE preview-light-1440 axe0/overflow0/scroll0
+CAPTURE settings-final-light-1440 axe0/overflow0/scroll0
+Integrated continuation PASS; security/privacy/performance/reproducibility still pending

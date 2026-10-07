@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-04T14:51:28.804Z",
+  "liveEcb": {
+    "weekend": {
+      "rate": "83.15",
+      "rateDate": "2024-01-05",
+      "source": "Frankfurter/ECB",
+      "reference": "ECB daily USD/INR; requested 2024-01-06"
+    },
+    "current": {
+      "rate": "96.32",
+      "rateDate": "2026-10-02",
+      "source": "Frankfurter/ECB",
+      "reference": "ECB daily USD/INR; requested 2026-10-04",
+      "asOf": "2026-10-02T00:00:00.000Z",
+      "status": "fresh"
+    }
+  },
+  "noSecretsRead": true,
+  "yahoo": "No entitlement: no Yahoo requests, quotes/history unavailable",
+  "coinGecko": "No configured Demo key: no requests/quotes; keyed smoke remains blocked",
+  "cache": "Isolated in-memory probe cache; shared Redis semantics tested separately",
+  "publicDeployment": false
+}

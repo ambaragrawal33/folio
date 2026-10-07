@@ -6,11 +6,17 @@ import { App } from './App';
 import { useTheme } from './state/theme';
 import { Gallery } from './design-system/Gallery';
 import { Choice, Field, Button } from './design-system/primitives';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useAccess } from './auth/client';
+function appRender(node: React.ReactNode) {
+  useAccess.setState({ token: null, status: 'anonymous' });
+  return render(<QueryClientProvider client={new QueryClient()}>{node}</QueryClientProvider>);
+}
 afterEach(cleanup);
 describe('Frontend foundation', () => {
   it('preserves all designed navigation and shows unavailable product routes', () => {
-    render(
-      <MemoryRouter initialEntries={['/dashboard']}>
+    appRender(
+      <MemoryRouter initialEntries={['/dev/shell?preview=dashboard']}>
         <App />
       </MemoryRouter>,
     );
@@ -71,13 +77,13 @@ describe('Frontend foundation', () => {
     ).toBe(true);
   });
   it('handles a missing route and changes route after navigation', () => {
-    render(
+    appRender(
       <MemoryRouter initialEntries={['/missing']}>
         <App />
       </MemoryRouter>,
     );
     expect(screen.getByRole('heading', { name: 'Page unavailable' })).toBeTruthy();
     fireEvent.click(screen.getByRole('link', { name: 'Holdings' }));
-    expect(screen.getByRole('heading', { name: 'Holdings' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Sign in to your account' })).toBeTruthy();
   });
 });

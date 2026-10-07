@@ -11,4 +11,4 @@ description = "Exact Figma design file identifier, not an authentication credent
 condition = "AND"
 regexTarget = "secret"
 regexes = ['''^0QNLyxaAB3EJUo4llSttjk$''']
-paths = ['''(^|/)packages/design-tokens/(source/figma|generated/manifest)\.json$''']
+paths = ['''(^|/)packages/design-tokens/(source/(figma|auth-geometry)|generated/manifest)\.json$''', '''(^|/)docs/evidence/phase-2/figma-contexts\.json$''', '''(^|/)docs/evidence/phase-3/figma-contexts\.json$''']

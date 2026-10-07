@@ -1,0 +1,22 @@
+# Priority 3 — server-authoritative transaction review
+
+2026-10-06. Inspected clean **codex/phase-3-domain**, **efb6d7c9deec75327d5b6b005eb5942ad953e9ee**. Priority 1/L01 and Priority 2 engineering/visual gates are explicitly CLOSED / APPROVED. Only Priority 3 authorized. Read living documents, master §3/4.2 and actual append/engine/contracts/UI. No dependency, provider activation, deployment, spending, main merge or Priority4+.
+
+## Inspected gap
+
+The review currently echoes client fields and describes FX generically; append resolves actual FX before the Mongo transaction. Preview must resolve actual dated provenance and run the same complete ordered ledger validation without touching domain collections. Current live historical-FX cache can serve stale data; retain that existing valuation behavior but expose a separate commit-resolution freshness boundary so preview/confirmation cannot silently accept stale cache inputs.
+
+## Implementation order and choices
+
+1. Add strict POST `/api/v1/portfolios/:portfolioId/ledger/preview` using TransactionInput, with exact native/base gross, fees/cash flow, actual FX/mode/provenance, before/after quantity/cost/average-cost and replayed realized/dividend effects. No current market quote is an economic input: user-entered transaction price is explicit. No preview unrealized/market-value claim.
+2. Extract the existing date/canonical/FX validation for reuse, not a new engine. Use replayLedger before/after a reserved in-memory candidate to derive effects with Decimal strings; preserve the engine/Decimal/FIFO files. Read owned portfolio/ledger in a snapshot; no booked ID, domain/user revision, projection, void or booking audit write. Security throttling/provider cache remain operational reads/writes only.
+3. Return a stateless HMAC receipt, versioned/purpose-separated using the existing signing boundary, bound to owner/auth version, portfolio revision/sequence, normalized payload, canonical metadata, FX and exact effects. **Three-minute validity** is a conservative implementation expiry, not a financial-policy change. No stored preview session or new credential/dependency.
+4. HTTP append requires `Transaction-Preview`; trusted internal seed/test append remains compatible. Resolve/compare FX and replay effects inside each Mongo transaction attempt; check signed scope, changed inputs/state and expiry before committing. Mongo write conflicts retry against fresh state; fail with clear409/428/422 errors and no domain mutation. An already-booked matching idempotency retry returns its original record even after preview expiry; mismatched payload409. Receipts are not authorization and cannot be moved between owners/portfolios.
+5. UI requests preview, renders server values/provenance, distinguishes identity/automatic/manual override, shows loading/unavailable/errors and expiry. Confirmation sends receipt; changed/expired errors disable stale confirmation and offer explicit revalidation requiring another deliberate confirmation. Preserve original idempotency key on uncertain commit retry. Back-to-entry/edits discard preview. No auto-book/reconfirmation.
+6. Focused pure/receipt/real-Mongo security/concurrency/non-mutation tests, actual browser FX/recovery/mobile review, full existing gates and new evidence paths. Record Priority2 closure, contracts, limits and actual results. STOP before Priority4.
+
+## Design and limits
+
+Read-only connected Figma MCP refreshed **Onboarding57:301** with source code/actual screenshot. Reuse existing approved Panel/details/FormField/Button/focus/type/money and source mappings Transactions47:2 / DS inputs2:4823 / buttons2:4800. No assets/token/foundation changes. Exact server FX/effect/status/revalidation composition has no dedicated product frame and is DERIVED; Light/mobile remain derived. New review captures require user approval; all prior captures stay untouched.
+
+Atomicity covers the owned ledger/database state. A public provider cannot be transaction-locked: compare the bounded provider/cache observation on every Mongo attempt immediately before applying it; historical rate/date/source are then stored immutably. No claim of upstream locks or production-provider entitlement. Stale cache observations fail closed for preview/commit; old historical date alone is not staleness. Missing rates never use today's FX. No genuine blocking architectural/accounting decision found within this authorization.

@@ -1,0 +1,222 @@
+[
+  {
+    "name": "fresh-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "pending-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "success-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "success-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "unavailable-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "explicit-retry-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "fresh-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "pending-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "success-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "navigation-open-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "holdings-refresh-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "unavailable-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "retry-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "stale-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "partial-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "partial-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "partial-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "missing-quote-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "partial-light-tablet-768",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "provider-unavailable-normal-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "provider-unavailable-normal-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "provider-unavailable-normal-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  }
+]

@@ -1,0 +1,255 @@
+ Image folio-api Building 
+ Image folio-web Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 999B done
+#1 DONE 0.0s
+
+#2 [api internal] load build definition from Dockerfile
+#2 transferring dockerfile: 463B 0.0s done
+#2 DONE 0.1s
+
+#3 [api internal] load metadata for docker.io/library/node:24.19.0-bookworm-slim
+#3 DONE 1.8s
+
+#4 [api internal] load .dockerignore
+#4 transferring context: 185B 0.0s done
+#4 DONE 0.0s
+
+#5 [web internal] load build context
+#5 DONE 0.0s
+
+#6 [web 1/8] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#6 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.0s done
+#6 DONE 0.0s
+
+#6 [api 1/8] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#6 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.0s done
+#6 DONE 0.0s
+
+#5 [api internal] load build context
+#5 transferring context: 270.49kB 0.2s done
+#5 DONE 0.3s
+
+#7 [api 2/8] WORKDIR /workspace
+#7 CACHED
+
+#8 [api 3/8] RUN npm install --global pnpm@11.19.0
+#8 CACHED
+
+#9 [web 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#9 DONE 0.1s
+
+#9 [api 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#9 DONE 0.1s
+
+#10 [web 5/8] COPY packages ./packages
+#10 DONE 0.1s
+
+#10 [api 5/8] COPY packages ./packages
+#10 DONE 0.1s
+
+#11 [api 6/8] COPY apps ./apps
+#11 DONE 0.2s
+
+#11 [api 6/8] COPY apps ./apps
+#11 DONE 0.2s
+
+#12 [web 7/8] COPY scripts ./scripts
+#12 DONE 0.1s
+
+#12 [api 7/8] COPY scripts ./scripts
+#12 DONE 0.1s
+
+#13 [api 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 2.537 Scope: all 5 workspace projects
+#13 2.773 ? Verifying lockfile against supply-chain policies (505 entries)...
+#13 2.811 Lockfile is up to date, resolution step is skipped
+#13 3.245 Progress: resolved 1, reused 0, downloaded 0, added 0
+#13 3.705 Packages: +459
+#13 3.705 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#13 4.293 Progress: resolved 459, reused 0, downloaded 0, added 0
+#13 5.294 Progress: resolved 459, reused 0, downloaded 5, added 0
+#13 6.307 Progress: resolved 459, reused 0, downloaded 20, added 0
+#13 6.351 Packages are hard linked from the content-addressable store to the virtual store.
+#13 6.351   Content-addressable store is at: /workspace/.pnpm-store/v11
+#13 6.351   Virtual store is at:             node_modules/.pnpm
+#13 6.796 [WARN] Tarball download average speed 7 KiB/s (size 12 KiB) is below 50 KiB/s: https://registry.npmjs.org/supertest/-/supertest-7.3.1.tgz (GET)
+#13 7.013 [WARN] Tarball download average speed 10 KiB/s (size 11 KiB) is below 50 KiB/s: https://registry.npmjs.org/@axe-core/playwright/-/playwright-4.13.0.tgz (GET)
+#13 7.312 Progress: resolved 459, reused 0, downloaded 37, added 36
+#13 7.870 
+#13 7.870    ╭─────────────────────────────────────────╮
+#13 7.870    │                                         │
+#13 7.870    │   Update available! 11.19.0 → 12.9.1.   │
+#13 7.870    │   Changelog: https://pnpm.io/v/12.9.1   │
+#13 7.870    │    To update, run: pnpm add -g pnpm     │
+#13 7.870    │                                         │
+#13 7.870    ╰─────────────────────────────────────────╯
+#13 7.870 
+#13 7.905 [WARN] Tarball download average speed 20 KiB/s (size 36 KiB) is below 50 KiB/s: https://registry.npmjs.org/lz-string/-/lz-string-1.5.0.tgz (GET)
+#13 8.313 Progress: resolved 459, reused 0, downloaded 58, added 57
+#13 8.747 [WARN] Tarball download average speed 4 KiB/s (size 18 KiB) is below 50 KiB/s: https://registry.npmjs.org/pino-http/-/pino-http-11.0.0.tgz (GET)
+#13 8.768 [WARN] Tarball download average speed 1 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/swagger-ui-express/-/swagger-ui-express-5.0.1.tgz (GET)
+#13 9.121 [WARN] Tarball download average speed 36 KiB/s (size 153 KiB) is below 50 KiB/s: https://registry.npmjs.org/pino/-/pino-10.4.0.tgz (GET)
+#13 9.312 Progress: resolved 459, reused 0, downloaded 65, added 64
+#13 9.314 [WARN] Tarball download average speed 5 KiB/s (size 9 KiB) is below 50 KiB/s: https://registry.npmjs.org/@humanfs/node/-/node-0.16.8.tgz (GET)
+#13 10.31 Progress: resolved 459, reused 0, downloaded 73, added 73
+#13 11.35 Progress: resolved 459, reused 0, downloaded 82, added 82
+#13 12.14 [WARN] Tarball download average speed 44 KiB/s (size 197 KiB) is below 50 KiB/s: https://registry.npmjs.org/ajv/-/ajv-6.15.0.tgz (GET)
+#13 12.38 [WARN] Tarball download average speed 0 KiB/s (size 1 KiB) is below 50 KiB/s: https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz (GET)
+#13 12.39 Progress: resolved 459, reused 0, downloaded 90, added 90
+#13 13.04 [WARN] Tarball download average speed 46 KiB/s (size 377 KiB) is below 50 KiB/s: https://registry.npmjs.org/argon2/-/argon2-0.45.1.tgz (GET)
+#13 13.17 [WARN] Request took 10281ms: https://registry.npmjs.org/@csstools%2Fcss-syntax-patches-for-csstree
+#13 13.27 [WARN] Request took 10386ms: https://registry.npmjs.org/@csstools%2Fcss-color-parser
+#13 13.44 Progress: resolved 459, reused 0, downloaded 113, added 110
+#13 14.44 [WARN] Tarball download average speed 6 KiB/s (size 47 KiB) is below 50 KiB/s: https://registry.npmjs.org/lint-staged/-/lint-staged-17.6.0.tgz (GET)
+#13 14.50 Progress: resolved 459, reused 0, downloaded 127, added 126
+#13 14.87 [WARN] Tarball download average speed 12 KiB/s (size 22 KiB) is below 50 KiB/s: https://registry.npmjs.org/magic-string/-/magic-string-1.4.2.tgz (GET)
+#13 15.35 [WARN] Tarball download average speed 32 KiB/s (size 57 KiB) is below 50 KiB/s: https://registry.npmjs.org/@vitest/mocker/-/mocker-5.0.3.tgz (GET)
+#13 15.52 Progress: resolved 459, reused 0, downloaded 157, added 154
+#13 15.58 [WARN] Request took 12567ms: https://registry.npmjs.org/@rolldown%2Fbinding-linux-arm64-gnu
+#13 15.75 [WARN] Tarball download average speed 0 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz (GET)
+#13 16.34 [WARN] Tarball download average speed 45 KiB/s (size 158 KiB) is below 50 KiB/s: https://registry.npmjs.org/@bramus/specificity/-/specificity-2.4.2.tgz (GET)
+#13 16.40 [WARN] Tarball download average speed 1 KiB/s (size 8 KiB) is below 50 KiB/s: https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-5.0.1.tgz (GET)
+#13 16.53 Progress: resolved 459, reused 0, downloaded 192, added 192
+#13 17.38 [WARN] Request took 10621ms: https://registry.npmjs.org/@tailwindcss%2Foxide
+#13 17.56 Progress: resolved 459, reused 0, downloaded 202, added 199
+#13 18.43 [WARN] Tarball download average speed 38 KiB/s (size 430 KiB) is below 50 KiB/s: https://registry.npmjs.org/@testing-library/dom/-/dom-10.4.2.tgz (GET)
+#13 18.57 Progress: resolved 459, reused 0, downloaded 226, added 225
+#13 18.68 [WARN] Request took 11130ms: https://registry.npmjs.org/@types%2Fnode
+#13 19.60 Progress: resolved 459, reused 0, downloaded 246, added 246
+#13 20.56 [WARN] Tarball download average speed 9 KiB/s (size 13 KiB) is below 50 KiB/s: https://registry.npmjs.org/@humanfs/core/-/core-0.19.2.tgz (GET)
+#13 20.64 Progress: resolved 459, reused 0, downloaded 269, added 266
+#13 21.10 [WARN] Request took 10654ms: https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree
+#13 21.66 Progress: resolved 459, reused 0, downloaded 292, added 282
+#13 21.75 [WARN] Request took 10257ms: https://registry.npmjs.org/ansi-styles
+#13 22.67 Progress: resolved 459, reused 0, downloaded 327, added 327
+#13 23.68 Progress: resolved 459, reused 0, downloaded 361, added 360
+#13 23.86 [WARN] Tarball download average speed 5 KiB/s (size 10 KiB) is below 50 KiB/s: https://registry.npmjs.org/tar-stream/-/tar-stream-3.2.2.tgz (GET)
+#13 24.50 [WARN] Request took 13990ms: https://registry.npmjs.org/@typescript-eslint%2Futils
+#13 24.78 Progress: resolved 459, reused 0, downloaded 386, added 382
+#13 25.85 Progress: resolved 459, reused 0, downloaded 424, added 422
+#13 26.87 Progress: resolved 459, reused 0, downloaded 446, added 446
+#13 27.01 [WARN] Request took 16347ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
+#13 27.80 [WARN] Tarball download average speed 25 KiB/s (size 52 KiB) is below 50 KiB/s: https://registry.npmjs.org/@cacheable/utils/-/utils-2.5.0.tgz (GET)
+#13 27.87 Progress: resolved 459, reused 0, downloaded 449, added 448
+#13 28.47 [WARN] Tarball download average speed 0 KiB/s (size 5 KiB) is below 50 KiB/s: https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.8.4.tgz (GET)
+#13 28.98 Progress: resolved 459, reused 0, downloaded 452, added 452
+#13 29.62 [WARN] Request took 19282ms: https://registry.npmjs.org/@typescript-eslint%2Ftypes
+#13 30.26 [WARN] Tarball download average speed 32 KiB/s (size 109 KiB) is below 50 KiB/s: https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz (GET)
+#13 30.69 Progress: resolved 459, reused 0, downloaded 453, added 452
+#13 31.63 [WARN] Request took 22027ms: https://registry.npmjs.org/@typescript-eslint%2Fscope-manager
+#13 31.97 Progress: resolved 459, reused 0, downloaded 453, added 453
+#13 32.57 [WARN] Request took 23260ms: https://registry.npmjs.org/@typescript-eslint%2Fparser
+#13 32.97 Progress: resolved 459, reused 0, downloaded 455, added 454
+#13 33.39 [WARN] Request took 24128ms: https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin
+#13 33.71 [WARN] Request took 10093ms: https://registry.npmjs.org/playwright-core
+#13 33.97 Progress: resolved 459, reused 0, downloaded 456, added 456
+#13 34.97 Progress: resolved 459, reused 0, downloaded 458, added 458
+#13 35.16 [WARN] Request took 11089ms: https://registry.npmjs.org/react-dom
+#13 35.70 [WARN] Request took 12007ms: https://registry.npmjs.org/playwright
+#13 35.74 [WARN] Request took 12038ms: https://registry.npmjs.org/postcss
+#13 36.03 [WARN] Request took 11924ms: https://registry.npmjs.org/react-hook-form
+#13 36.04 Progress: resolved 459, reused 0, downloaded 459, added 458
+#13 36.04 Progress: resolved 459, reused 0, downloaded 459, added 459, done
+#13 38.12 ✓ Lockfile passes supply-chain policies (505 entries in 35.3s)
+#13 39.24 .../argon2@0.45.1/node_modules/argon2 install$ cross-env ZERO_AR_DATE=1 node-gyp-build
+#13 40.60 .../argon2@0.45.1/node_modules/argon2 install: Done
+#13 40.86 
+#13 40.86 devDependencies:
+#13 40.86 + @axe-core/playwright 4.13.0
+#13 40.86 + @playwright/test 1.63.0
+#13 40.86 + @testing-library/dom 10.4.2
+#13 40.86 + @testing-library/react 16.3.3
+#13 40.86 + @types/node 24.19.1
+#13 40.86 + @vitest/coverage-v8 5.0.3
+#13 40.86 + eslint 10.12.0
+#13 40.86 + husky 9.1.7
+#13 40.86 + jsdom 30.1.1
+#13 40.86 + lint-staged 17.6.0
+#13 40.86 + prettier 3.9.9
+#13 40.86 + semver 7.8.5
+#13 40.86 + typescript 6.0.3
+#13 40.86 + typescript-eslint 8.71.0
+#13 40.86 + vitest 5.0.3
+#13 40.86 
+#13 40.90 . prepare$ husky
+#13 41.10 . prepare: HUSKY=0 skip install
+#13 41.10 . prepare: Done
+#13 41.26 Done in 40.3s using pnpm v11.19.0
+#13 42.61 $ tsc -p tsconfig.json
+#13 49.09 $ node packages/design-tokens/scripts/sync.mjs --check
+#13 49.18 Figma token check: 40 canonical variables, 8 text styles, 119 states, both themes
+#13 DONE 49.5s
+
+#13 [api 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 DONE 49.5s
+
+#14 [api] exporting to image
+#14 exporting layers
+#14 ...
+
+#15 [web] exporting to image
+#15 ...
+
+#14 [api] exporting to image
+#14 exporting layers 25.9s done
+#14 exporting manifest sha256:f49c6a940d6933e1a45931e4ce51c45a7631c0e8c08a1393f9b20f116e07add9 0.0s done
+#14 exporting config sha256:0f40086f37915c66d4a86e7639f5e8208ffa3851fd4455b11f5ab73848143f88 0.0s done
+#14 exporting attestation manifest sha256:3122aa95e53261fabe7bfd84048c454deb4f766edf6cfb205eabaf11c6e44455 0.0s done
+#14 exporting manifest list sha256:88349ec5f7736604105c38691c507d2e67ae2bc89f947eb60e21001bd42fc524 0.0s done
+#14 naming to docker.io/library/folio-api:latest done
+#14 unpacking to docker.io/library/folio-api:latest
+#14 ...
+
+#15 [web] exporting to image
+#15 exporting layers 25.9s done
+#15 exporting manifest sha256:76dab597a0ee104d028adeb0ba1a1bf8d004e1cb7ed5fa3367e4ce178c03280d 0.0s done
+#15 exporting config sha256:66104a1c8e96c94f95505c9fc2f5b9ac666c0a50b496a4e29a6d32470500bf72 0.0s done
+#15 exporting attestation manifest sha256:3069663775d8a56bee9f8ac2b762a9c4444f3e65bbd35f05bee98630da285032 0.0s done
+#15 exporting manifest list sha256:727a95520966f13d50bfface8931f1ce4592bdfbc51552d1e8619b4bdc77f2df 0.0s done
+#15 naming to docker.io/library/folio-web:latest done
+#15 unpacking to docker.io/library/folio-web:latest
+#15 ...
+
+#14 [api] exporting to image
+#14 unpacking to docker.io/library/folio-api:latest 14.1s done
+#14 DONE 40.2s
+
+#15 [web] exporting to image
+#15 unpacking to docker.io/library/folio-web:latest 14.1s done
+#15 DONE 40.2s
+
+#16 [web] resolving provenance for metadata file
+#16 DONE 0.0s
+
+#17 [api] resolving provenance for metadata file
+#17 DONE 0.0s
+ Image folio-api Built 
+ Image folio-web Built 
+ Container folio-mongo-1 Running 
+ Container folio-redis-1 Running 
+ Container folio-mailhog-1 Running 
+ Container folio-api-1 Recreate 
+ Container folio-api-1 Recreated 
+ Container folio-web-1 Recreate 
+ Container folio-web-1 Recreated 
+ Container folio-mongo-1 Waiting 
+ Container folio-redis-1 Waiting 
+ Container folio-mongo-1 Healthy 
+ Container folio-redis-1 Healthy 
+ Container folio-api-1 Starting 
+ Container folio-api-1 Started 
+ Container folio-api-1 Waiting 
+ Container folio-api-1 Healthy 
+ Container folio-web-1 Starting 
+ Container folio-web-1 Started 
+ Container folio-web-1 Waiting 
+ Container folio-mongo-1 Waiting 
+ Container folio-redis-1 Waiting 
+ Container folio-mailhog-1 Waiting 
+ Container folio-api-1 Waiting 
+ Container folio-api-1 Healthy 
+ Container folio-mongo-1 Healthy 
+ Container folio-redis-1 Healthy 
+ Container folio-mailhog-1 Healthy 
+ Container folio-web-1 Healthy 

@@ -1,0 +1,482 @@
+ Image folio-fixture-worker Building
+ Image folio-demo-api Building
+ Image folio-worker Building
+ Image folio-fixture-api Building
+ Image folio-api Building
+ Image folio-web Building
+ Image folio-demo-web Building
+ Image folio-fixture-web Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 3.90kB 0.0s done
+#1 DONE 0.0s
+
+#2 [demo-api internal] load build definition from Dockerfile
+#2 transferring dockerfile: 30B 0.1s
+#2 transferring dockerfile: 463B 0.1s done
+#2 DONE 0.2s
+
+#3 [api internal] load metadata for docker.io/library/node:24.19.0-bookworm-slim
+#3 DONE 2.3s
+
+#4 [api internal] load .dockerignore
+#4 transferring context: 185B 0.0s done
+#4 DONE 0.0s
+
+#5 [web internal] load build context
+#5 DONE 0.0s
+
+#6 [worker 1/8] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#6 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.1s done
+#6 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.1s done
+#6 DONE 0.1s
+
+#5 [worker internal] load build context
+#5 transferring context: 264.57kB 0.3s done
+#5 DONE 0.3s
+
+#7 [demo-web 2/8] WORKDIR /workspace
+#7 CACHED
+
+#8 [demo-web 3/8] RUN npm install --global pnpm@11.19.0
+#8 CACHED
+
+#9 [demo-web 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#9 CACHED
+
+#7 [fixture-api 2/8] WORKDIR /workspace
+#7 CACHED
+
+#8 [fixture-api 3/8] RUN npm install --global pnpm@11.19.0
+#8 CACHED
+
+#9 [fixture-api 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#9 CACHED
+
+#10 [web 5/8] COPY packages ./packages
+#10 DONE 0.2s
+
+#11 [demo-api 6/8] COPY apps ./apps
+#11 DONE 0.4s
+
+#12 [worker 7/8] COPY scripts ./scripts
+#12 DONE 0.1s
+
+#13 [worker 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 6.242 Scope: all 5 workspace projects
+#13 6.578 ? Verifying lockfile against supply-chain policies (548 entries)...
+#13 6.612 Lockfile is up to date, resolution step is skipped
+#13 7.195 Progress: resolved 1, reused 0, downloaded 0, added 0
+#13 7.671 Packages: +497
+#13 7.671 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#13 8.453 Progress: resolved 497, reused 0, downloaded 0, added 0
+#13 10.28 Progress: resolved 497, reused 0, downloaded 1, added 0
+#13 11.28 Progress: resolved 497, reused 0, downloaded 17, added 0
+#13 12.88 [WARN] Tarball download average speed 1 KiB/s (size 2 KiB) is below 50 KiB/s: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz (GET)
+#13 12.97 [WARN] Tarball download average speed 5 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/swagger-ui-express/-/swagger-ui-express-5.0.1.tgz (GET)
+#13 12.98 [WARN] Tarball download average speed 9 KiB/s (size 15 KiB) is below 50 KiB/s: https://registry.npmjs.org/ast-v8-to-istanbul/-/ast-v8-to-istanbul-1.0.7.tgz (GET)
+#13 13.00 Progress: resolved 497, reused 0, downloaded 28, added 0
+#13 13.04 [WARN] Tarball download average speed 40 KiB/s (size 46 KiB) is below 50 KiB/s: https://registry.npmjs.org/@vitest/istanbul-lib-report/-/istanbul-lib-report-1.0.2.tgz (GET)
+#13 13.12 [WARN] Tarball download average speed 3 KiB/s (size 10 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.29.7.tgz (GET)
+#13 13.65 [WARN] Tarball download average speed 7 KiB/s (size 25 KiB) is below 50 KiB/s: https://registry.npmjs.org/react/-/react-19.3.0.tgz (GET)
+#13 14.23 [WARN] Tarball download average speed 6 KiB/s (size 28 KiB) is below 50 KiB/s: https://registry.npmjs.org/semver/-/semver-7.8.5.tgz (GET)
+#13 14.23 [WARN] Tarball download average speed 11 KiB/s (size 47 KiB) is below 50 KiB/s: https://registry.npmjs.org/jose/-/jose-6.2.12.tgz (GET)
+#13 14.27 Progress: resolved 497, reused 0, downloaded 41, added 0
+#13 14.56 [WARN] Tarball download average speed 6 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/react-dom/-/react-dom-19.3.0.tgz (GET)
+#13 14.80 Packages are hard linked from the content-addressable store to the virtual store.
+#13 14.80   Content-addressable store is at: /workspace/.pnpm-store/v11
+#13 14.80   Virtual store is at:             node_modules/.pnpm
+#13 14.85 [WARN] Tarball download average speed 28 KiB/s (size 36 KiB) is below 50 KiB/s: https://registry.npmjs.org/eslint-scope/-/eslint-scope-9.1.2.tgz (GET)
+#13 14.85 [WARN] Tarball download average speed 12 KiB/s (size 54 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz (GET)
+#13 15.32 [WARN] Tarball download average speed 13 KiB/s (size 57 KiB) is below 50 KiB/s: https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.16.tgz (GET)
+#13 15.36 Progress: resolved 497, reused 0, downloaded 54, added 2
+#13 16.38 Progress: resolved 497, reused 0, downloaded 72, added 4
+#13 16.94 [WARN] Request took 10162ms: https://registry.npmjs.org/@jridgewell%2Fresolve-uri
+#13 17.18 [WARN] Request took 10463ms: https://registry.npmjs.org/@eslint-community%2Feslint-utils
+#13 17.19 [WARN] Request took 10549ms: https://registry.npmjs.org/@babel%2Fhelper-string-parser
+#13 17.23 [WARN] Tarball download average speed 9 KiB/s (size 68 KiB) is below 50 KiB/s: https://registry.npmjs.org/decimal.js/-/decimal.js-10.6.0.tgz (GET)
+#13 17.25 [WARN] Request took 10579ms: https://registry.npmjs.org/@bramus%2Fspecificity
+#13 17.39 Progress: resolved 497, reused 0, downloaded 98, added 11
+#13 17.63 [WARN] Request took 10942ms: https://registry.npmjs.org/@csstools%2Fcss-color-parser
+#13 17.75 [WARN] Request took 11039ms: https://registry.npmjs.org/@deno%2Fshim-deno
+#13 17.78 [WARN] Request took 11161ms: https://registry.npmjs.org/@asamuzakjp%2Fcss-color
+#13 17.89 [WARN] Tarball download average speed 17 KiB/s (size 141 KiB) is below 50 KiB/s: https://registry.npmjs.org/@hookform/resolvers/-/resolvers-5.9.1.tgz (GET)
+#13 17.95 [WARN] Request took 11298ms: https://registry.npmjs.org/@babel%2Fhelper-validator-identifier
+#13 18.01 [WARN] Request took 11181ms: https://registry.npmjs.org/@noble%2Fhashes
+#13 18.13 [WARN] Request took 11325ms: https://registry.npmjs.org/@modelcontextprotocol%2Fsdk
+#13 18.13 [WARN] Request took 11390ms: https://registry.npmjs.org/@fontsource%2Fibm-plex-mono
+#13 18.18 [WARN] Tarball download average speed 43 KiB/s (size 114 KiB) is below 50 KiB/s: https://registry.npmjs.org/minimatch/-/minimatch-10.2.6.tgz (GET)
+#13 18.36 [WARN] Request took 11612ms: https://registry.npmjs.org/@fontsource%2Finter
+#13 18.43 Progress: resolved 497, reused 0, downloaded 118, added 31
+#13 18.45 [WARN] Request took 11662ms: https://registry.npmjs.org/@jridgewell%2Ftrace-mapping
+#13 18.53 [WARN] Request took 11780ms: https://registry.npmjs.org/@hono%2Fnode-server
+#13 18.71 [WARN] Request took 11888ms: https://registry.npmjs.org/@oxc-project%2Ftypes
+#13 19.12 [WARN] Request took 12482ms: https://registry.npmjs.org/@babel%2Fcode-frame
+#13 19.28 [WARN] Request took 12656ms: https://registry.npmjs.org/@asteasolutions%2Fzod-to-openapi
+#13 19.46 [WARN] Request took 12618ms: https://registry.npmjs.org/@reduxjs%2Ftoolkit
+#13 19.73 Progress: resolved 497, reused 0, downloaded 136, added 50
+#13 20.78 [WARN] Tarball download average speed 39 KiB/s (size 430 KiB) is below 50 KiB/s: https://registry.npmjs.org/@testing-library/dom/-/dom-10.4.2.tgz (GET)
+#13 20.80 Progress: resolved 497, reused 0, downloaded 162, added 71
+#13 21.40 [WARN] Tarball download average speed 4 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz (GET)
+#13 21.86 Progress: resolved 497, reused 0, downloaded 187, added 83
+#13 22.87 Progress: resolved 497, reused 0, downloaded 211, added 103
+#13 23.12 [WARN] Request took 16496ms: https://registry.npmjs.org/@asamuzakjp%2Fdom-selector
+#13 23.19 [WARN] Request took 16532ms: https://registry.npmjs.org/@babel%2Fruntime
+#13 23.27 [WARN] Request took 16604ms: https://registry.npmjs.org/@babel%2Ftypes
+#13 23.90 Progress: resolved 497, reused 0, downloaded 220, added 122
+#13 23.90 [WARN] Request took 17157ms: https://registry.npmjs.org/@hookform%2Fresolvers
+#13 24.25 [WARN] Request took 17595ms: https://registry.npmjs.org/@babel%2Fparser
+#13 24.60 [WARN] Tarball download average speed 11 KiB/s (size 161 KiB) is below 50 KiB/s: https://registry.npmjs.org/ioredis/-/ioredis-6.0.0.tgz (GET)
+#13 24.72 [WARN] Tarball download average speed 1 KiB/s (size 22 KiB) is below 50 KiB/s: https://registry.npmjs.org/express/-/express-5.2.1.tgz (GET)
+#13 24.90 Progress: resolved 497, reused 0, downloaded 251, added 168
+#13 25.91 Progress: resolved 497, reused 0, downloaded 267, added 199
+#13 26.10 [WARN] Request took 10013ms: https://registry.npmjs.org/@tailwindcss%2Foxide-win32-x64-msvc
+#13 26.27 [WARN] Request took 10334ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-arm-gnueabihf
+#13 26.31 [WARN] Request took 10605ms: https://registry.npmjs.org/@tailwindcss%2Foxide-darwin-x64
+#13 26.65 [WARN] Request took 10614ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-arm64-musl
+#13 26.96 [WARN] Request took 10897ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-x64-gnu
+#13 27.00 [WARN] Request took 20363ms: https://registry.npmjs.org/@axe-core%2Fplaywright
+#13 27.08 Progress: resolved 497, reused 0, downloaded 287, added 219
+#13 27.12 [WARN] Request took 11051ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-x64-musl
+#13 27.28 [WARN] Request took 11253ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-arm64-gnu
+#13 27.47 [WARN] Request took 11832ms: https://registry.npmjs.org/@tailwindcss%2Foxide-darwin-arm64
+#13 28.32 Progress: resolved 497, reused 0, downloaded 314, added 247
+#13 29.35 Progress: resolved 497, reused 0, downloaded 354, added 295
+#13 29.40 [WARN] Request took 13542ms: https://registry.npmjs.org/@tailwindcss%2Foxide-freebsd-x64
+#13 30.27 [WARN] Request took 10218ms: https://registry.npmjs.org/@types%2Fswagger-ui-express
+#13 30.36 Progress: resolved 497, reused 0, downloaded 377, added 358
+#13 31.45 Progress: resolved 497, reused 0, downloaded 423, added 416
+#13 31.67 [WARN] Request took 15238ms: https://registry.npmjs.org/@tailwindcss%2Foxide
+#13 32.44 [WARN] Request took 10555ms: https://registry.npmjs.org/@vitest%2Fmocker
+#13 32.49 Progress: resolved 497, reused 0, downloaded 459, added 456
+#13 32.84 [WARN] Request took 26579ms: https://registry.npmjs.org/pnpm
+#13 32.91
+#13 32.91    ╭─────────────────────────────────────────╮
+#13 32.91    │                                         │
+#13 32.91    │   Update available! 11.19.0 → 12.9.1.   │
+#13 32.91    │   Changelog: https://pnpm.io/v/12.9.1   │
+#13 32.91    │    To update, run: pnpm add -g pnpm     │
+#13 32.91    │                                         │
+#13 32.91    ╰─────────────────────────────────────────╯
+#13 32.91
+#13 33.54 Progress: resolved 497, reused 0, downloaded 488, added 488
+#13 33.59 [WARN] Tarball download average speed 47 KiB/s (size 503 KiB) is below 50 KiB/s: https://registry.npmjs.org/es-toolkit/-/es-toolkit-1.52.0.tgz (GET)
+#13 34.67 [WARN] Request took 15851ms: https://registry.npmjs.org/@types%2Fnode
+#13 35.04 [WARN] Request took 10659ms: https://registry.npmjs.org/bullmq
+#13 35.92 Progress: resolved 497, reused 0, downloaded 489, added 488
+#13 36.92 Progress: resolved 497, reused 0, downloaded 489, added 489
+#13 38.47 [WARN] Request took 31641ms: https://registry.npmjs.org/@playwright%2Ftest
+#13 38.75 [WARN] Request took 15546ms: https://registry.npmjs.org/axe-core
+#13 39.20 [WARN] Request took 17847ms: https://registry.npmjs.org/@typescript-eslint%2Ftype-utils
+#13 39.23 [WARN] Tarball download average speed 12 KiB/s (size 377 KiB) is below 50 KiB/s: https://registry.npmjs.org/argon2/-/argon2-0.45.1.tgz (GET)
+#13 39.39 Progress: resolved 497, reused 0, downloaded 490, added 489
+#13 39.76 [WARN] Request took 18404ms: https://registry.npmjs.org/@typescript-eslint%2Ftypes
+#13 39.84 [WARN] Tarball download average speed 0 KiB/s (size 3 KiB) is below 50 KiB/s: https://registry.npmjs.org/react-is/-/react-is-19.3.0.tgz (GET)
+#13 40.16 [WARN] Request took 18568ms: https://registry.npmjs.org/@typescript-eslint%2Futils
+#13 40.47 Progress: resolved 497, reused 0, downloaded 492, added 491
+#13 41.10 [WARN] Request took 19576ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
+#13 41.31 [WARN] Request took 20718ms: https://registry.npmjs.org/@typescript-eslint%2Fscope-manager
+#13 41.47 Progress: resolved 497, reused 0, downloaded 493, added 493
+#13 42.36 [WARN] Request took 21913ms: https://registry.npmjs.org/@typescript-eslint%2Fparser
+#13 42.86 [WARN] Request took 21333ms: https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree
+#13 43.56 [WARN] Request took 23108ms: https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin
+#13 47.33 [WARN] Request took 13033ms: https://registry.npmjs.org/playwright-core
+#13 53.29 Progress: resolved 497, reused 0, downloaded 494, added 493
+#13 53.32 [WARN] Tarball download average speed 0 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz (GET)
+#13 53.35 [WARN] Request took 19913ms: https://registry.npmjs.org/mpath
+#13 53.37 [WARN] Request took 19302ms: https://registry.npmjs.org/pino-std-serializers
+#13 53.48 [WARN] Request took 18851ms: https://registry.npmjs.org/react-router-dom
+#13 53.80 [WARN] Request took 19526ms: https://registry.npmjs.org/playwright
+#13 54.72 Progress: resolved 497, reused 0, downloaded 496, added 496
+#13 55.02 Progress: resolved 497, reused 0, downloaded 497, added 497, done
+#13 58.83 ✓ Lockfile passes supply-chain policies (548 entries in 52.2s)
+#13 58.89 .../argon2@0.45.1/node_modules/argon2 install$ cross-env ZERO_AR_DATE=1 node-gyp-build
+#13 60.42 .../argon2@0.45.1/node_modules/argon2 install: Done
+#13 61.19
+#13 61.19 devDependencies:
+#13 61.19 + @axe-core/playwright 4.13.0
+#13 61.19 + @playwright/test 1.63.0
+#13 61.19 + @testing-library/dom 10.4.2
+#13 61.19 + @testing-library/react 16.3.3
+#13 61.19 + @types/node 24.19.1
+#13 61.19 + @vitest/coverage-v8 5.0.3
+#13 61.19 + eslint 10.12.0
+#13 61.19 + husky 9.1.7
+#13 61.19 + jsdom 30.1.1
+#13 61.19 + lint-staged 17.6.0
+#13 61.19 + prettier 3.9.9
+#13 61.19 + semver 7.8.5
+#13 61.19 + typescript 6.0.3
+#13 61.19 + typescript-eslint 8.71.0
+#13 61.19 + vitest 5.0.3
+#13 61.19
+#13 61.36 . prepare$ husky
+#13 64.73 . prepare: HUSKY=0 skip install
+#13 64.73 . prepare: Done
+#13 65.81 Done in 1m 2.2s using pnpm v11.19.0
+#13 84.82 $ tsc -p tsconfig.json
+#13 97.62 $ node packages/design-tokens/scripts/sync.mjs --check
+#13 97.81 Figma token check: 40 canonical variables, 8 text styles, 119 states, both themes
+#13 DONE 98.6s
+
+#14 [fixture-api] exporting to image
+#14 exporting layers
+#14 ...
+
+#15 [web] exporting to image
+#15 ...
+
+#16 [fixture-worker] exporting to image
+#16 ...
+
+#17 [demo-api] exporting to image
+#17 ...
+
+#18 [demo-web] exporting to image
+#18 ...
+
+#19 [api] exporting to image
+#19 ...
+
+#20 [fixture-web] exporting to image
+#20 ...
+
+#21 [worker] exporting to image
+#21 ...
+
+#18 [demo-web] exporting to image
+#18 exporting layers 42.2s done
+#18 exporting manifest sha256:d62ca8bb9d8cfa36765e70979c8b1bb7cd05e87fd25b0af704694ffca077ffee
+#18 exporting manifest sha256:d62ca8bb9d8cfa36765e70979c8b1bb7cd05e87fd25b0af704694ffca077ffee 0.3s done
+#18 exporting config sha256:e1250ad2f1ac4b0ccf6a55b1118f00fd2b98bff0e359aff7e7fe0d4fd1dff49b
+#18 exporting config sha256:e1250ad2f1ac4b0ccf6a55b1118f00fd2b98bff0e359aff7e7fe0d4fd1dff49b 0.5s done
+#18 exporting attestation manifest sha256:92d898cd12f8f4240e6926c30657067da149b436529df35bb58d650ddb04ca0c
+#18 exporting attestation manifest sha256:92d898cd12f8f4240e6926c30657067da149b436529df35bb58d650ddb04ca0c 0.5s done
+#18 exporting manifest list sha256:94df03a554ae9663f9c6dc87b0e9f87688ad79353b14ad56a193112145d53c75
+#18 exporting manifest list sha256:94df03a554ae9663f9c6dc87b0e9f87688ad79353b14ad56a193112145d53c75 0.2s done
+#18 naming to docker.io/library/folio-demo-web:latest
+#18 naming to docker.io/library/folio-demo-web:latest 0.1s done
+#18 unpacking to docker.io/library/folio-demo-web:latest
+#18 ...
+
+#16 [fixture-worker] exporting to image
+#16 exporting layers 42.2s done
+#16 exporting manifest sha256:5cf4a95fe01ca9b71dfdfd085f1268885c5946768eaa0adddcd5f9e4c4d761be 0.4s done
+#16 exporting config sha256:67eb866bd50fb146c1d3d0cebe12d7a80c78368614fbeca36d07cb695076069a 0.4s done
+#16 exporting attestation manifest sha256:feee07e5eaf0ae6bf8452f55bf4998839e14433174bbff28426ddc3849fddf6f 0.4s done
+#16 exporting manifest list sha256:36ebfd7420a403fea7b4abdc7b9521a34f48c2c5b5d895b4f4ee3ac260e7274f 0.2s done
+#16 naming to docker.io/library/folio-fixture-worker:latest 0.1s done
+#16 unpacking to docker.io/library/folio-fixture-worker:latest
+#16 ...
+
+#20 [fixture-web] exporting to image
+#20 exporting layers 42.2s done
+#20 exporting manifest sha256:ab137efa8a8fa93a7e4b04c93a40385dda1518bff8245c7adf4efbb75cc5c13e 0.4s done
+#20 exporting config sha256:7642f3b9cacc50c4416a011335777bdb2771441ed35c98e8a4895b3a87685a54 0.4s done
+#20 exporting attestation manifest sha256:2a41d5dd69ca13ac03e770a65733622794c3604d85f9f21106ee9cbe389756dc 0.4s done
+#20 exporting manifest list sha256:2939b0b81109073e7ccd2d0134b2f4d8634f7d25c09a38c3050ec898632d6632 0.3s done
+#20 naming to docker.io/library/folio-fixture-web:latest 0.1s done
+#20 unpacking to docker.io/library/folio-fixture-web:latest
+#20 ...
+
+#15 [web] exporting to image
+#15 exporting layers 42.2s done
+#15 exporting manifest sha256:165edd82239fc652f4683ada135bda1669c1f9777828ad6561ef32e036857ddb 0.4s done
+#15 exporting config sha256:02fbd84713c4568147df643a5aa54138268c79df490ea4c6dbfb118afa3af3ca 0.4s done
+#15 exporting attestation manifest sha256:bf9320328f98f4fbb50b0905ac0ca5f48c63f3a5f42cf5012e75547fef1c24c8 0.4s done
+#15 exporting manifest list sha256:4341faeb6cf8626a3ee4f059c5c8141cfb3311817626fc79d61eff6dd5731785 0.3s done
+#15 naming to docker.io/library/folio-web:latest 0.1s done
+#15 unpacking to docker.io/library/folio-web:latest
+#15 ...
+
+#14 [fixture-api] exporting to image
+#14 exporting layers 42.2s done
+#14 exporting manifest sha256:9a0832e6bddeb93a2f37da40867754616852ff30e428cc5d88c830b1927dd611 0.4s done
+#14 exporting config sha256:5e53212346122f945fb02a70b4997b40af6cfb51e6c16edfed11cc9481cc03ee 0.4s done
+#14 exporting attestation manifest sha256:57500e9bc39e820f7a1824a718ac5bb383d832519ed408eededb427912927ec8 0.4s done
+#14 exporting manifest list sha256:df4b6f60bd7d9d75a4eebc524c9a2ca4be3d32e0f97d5c6a892735935f5f5e7d 0.3s done
+#14 naming to docker.io/library/folio-fixture-api:latest 0.1s done
+#14 unpacking to docker.io/library/folio-fixture-api:latest
+#14 ...
+
+#17 [demo-api] exporting to image
+#17 exporting layers 42.2s done
+#17 exporting manifest sha256:7b2cbe3e1b68759e409fd972a6a4f72eadb30f1d5eccca4bdb35721476d8a5b2 0.3s done
+#17 exporting config sha256:dadd27148d8f01313ead66c7bd30ce5c14551fcc12c248e93b37723ecfe74516 0.4s done
+#17 exporting attestation manifest sha256:ddb49b90b0b0aa5e088b30dbe642164d5335dc53b507cfa647f424cf096a2c64 0.5s done
+#17 exporting manifest list sha256:26b4cd65648886f14f68bb51072f59c5dc1dcd140edf0f882a15ffcaf154045f 0.2s done
+#17 naming to docker.io/library/folio-demo-api:latest 0.1s done
+#17 unpacking to docker.io/library/folio-demo-api:latest
+#17 ...
+
+#21 [worker] exporting to image
+#21 exporting layers 42.2s done
+#21 exporting manifest sha256:90158ac7c81b44d5e342fb18352560f1fec27d4cf0280ebc4d65df9993b0239b 0.3s done
+#21 exporting config sha256:1316149d202c020b55394594812d8fa261f5ccd3beade40d70fe810b301f04ec 0.5s done
+#21 exporting attestation manifest sha256:fabfdede351d1ec181bcd87b87c23c33f15aa6440e2b0da39dc662f4e833b712 0.5s done
+#21 exporting manifest list sha256:aeb7ef8a6e41e58c03675c7d167db2e7a255b8d6bfbf1e8d073d90ae255ea022 0.2s done
+#21 naming to docker.io/library/folio-worker:latest 0.1s done
+#21 unpacking to docker.io/library/folio-worker:latest
+#21 ...
+
+#19 [api] exporting to image
+#19 exporting layers 42.1s done
+#19 exporting manifest sha256:5fbbb617d164f254125f071b532587a0409c25840573a1d349cf1dcd84813ab4 0.4s done
+#19 exporting config sha256:56495c1f51282201bcdd35e033f04b03d7b4e491b641fec49fa102da48db2c66 0.4s done
+#19 exporting attestation manifest sha256:e0018c6f680fa21ba530458ae75d832b80b0363f8979dc1142321df73ec4eb82 0.4s done
+#19 exporting manifest list sha256:c720ee819cf5b331a9d1f08b7d787c28cbd75da24270ecd0ece9e5e235f68b54 0.3s done
+#19 naming to docker.io/library/folio-api:latest 0.1s done
+#19 unpacking to docker.io/library/folio-api:latest
+#19 ...
+
+#21 [worker] exporting to image
+#21 unpacking to docker.io/library/folio-worker:latest 183.2s done
+#21 ...
+
+#15 [web] exporting to image
+#15 unpacking to docker.io/library/folio-web:latest 183.2s done
+#15 DONE 227.8s
+
+#16 [fixture-worker] exporting to image
+#16 unpacking to docker.io/library/folio-fixture-worker:latest 183.2s done
+#16 DONE 227.8s
+
+#21 [worker] exporting to image
+#21 DONE 227.8s
+
+#17 [demo-api] exporting to image
+#17 unpacking to docker.io/library/folio-demo-api:latest 183.5s done
+#17 DONE 227.9s
+
+#20 [fixture-web] exporting to image
+#20 unpacking to docker.io/library/folio-fixture-web:latest 183.2s done
+#20 DONE 227.9s
+
+#18 [demo-web] exporting to image
+#18 unpacking to docker.io/library/folio-demo-web:latest 183.5s done
+#18 DONE 227.9s
+
+#14 [fixture-api] exporting to image
+#14 unpacking to docker.io/library/folio-fixture-api:latest 183.7s done
+#14 DONE 227.9s
+
+#19 [api] exporting to image
+#19 unpacking to docker.io/library/folio-api:latest 183.8s done
+#19 DONE 228.3s
+
+#22 [fixture-web] resolving provenance for metadata file
+#22 ...
+
+#23 [fixture-api] resolving provenance for metadata file
+#23 DONE 1.5s
+
+#24 [demo-api] resolving provenance for metadata file
+#24 DONE 0.3s
+
+#25 [worker] resolving provenance for metadata file
+#25 DONE 0.8s
+
+#26 [demo-web] resolving provenance for metadata file
+#26 DONE 2.6s
+
+#22 [fixture-web] resolving provenance for metadata file
+#22 DONE 2.7s
+
+#27 [fixture-worker] resolving provenance for metadata file
+#27 DONE 1.7s
+
+#28 [api] resolving provenance for metadata file
+#28 DONE 0.1s
+
+#29 [web] resolving provenance for metadata file
+#29 DONE 1.0s
+ Image folio-worker Built
+ Image folio-api Built
+ Image folio-demo-api Built
+ Image folio-fixture-api Built
+ Image folio-fixture-web Built
+ Image folio-fixture-worker Built
+ Image folio-demo-web Built
+ Image folio-web Built
+ Container folio-redis-1 Running
+ Container folio-mailhog-1 Running
+ Container folio-mongo-1 Running
+ Container folio-demo-api-1 Recreate
+ Container folio-fixture-api-1 Recreate
+ Container folio-worker-1 Recreate
+ Container folio-api-1 Recreate
+ Container folio-fixture-worker-1 Recreate
+ Container folio-fixture-worker-1 Recreated
+ Container folio-fixture-api-1 Recreated
+ Container folio-fixture-web-1 Recreate
+ Container folio-worker-1 Recreated
+ Container folio-demo-api-1 Recreated
+ Container folio-demo-web-1 Recreate
+ Container folio-api-1 Recreated
+ Container folio-web-1 Recreate
+ Container folio-demo-web-1 Recreated
+ Container folio-fixture-web-1 Recreated
+ Container folio-web-1 Recreated
+ Container folio-mongo-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-mongo-1 Waiting
+ Container folio-mongo-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-mongo-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-mongo-1 Waiting
+ Container folio-mongo-1 Healthy
+ Container folio-mongo-1 Healthy
+ Container folio-redis-1 Healthy
+ Container folio-redis-1 Healthy
+ Container folio-fixture-worker-1 Starting
+ Container folio-mongo-1 Healthy
+ Container folio-redis-1 Healthy
+ Container folio-api-1 Starting
+ Container folio-redis-1 Healthy
+ Container folio-mongo-1 Healthy
+ Container folio-fixture-api-1 Starting
+ Container folio-mongo-1 Healthy
+ Container folio-demo-api-1 Starting
+ Container folio-redis-1 Healthy
+ Container folio-worker-1 Starting
+ Container folio-fixture-worker-1 Started
+ Container folio-api-1 Started
+ Container folio-api-1 Waiting
+ Container folio-fixture-api-1 Started
+ Container folio-fixture-api-1 Waiting
+ Container folio-demo-api-1 Started
+ Container folio-demo-api-1 Waiting
+ Container folio-worker-1 Started
+ Container folio-demo-api-1 Healthy
+ Container folio-demo-web-1 Starting
+ Container folio-demo-web-1 Started
+ Container folio-fixture-api-1 Healthy
+ Container folio-fixture-web-1 Starting
+ Container folio-api-1 Healthy
+ Container folio-web-1 Starting
+ Container folio-fixture-web-1 Started
+ Container folio-web-1 Started
+ Container folio-fixture-web-1 Waiting
+ Container folio-fixture-api-1 Waiting
+ Container folio-mailhog-1 Waiting
+ Container folio-redis-1 Waiting
+ Container folio-mongo-1 Waiting
+ Container folio-api-1 Waiting
+ Container folio-fixture-worker-1 Waiting
+ Container folio-demo-web-1 Waiting
+ Container folio-worker-1 Waiting
+ Container folio-web-1 Waiting
+ Container folio-demo-api-1 Waiting
+ Container folio-mailhog-1 Healthy
+ Container folio-demo-api-1 Healthy
+ Container folio-worker-1 Healthy
+ Container folio-mongo-1 Healthy
+ Container folio-redis-1 Healthy
+ Container folio-api-1 Healthy
+ Container folio-fixture-worker-1 Healthy
+ Container folio-fixture-api-1 Healthy
+ Container folio-demo-web-1 Healthy
+ Container folio-fixture-web-1 Healthy
+ Container folio-web-1 Healthy

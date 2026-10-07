@@ -1,0 +1,15 @@
+
+Running 8 tests using 1 worker
+
+(node:33524) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › .local\local-first-audit\e2e\auth.spec.ts:53:1 › real MailHog registration, verification, persistence, preferences, export and confirmed deletion (21.4s)
+  ok 2 [chromium] › .local\local-first-audit\e2e\auth.spec.ts:169:1 › reset and password change revoke sessions; logout restores the protected-route boundary (11.5s)
+  ok 3 [chromium] › .local\local-first-audit\e2e\auth.spec.ts:200:1 › Figma auth geometry, theme/mobile derivations and real error states are accessible (8.3s)
+  ok 4 [chromium] › .local\local-first-audit\e2e\domain.spec.ts:97:1 › real ledger entry/review/FIFO/split/dividend/void, truthful degraded valuation, desktop/mobile accessibility (1.2m)
+  ok 5 [chromium] › .local\local-first-audit\e2e\domain.spec.ts:308:1 › isolated real read-only demo with labelled fixtures and no live providers (9.2s)
+  ok 6 [chromium] › .local\local-first-audit\e2e\foundation.spec.ts:5:3 › dark shell, 119 states, geometry, fonts, contrast and screenshot (5.7s)
+  ok 7 [chromium] › .local\local-first-audit\e2e\foundation.spec.ts:5:3 › light shell, 119 states, geometry, fonts, contrast and screenshot (5.4s)
+  ok 8 [chromium] › .local\local-first-audit\e2e\foundation.spec.ts:89:1 › keyboard, forms, navigation and derived mobile layout (3.6s)
+
+  8 passed (2.4m)

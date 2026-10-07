@@ -39,17 +39,37 @@ describe('Shared boundaries', () => {
       }).success,
     ).toBe(false);
   });
-  it('exposes only foundation APIs and keeps all product capabilities off', () => {
-    expect(Object.values(capabilities).every((v) => v === false)).toBe(true);
+  it('exposes verified P0 account/domain capabilities while later engines remain off', () => {
+    expect(
+      Object.entries(capabilities)
+        .filter(([, enabled]) => enabled)
+        .map(([key]) => key),
+    ).toEqual([
+      'authentication',
+      'portfolio',
+      'valuation',
+      'dashboard',
+      'holdings',
+      'transactions',
+      'settings',
+    ]);
     expect(navigation).toHaveLength(12);
     const doc = openApiDocument();
-    expect(Object.keys(doc.paths ?? {}).sort()).toEqual([
+    expect(
+      Object.keys(doc.paths ?? {})
+        .filter((path) => !path.startsWith('/api/v1/'))
+        .sort(),
+    ).toEqual([
       '/api/health',
       '/api/openapi.json',
       '/api/ready',
       '/health',
+      '/internal/jobs/{name}',
       '/ready',
     ]);
-    expect(JSON.stringify(doc)).not.toContain('/auth');
+    expect(Object.keys(doc.paths ?? {}).filter((path) => path.startsWith('/api/v1/'))).toHaveLength(
+      30,
+    );
+    expect(doc.paths?.['/api/v1/auth/local-fixture']?.get).toBeDefined();
   });
 });

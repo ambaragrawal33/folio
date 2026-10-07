@@ -1,0 +1,229 @@
+{
+  "url": "http://127.0.0.1:5405/review.html",
+  "status": 200,
+  "title": "Folio Priority 5 refresh review",
+  "sections": 22,
+  "images": [
+    {
+      "path": "/visual/fresh-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/fresh-dark-1440.png",
+      "width": 1440,
+      "height": 1074
+    },
+    {
+      "path": "/visual/pending-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/pending-dark-1440.png",
+      "width": 1440,
+      "height": 1088
+    },
+    {
+      "path": "/visual/success-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/success-dark-1440.png",
+      "width": 1440,
+      "height": 1088
+    },
+    {
+      "path": "/visual/success-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/success-light-1440.png",
+      "width": 1440,
+      "height": 1088
+    },
+    {
+      "path": "/visual/unavailable-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/unavailable-light-1440.png",
+      "width": 1440,
+      "height": 1088
+    },
+    {
+      "path": "/visual/explicit-retry-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/explicit-retry-light-1440.png",
+      "width": 1440,
+      "height": 1088
+    },
+    {
+      "path": "/visual/fresh-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/fresh-light-mobile-390.png",
+      "width": 390,
+      "height": 1895
+    },
+    {
+      "path": "/visual/pending-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/pending-light-mobile-390.png",
+      "width": 390,
+      "height": 1895
+    },
+    {
+      "path": "/visual/success-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/success-light-mobile-390.png",
+      "width": 390,
+      "height": 1895
+    },
+    {
+      "path": "/visual/navigation-open-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/navigation-open-light-mobile-390.png",
+      "width": 390,
+      "height": 2352
+    },
+    {
+      "path": "/visual/holdings-refresh-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/holdings-refresh-light-mobile-390.png",
+      "width": 390,
+      "height": 1623
+    },
+    {
+      "path": "/visual/unavailable-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/unavailable-light-mobile-390.png",
+      "width": 390,
+      "height": 1623
+    },
+    {
+      "path": "/visual/retry-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/retry-light-mobile-390.png",
+      "width": 390,
+      "height": 1623
+    },
+    {
+      "path": "/visual/stale-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/stale-dark-1440.png",
+      "width": 1440,
+      "height": 1215
+    },
+    {
+      "path": "/visual/partial-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/partial-dark-1440.png",
+      "width": 1440,
+      "height": 1224
+    },
+    {
+      "path": "/visual/partial-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/partial-light-1440.png",
+      "width": 1440,
+      "height": 1224
+    },
+    {
+      "path": "/visual/partial-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/partial-light-mobile-390.png",
+      "width": 390,
+      "height": 2605
+    },
+    {
+      "path": "/visual/missing-quote-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/missing-quote-light-mobile-390.png",
+      "width": 390,
+      "height": 2966
+    },
+    {
+      "path": "/visual/partial-light-tablet-768-viewport.png",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "path": "/visual/partial-light-tablet-768.png",
+      "width": 768,
+      "height": 1772
+    },
+    {
+      "path": "/visual/provider-unavailable-normal-dark-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/provider-unavailable-normal-dark-1440.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/provider-unavailable-normal-light-1440-viewport.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/provider-unavailable-normal-light-1440.png",
+      "width": 1440,
+      "height": 1024
+    },
+    {
+      "path": "/visual/provider-unavailable-normal-light-mobile-390-viewport.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "/visual/provider-unavailable-normal-light-mobile-390.png",
+      "width": 390,
+      "height": 1665
+    }
+  ],
+  "overflow": 0
+}

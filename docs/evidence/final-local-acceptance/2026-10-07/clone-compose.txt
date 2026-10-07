@@ -1,0 +1,328 @@
+ Image folio_acceptance_clone-api Building
+ Image folio_acceptance_clone-web Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.22kB done
+#1 DONE 0.0s
+
+#2 [web internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 463B 0.1s done
+#2 DONE 0.2s
+
+#2 [web internal] load build definition from Dockerfile
+#2 DONE 0.2s
+
+#3 [api internal] load metadata for docker.io/library/node:24.19.0-bookworm-slim
+#3 DONE 1.8s
+
+#4 [web internal] load .dockerignore
+#4 transferring context: 185B 0.0s done
+#4 DONE 0.1s
+
+#5 [api 1/8] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#5 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.0s done
+#5 DONE 0.1s
+
+#6 [api internal] load build context
+#6 transferring context: 1.32MB 1.7s done
+#6 DONE 1.7s
+
+#6 [web internal] load build context
+#6 DONE 1.7s
+
+#7 [api 2/8] WORKDIR /workspace
+#7 CACHED
+
+#8 [api 3/8] RUN npm install --global pnpm@11.19.0
+#8 CACHED
+
+#9 [api 4/8] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#9 CACHED
+
+#10 [api 5/8] COPY packages ./packages
+#10 CACHED
+
+#11 [api 6/8] COPY apps ./apps
+#11 DONE 0.3s
+
+#11 [api 6/8] COPY apps ./apps
+#11 DONE 0.3s
+
+#12 [web 7/8] COPY scripts ./scripts
+#12 DONE 0.1s
+
+#12 [api 7/8] COPY scripts ./scripts
+#12 DONE 0.1s
+
+#13 [api 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 3.100 Scope: all 5 workspace projects
+#13 3.348 ? Verifying lockfile against supply-chain policies (548 entries)...
+#13 3.384 Lockfile is up to date, resolution step is skipped
+#13 3.886 Progress: resolved 1, reused 0, downloaded 0, added 0
+#13 4.567 Packages: +497
+#13 4.567 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#13 5.384 Progress: resolved 497, reused 0, downloaded 0, added 0
+#13 6.411 Progress: resolved 497, reused 0, downloaded 1, added 0
+#13 7.415 Progress: resolved 497, reused 0, downloaded 14, added 0
+#13 7.659 Packages are hard linked from the content-addressable store to the virtual store.
+#13 7.659   Content-addressable store is at: /workspace/.pnpm-store/v11
+#13 7.659   Virtual store is at:             node_modules/.pnpm
+#13 7.859 [WARN] Tarball download average speed 5 KiB/s (size 6 KiB) is below 50 KiB/s: https://registry.npmjs.org/cors/-/cors-2.8.6.tgz (GET)
+#13 7.890 [WARN] Tarball download average speed 11 KiB/s (size 12 KiB) is below 50 KiB/s: https://registry.npmjs.org/supertest/-/supertest-7.3.1.tgz (GET)
+#13 7.892 [WARN] Tarball download average speed 13 KiB/s (size 22 KiB) is below 50 KiB/s: https://registry.npmjs.org/helmet/-/helmet-8.3.0.tgz (GET)
+#13 8.071 [WARN] Tarball download average speed 27 KiB/s (size 49 KiB) is below 50 KiB/s: https://registry.npmjs.org/@testing-library/react/-/react-16.3.3.tgz (GET)
+#13 8.150 [WARN] Tarball download average speed 25 KiB/s (size 47 KiB) is below 50 KiB/s: https://registry.npmjs.org/jose/-/jose-6.2.12.tgz (GET)
+#13 8.166 [WARN] Tarball download average speed 39 KiB/s (size 77 KiB) is below 50 KiB/s: https://registry.npmjs.org/lossless-json/-/lossless-json-4.3.1.tgz (GET)
+#13 8.401 [WARN] Tarball download average speed 1 KiB/s (size 3 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/supertest/-/supertest-7.2.1.tgz (GET)
+#13 8.415 Progress: resolved 497, reused 0, downloaded 28, added 27
+#13 8.626 [WARN] Tarball download average speed 23 KiB/s (size 25 KiB) is below 50 KiB/s: https://registry.npmjs.org/react/-/react-19.3.0.tgz (GET)
+#13 9.044 [WARN] Tarball download average speed 25 KiB/s (size 47 KiB) is below 50 KiB/s: https://registry.npmjs.org/lint-staged/-/lint-staged-17.6.0.tgz (GET)
+#13 9.119 [WARN] Tarball download average speed 15 KiB/s (size 28 KiB) is below 50 KiB/s: https://registry.npmjs.org/semver/-/semver-7.8.5.tgz (GET)
+#13 9.415 Progress: resolved 497, reused 0, downloaded 45, added 45
+#13 9.532
+#13 9.532    ╭─────────────────────────────────────────╮
+#13 9.532    │                                         │
+#13 9.532    │   Update available! 11.19.0 → 12.9.1.   │
+#13 9.532    │   Changelog: https://pnpm.io/v/12.9.1   │
+#13 9.532    │    To update, run: pnpm add -g pnpm     │
+#13 9.532    │                                         │
+#13 9.532    ╰─────────────────────────────────────────╯
+#13 9.532
+#13 9.822 [WARN] Tarball download average speed 46 KiB/s (size 68 KiB) is below 50 KiB/s: https://registry.npmjs.org/decimal.js/-/decimal.js-10.6.0.tgz (GET)
+#13 10.42 Progress: resolved 497, reused 0, downloaded 55, added 55
+#13 10.91 [WARN] Tarball download average speed 47 KiB/s (size 71 KiB) is below 50 KiB/s: https://registry.npmjs.org/@eslint-community/regexpp/-/regexpp-4.12.2.tgz (GET)
+#13 11.42 Progress: resolved 497, reused 0, downloaded 65, added 64
+#13 12.42 Progress: resolved 497, reused 0, downloaded 85, added 85
+#13 13.42 Progress: resolved 497, reused 0, downloaded 103, added 103
+#13 14.43 Progress: resolved 497, reused 0, downloaded 117, added 114
+#13 14.45 [WARN] Tarball download average speed 0 KiB/s (size 5 KiB) is below 50 KiB/s: https://registry.npmjs.org/@tailwindcss/vite/-/vite-4.3.3.tgz (GET)
+#13 14.49 [WARN] Tarball download average speed 0 KiB/s (size 3 KiB) is below 50 KiB/s: https://registry.npmjs.org/react-is/-/react-is-19.3.0.tgz (GET)
+#13 14.61 [WARN] Tarball download average speed 10 KiB/s (size 75 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/react/-/react-19.3.0.tgz (GET)
+#13 14.95 [WARN] Tarball download average speed 1 KiB/s (size 10 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.29.7.tgz (GET)
+#13 15.46 [WARN] Tarball download average speed 10 KiB/s (size 78 KiB) is below 50 KiB/s: https://registry.npmjs.org/magicast/-/magicast-0.5.5.tgz (GET)
+#13 15.47 Progress: resolved 497, reused 0, downloaded 147, added 147
+#13 16.01 [WARN] Tarball download average speed 48 KiB/s (size 464 KiB) is below 50 KiB/s: https://registry.npmjs.org/mongoose/-/mongoose-9.10.4.tgz (GET)
+#13 16.50 Progress: resolved 497, reused 0, downloaded 179, added 177
+#13 17.53 Progress: resolved 497, reused 0, downloaded 187, added 183
+#13 18.60 Progress: resolved 497, reused 0, downloaded 197, added 194
+#13 19.61 Progress: resolved 497, reused 0, downloaded 200, added 199
+#13 19.70 [WARN] Tarball download average speed 2 KiB/s (size 8 KiB) is below 50 KiB/s: https://registry.npmjs.org/@ioredis/commands/-/commands-2.0.0.tgz (GET)
+#13 20.73 Progress: resolved 497, reused 0, downloaded 215, added 202
+#13 20.75 [WARN] Tarball download average speed 4 KiB/s (size 14 KiB) is below 50 KiB/s: https://registry.npmjs.org/pure-rand/-/pure-rand-8.4.2.tgz (GET)
+#13 21.26 [WARN] Request took 17606ms: https://registry.npmjs.org/@reduxjs%2Ftoolkit
+#13 21.75 Progress: resolved 497, reused 0, downloaded 242, added 240
+#13 21.77 [WARN] Request took 18134ms: https://registry.npmjs.org/@mongodb-js%2Fsaslprep
+#13 22.59 [WARN] Tarball download average speed 28 KiB/s (size 463 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/node/-/node-24.19.1.tgz (GET)
+#13 22.60 [WARN] Tarball download average speed 0 KiB/s (size 13 KiB) is below 50 KiB/s: https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-6.1.1.tgz (GET)
+#13 22.71 [WARN] Request took 19055ms: https://registry.npmjs.org/@msgpackr-extract%2Fmsgpackr-extract-win32-x64
+#13 22.92 Progress: resolved 497, reused 0, downloaded 256, added 251
+#13 24.69 [WARN] Tarball download average speed 33 KiB/s (size 212 KiB) is below 50 KiB/s: https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz (GET)
+#13 24.70 Progress: resolved 497, reused 0, downloaded 263, added 254
+#13 25.98 [WARN] Tarball download average speed 3 KiB/s (size 8 KiB) is below 50 KiB/s: https://registry.npmjs.org/@csstools/css-parser-algorithms/-/css-parser-algorithms-4.0.2.tgz (GET)
+#13 26.07 Progress: resolved 497, reused 0, downloaded 264, added 255
+#13 28.18 Progress: resolved 497, reused 0, downloaded 269, added 257
+#13 28.79 [WARN] Tarball download average speed 11 KiB/s (size 63 KiB) is below 50 KiB/s: https://registry.npmjs.org/tr46/-/tr46-6.0.0.tgz (GET)
+#13 29.22 Progress: resolved 497, reused 0, downloaded 279, added 259
+#13 30.25 [WARN] Request took 16807ms: https://registry.npmjs.org/bullmq
+#13 30.47 Progress: resolved 497, reused 0, downloaded 293, added 261
+#13 30.76 [WARN] Request took 13461ms: https://registry.npmjs.org/fast-check
+#13 31.68 Progress: resolved 497, reused 0, downloaded 306, added 265
+#13 31.69 [WARN] Request took 10415ms: https://registry.npmjs.org/ip-address
+#13 33.29 Progress: resolved 497, reused 0, downloaded 328, added 266
+#13 34.43 Progress: resolved 497, reused 0, downloaded 360, added 270
+#13 34.95 [WARN] Request took 14159ms: https://registry.npmjs.org/husky
+#13 34.97 [WARN] Request took 13620ms: https://registry.npmjs.org/jiti
+#13 35.39 [WARN] Request took 14008ms: https://registry.npmjs.org/jose
+#13 35.45 [WARN] Request took 14258ms: https://registry.npmjs.org/immer
+#13 35.47 Progress: resolved 497, reused 0, downloaded 428, added 287
+#13 35.50 [WARN] Request took 13917ms: https://registry.npmjs.org/jsdom
+#13 35.85 [WARN] Request took 23996ms: https://registry.npmjs.org/@typescript-eslint%2Futils
+#13 36.14 [WARN] Request took 15547ms: https://registry.npmjs.org/hono
+#13 36.54 Progress: resolved 497, reused 0, downloaded 440, added 359
+#13 36.86 [WARN] Tarball download average speed 42 KiB/s (size 52 KiB) is below 50 KiB/s: https://registry.npmjs.org/@cacheable/utils/-/utils-2.5.0.tgz (GET)
+#13 37.12 [WARN] Tarball download average speed 0 KiB/s (size 7 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/react-dom/-/react-dom-19.3.0.tgz (GET)
+#13 37.28 [WARN] Request took 16009ms: https://registry.npmjs.org/ioredis
+#13 37.30 [WARN] Tarball download average speed 22 KiB/s (size 24 KiB) is below 50 KiB/s: https://registry.npmjs.org/@cacheable/memory/-/memory-2.2.0.tgz (GET)
+#13 37.62 Progress: resolved 497, reused 0, downloaded 469, added 410
+#13 37.67 [WARN] Request took 27773ms: https://registry.npmjs.org/@types%2Fnode
+#13 38.74 Progress: resolved 497, reused 0, downloaded 482, added 433
+#13 39.94 Progress: resolved 497, reused 0, downloaded 488, added 481
+#13 46.92 Progress: resolved 497, reused 0, downloaded 488, added 487
+#13 47.30 [WARN] Tarball download average speed 2 KiB/s (size 20 KiB) is below 50 KiB/s: https://registry.npmjs.org/qified/-/qified-0.10.1.tgz (GET)
+#13 48.28 [WARN] Request took 13206ms: https://registry.npmjs.org/recharts
+#13 48.67 Progress: resolved 497, reused 0, downloaded 489, added 487
+#13 48.69 [WARN] Request took 12122ms: https://registry.npmjs.org/swagger-ui-dist
+#13 49.71 Progress: resolved 497, reused 0, downloaded 490, added 489
+#13 50.05 [WARN] Request took 10080ms: https://registry.npmjs.org/zod-to-json-schema
+#13 50.21 [WARN] Request took 10251ms: https://registry.npmjs.org/yaml
+#13 51.30 Progress: resolved 497, reused 0, downloaded 490, added 490
+#13 54.43 [WARN] Request took 14146ms: https://registry.npmjs.org/zustand
+#13 54.48 Progress: resolved 497, reused 0, downloaded 491, added 490
+#13 59.57 [WARN] Request took 24507ms: https://registry.npmjs.org/react-router-dom
+#13 59.75 Progress: resolved 497, reused 0, downloaded 493, added 491
+#13 59.83 [WARN] Request took 20053ms: https://registry.npmjs.org/yahoo-finance2
+#13 60.54 [WARN] Request took 21714ms: https://registry.npmjs.org/undici
+#13 63.63 Progress: resolved 497, reused 0, downloaded 494, added 493
+#13 65.16 Progress: resolved 497, reused 0, downloaded 495, added 494
+#13 65.19 [WARN] Request took 33050ms: https://registry.npmjs.org/mongodb
+#13 66.07 [WARN] Request took 31013ms: https://registry.npmjs.org/react-router
+#13 66.10 [WARN] Request took 50207ms: https://registry.npmjs.org/es-toolkit
+#13 66.36 [WARN] Request took 27199ms: https://registry.npmjs.org/ioredis
+#13 67.21 Progress: resolved 497, reused 0, downloaded 495, added 495
+#13 67.22 [WARN] Request took 32046ms: https://registry.npmjs.org/rolldown
+#13 68.05 [WARN] Request took 55296ms: https://registry.npmjs.org/axe-core
+#13 68.99 [WARN] GET https://registry.npmjs.org/@eslint/core/-/core-1.2.1.tgz error (23). Will retry in 10 seconds. 2 retries left.
+#13 69.01 Progress: resolved 497, reused 0, downloaded 496, added 496
+#13 69.12 [WARN] Request took 30109ms: https://registry.npmjs.org/vitest
+#13 69.17 [WARN] Request took 28903ms: https://registry.npmjs.org/zod
+#13 69.60 [WARN] Request took 57833ms: https://registry.npmjs.org/@typescript-eslint%2Ftype-utils
+#13 69.67 [WARN] Request took 31120ms: https://registry.npmjs.org/tldts
+#13 69.92 [WARN] Request took 31465ms: https://registry.npmjs.org/tldts-core
+#13 69.97 [WARN] Request took 35128ms: https://registry.npmjs.org/react-hook-form
+#13 70.02 [WARN] Request took 31220ms: https://registry.npmjs.org/typescript-eslint
+#13 70.17 [WARN] Request took 31170ms: https://registry.npmjs.org/vite
+#13 70.61 [WARN] Request took 58784ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
+#13 72.71 [WARN] GET https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin error (23). Will retry in 10 seconds. 2 retries left.
+#13 72.72 [WARN] GET https://registry.npmjs.org/@typescript-eslint%2Fparser error (23). Will retry in 10 seconds. 2 retries left.
+#13 72.72 [WARN] GET https://registry.npmjs.org/@typescript-eslint%2Fscope-manager error (23). Will retry in 10 seconds. 2 retries left.
+#13 72.72 [WARN] GET https://registry.npmjs.org/@typescript-eslint%2Ftypes error (23). Will retry in 10 seconds. 2 retries left.
+#13 72.73 [WARN] GET https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree error (23). Will retry in 10 seconds. 2 retries left.
+#13 72.77 [WARN] Request took 37929ms: https://registry.npmjs.org/react-is
+#13 72.82 [WARN] Request took 37587ms: https://registry.npmjs.org/scheduler
+#13 72.99 [WARN] Request took 37922ms: https://registry.npmjs.org/react
+#13 73.32 [WARN] Request took 34454ms: https://registry.npmjs.org/use-sync-external-store
+#13 74.58 [WARN] Request took 39739ms: https://registry.npmjs.org/react-dom
+#13 75.56 [WARN] Request took 38786ms: https://registry.npmjs.org/tailwindcss
+#13 75.79 [WARN] Request took 36965ms: https://registry.npmjs.org/typescript
+#13 75.94 [WARN] Request took 41497ms: https://registry.npmjs.org/playwright
+#13 76.15 [WARN] Request took 41881ms: https://registry.npmjs.org/playwright-core
+#13 79.11 Progress: resolved 497, reused 0, downloaded 497, added 496
+#13 79.13 Progress: resolved 497, reused 0, downloaded 497, added 497, done
+#13 87.32 ✓ Lockfile passes supply-chain policies (548 entries in 1m 23.9s)
+#13 87.34 .../argon2@0.45.1/node_modules/argon2 install$ cross-env ZERO_AR_DATE=1 node-gyp-build
+#13 87.79 .../argon2@0.45.1/node_modules/argon2 install: Done
+#13 88.03
+#13 88.03 devDependencies:
+#13 88.03 + @axe-core/playwright 4.13.0
+#13 88.03 + @playwright/test 1.63.0
+#13 88.03 + @testing-library/dom 10.4.2
+#13 88.03 + @testing-library/react 16.3.3
+#13 88.03 + @types/node 24.19.1
+#13 88.03 + @vitest/coverage-v8 5.0.3
+#13 88.03 + eslint 10.12.0
+#13 88.03 + husky 9.1.7
+#13 88.03 + jsdom 30.1.1
+#13 88.03 + lint-staged 17.6.0
+#13 88.03 + prettier 3.9.9
+#13 88.03 + semver 7.8.5
+#13 88.03 + typescript 6.0.3
+#13 88.03 + typescript-eslint 8.71.0
+#13 88.03 + vitest 5.0.3
+#13 88.03
+#13 88.07 . prepare$ husky
+#13 88.19 . prepare: HUSKY=0 skip install
+#13 88.19 . prepare: Done
+#13 88.43 Done in 1m 26.5s using pnpm v11.19.0
+#13 90.38 $ tsc -p tsconfig.json
+#13 104.5 $ node packages/design-tokens/scripts/sync.mjs --check
+#13 109.8 Figma token check: 40 canonical variables, 8 text styles, 119 states, both themes
+#13 DONE 115.4s
+
+#13 [web 8/8] RUN pnpm install --frozen-lockfile && pnpm --filter @folio/shared build && pnpm tokens:check
+#13 DONE 115.4s
+
+#14 [web] exporting to image
+#14 exporting layers
+#14 ...
+
+#15 [api] exporting to image
+#15 exporting layers 59.1s done
+#15 exporting manifest sha256:ef725454857c94b9e87b08a6fe39c7c2519d0fbc0d6e8256134623f1dfdce3d9 0.0s done
+#15 exporting config sha256:4f553e73e6635c8a5e7933890ef411dbb5019752210def4907c09f97a7e1da71 0.1s done
+#15 ...
+
+#14 [web] exporting to image
+#14 exporting layers 59.1s done
+#14 exporting manifest sha256:bc3b4bcaf2aece5ec996503ff1a808d4a38c1b0ffdaf8699e16c2310a0afddb3 0.1s done
+#14 exporting config sha256:dabd71e53016c14402a13a7374fcc2626c164cf56c55a1516cdc88cedbf0ce4e
+#14 exporting config sha256:dabd71e53016c14402a13a7374fcc2626c164cf56c55a1516cdc88cedbf0ce4e 0.0s done
+#14 exporting attestation manifest sha256:83afe3898e3ab6154990db4a810a0dc320d76d7ddaad230bef3f2dc939823b81 0.1s done
+#14 exporting manifest list sha256:e577a5f49468ade306327e4f550523ca3b287121723693fd6573d87b0564131e
+#14 exporting manifest list sha256:e577a5f49468ade306327e4f550523ca3b287121723693fd6573d87b0564131e 0.1s done
+#14 naming to docker.io/library/folio_acceptance_clone-web:latest 0.0s done
+#14 unpacking to docker.io/library/folio_acceptance_clone-web:latest
+#14 ...
+
+#15 [api] exporting to image
+#15 exporting attestation manifest sha256:72d3ded42ebd7445795712b60fe9358cbecafb127f473dd33301e97c636d26fb 0.1s done
+#15 exporting manifest list sha256:1ce359663b696861f18206d3ee3b96bfe175481cf0a2f46698c0f70319ccdb39 0.1s done
+#15 naming to docker.io/library/folio_acceptance_clone-api:latest done
+#15 unpacking to docker.io/library/folio_acceptance_clone-api:latest
+#15 ...
+
+#14 [web] exporting to image
+#14 unpacking to docker.io/library/folio_acceptance_clone-web:latest 88.3s done
+#14 ...
+
+#15 [api] exporting to image
+#15 unpacking to docker.io/library/folio_acceptance_clone-api:latest 88.4s done
+#15 DONE 148.0s
+
+#14 [web] exporting to image
+#14 DONE 148.0s
+
+#16 [api] resolving provenance for metadata file
+#16 DONE 0.2s
+
+#17 [web] resolving provenance for metadata file
+#17 DONE 0.2s
+ Image folio_acceptance_clone-api Built
+ Image folio_acceptance_clone-web Built
+ Volume folio_acceptance_clone_mongo-data Creating
+ Network folio_acceptance_clone_default Creating
+ Volume folio_acceptance_clone_redis-data Creating
+ Volume folio_acceptance_clone_mongo-data Creating
+ Network folio_acceptance_clone_default Creating
+ Volume folio_acceptance_clone_redis-data Creating
+ Volume folio_acceptance_clone_redis-data Created
+ Volume folio_acceptance_clone_redis-data Created
+ Volume folio_acceptance_clone_mongo-data Created
+ Volume folio_acceptance_clone_mongo-data Created
+ Network folio_acceptance_clone_default Created
+ Network folio_acceptance_clone_default Created
+ Container folio_acceptance_clone-redis-1 Creating
+ Container folio_acceptance_clone-mailhog-1 Creating
+ Container folio_acceptance_clone-mongo-1 Creating
+ Container folio_acceptance_clone-mailhog-1 Created
+ Container folio_acceptance_clone-mongo-1 Created
+ Container folio_acceptance_clone-redis-1 Created
+ Container folio_acceptance_clone-api-1 Creating
+ Container folio_acceptance_clone-api-1 Created
+ Container folio_acceptance_clone-web-1 Creating
+ Container folio_acceptance_clone-web-1 Created
+ Container folio_acceptance_clone-redis-1 Starting
+ Container folio_acceptance_clone-mongo-1 Starting
+ Container folio_acceptance_clone-mailhog-1 Starting
+ Container folio_acceptance_clone-redis-1 Started
+ Container folio_acceptance_clone-mongo-1 Started
+ Container folio_acceptance_clone-mailhog-1 Started
+ Container folio_acceptance_clone-mongo-1 Waiting
+ Container folio_acceptance_clone-redis-1 Waiting
+ Container folio_acceptance_clone-redis-1 Healthy
+ Container folio_acceptance_clone-mongo-1 Healthy
+ Container folio_acceptance_clone-api-1 Starting
+ Container folio_acceptance_clone-api-1 Started
+ Container folio_acceptance_clone-api-1 Waiting
+ Container folio_acceptance_clone-api-1 Healthy
+ Container folio_acceptance_clone-web-1 Starting
+ Container folio_acceptance_clone-web-1 Started
+ Container folio_acceptance_clone-mailhog-1 Waiting
+ Container folio_acceptance_clone-api-1 Waiting
+ Container folio_acceptance_clone-web-1 Waiting
+ Container folio_acceptance_clone-mongo-1 Waiting
+ Container folio_acceptance_clone-redis-1 Waiting
+ Container folio_acceptance_clone-mailhog-1 Healthy
+ Container folio_acceptance_clone-redis-1 Healthy
+ Container folio_acceptance_clone-mongo-1 Healthy
+ Container folio_acceptance_clone-api-1 Healthy
+ Container folio_acceptance_clone-web-1 Healthy

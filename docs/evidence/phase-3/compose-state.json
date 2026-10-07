@@ -1,0 +1,27 @@
+[
+  {
+    "Service": "api",
+    "State": "running",
+    "Health": "healthy"
+  },
+  {
+    "Service": "mailhog",
+    "State": "running",
+    "Health": ""
+  },
+  {
+    "Service": "mongo",
+    "State": "running",
+    "Health": "healthy"
+  },
+  {
+    "Service": "redis",
+    "State": "running",
+    "Health": "healthy"
+  },
+  {
+    "Service": "web",
+    "State": "running",
+    "Health": "healthy"
+  }
+]

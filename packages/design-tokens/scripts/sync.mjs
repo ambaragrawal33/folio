@@ -218,7 +218,21 @@ const tailwind =
   '@theme inline {\n' +
   themeVars +
   '\n --font-sans: var(--type-body-family);\n --font-mono: var(--type-numeric-family);\n}\n';
+const authGeometry = JSON.parse(
+  await readFile(path.join(root, 'source/auth-geometry.json'), 'utf8'),
+);
+const authVariables =
+  ':root {\n' +
+  Object.entries(authGeometry.roles)
+    .map(([key, value]) => '  --auth-' + key + ': ' + value + 'px;')
+    .join('\n') +
+  '\n}\n';
 const outputs = {
+  'auth.css':
+    authVariables +
+    (await readFile(path.join(root, 'source/auth.css.template'), 'utf8'))
+      .replaceAll('__MOBILE__', String(geometry.responsive.mobile))
+      .replaceAll('\r\n', '\n'),
   'tokens.css': css,
   'components.css': componentCss,
   'tailwind.css': tailwind,

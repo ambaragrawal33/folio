@@ -1,0 +1,105 @@
+{
+  "status": "Research proposal only; no purchase, account, deployment or application change",
+  "researchDate": "2026-10-05",
+  "inspectedBranch": "codex/phase-3-domain",
+  "inspectedHead": "1d113eb1188ebfb47dc094c786d283a7dca58473",
+  "fx": [
+    [
+      {
+        "date": "2026-10-05",
+        "base": "USD",
+        "quote": "INR",
+        "rate": 96.2
+      }
+    ],
+    [
+      {
+        "date": "2026-10-05",
+        "base": "EUR",
+        "quote": "INR",
+        "rate": 108.25
+      }
+    ]
+  ],
+  "fxSources": [
+    "https://api.frankfurter.dev/v2/rates?base=USD&quotes=INR",
+    "https://api.frankfurter.dev/v2/rates?base=EUR&quotes=INR"
+  ],
+  "costAssumptions": [
+    "Decimal calculations",
+    "18% tax planning allowance plus 3% FX/card allowance on foreign recurring invoices; invoice not verified",
+    "18% GST on INR Hostinger domain prices; no FX allowance",
+    "No promotional hosting credits; no overages included",
+    "Monthly annualization uses unrounded monthly values"
+  ],
+  "domain": {
+    "coInFirstYear": "588.82",
+    "coInRenewal": "942.82",
+    "coInThreeYear": "2474.46",
+    "meFirstYear": "919.22",
+    "meRenewal": "2288.02",
+    "meThreeYear": "5495.26"
+  },
+  "candidates": [
+    {
+      "name": "A: Render Starter",
+      "nativeMonthly": "7.000",
+      "currency": "USD",
+      "inrNetMonthly": "673.40",
+      "inrPlanningMonthly": "818.45",
+      "inrPlanningAnnual": "9821.40",
+      "inrFirstYearWithDomain": "10410.22",
+      "inrRenewalYearWithDomain": "10764.22"
+    },
+    {
+      "name": "B: Render + Atlas Flex minimum",
+      "nativeMonthly": "15.000",
+      "currency": "USD",
+      "inrNetMonthly": "1443.00",
+      "inrPlanningMonthly": "1753.82",
+      "inrPlanningAnnual": "21045.87",
+      "inrFirstYearWithDomain": "21634.69",
+      "inrRenewalYearWithDomain": "21988.69"
+    },
+    {
+      "name": "B: Render + Atlas Flex upper usage",
+      "nativeMonthly": "37.000",
+      "currency": "USD",
+      "inrNetMonthly": "3559.40",
+      "inrPlanningMonthly": "4326.09",
+      "inrPlanningAnnual": "51913.14",
+      "inrFirstYearWithDomain": "52501.96",
+      "inrRenewalYearWithDomain": "52855.96"
+    },
+    {
+      "name": "DO API only 1GB",
+      "nativeMonthly": "6.000",
+      "currency": "USD",
+      "inrNetMonthly": "577.20",
+      "inrPlanningMonthly": "701.53",
+      "inrPlanningAnnual": "8418.35",
+      "inrFirstYearWithDomain": "9007.17",
+      "inrRenewalYearWithDomain": "9361.17"
+    },
+    {
+      "name": "DO 4GB + weekly image backups",
+      "nativeMonthly": "28.800",
+      "currency": "USD",
+      "inrNetMonthly": "2770.56",
+      "inrPlanningMonthly": "3367.34",
+      "inrPlanningAnnual": "40408.06",
+      "inrFirstYearWithDomain": "40996.88",
+      "inrRenewalYearWithDomain": "41350.88"
+    },
+    {
+      "name": "Hetzner CX23 + IPv4 + backups",
+      "nativeMonthly": "7.088",
+      "currency": "EUR",
+      "inrNetMonthly": "767.28",
+      "inrPlanningMonthly": "932.55",
+      "inrPlanningAnnual": "11190.57",
+      "inrFirstYearWithDomain": "11779.39",
+      "inrRenewalYearWithDomain": "12133.39"
+    }
+  ]
+}

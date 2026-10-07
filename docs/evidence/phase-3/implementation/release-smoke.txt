@@ -1,0 +1,2 @@
+Non-root release image; NODE_ENV=production rejects unresolved O02/O04/O06 PASS
+NODE_ENV=test compiled artifact: Mongo/Redis readiness, real read-only demo session, exact total215316, write403 PASS; public HTTPS/proxy/email/backups NOT VERIFIED

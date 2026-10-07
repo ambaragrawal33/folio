@@ -1,0 +1,13 @@
+{
+  "testedHead": "59100275cfc61abf44083b13eb29e478c1e1362c",
+  "status": "PASS",
+  "scope": "Actual isolated clean-checkout normal-mode application; no seeded user or live price fallback",
+  "browserSeconds": 10.4974942,
+  "registration": true,
+  "mailhogVerification": true,
+  "loginRefreshCookie": true,
+  "defaultCreation": true,
+  "previewThenConfirmation": true,
+  "reloadPersistence": true,
+  "missingQuoteNeverZero": true
+}

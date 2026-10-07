@@ -1,0 +1,450 @@
+/* Phase 3 geometry from live Figma 10:485, 27:390, 47:2, 32:143, 57:301.
+   Workflow, Light and mobile layouts are derived; approved global tokens stay unchanged. */
+.portfolio-screen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+}
+.portfolio-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+.portfolio-heading h1 {
+  font: var(--type-section-weight) var(--type-section-size)/var(--type-section-line)
+    var(--type-section-family);
+}
+.transactions .portfolio-heading h1 {
+  font-size: 22px;
+  line-height: 27px;
+}
+.asset-detail .portfolio-heading h1,
+.transaction-entry .portfolio-heading h1 {
+  font-size: 24px;
+  line-height: 32px;
+}
+.asset-detail .portfolio-heading h1 {
+  font-weight: 700; /* Live AssetDetail title 34:59. */
+}
+.portfolio-panel,
+.portfolio-summary {
+  background: var(--surface-base);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-control);
+  padding: var(--space-12);
+  min-width: 0;
+}
+.portfolio-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+.portfolio-panel h2 {
+  font: 600 15px/20px var(--type-body-family);
+}
+.portfolio-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+.portfolio-metric {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 140px;
+}
+.portfolio-metric:first-child {
+  flex: 1.6;
+}
+.portfolio-metric p {
+  overflow-wrap: anywhere;
+}
+[data-tone='positive'] {
+  color: var(--accessible-positive);
+}
+[data-tone='negative'] {
+  color: var(--accessible-negative);
+}
+.portfolio-status {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+.portfolio-two-columns {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: var(--space-12);
+}
+.portfolio-table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+.portfolio-table th {
+  background: var(--surface-raised);
+  color: var(--text-secondary);
+  text-align: left;
+  font: var(--type-caption-weight) var(--type-caption-size)/var(--type-caption-line)
+    var(--type-caption-family);
+}
+.portfolio-table th,
+.portfolio-table td {
+  padding: var(--space-12) var(--space-8);
+  border-bottom: 1px solid var(--border-default);
+  overflow-wrap: anywhere;
+  vertical-align: middle;
+}
+.portfolio-table td {
+  font: var(--type-numeric-weight) var(--type-numeric-size)/var(--type-numeric-line)
+    var(--type-numeric-family);
+}
+.portfolio-table td:first-child {
+  font-family: var(--type-body-family);
+}
+.portfolio-table td span {
+  display: block;
+}
+.portfolio-table th:first-child {
+  width: 22%;
+}
+.portfolio-table a {
+  display: block;
+  border-radius: var(--radius-control);
+}
+.portfolio-table a:hover {
+  color: var(--accessible-accent);
+}
+.portfolio-table tr[data-selected='true'] {
+  background: var(--surface-selected);
+}
+.portfolio-table .ds-button {
+  width: 100%;
+  min-width: 0;
+  white-space: normal;
+  height: auto;
+  min-height: var(--control-standard);
+  text-align: left;
+}
+.portfolio-toolbar,
+.portfolio-actions,
+.portfolio-filters,
+.portfolio-pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+.portfolio-toolbar {
+  align-items: flex-end;
+}
+.portfolio-toolbar .form-field {
+  flex: 1;
+  min-width: 180px;
+}
+.portfolio-filters [aria-pressed='true'] {
+  background: var(--surface-selected);
+  color: var(--accessible-accent);
+}
+.portfolio-pagination {
+  justify-content: flex-end;
+}
+.portfolio-pagination > span {
+  margin-right: auto;
+}
+.portfolio-select {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  color: var(--text-secondary);
+  font-size: var(--type-caption-size);
+}
+.portfolio-select select {
+  height: var(--control-standard);
+  padding: 0 var(--space-12);
+  color: var(--text-primary);
+  background: var(--surface-base);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-control);
+  font-size: var(--type-compact-size);
+  max-width: 100%;
+}
+.portfolio-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.portfolio-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+}
+.portfolio-check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+.portfolio-check input {
+  accent-color: var(--accent-primary);
+}
+.portfolio-details {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) 2fr;
+  margin: 0;
+  gap: var(--space-12);
+}
+.portfolio-details dt {
+  color: var(--text-secondary);
+}
+.portfolio-details dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-family: var(--type-numeric-family);
+}
+.portfolio-details dd span {
+  display: block;
+  font-family: var(--type-body-family);
+}
+.allocation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+.allocation-list li > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+.allocation-track {
+  height: var(--space-4);
+  margin: var(--space-8) 0;
+  background: var(--surface-raised);
+}
+.allocation-track span {
+  display: block;
+  height: 100%;
+  background: var(--accent-primary);
+}
+.demo-banner {
+  border: 1px solid var(--accent-primary);
+  border-radius: var(--radius-control);
+  padding: var(--space-12);
+  background: var(--surface-base);
+}
+.demo-banner strong {
+  color: var(--accessible-accent);
+}
+.demo-banner p {
+  margin-top: var(--space-4);
+  color: var(--text-secondary);
+}
+.local-fixture-notice {
+  margin-bottom: var(--space-12);
+}
+.instrument-picker {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-12);
+  margin-bottom: var(--space-12);
+}
+.instrument-picker .portfolio-select,
+.instrument-picker select {
+  min-width: 0;
+  width: 100%;
+}
+.instrument-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-12);
+  align-items: end;
+  position: relative;
+}
+.instrument-search-field {
+  position: relative;
+  min-width: 0;
+}
+.instrument-search-field > .figma-icon {
+  position: absolute;
+  width: var(--space-16);
+  height: var(--space-16);
+  left: var(--space-12);
+  bottom: calc((var(--control-standard) - var(--space-16)) / 2);
+  pointer-events: none;
+}
+.instrument-search input {
+  padding-left: var(--space-32);
+}
+.instrument-selection {
+  padding: var(--space-12);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-panel);
+  background: var(--surface-raised);
+  overflow-wrap: anywhere;
+}
+.instrument-picker p {
+  margin: 0;
+}
+@media (max-width: 720px) {
+  .instrument-search {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.portfolio-global-search {
+  position: relative;
+}
+.portfolio-global-search input {
+  color: var(--text-primary);
+}
+.portfolio-global-search input::placeholder {
+  color: var(--accessible-muted);
+  opacity: 1;
+}
+.observed-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: var(--space-12) 0;
+}
+.global-search-results {
+  color: var(--text-primary);
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + var(--space-4));
+  right: 0;
+  width: 400px;
+  max-width: 90vw;
+  padding: var(--space-12);
+  background: var(--surface-base);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-control);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.global-search-results .ds-button {
+  text-align: left;
+  white-space: normal;
+  height: auto;
+  min-height: var(--control-standard);
+}
+.onboarding {
+  max-width: 1060px;
+}
+.transaction-entry {
+  max-width: 900px;
+}
+@media (max-width: 1024px) {
+  .portfolio-two-columns {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 720px) {
+  .portfolio-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-heading {
+    align-items: flex-start;
+  }
+  .portfolio-summary {
+    align-items: flex-start;
+  }
+  .portfolio-metric {
+    flex-basis: 45%;
+    min-width: 0;
+  }
+  .portfolio-metric:first-child {
+    flex-basis: 100%;
+  }
+  .portfolio-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .portfolio-toolbar .form-field {
+    min-width: 0;
+  }
+  .portfolio-details {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .portfolio-details dd {
+    margin-bottom: var(--space-8);
+  }
+  .portfolio-table,
+  .portfolio-table tbody,
+  .portfolio-table tr,
+  .portfolio-table td {
+    display: block;
+    width: 100%;
+  }
+  .portfolio-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+  }
+  .portfolio-table tr {
+    border-bottom: 1px solid var(--border-default);
+    padding: var(--space-8) 0;
+  }
+  .portfolio-table td {
+    border: 0;
+    padding: var(--space-4) 0;
+  }
+  .portfolio-table td::before {
+    content: attr(data-label);
+    display: block;
+    font: var(--type-caption-weight) var(--type-caption-size)/var(--type-caption-line)
+      var(--type-caption-family);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+  }
+  .portfolio-actions .ds-button {
+    max-width: 100%;
+    white-space: normal;
+    height: auto;
+    min-height: var(--control-standard);
+  }
+}
+
+/* New Asset Detail tables reuse stacked rows on tablet; the approved sidebar
+   leaves too little space for readable provenance columns at that width. */
+@media (max-width: 1024px) {
+  .asset-ledger-table,
+  .asset-ledger-table tbody,
+  .asset-ledger-table tr,
+  .asset-ledger-table td {
+    display: block;
+    width: 100%;
+  }
+  .asset-ledger-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+  }
+  .asset-ledger-table tr {
+    border-bottom: 1px solid var(--border-default);
+    padding: var(--space-8) 0;
+  }
+  .asset-ledger-table td {
+    border: 0;
+    padding: var(--space-4) 0;
+  }
+  .asset-ledger-table td::before {
+    content: attr(data-label);
+    display: block;
+    font: var(--type-caption-weight) var(--type-caption-size)/var(--type-caption-line)
+      var(--type-caption-family);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+  }
+}

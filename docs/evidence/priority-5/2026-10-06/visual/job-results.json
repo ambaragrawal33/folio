@@ -1,0 +1,56 @@
+{
+  "runs": [
+    {
+      "enabled": true,
+      "reason": null,
+      "latest": {
+        "id": "5ead697117551dbcbdddf1c504ea9f378388385943217462fe45e05bbf9e03d1",
+        "name": "price-refresh",
+        "state": "completed",
+        "attempts": 1,
+        "createdAt": "2026-10-06T13:35:13.863Z",
+        "startedAt": "2026-10-06T13:35:17.721Z",
+        "finishedAt": "2026-10-06T13:35:17.803Z",
+        "error": null,
+        "stats": {
+          "requested": 1,
+          "accepted": 1,
+          "missing": 0,
+          "stale": 0,
+          "reused": 0,
+          "durationMs": 85.29623300000003,
+          "providerMs": 0.10719000000017331,
+          "lockWaitMs": 2.900949999999966,
+          "cleaned": 0
+        }
+      }
+    },
+    {
+      "enabled": true,
+      "reason": null,
+      "latest": {
+        "id": "0c24d2e097390fb7c06d7ce6637ec068554fecacfff6238fe74063ea67917956",
+        "name": "price-refresh",
+        "state": "degraded",
+        "attempts": 1,
+        "createdAt": "2026-10-06T13:35:43.075Z",
+        "startedAt": "2026-10-06T13:35:43.089Z",
+        "finishedAt": "2026-10-06T13:35:43.166Z",
+        "error": null,
+        "stats": {
+          "requested": 3,
+          "accepted": 2,
+          "missing": 1,
+          "stale": 1,
+          "reused": 1,
+          "durationMs": 77.45029900000009,
+          "providerMs": 0.026868999999351217,
+          "lockWaitMs": 0.6672509999989416,
+          "cleaned": 0
+        }
+      }
+    }
+  ],
+  "ledgerUnchangedByInitialRefresh": true,
+  "normalProviderEntitlementClaimed": false
+}

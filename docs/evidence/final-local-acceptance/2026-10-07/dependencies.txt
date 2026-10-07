@@ -1,0 +1,7 @@
+$ node scripts/verify-dependencies.mjs
+{
+  "node": "v24.19.0",
+  "packages": 498,
+  "peerEdges": 83,
+  "failures": []
+}

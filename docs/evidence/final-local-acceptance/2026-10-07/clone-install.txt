@@ -1,0 +1,133 @@
+Scope: all 5 workspace projects
+✓ Lockfile passes supply-chain policies (verified 7h ago)
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +497
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 497, reused 0, downloaded 0, added 0
+Progress: resolved 497, reused 0, downloaded 1, added 0
+Progress: resolved 497, reused 0, downloaded 16, added 0
+[WARN] Tarball download average speed 5 KiB/s (size 10 KiB) is below 50 KiB/s: https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.29.7.tgz (GET)
+[WARN] Tarball download average speed 1 KiB/s (size 3 KiB) is below 50 KiB/s: https://registry.npmjs.org/@types/supertest/-/supertest-7.2.1.tgz (GET)
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: C:\Users\ambar\OneDrive\Documents\ChatGPT\Folio\.local\final-acceptance\clean-clone\.pnpm-store\v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 497, reused 0, downloaded 35, added 4
+[WARN] Tarball download average speed 23 KiB/s (size 77 KiB) is below 50 KiB/s: https://registry.npmjs.org/lossless-json/-/lossless-json-4.3.1.tgz (GET)
+Progress: resolved 497, reused 0, downloaded 45, added 4
+[WARN] Tarball download average speed 0 KiB/s (size 2 KiB) is below 50 KiB/s: https://registry.npmjs.org/tinyrainbow/-/tinyrainbow-3.2.0.tgz (GET)
+Progress: resolved 497, reused 0, downloaded 52, added 5
+Progress: resolved 497, reused 0, downloaded 58, added 8
+Progress: resolved 497, reused 0, downloaded 63, added 8
+[WARN] Tarball download average speed 7 KiB/s (size 57 KiB) is below 50 KiB/s: https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.16.tgz (GET)
+Progress: resolved 497, reused 0, downloaded 72, added 8
+Progress: resolved 497, reused 0, downloaded 80, added 8
+Progress: resolved 497, reused 0, downloaded 84, added 8
+Progress: resolved 497, reused 0, downloaded 87, added 8
+Progress: resolved 497, reused 0, downloaded 90, added 10
+Progress: resolved 497, reused 0, downloaded 97, added 12
+Progress: resolved 497, reused 0, downloaded 99, added 12
+Progress: resolved 497, reused 0, downloaded 102, added 12
+Progress: resolved 497, reused 0, downloaded 103, added 12
+Progress: resolved 497, reused 0, downloaded 112, added 12
+Progress: resolved 497, reused 0, downloaded 116, added 12
+Progress: resolved 497, reused 0, downloaded 117, added 12
+Progress: resolved 497, reused 0, downloaded 120, added 12
+Progress: resolved 497, reused 0, downloaded 122, added 12
+Progress: resolved 497, reused 0, downloaded 123, added 12
+Progress: resolved 497, reused 0, downloaded 124, added 12
+Progress: resolved 497, reused 0, downloaded 131, added 12
+Progress: resolved 497, reused 0, downloaded 132, added 12
+Progress: resolved 497, reused 0, downloaded 137, added 13
+Progress: resolved 497, reused 0, downloaded 139, added 14
+Progress: resolved 497, reused 0, downloaded 146, added 16
+Progress: resolved 497, reused 0, downloaded 154, added 16
+Progress: resolved 497, reused 0, downloaded 168, added 16
+Progress: resolved 497, reused 0, downloaded 176, added 16
+Progress: resolved 497, reused 0, downloaded 181, added 16
+Progress: resolved 497, reused 0, downloaded 182, added 16
+Progress: resolved 497, reused 0, downloaded 192, added 20
+Progress: resolved 497, reused 0, downloaded 200, added 20
+Progress: resolved 497, reused 0, downloaded 206, added 20
+Progress: resolved 497, reused 0, downloaded 210, added 20
+Progress: resolved 497, reused 0, downloaded 212, added 20
+Progress: resolved 497, reused 0, downloaded 214, added 20
+Progress: resolved 497, reused 0, downloaded 215, added 20
+Progress: resolved 497, reused 0, downloaded 216, added 20
+Progress: resolved 497, reused 0, downloaded 219, added 20
+Progress: resolved 497, reused 0, downloaded 221, added 20
+Progress: resolved 497, reused 0, downloaded 222, added 20
+Progress: resolved 497, reused 0, downloaded 225, added 20
+Progress: resolved 497, reused 0, downloaded 227, added 20
+Progress: resolved 497, reused 0, downloaded 230, added 20
+Progress: resolved 497, reused 0, downloaded 234, added 20
+Progress: resolved 497, reused 0, downloaded 240, added 22
+Progress: resolved 497, reused 0, downloaded 242, added 22
+Progress: resolved 497, reused 0, downloaded 252, added 24
+Progress: resolved 497, reused 0, downloaded 267, added 24
+Progress: resolved 497, reused 0, downloaded 272, added 24
+Progress: resolved 497, reused 0, downloaded 273, added 24
+Progress: resolved 497, reused 0, downloaded 283, added 24
+Progress: resolved 497, reused 0, downloaded 284, added 24
+Progress: resolved 497, reused 0, downloaded 294, added 28
+Progress: resolved 497, reused 0, downloaded 302, added 28
+Progress: resolved 497, reused 0, downloaded 309, added 28
+Progress: resolved 497, reused 0, downloaded 322, added 28
+Progress: resolved 497, reused 0, downloaded 330, added 28
+Progress: resolved 497, reused 0, downloaded 340, added 30
+Progress: resolved 497, reused 0, downloaded 355, added 32
+Progress: resolved 497, reused 0, downloaded 367, added 32
+Progress: resolved 497, reused 0, downloaded 371, added 32
+Progress: resolved 497, reused 0, downloaded 378, added 32
+Progress: resolved 497, reused 0, downloaded 386, added 34
+Progress: resolved 497, reused 0, downloaded 398, added 34
+Progress: resolved 497, reused 0, downloaded 405, added 35
+Progress: resolved 497, reused 0, downloaded 414, added 35
+Progress: resolved 497, reused 0, downloaded 423, added 35
+Progress: resolved 497, reused 0, downloaded 443, added 38
+Progress: resolved 497, reused 0, downloaded 460, added 39
+Progress: resolved 497, reused 0, downloaded 484, added 47
+Progress: resolved 497, reused 0, downloaded 494, added 81
+Progress: resolved 497, reused 0, downloaded 495, added 99
+Progress: resolved 497, reused 0, downloaded 495, added 104
+Progress: resolved 497, reused 0, downloaded 496, added 131
+Progress: resolved 497, reused 0, downloaded 496, added 193
+Progress: resolved 497, reused 0, downloaded 496, added 217
+Progress: resolved 497, reused 0, downloaded 496, added 236
+Progress: resolved 497, reused 0, downloaded 496, added 250
+Progress: resolved 497, reused 0, downloaded 496, added 266
+Progress: resolved 497, reused 0, downloaded 496, added 298
+Progress: resolved 497, reused 0, downloaded 496, added 324
+Progress: resolved 497, reused 0, downloaded 496, added 364
+Progress: resolved 497, reused 0, downloaded 496, added 404
+Progress: resolved 497, reused 0, downloaded 496, added 419
+Progress: resolved 497, reused 0, downloaded 496, added 437
+Progress: resolved 497, reused 0, downloaded 496, added 461
+Progress: resolved 497, reused 0, downloaded 496, added 495
+Progress: resolved 497, reused 0, downloaded 497, added 495
+Progress: resolved 497, reused 0, downloaded 497, added 496
+Progress: resolved 497, reused 0, downloaded 497, added 497
+Progress: resolved 497, reused 0, downloaded 497, added 497, done
+.../argon2@0.45.1/node_modules/argon2 install$ cross-env ZERO_AR_DATE=1 node-gyp-build
+.../argon2@0.45.1/node_modules/argon2 install: Done
+
+devDependencies:
++ @axe-core/playwright 4.13.0
++ @playwright/test 1.63.0
++ @testing-library/dom 10.4.2
++ @testing-library/react 16.3.3
++ @types/node 24.19.1
++ @vitest/coverage-v8 5.0.3
++ eslint 10.12.0
++ husky 9.1.7
++ jsdom 30.1.1
++ lint-staged 17.6.0
++ prettier 3.9.9
++ semver 7.8.5
++ typescript 6.0.3
++ typescript-eslint 8.71.0
++ vitest 5.0.3
+
+. prepare$ husky
+. prepare: Done
+Done in 1m 54.9s using pnpm v11.19.0

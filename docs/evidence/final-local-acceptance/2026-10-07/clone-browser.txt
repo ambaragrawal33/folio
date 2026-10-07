@@ -1,0 +1,1 @@
+Clean-checkout browser registration/verification/login/default/review/confirm/reload PASS

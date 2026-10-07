@@ -1,0 +1,440 @@
+{
+  "referenceCommit": "a039bb43b8953eccc94d573febc68e161eace71f",
+  "protectedPaths": [
+    "packages/design-tokens",
+    "apps/web/src/design-system",
+    "apps/web/src/styles",
+    "docs/evidence/phase-1",
+    "docs/evidence/phase-2",
+    "docs/evidence/phase-3"
+  ],
+  "diffUnchanged": true,
+  "approvedPngFilesChecked": 85,
+  "pngs": [
+    {
+      "path": "docs/evidence/phase-1/gallery-dark-1440.png",
+      "gitBlob": "836ca4d34bcf548149cf96139a0d799ac09c6bb5",
+      "sha256": "9aab788bc06528975e51d423fceb225a84e1dab84b2dd610fe4fd9e63813a66b"
+    },
+    {
+      "path": "docs/evidence/phase-1/gallery-dark-full.png",
+      "gitBlob": "cfa027039dde0b77cc05576621a033d47d6a81b5",
+      "sha256": "810077ea347454e898e5709f270209ff74d597216c8832003428843e8718d6ad"
+    },
+    {
+      "path": "docs/evidence/phase-1/gallery-light-1440.png",
+      "gitBlob": "24b7add273c58f69a9b1ef1117027f81afa5754b",
+      "sha256": "34454c456367b6d32efb35e34441f536cfd0a3a3743ef014f9609244e4fc7864"
+    },
+    {
+      "path": "docs/evidence/phase-1/gallery-light-full.png",
+      "gitBlob": "96d44172c02397976e94a1b6eba0e4040559e81e",
+      "sha256": "70acdac33abaa3c3ec3ded5ccbc0042d956f7ca87724f91c243c01e381ed9754"
+    },
+    {
+      "path": "docs/evidence/phase-1/mobile-light.png",
+      "gitBlob": "fa73891bcc77259588bb751be7e8eef7bf51d6e0",
+      "sha256": "ccf277a67c9b2e1a4ca83bde3d213f59f7f50e6df1bfcf219881240e1cfd19aa"
+    },
+    {
+      "path": "docs/evidence/phase-1/shell-dark-1440.png",
+      "gitBlob": "5affeee2456f7a8c83efbb28d241a487efab9e92",
+      "sha256": "182f421495f4b25fb6d6def7a048ce42a24623668452ab9efe9e47f51c6a63cb"
+    },
+    {
+      "path": "docs/evidence/phase-1/shell-light-1440.png",
+      "gitBlob": "48cec03b7daffc5a484ac4ef477f192da2c86b69",
+      "sha256": "b916017b25f7aa38f6a767b1475d650b8b14006f5f87b5887038f3e7c1c6d98b"
+    },
+    {
+      "path": "docs/evidence/phase-2/ci-linux-gallery-dark-diff.png",
+      "gitBlob": "7df89e6f613a97b00b1056db7efc9548cd0f1ad4",
+      "sha256": "5a4ebf15bfbe252c8aa3c919f4e8559706cc7075ebd0f6eda83045812f539859"
+    },
+    {
+      "path": "docs/evidence/phase-2/ci-linux-gallery-light-diff.png",
+      "gitBlob": "8292cc54e909446f82a214b04c1b1551af63c38b",
+      "sha256": "b4964c369048d37775a094daa8d1fe7721f22e1aa9eb46d70d918fc98b7d7aff"
+    },
+    {
+      "path": "docs/evidence/phase-2/ci-linux-mobile-diff.png",
+      "gitBlob": "2024fd5044b706e6b5e72349e499cdbce3f478cd",
+      "sha256": "23dc6865f7aabf9de9a7a406d87114200e975ef0e1757db671c5393944e9bef2"
+    },
+    {
+      "path": "docs/evidence/phase-2/login-dark-1440.png",
+      "gitBlob": "94c2271c09d79c29729013b6b85174055a9b3e96",
+      "sha256": "9f40d31081f02bfb5055539bcc350f1d4c32d55685082ec5d958a619382c61b8"
+    },
+    {
+      "path": "docs/evidence/phase-2/login-light-1440.png",
+      "gitBlob": "8360b71220147f2a8f32e318cc46ca46686ac218",
+      "sha256": "6051bc1cc13a227737b58e0110009a6f9f5fdf8aaa457ab95320d91cd79b6bf0"
+    },
+    {
+      "path": "docs/evidence/phase-2/register-mobile-light-390.png",
+      "gitBlob": "8a735fddb7f3b372328985bece55ba09dd3e8833",
+      "sha256": "168b7e0e10d0de796d9a37b965c74916cdf39abdca5fc03d22aebced7453a2b9"
+    },
+    {
+      "path": "docs/evidence/phase-2/settings-dark-1440.png",
+      "gitBlob": "68366779f8058849d767b0557795e6c58a8227ab",
+      "sha256": "20c398a6da93cc0de14aa3e1fb5f8bc74cce50f1b505a5feba4281e946c2aeb0"
+    },
+    {
+      "path": "docs/evidence/phase-2/settings-light-1440.png",
+      "gitBlob": "880e1cc74a5b5e52ee2fcc748ff8b6d6f9f76c05",
+      "sha256": "2876eebf937e0ddd44552b2519bf1eb2d469a9f76e436861404680f936ffdfcf"
+    },
+    {
+      "path": "docs/evidence/phase-2/settings-mobile-light-390.png",
+      "gitBlob": "d5bb49624d7bbb8ff50396dc694c413ba24804d1",
+      "sha256": "c7fc47adab818259a2115c698ee21ec7f31909ab92329843750f5ea92527607d"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/login-dark-1440.png",
+      "gitBlob": "94c2271c09d79c29729013b6b85174055a9b3e96",
+      "sha256": "9f40d31081f02bfb5055539bcc350f1d4c32d55685082ec5d958a619382c61b8"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/login-dark-focus.png",
+      "gitBlob": "25b28fa7422a6be4f7b1e57c36591bf45347575a",
+      "sha256": "a151db967eb0375225b289921f0a77b20e007853b8fde2becd06bde4d6709d6f"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/login-dark-loading.png",
+      "gitBlob": "8b5701c9a52183f5e6678da2502737006f5e2daf",
+      "sha256": "817525eb583f813a239f57ee29bccd332e84fc857c99d63b5d005d0f6bccf025"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/login-dark-server-error.png",
+      "gitBlob": "8b3a49375c70e118a499c9a114fbc55016f73d27",
+      "sha256": "dde08915fdfb917487e6e42bb32e975b52fc200b8b261177d784070b6a2886b8"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/login-dark-validation.png",
+      "gitBlob": "04e88c997b349991230e5fad9497f47f39328723",
+      "sha256": "f9a81a8b5d7a642581bd9191f060655778c5b058e02a1e3ea0fc0eadae16be26"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/login-light-1440.png",
+      "gitBlob": "8360b71220147f2a8f32e318cc46ca46686ac218",
+      "sha256": "6051bc1cc13a227737b58e0110009a6f9f5fdf8aaa457ab95320d91cd79b6bf0"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/login-light-focus.png",
+      "gitBlob": "4bc7ef6f5e7bd7d0d2f61cabf846a986eda47d6a",
+      "sha256": "9a44a7c343eaa2f2442cfca86bd0b235353bcf5edfb4284c58135710c9fbe53d"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/login-light-loading.png",
+      "gitBlob": "c0f5a02ff53841c9a7166f2c35f3addccea0cce1",
+      "sha256": "8972833068a3551059b380b4c1863dd40dfe8d68d40a7ca46211926b17cd2745"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/login-light-server-error.png",
+      "gitBlob": "bf49ef49cf2acc0075afda748eb483ca8f606001",
+      "sha256": "a049ab9ecda84312c08de0ec0a3762fdad897c050630580a5e92aebccac5aee8"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/login-light-validation.png",
+      "gitBlob": "f748235dac31eb3c10a2e5317afe0493be1f6114",
+      "sha256": "02797864382dbe4a6689afeb6b89a1c5137e5b598d10e6bb1ec12c2557538ff5"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/register-mobile-light-390.png",
+      "gitBlob": "8a735fddb7f3b372328985bece55ba09dd3e8833",
+      "sha256": "168b7e0e10d0de796d9a37b965c74916cdf39abdca5fc03d22aebced7453a2b9"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/register-mobile-light-validation.png",
+      "gitBlob": "d29070446fa9ebaeded941447e12a79209e5b765",
+      "sha256": "4881bda57f7c1133790d8dbc71671f3622f59c1a9117f9d33aca2c17b7c25a0b"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-dark-1440.png",
+      "gitBlob": "dcc8188d711a27ca62808265a82bc7665fe98598",
+      "sha256": "995afd60b563ae890c5fc22ecf6de54c614813d5a949b2962dcb1688b176ad8d"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-dark-delete-validation.png",
+      "gitBlob": "e9cfc5390aecf638f06ffdf2d9bba3f7e8807ad3",
+      "sha256": "c91a57684e74e077f8b493b98cbeacfa3a1eeca6774c2c16bedf6880856c29c0"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-dark-full.png",
+      "gitBlob": "926de98d52067f2d51f1a929ca695ac720104e41",
+      "sha256": "37e9e1346a5e6309f9885410b45e8fb155099844e782d730b36ad136ab593ea2"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-dark-validation.png",
+      "gitBlob": "05dddbcc82aa5c805c613a0d1148561fc5780fd3",
+      "sha256": "0e8030de380dccffde1b5c869f8ba38cc17c670c0a4445227d250c9c890e5230"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-light-1440.png",
+      "gitBlob": "95b44273df8f9dd67c0882a7c4075183de0561fe",
+      "sha256": "3530a655b7f7c0bf660ef2e085ab2071cd9007b437fcb599bd5a7b34484083a6"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-light-delete-validation.png",
+      "gitBlob": "36141198490c6dd30d2c1e24e556af05430bec19",
+      "sha256": "ca85f3a1e847f301d1fe4f57559bd749d587278757e26a742a9e4277fa46e5e3"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-light-full.png",
+      "gitBlob": "7966eb8a2995a82eb3a0df63ebc85a3ca37a9374",
+      "sha256": "6b3eea15839969c57b716edb5cd0e5e580f07552090ce9a666052051340690a8"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-light-validation.png",
+      "gitBlob": "65f3e3a15a3fa97dda9e7f6b8d44765bf03c8793",
+      "sha256": "cf74b6f378543fb40472d1c8073b67797e78c5ab189a04ffd746584f9ee800b0"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-mobile-light-390.png",
+      "gitBlob": "759da183b7449e247c8667ec00cba8a70f6a0dc8",
+      "sha256": "c27beb8e3a25698bef5cfa086b6e23a6b3f2e7bbc140fd31e22df37c06aae762"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-mobile-light-delete-confirmation.png",
+      "gitBlob": "b50e9a74d5293a01ce7f5f22240a4eeac52e33fa",
+      "sha256": "3c495cdfd8f18ef78ef46089e828b54c015272323040967679dd9d5b24e0752d"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-mobile-light-delete-validation.png",
+      "gitBlob": "e5d97b9dbade602cde5f56152c15e5b904ee3e0c",
+      "sha256": "169f495bdb3eb2ba4c243d97f15967cf6d87a2d8abe6396f93a8ee3acadcf6cd"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-mobile-light-full.png",
+      "gitBlob": "53bdaa69f9e944dc6d4ef1458ad6b28465c24bfd",
+      "sha256": "4b2f56a800bbd6aec41fe5695204c3aa6d184c72b04f526a6dd6f2e7b7e29a3b"
+    },
+    {
+      "path": "docs/evidence/phase-2/visual-corrections/settings-mobile-light-navigation-open.png",
+      "gitBlob": "145c50943d467002dca04935a61f7d80a911094b",
+      "sha256": "8e5172fe18d5f286bf7485914eb2083442d270230c7d251e523c2e7186b988fa"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/dashboard-dark-1440.png",
+      "gitBlob": "f2f617ac25a1daa29d1cc96e27b7bb4ac644c474",
+      "sha256": "eadec5918081b6399861dfad0379dec2fbae40e53e28ad60f867b73ce8779d30"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/dashboard-empty-dark-1440.png",
+      "gitBlob": "861cbe3ad0568e70480dd30839b1bbd1b6a66fcb",
+      "sha256": "e30a2b20277c094a5bc3488526d3c656eb0807e3c0e1b53b8cec83cab1e687b3"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/dashboard-light-1440.png",
+      "gitBlob": "c94ebedf3e3d6719a9f3e9ca9007af4e08591c44",
+      "sha256": "ff479477734e223d1a199eb774443d9ed9cd8110c4e6b26e00883b37bd1a9065"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/dashboard-light-390.png",
+      "gitBlob": "4e9f4fbd062fe13a27d15b8d8e635d5421b37a12",
+      "sha256": "6acbb51928a272d477fda06c8e3f17ea1374d8e73d2d80afa3b72e8e94a15a64"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/demo-dashboard-dark-1440.png",
+      "gitBlob": "0c2b58ef64f11fffc337fbef0044ad53f36c98b2",
+      "sha256": "34846bdeae85a9199a1d5beff694465469d90e20bdd40aba2ab5791633f27dfb"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/demo-dashboard-light-1440.png",
+      "gitBlob": "96592ece8729ee07e6c9e77e42a282620a0f5761",
+      "sha256": "1daff261f46c57f9d68d9b741a249f8ed3a7fbf260cc385e2a6eadf9ccb211f9"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/demo-entry-dark-1440.png",
+      "gitBlob": "8f31b91237b60cce19b74f5c0832f78f9b3173dc",
+      "sha256": "a09759207b2ca53ce0f4d28ea1a3f44dcc3448155880095ee50d79de3255b9e2"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/demo-entry-light-1440.png",
+      "gitBlob": "5fc1a00f96074f8bd5d631a8fdef89099556b1fa",
+      "sha256": "37c69f54891ee0e583a0182e78ed82ad28c82903fc2b4fc2e3e8dc19bcddc477"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/demo-holdings-light-390.png",
+      "gitBlob": "97987a14dbc02cdb45cb60b916afa1d111a8afd7",
+      "sha256": "7ad3fa17f91bf5f55f2a2f48c7d1c2be56441bd4a02ece9dd933527c580b2a8c"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/entry-validation-dark-1440.png",
+      "gitBlob": "9e3bf3b510371e90dd610017272151eb1da2a0cc",
+      "sha256": "65ed2474b85e5229f3f1e80c8573eefa1343034704e32d2b8d736b28e19d2340"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/entry-validation-light-1440.png",
+      "gitBlob": "12ef601b92e26740997bb47a7c1e6ef9d63c2d87",
+      "sha256": "377e0b2fd0dc443d44f1a945bd6911bcfca39a364d77ca15299aed755883c283"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/entry-validation-light-390.png",
+      "gitBlob": "99ee3757a7cc43493868cc1d47ac6e238da48250",
+      "sha256": "508f6ae2abf1c6b8579a371c6c600dc576ca203d6338634aedfb878ecdade69a"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/fx-override-dark-1440.png",
+      "gitBlob": "5ab37f850bcd022d9aa9e806728c444da65216f8",
+      "sha256": "abef43e7ce16a0fe8e597ed183bd1f68b80033a92a53fdcc2073da2b7be214e5"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/fx-override-light-1440.png",
+      "gitBlob": "cd441ccc7c2b77b9574f993766002f8866f1a8c6",
+      "sha256": "e888283baf31cb0370562973bbac492c40fe2314c3676d95f1fa17d22936e9cd"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/fx-override-light-390.png",
+      "gitBlob": "cad81dc340595ae1b722122b120cabfaeaa045e2",
+      "sha256": "bf865cb873ff670dd2b70b1d55a89abe3ede5b317861270c3a9b30e80cd3b8ef"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/global-search-dark-1440.png",
+      "gitBlob": "4063b02b6a070aab2b306c80de5d720d901abee5",
+      "sha256": "c470d1cd31440eae7014584bfd5aa2f162aee245a3e1d79fda75ed761cc9aa82"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/holdings-asset-dark-1440.png",
+      "gitBlob": "296e9f06f83896e9240d50a39c9d9359d3a25e30",
+      "sha256": "c3fc8c692a4f521c614f2b215101421a61e6cb3d16647b26dfd5c0edb68dff75"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/holdings-asset-light-1440.png",
+      "gitBlob": "244d7b43a3cd4ca89cf762bfa5893d8b17052f43",
+      "sha256": "a42550a04d26dab474e27284b4dfb2e56a7bdb1dd3e622889e201e44caf7f887"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/holdings-asset-light-390.png",
+      "gitBlob": "456904323518844e4b61df08ae49baf42fe1dd91",
+      "sha256": "5cbd36629ee9d34ee5e63d1d7b144cc3d6c6d65fa2ca77c997e7b3cdd76f10f7"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/holdings-dark-1440.png",
+      "gitBlob": "c47152d853ebfdb2ff1d9dc26a663ef57a657991",
+      "sha256": "8d3a2a97b408d19ef29fd41e332b34afa244636e1323bca18375e8a7a93a047b"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/holdings-light-1440.png",
+      "gitBlob": "aa977108eae2ec543768c4f7854513bd0b20c958",
+      "sha256": "65c138c7b4e94b888be27c3a6ca0bb5c9a70f238870daab31bf0f8fb188cfbf8"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/holdings-light-390.png",
+      "gitBlob": "d89714b4735bafaeed72017cf2d59b3cbe50c811",
+      "sha256": "4b1159dfd0f9f823f557ba98baceffe939dba9058dd73143b28544656c0a4630"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/manual-buy-dark-1440.png",
+      "gitBlob": "5b6e07695f88b25797a1e504c31c94cb5d3a42a2",
+      "sha256": "89c32182a1e87af071470c99b68aa22c65299d2351da0f406a236f85488bccda"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/manual-dividend-dark-1440.png",
+      "gitBlob": "a476039cfc81e5df3e33e979ed55620fe3546d1b",
+      "sha256": "0a8bb633241a17839c28c582c5fc6b8b464412f55ff010112fa649682e1c5228"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/manual-dividend-light-390.png",
+      "gitBlob": "05d76ee7cd2d7a06bc17fa9d7a3396bdb98cdeb0",
+      "sha256": "924883fdc9d713ad178f18445851dfa3ecc21a7df5ffe1ab39aa4848e01ca592"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/manual-sell-dark-1440.png",
+      "gitBlob": "d8a956f96b0c32b806c2070e108541ad4bc34970",
+      "sha256": "c93b59b21776d358a7206196ed417d5f3e18f9bd4bac95cd9efa702ae18a4647"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/manual-split-dark-1440.png",
+      "gitBlob": "9b57b4bc3fdd05dd07272c836eac5d5c073f5a75",
+      "sha256": "11c6cae02434a8e1d174314299f9d0db0db3bd79914a7d0c52cf06bfb67de6a4"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/manual-split-light-390.png",
+      "gitBlob": "864947875478285779877f146acef2c71adfdf40",
+      "sha256": "6cd84f195ef9c58181739f1cecb542968ae7f6fd18585c64094090103671f978"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/navigation-open-light-390.png",
+      "gitBlob": "b6cd54589bf3749c5faf0b38af25dd9b12cb0606",
+      "sha256": "2c3e9e917779790f6499cc06aaa4e287f8256399311e6e2877c8b6ea75394740"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/onboarding-dark-1440.png",
+      "gitBlob": "e1924c6d184626dbe5d4c7a52d7604afceb5efe2",
+      "sha256": "20496915ba756896a7d077189d4047be26e002607fd27f759dfe7ad8ea977e59"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/oversell-error-light-390.png",
+      "gitBlob": "6c2fafa158e3cbc6666b0a798b51f144df657c15",
+      "sha256": "a127920f64e05b33fb4b4a8e172232fd7a8d29c375fb4d7b8349ebf94205f9e1"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/portfolio-settings-dark-1440.png",
+      "gitBlob": "bf5e72e6d4f221f59dd65e3496d00f336e6a42cc",
+      "sha256": "240950fe55830516d1409a62842bab12e4d3b3a52f399f7d65ee32eb3f894d3e"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/portfolio-settings-light-1440.png",
+      "gitBlob": "ede92dab3aae7a3f27e24d381df7756828f08b08",
+      "sha256": "3ab4b2ab27f9923a8e41888555cf0e4ed25edf857b974414d2781fb6b47f17dd"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/portfolio-settings-light-390.png",
+      "gitBlob": "84b6c2eb0ade06fb889abcc78f678290965d8870",
+      "sha256": "03bab51423e87d58622b2b6693053166bfa2099a661b9e5d0b355d2f0ec8718a"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/record-pending-dark-1440.png",
+      "gitBlob": "3ba94be4a4d3bf6298d6ac37d3c1994622d9571c",
+      "sha256": "b214b977226a7c7bf34437338ada4feb331ac40dcbda23f5915d3af53c0967b9"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/transaction-review-dark-1440.png",
+      "gitBlob": "486aa1a8220c5b6622d06ef1c1498459a6df2989",
+      "sha256": "e1eb24d2008015da67d9ccf23ec2466d1f7a14a6ec4d46026a125b4bbd32807f"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/transaction-review-light-1440.png",
+      "gitBlob": "6dfd729959ff4ec27e5c85dddf63630cfc811e79",
+      "sha256": "3cc34b20c7548e66985cac82864aa26780158b52d80ca79a367a8c6da9e18de4"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/transaction-review-light-390.png",
+      "gitBlob": "998769544c3a2f923c22e9935c0136dbc80874f8",
+      "sha256": "91cd902ace90fba26414025638d4f1ac71f4af9f2c6196eb69b4a3e0bf2575a5"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/transactions-dark-1440.png",
+      "gitBlob": "0693b6a8644d285b032d669041bee3ab75022c0f",
+      "sha256": "7e2662c28b5019d1e1b3a4a59891ce11996ba9dc6db40b587e563afa00c887b7"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/transactions-entry-light-390.png",
+      "gitBlob": "d634b6ec64cf003cd3becde9d8ee35c1c867568f",
+      "sha256": "da94458e776ea00b132cdb616d1e5badbf5011e7a0995c92166b4edd19d01adb"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/transactions-light-1440.png",
+      "gitBlob": "b2354b2875256cd093ac383d4dcecf189029e60a",
+      "sha256": "63dab2608ceca180507f9313926098ca1e694021c877ecfb3c96a59d7cd016c1"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/transactions-light-390.png",
+      "gitBlob": "281fc9e801d87d95244fa5861c10908ff90a36e0",
+      "sha256": "6e74f4c6513b98e531184526e6ae4c95184b4e158c676b75abc4999c866de57b"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/void-confirmation-light-1440.png",
+      "gitBlob": "2b7ca90cc3095143e746c71967707662ee557772",
+      "sha256": "3228a4e824ec487b2abdbab1dbd631a2ebafa492a5eb03a6c19444336c16fe63"
+    },
+    {
+      "path": "docs/evidence/phase-3/visual/void-confirmation-light-390.png",
+      "gitBlob": "0ca5d97024998f6c2da1b9582bb2cf11f009200f",
+      "sha256": "088ae2031e69a40b9c2852111293d09fa251e357b369c23468ce92bfe9f45f5e"
+    }
+  ]
+}

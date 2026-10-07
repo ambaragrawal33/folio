@@ -1,0 +1,277 @@
+[
+  {
+    "name": "default-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 708,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "rename-edit-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 708,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "rename-validation-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 730,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "rename-success-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 738,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "rename-unavailable-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 738,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "rename-recovered-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 738,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "delete-confirm-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "delete-validation-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "default-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "delete-confirm-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 798,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "default-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "scrollY": 1493,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "rename-edit-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "scrollY": 1493,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "rename-validation-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "scrollY": 1493,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "rename-success-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "scrollY": 1493,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "navigation-open-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "scrollY": 0,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "delete-confirm-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "scrollY": 1493,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "deleted-first-flow-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "scrollY": 0,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "populated-block-light-mobile-390",
+    "geometry": {
+      "viewport": 390,
+      "height": 844,
+      "document": 390,
+      "scrollY": 1463,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "populated-block-light-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 750,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "populated-block-light-tablet-768",
+    "geometry": {
+      "viewport": 768,
+      "height": 1024,
+      "document": 768,
+      "scrollY": 903,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "populated-block-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 780,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "delete-uncertain-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "replacement-safe-after-retry-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 708,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "stale-deleted-resource-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 768,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  },
+  {
+    "name": "stale-first-flow-dark-1440",
+    "geometry": {
+      "viewport": 1440,
+      "height": 1024,
+      "document": 1440,
+      "scrollY": 0,
+      "independentScroll": []
+    },
+    "axeViolations": []
+  }
+]

@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import { Redis } from 'ioredis';
 import type { Env } from '../config/env.ts';
 export interface Dependencies {
+  mongo?: mongoose.Connection;
+  redis?: Redis;
   probe(): Promise<{ mongo: boolean; redis: boolean }>;
   close(): Promise<void>;
 }
@@ -11,7 +13,8 @@ export async function connectInfrastructure(env: Env): Promise<Dependencies> {
     lazyConnect: true,
     maxRetriesPerRequest: 1,
     connectTimeout: 5000,
-    retryStrategy: (attempt) => (attempt <= 10 ? Math.min(attempt * 250, 2000) : null),
+    retryStrategy: (attempt) => Math.min(attempt * 250, 5000),
+    commandTimeout: 3000,
     enableOfflineQueue: false,
   });
   // Intentionally avoid logging URI-bearing driver errors.
@@ -23,6 +26,8 @@ export async function connectInfrastructure(env: Env): Promise<Dependencies> {
     throw new Error('Local infrastructure connection failed');
   }
   return {
+    mongo,
+    redis,
     async probe() {
       const results = await Promise.allSettled([
         mongo.db?.admin().command({ hello: 1 }),
@@ -32,7 +37,8 @@ export async function connectInfrastructure(env: Env): Promise<Dependencies> {
       return {
         mongo:
           hello.status === 'fulfilled' &&
-          hello.value?.setName === 'rs0' &&
+          typeof hello.value?.setName === 'string' &&
+          hello.value.setName.length > 0 &&
           hello.value?.isWritablePrimary === true,
         redis: results[1].status === 'fulfilled' && results[1].value === 'PONG',
       };

@@ -1,0 +1,82 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.release
+#1 transferring dockerfile: 2.09kB 0.1s done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#2 DONE 2.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 185B 0.1s done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [build 1/9] FROM docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df
+#5 resolve docker.io/library/node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df 0.1s done
+#5 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 10.85kB 0.1s done
+#4 DONE 0.1s
+
+#6 [api-runtime 2/5] WORKDIR /workspace/apps/api
+#6 CACHED
+
+#7 [build 9/9] RUN pnpm tokens:check && pnpm --filter @folio/shared build && pnpm --filter @folio/api build && pnpm --filter @folio/web build
+#7 CACHED
+
+#8 [build 8/9] RUN pnpm install --frozen-lockfile
+#8 CACHED
+
+#9 [api-runtime 3/5] COPY --from=production-dependencies --chown=node:node /workspace /workspace
+#9 CACHED
+
+#10 [production-dependencies 4/7] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+#10 CACHED
+
+#11 [production-dependencies 6/7] COPY packages/shared/package.json ./packages/shared/package.json
+#11 CACHED
+
+#12 [build 4/9] COPY package.json pnpm-workspace.yaml pnpm-lock.yaml tsconfig.base.json ./
+#12 CACHED
+
+#13 [build 2/9] WORKDIR /workspace
+#13 CACHED
+
+#14 [build 7/9] COPY scripts ./scripts
+#14 CACHED
+
+#15 [build 5/9] COPY packages ./packages
+#15 CACHED
+
+#16 [production-dependencies 5/7] COPY apps/api/package.json ./apps/api/package.json
+#16 CACHED
+
+#17 [build 3/9] RUN npm install --global pnpm@11.19.0
+#17 CACHED
+
+#18 [production-dependencies 7/7] RUN pnpm install --prod --frozen-lockfile --ignore-scripts
+#18 CACHED
+
+#19 [build 6/9] COPY apps ./apps
+#19 CACHED
+
+#20 [api-runtime 4/5] COPY --from=build --chown=node:node /workspace/apps/api/dist ./dist
+#20 CACHED
+
+#21 [api-runtime 5/5] COPY --from=build --chown=node:node /workspace/packages/shared/dist /workspace/packages/shared/dist
+#21 CACHED
+
+#22 exporting to image
+#22 exporting layers 0.0s done
+#22 exporting manifest sha256:c5c7e4589ff2a9e7bf953350bbf6d31a436df6e67cce03c946692739c8abee59 done
+#22 exporting config sha256:573df6a78ca476ef0ffe82e80b8f6d04a9d17032dc9abd6aae38877ce7fabc94 done
+#22 exporting attestation manifest sha256:f989cf46be7dba4911bc4f41cd0bb311c73d269f36f81382f595a07e5dbd4c10
+#22 exporting attestation manifest sha256:f989cf46be7dba4911bc4f41cd0bb311c73d269f36f81382f595a07e5dbd4c10 0.0s done
+#22 exporting manifest list sha256:6298da354126f4f188912e7d6d6560360387bdfd1242a079440646479b6eb134 0.0s done
+#22 naming to docker.io/library/folio-api-release:acceptance done
+#22 unpacking to docker.io/library/folio-api-release:acceptance 0.0s done
+#22 DONE 0.4s
